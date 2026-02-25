@@ -1,0 +1,27 @@
+@use '../style/variables.scss' as *;
+@use '../style/fonts.scss' as *;
+
+#navBar {
+    background-color: $white !important;
+
+    #navbarNav {
+        ul {
+            padding: 0px 15px;
+            gap: 40px;
+        }
+
+        #nav-item a {
+            color: $primary-color;
+            font-family: "Inter_Regular";
+            font-size: 20px;
+        }
+
+        #nav-item :hover {
+            border-bottom: 3px solid $primary-color-light;
+        }
+
+        #nav-item.active {
+            border-bottom: 3px solid $primary-color-light;
+        }
+    }
+}
