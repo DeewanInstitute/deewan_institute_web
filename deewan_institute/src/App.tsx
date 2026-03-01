@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home.tsx';
-import About from './pages/About.tsx';
-import Contact from './pages/Contact.tsx';
+import Home from '../src/pages/home.tsx'
+import About from '../src/pages/about.tsx'
+import Contact from '../src/pages/contact.tsx'
 
 function App() {
     return (

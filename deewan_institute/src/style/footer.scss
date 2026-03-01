@@ -1,0 +1,16 @@
+@use '../style/variables.scss' as *;
+@use '../style/fonts.scss' as *;
+
+footer {
+    background-color: $white;
+    border-top: 2px solid $primary-color;
+
+    .footerLogo {
+        display: flex;
+        flex-direction: row;
+        border-bottom: 1px solid $primary-color;
+        width: 30%;
+        justify-content: center;
+        margin: 0 auto;
+    }
+}

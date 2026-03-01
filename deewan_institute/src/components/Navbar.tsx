@@ -1,16 +1,16 @@
+import 'bootstrap';
 import '../style/navbar.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-
-import logo from '../assets/images/logos/LogoDeewan.svg';
+import { NavLink } from 'react-router-dom';
 
 function NavBar() {
     return (
         <nav className="navbar navbar-expand-md bg-transparent align-items-center" id="navBar">
             <div className="container-fluid">
-                <a className="navbar-brand d-md-none" href="../index.html">
-                    <img src={logo} alt="Deewan Institute Logo" id="mainLogo" />
-                </a>
+                <NavLink className="navbar-brand d-md-none" to="/">
+                    <img src={"../src/assets/images/logos/LogoDeewan.svg"} alt="Deewan Institute Logo" id="mainLogo" />
+                </NavLink>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -20,25 +20,25 @@ function NavBar() {
                     <div className="p-2">
                         <ul className="navbar-nav">
                             <li className="nav-item" id="nav-item">
-                                <a className="nav-link active" aria-current="page" href="">Home</a>
+                                <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
                             </li>
                             <li className="nav-item active" id="nav-item">
-                                <a className="nav-link" href="">About Us</a>
+                                <NavLink className="nav-link" to="/about">About Us</NavLink>
                             </li>
                         </ul>
                     </div>
                     {/* <!-- Center: Logo (only on medium+ screens) --> */}
-                    <a className="navbar-brand d-none d-md-block" href="">
-                        <img src={logo} alt="Deewan Institute Logo" id="mainLogo" />
-                    </a>
+                    <NavLink className="navbar-brand d-none d-md-block" to="/">
+                        <img src={"../src/assets/images/logos/LogoDeewan.svg"} alt="Deewan Institute Logo" id="mainLogo" />
+                    </NavLink>
                     {/* <!-- Right group: Pricing and Contact --> */}
                     <div className="p-2">
                         <ul className="navbar-nav">
                             <li className="nav-item" id="nav-item">
-                                <a className="nav-link" href="#">What We Offer</a>
+                                <NavLink className="nav-link" to="">What We Offer</NavLink>
                             </li>
                             <li className="nav-item" id="nav-item">
-                                <a className="nav-link" href="">Contact Us</a>
+                                <NavLink className="nav-link" to="/contact">Contact Us</NavLink>
                             </li>
                         </ul>
                     </div>

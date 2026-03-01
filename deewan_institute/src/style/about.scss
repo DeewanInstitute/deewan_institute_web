@@ -1,0 +1,263 @@
+@use '../style/variables.scss' as *;
+@use '../style/fonts.scss' as *;
+
+* {
+    font-family: "Merriweather-Regular" !important;
+}
+
+body {
+    margin: 0% !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../src/assets/images/background/aboutBG.svg");
+    overflow-x: hidden;
+}
+
+#mainLogo {
+    width: 145px;
+    margin-inline: 5%;
+}
+
+
+.banner {
+    height: 50vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../src/assets/images/banner/aboutBanner.svg");
+
+    p {
+        font-family: "Merriweather-Light" !important;
+        font-weight: 400;
+        line-height: 150%;
+        /* 30px */
+    }
+}
+
+.about {
+    h5 {
+        font-family: "Merriweather-Regular" !important;
+        color: $primary-color;
+    }
+
+    h1 {
+        font-family: "Merriweather-SemiBold" !important;
+        line-height: 50px;
+        color: $primary-color;
+    }
+
+    p {
+        font-family: "Merriweather-Light" !important;
+        line-height: 35px;
+    }
+}
+
+.partnerships {
+    padding-inline: 13%;
+    background-color: $primary-color;
+
+    .title {
+        width: max-content;
+
+        span {
+            font-size: 45px;
+            color: $white;
+        }
+    }
+
+    p {
+        font-size: 22px !important;
+        color: $white;
+        font-family: "Merriweather-Light" !important;
+        line-height: 30px;
+    }
+
+    .featurette-divider {
+        opacity: 1.0;
+        color: $white !important;
+        height: 3px !important;
+        width: 145% !important;
+    }
+
+
+    .ourclients {
+        display: block;
+        margin-block: 3%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 30px;
+        height: 150px;
+        width: 100%;
+
+        display: block;
+        width: 95%;
+        margin: 0 auto;
+        overflow: hidden;
+
+        .logoImage {
+            width: 20%;
+        }
+
+        h3 {
+            border-bottom: 2px solid #3399ff;
+            width: 150px;
+            padding: 10px;
+        }
+    }
+}
+
+.featurette-divider {
+    opacity: 1;
+    color: $primary-color !important;
+    height: 2px !important;
+    width: 50% !important;
+}
+
+.values {
+    padding-inline: 13%;
+
+    .title {
+        width: max-content;
+
+        span {
+            font-family: "Merriweather-SemiBold";
+            font-size: 45px;
+            color: $primary-color;
+        }
+    }
+
+
+    .heading {
+        font-family: "Merriweather-Light" !important;
+    }
+
+}
+
+.team {
+    padding-inline: 13%;
+
+    .title {
+        width: max-content;
+
+        span {
+            font-family: "Merriweather-SemiBold";
+            font-size: 45px;
+            color: $primary-color;
+        }
+    }
+
+    .heading {
+        font-family: "Merriweather-SemiBold" !important;
+    }
+
+    .jobTitle {
+        font-family: "Merriweather-Light" !important;
+    }
+
+    img {
+        width: 400px;
+        height: 400px;
+        box-shadow: $primary-color 0px 5px 5px;
+    }
+
+    .teamSwiper {
+        width: fit-content;
+        height: 500px;
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: $black; // Match your theme
+            opacity: 0; // Hidden by default
+            transition: opacity 0.3s;
+        }
+
+        &:hover .swiper-button-next,
+        &:hover .swiper-button-prev {
+            opacity: 1; // Show on hover
+        }
+
+        .swiper-button-prev {
+            left: 0px; // Position left
+        }
+
+        .swiper-button-next {
+            right: 0px; // Position right
+        }
+    }
+}
+
+
+
+.approach {
+    padding-block: 4%;
+    background-color: $primary-color;
+
+    h1 {
+        font-family: "Merriweather-SemiBold" !important;
+        line-height: 50px;
+    }
+
+    p {
+        font-family: "Merriweather-Light" !important;
+        line-height: 35px;
+    }
+
+    p,
+    h1 {
+        color: $white;
+    }
+
+}
+
+.testimonials {
+    padding-inline: 13%;
+
+    .title {
+        width: max-content;
+
+        span {
+            font-family: "Merriweather-SemiBold";
+            font-size: 45px;
+            color: $primary-color;
+        }
+    }
+
+    p {
+        font-size: 20px !important;
+        color: $black;
+        font-family: "Merriweather-Light" !important;
+        line-height: 30px;
+    }
+
+    .carousel::-webkit-scrollbar-thumb {
+        display: flex;
+        flex-direction: row;
+        background: #ccc;
+        border-radius: 4px;
+    }
+
+    .video-option {
+        flex-shrink: 0;
+        width: 120px;
+        height: 90px;
+        cursor: pointer;
+        border: 2px solid transparent;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: border-color 0.3s;
+    }
+
+    .video-option:hover {
+        border-color: $red;
+    }
+
+    .video-option img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .video-option.active {
+        border-color: $red;
+    }
+
+}
