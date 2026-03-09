@@ -1,14 +1,14 @@
-@use '../style/variables.scss' as *;
-@use '../style/fonts.scss' as *;
+@use '/../src/style/variables.scss' as *;
+@use '/../src/style/fonts.scss' as *;
 
 #navBar {
-    background-color: transparent !important; 
-    z-index: 10; 
-    position: absolute; 
+    background-color: transparent !important;
+    z-index: 10;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    width: 100%; 
+    width: 100%;
 
     #navbarNav {
         .border {

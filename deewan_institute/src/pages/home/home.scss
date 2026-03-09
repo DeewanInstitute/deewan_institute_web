@@ -1,12 +1,12 @@
-@use '../style/variables.scss' as *;
-@use '../style/fonts.scss' as *;
+@use '../../style/variables.scss' as *;
+@use '../../style/fonts.scss' as *;
 
 body {
     overflow-x: hidden;
 }
 
 main {
-    background-image: url("/assets/images/background/homeBG.svg");
+    background-image: url("/assets/images/background/homeBG.svg") !important;
     background-repeat: repeat-x;
     background-size: cover;
 }
@@ -15,7 +15,7 @@ main {
     height: 100vh; // Makes the entire carousel full viewport height (adjust if you don't want full-screen)
 
     #carouselItem1 {
-        background-image: url("/assets/images/hero/HeroImage.png");
+        background-image: url("/assets/images/hero/HeroImage.png") !important;
         background-repeat: no-repeat;
         background-size: cover; // Scales the image to cover the entire area
         background-position: center; // Centers the image
@@ -34,7 +34,7 @@ main {
 
             h2 {
                 color: $white;
-                font-family: "Merriweather_SemiBold";
+                font-family: "Merriweather-SemiBold" !important;
                 font-size: 40px;
                 font-style: normal;
                 font-weight: 700;
@@ -43,7 +43,7 @@ main {
 
             p {
                 color: $white;
-                font-family: "Merriweather_Regular";
+                font-family: "Merriweather-Regular" !important;
                 font-size: large;
                 font-style: normal;
                 font-weight: 400;
@@ -54,7 +54,7 @@ main {
                 border: $dark_brown 1px solid;
                 background-color: $dark_brown;
                 color: $white;
-                font-family: "Merriweather_Light";
+                font-family: "Merriweather-Light" !important;
                 padding-inline: 5%;
                 padding-block: 1%;
             }
@@ -62,7 +62,7 @@ main {
             a:hover {
                 background-color: $white;
                 color: $dark_brown;
-                font-family: "Merriweather_Light";
+                font-family: "Merriweather-Light" !important;
                 padding-inline: 5%;
                 padding-block: 1%;
             }
@@ -90,21 +90,21 @@ main {
 
             h2 {
                 color: $white;
-                font-family: "Merriweather_Regular";
+                font-family: "Merriweather-Regular" !important;
                 font-size: 40px;
                 line-height: 150%;
             }
 
             h1 {
                 color: #FFA200;
-                font-family: "Merriweather_Bold";
+                font-family: "Merriweather-Bold" !important;
                 font-size: 100px;
             }
 
             span,
             ul {
                 color: $white;
-                font-family: "Merriweather_Regular";
+                font-family: "Merriweather-Regular" !important;
                 font-size: large;
                 font-style: normal;
                 font-weight: 400;
@@ -115,7 +115,7 @@ main {
                 font-size: medium;
                 color: $white;
                 background-color: $navy_blue;
-                font-family: "Merriweather_Light";
+                font-family: "Merriweather-Light" !important;
                 padding-inline: 11%;
                 padding-block: 1%;
                 margin-block: 1%;
@@ -126,7 +126,7 @@ main {
                 color: $navy_blue;
                 border: $navy_blue 2px solid;
                 background-color: $white;
-                font-family: "Merriweather_Light";
+                font-family: "Merriweather-Light" !important;
                 padding-inline: 11%;
                 padding-block: 1%;
                 margin-block: 1%;
@@ -148,11 +148,11 @@ main {
     .featurette-heading {
         font-size: 45px;
         color: $primary_color;
-        font-family: "Merriweather_Regular";
+        font-family: "Merriweather-Regular";
     }
 
     .lead {
-        font-family: "Merriweather_Light";
+        font-family: "Merriweather-Light";
         font-weight: lighter;
     }
 
@@ -164,7 +164,7 @@ main {
         padding-inline: 0%;
         padding-block: 1%;
         color: $white;
-        font-family: "Merriweather_Regular";
+        font-family: "Merriweather-Regular" !important;
         background-color: $primary_color;
         align-items: center;
         justify-content: center;
@@ -188,12 +188,12 @@ main {
 
         h1 {
             color: $primary_color;
-            font-family: "Merriweather_Regular";
+            font-family: "Merriweather-Regular" !important;
         }
     }
 
     p {
-        font-family: "Merriweather_Light";
+        font-family: "Merriweather-Light" !important;
         font-weight: lighter;
         font-size: large;
         margin: auto 0;
@@ -255,8 +255,7 @@ main {
         color: $white;
         /* Adjust based on image background; $white for contrast */
         font-size: 40px;
-        font-family: "Merriweather_Regular";
-        font-weight: bold;
+        font-family: "Merriweather-Bold" !important;
         text-align: center;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         /* Add shadow for readability over image */
@@ -288,10 +287,8 @@ main {
         transform: translateX(-50%);
         color: $white;
         /* $white for contrast over image */
-        font-family: "Merriweather_Regular" !important;
+        font-family: "Merriweather-Bold" !important;
         font-size: 40px;
-        /* Adjust size */
-        font-weight: bold;
         text-align: center;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         /* Stronger shadow for readability */
@@ -304,7 +301,7 @@ main {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        font-family: "Merriweather_Light" !important;
+        font-family: "Merriweather-Light" !important;
         background-color: $primary_color;
         /* Theme color */
         border: none;
@@ -352,20 +349,20 @@ main {
 
         h1 {
             color: $primary_color;
-            font-family: "Merriweather_Regular";
+            font-family: "Merriweather-Regular" !important;
         }
     }
 
     p {
         margin-top: 2%;
-        font-family: "Merriweather_Light";
+        font-family: "Merriweather-Light" !important;
         font-weight: lighter;
         font-size: large;
         margin: auto 0;
     }
 
     .heading {
-        font-family: "Merriweather_Regular";
+        font-family: "Merriweather-Regular" !important;
         font-weight: 500;
     }
 
@@ -382,7 +379,7 @@ main {
         padding-inline: 6%;
         padding-block: 2%;
         color: $primary_color;
-        font-family: "Merriweather_Regular";
+        font-family: "Merriweather-Regular" !important;
         background-color: $white;
         align-items: center;
         justify-content: center;
@@ -406,13 +403,13 @@ main {
 
         h1 {
             color: $primary_color;
-            font-family: "Merriweather_Regular";
+            font-family: "Merriweather-Regular" !important;
         }
     }
 
     p {
         margin-top: 2%;
-        font-family: "Merriweather_Light";
+        font-family: "Merriweather-Light" !important;
         font-weight: lighter;
         font-size: large;
         margin: auto 5%;
@@ -447,14 +444,14 @@ main {
         }
 
         .testimonial-quote {
-            font-family: "Merriweather_Light";
+            font-family: "Merriweather-Light" !important;
             font-size: 16px;
             color: $black;
             margin-bottom: 15px;
         }
 
         .testimonial-name {
-            font-family: "Merriweather_Regular";
+            font-family: "Merriweather-Regular" !important;
             font-size: 18px;
             color: $primary_color;
             margin-bottom: 5px;
@@ -481,7 +478,7 @@ main {
         height: 20vh;
 
         h1 {
-            font-family: "Merriweather_Regular";
+            font-family: "Merriweather-Regular" !important;
             color: $white;
             font-size: 55px;
             line-height: 90px;
@@ -490,7 +487,7 @@ main {
         a {
             text-decoration: none;
             font-size: 25px;
-            font-family: "Merriweather_Regular";
+            font-family: "Merriweather-Regular" !important;
             color: $black !important;
             border-radius: 10px;
             padding-block: 2%;
@@ -500,7 +497,7 @@ main {
             background-color: $primary_color !important;
             text-decoration: none;
             font-size: 25px;
-            font-family: "Merriweather_Regular";
+            font-family: "Merriweather-Regular" !important;
             color: $white !important;
             border-radius: 10px;
             padding-block: 2%;

@@ -2,11 +2,10 @@ import { useState, useEffect } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "bootstrap";
-import "../style/about.scss";
+import "../pages/about/about.scss";
 import "../style/partnershipSlider.scss";
 import Slider from "react-slick";
 
-// ✅ Add TypeScript interfaces
 interface Partner {
     href: string;
     alt: string;

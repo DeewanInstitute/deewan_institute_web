@@ -1,7 +1,7 @@
-@use '../style/variables.scss' as *;
-@use '../style/fonts.scss' as *;
+@use '/../src/style/variables.scss' as *;
+@use '/../src/style/fonts.scss' as *;
 
-footer {
+.footer {
     background-color: $white;
     border-top: 2px solid $primary-color;
 

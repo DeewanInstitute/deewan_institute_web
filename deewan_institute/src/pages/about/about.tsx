@@ -1,10 +1,10 @@
 import { Fragment, useEffect } from 'react';
-import NavBar from '../components/navbar';
-import Footer from '../components/footer';
+import NavBar from '../../components/navBar/navbar';
+import Footer from '../../components/footer/footer';
 import 'bootstrap';
-import '../style/about.scss';
-import TeamSlider from '../components/teamSlider';
-import PartnershipSlider from '../components/partnershipSlider';
+import '../about/about.scss';
+import TeamSlider from '../../components/teamSlider';
+import PartnershipSlider from '../../components/partnershipSlider';
 
 function About() {
 

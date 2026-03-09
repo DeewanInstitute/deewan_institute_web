@@ -1,18 +1,19 @@
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import '../style/footer.scss';
+import styles from "../Footer/footer.module.scss";
+import { NavLink } from 'react-router-dom';
 
 function Footer() {
     return (
         //  <!-- Footer -->
-        <footer className="py-3 mt-5">
-            <div className="footerLogo">
-                <a className="text-decoration-none" href="../index.html">
+        <footer className={`${styles.footer} py-3 mt-5`}>
+            <div className={styles.footerLogo}>
+                <NavLink className="text-decoration-none" to="/">
                     <img className="my-3"
                         src={"../assets/images/logos/LogoDeewan.svg"} alt="Deewan Institute Logo" width="150" />
 
-                </a>
+                </NavLink>
             </div>
             <p className="text-center text-body-secondary pt-2">Copyrights © 2026 Deewan Institute. All rights reserved.</p>
             <ul className="nav justify-content-center align-items-center">

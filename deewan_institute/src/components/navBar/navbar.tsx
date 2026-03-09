@@ -1,5 +1,5 @@
 import 'bootstrap';
-import styles from '../style/navbar.module.scss';
+import styles from '../navBar/navbar.module.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { NavLink } from 'react-router-dom';
@@ -9,7 +9,7 @@ function NavBar() {
         <nav className="navbar navbar-expand-md bg-transparent align-items-center" id={styles.navBar}>
             <div className="container-fluid">
                 <NavLink className="navbar-brand d-md-none" to="/">
-                    <img src={"../assets/images/logos/LogoDeewan.svg"} alt="Deewan Institute Logo" id="mainLogo" />
+                    <img src={"../assets/images/logos/LogoDeewan.svg"} alt="Deewan Institute Logo" id={styles.mainLogo} />
                 </NavLink>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
