@@ -19,7 +19,7 @@
   src: url("../assets/fonts/Merriweather_24pt-SemiBold.ttf");
 }
 .teamSwiper .swiperSlide {
-  width: 35% !important;
+  width: 50% !important;
 }
 .teamSwiper .swiperSlide .heading {
   font-family: "Merriweather-SemiBold" !important;
@@ -27,27 +27,25 @@
 .teamSwiper .swiperSlide .jobTitle {
   font-family: "Merriweather-Light" !important;
 }
-.teamSwiper .swiperSlide #teacherImg {
-  width: 400px;
-  height: 400px;
-  box-shadow: #8f6e43 0px 5px 5px;
-}
-.teamSwiper .swiper-slide {
-  width: 400px !important;
-  height: 400px !important;
-}
-.teamSwiper .swiper-button-next,
-.teamSwiper .swiper-button-prev {
+.teamSwiper :global(.swiper-button-next) {
   color: black;
   opacity: 0;
   transition: opacity 0.3s;
 }
-.teamSwiper:hover .swiper-button-next, .teamSwiper:hover .swiper-button-prev {
+.teamSwiper :global(.swiper-button-prev) {
+  color: black;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.teamSwiper :global(.swiper-button-next):hover {
   opacity: 1;
 }
-.teamSwiper .swiper-button-prev {
-  left: 0px;
+.teamSwiper :global(.swiper-button-prev):hover {
+  opacity: 1;
 }
-.teamSwiper .swiper-button-next {
-  right: 0px;
+
+#teacherImg {
+  width: 400px !important;
+  height: 400px !important;
+  box-shadow: #8f6e43 0px 5px 5px;
 }/*# sourceMappingURL=teamSlider.module.css.map */

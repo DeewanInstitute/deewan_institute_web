@@ -42,7 +42,7 @@ function TeamSwiper() {
                         {/* <!-- 1 Team Member --> */}
                         <div className="swiper-slide" id={styles.swiperSlide}>
                             <div className="d-flex flex-column align-items-center">
-                                <img id={styles.teacherImg} src={"../assets/images/teams/1.jpg"} alt="Mohammad" />
+                                <img id={`${styles.teacherImg}`} src={"../assets/images/teams/1.jpg"} alt="Mohammad" />
                                 <h3 className={`${styles.heading} text-center mt-4`}>Mohammad</h3>
                                 <h5 className={`${styles.jobTitle} text-center`}>Director & Founder</h5>
                             </div>
@@ -50,7 +50,7 @@ function TeamSwiper() {
                         {/* <!-- 2 Team Member --> */}
                         <div className="swiper-slide" id={styles.swiperSlide}>
                             <div className="d-flex flex-column align-items-center">
-                                <img id={styles.teacherImg} src={"../assets/images/teams/16.png"} alt="Ghayda" />
+                                <img id={`${styles.teacherImg}`} src={"../assets/images/teams/16.png"} alt="Ghayda" />
                                 <h3 className={`${styles.heading} text-center mt-4`}>Ghayda</h3>
                                 <h5 className={`${styles.jobTitle} text-center`}>Arabic Program Administrator</h5>
                             </div>
@@ -58,7 +58,7 @@ function TeamSwiper() {
                         {/* <!-- 3 Team Member --> */}
                         <div className="swiper-slide" id={styles.swiperSlide}>
                             <div className="d-flex flex-column align-items-center">
-                                <img id={styles.teacherImg} src={"../assets/images/teams/13.jpg"} alt="Raghad" />
+                                <img id={`${styles.teacherImg}`} src={"../assets/images/teams/13.jpg"} alt="Raghad" />
                                 <h3 className={`${styles.heading} text-center mt-4`}>Raghad</h3>
                                 <h5 className={`${styles.jobTitle} text-center`}>Administrator</h5>
                             </div>
@@ -74,7 +74,7 @@ function TeamSwiper() {
                         {/* <!-- 5 Team Member --> */}
                         <div className="swiper-slide" id={styles.swiperSlide}>
                             <div className="d-flex flex-column align-items-center">
-                                < img id={styles.teacherImg} src={"../assets/images/teams/3.jpg"} alt="Ghayda" />
+                                < img id={`${styles.teacherImg}`} src={"../assets/images/teams/3.jpg"} alt="Ghayda" />
                                 <h3 className={`${styles.heading} text-center mt-4`}>Nusaiba</h3>
                                 <h5 className={`${styles.jobTitle} text-center`}>Arabic Teacher</h5>
                             </div>
@@ -82,7 +82,7 @@ function TeamSwiper() {
                         {/* <!-- 6 Team Member --> */}
                         <div className="swiper-slide" id={styles.swiperSlide} >
                             <div className="d-flex flex-column align-items-center">
-                                < img id={styles.teacherImg} src={"../assets/images/teams/4.jpg"} alt="Raghad" />
+                                < img id={`${styles.teacherImg}`} src={"../assets/images/teams/4.jpg"} alt="Raghad" />
                                 <h3 className={`${styles.heading} text-center mt-4`}>Huda</h3>
                                 <h5 className={`${styles.jobTitle} text-center`}>Arabic Teacher</h5>
                             </div>
@@ -90,7 +90,7 @@ function TeamSwiper() {
                         {/* <!-- 7 Team Member --> */}
                         <div className="swiper-slide" id={styles.swiperSlide}>
                             <div className="d-flex flex-column align-items-center">
-                                < img id={styles.teacherImg} src={"../assets/images/teams/2.jpg"} alt="Mohammad" />
+                                < img id={`${styles.teacherImg}`} src={"../assets/images/teams/2.jpg"} alt="Mohammad" />
                                 <h3 className={`${styles.heading} text-center mt-4`}>Malak</h3>
                                 <h5 className={`${styles.jobTitle} text-center`}>Arabic Teacher</h5>
                             </div>
@@ -106,7 +106,7 @@ function TeamSwiper() {
                         {/* <!-- 9 Team Member --> */}
                         <div className="swiper-slide" id={styles.swiperSlide}>
                             <div className="d-flex flex-column align-items-center">
-                                < img id={styles.teacherImg} src={"../assets/images/teams/11.jpg"} alt="Raghad" />
+                                < img id={`${styles.teacherImg}`} src={"../assets/images/teams/11.jpg"} alt="Raghad" />
                                 <h3 className={`${styles.heading} text-center mt-4`}>Rania</h3>
                                 <h5 className={`${styles.jobTitle} text-center`}>Arabic Teacher</h5>
                             </div>
@@ -114,7 +114,7 @@ function TeamSwiper() {
                         {/* <!-- 10 Team Member --> */}
                         <div className="swiper-slide" id={styles.swiperSlide}>
                             <div className="d-flex flex-column align-items-center">
-                                < img id={styles.teacherImg} src={"../assets/images/teams/10.jpg"} alt="Mohammad" />
+                                < img id={`${styles.teacherImg}`} src={"../assets/images/teams/10.jpg"} alt="Mohammad" />
                                 <h3 className={`${styles.heading} text-center mt-4`}>Tasneem</h3>
                                 <h5 className={`${styles.jobTitle} text-center`}>Arabic Teacher</h5>
                             </div>
@@ -122,7 +122,7 @@ function TeamSwiper() {
                         {/* <!-- 11 Team Member --> */}
                         <div className="swiper-slide" id={styles.swiperSlide}>
                             <div className="d-flex flex-column align-items-center">
-                                < img id={styles.teacherImg} src={"../assets/images/teams/6.jpg"} alt="Ghayda" />
+                                < img id={`${styles.teacherImg}`} src={"../assets/images/teams/6.jpg"} alt="Ghayda" />
                                 <h3 className={`${styles.heading} text-center mt-4`}>Noora</h3>
                                 <h5 className={`${styles.jobTitle} text-center`}>Arabic Teacher</h5>
                             </div>
@@ -130,7 +130,7 @@ function TeamSwiper() {
                         {/* <!-- 12 Team Member --> */}
                         <div className="swiper-slide" id={styles.swiperSlide}>
                             <div className="d-flex flex-column align-items-center">
-                                <img id={styles.teacherImg} src={"../assets/images/teams/15.jpg"} alt="Raghad" />
+                                <img id={`${styles.teacherImg}`} src={"../assets/images/teams/15.jpg"} alt="Raghad" />
                                 <h3 className={`${styles.heading} text-center mt-4`}>Dalia</h3>
                                 <h5 className={`${styles.jobTitle} text-center`}>Arabic Teacher</h5>
                             </div>
@@ -138,7 +138,7 @@ function TeamSwiper() {
                         {/* <!-- 13 Team Member --> */}
                         <div className="swiper-slide" id={styles.swiperSlide}>
                             <div className="d-flex flex-column align-items-center">
-                                < img id={styles.teacherImg} src={"../assets/images/teams/5.jpg"} alt="Mohammad" />
+                                < img id={`${styles.teacherImg}`} src={"../assets/images/teams/5.jpg"} alt="Mohammad" />
                                 <h3 className={`${styles.heading} text-center mt-4`}>Mutaz</h3>
                                 <h5 className={`${styles.jobTitle} text-center`}>Arabic Teacher</h5>
                             </div>
@@ -146,7 +146,7 @@ function TeamSwiper() {
                         {/* <!-- 14 Team Member --> */}
                         <div className="swiper-slide" id={styles.swiperSlide}>
                             <div className="d-flex flex-column align-items-center">
-                                < img id={styles.teacherImg} src={"../assets/images/teams/7.jpg"} alt="Ghayda" />
+                                < img id={`${styles.teacherImg}`} src={"../assets/images/teams/7.jpg"} alt="Ghayda" />
                                 <h3 className={`${styles.heading} text-center mt-4`}>Deyaa</h3>
                                 <h5 className={`${styles.jobTitle} text-center`}>Facility Manager</h5>
                             </div>
@@ -154,7 +154,7 @@ function TeamSwiper() {
                         {/* <!-- 15 Team Member --> */}
                         <div className="swiper-slide" id={styles.swiperSlide}>
                             <div className="d-flex flex-column align-items-center">
-                                < img id={styles.teacherImg} src={"/assets/images/teams/8.jpg"} alt="Raghad" />
+                                < img id={`${styles.teacherImg}`} src={"/assets/images/teams/8.jpg"} alt="Raghad" />
                                 <h3 className={`${styles.heading} text-center mt-4`}>Said</h3>
                                 <h5 className={`${styles.jobTitle} text-center`}>Facility Manager</h5>
                             </div>
@@ -164,8 +164,6 @@ function TeamSwiper() {
                     <div className="swiper-button-next"></div>
                     <div className="swiper-button-prev"></div>
                 </div>
-
-
 
             </div>
 

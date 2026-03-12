@@ -4,6 +4,7 @@ import Footer from '../../components/footer/footer';
 import TeamSlider from '../../components/teamSlider/teamSlider'
 import 'bootstrap';
 import '../about/about.scss';
+import PartnershipSlider from '../../components/partnershipSlider/partnershipSlider';
 
 function About() {
 
@@ -62,7 +63,7 @@ function About() {
                     businesses to enhance our offerings. Working together to provide innovative learning experiences and vibrant
                     community events.
                 </p>
-
+                <PartnershipSlider />
             </section>
             {/* <!--Divider --> */}
             <hr className="featurette-divider mx-auto my-4 scroll-section" />

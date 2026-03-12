@@ -46,6 +46,7 @@ body {
 
 .partnerships {
     padding-inline: 13%;
+    padding-bottom: 2%;
     background-color: #8f6e43;
 
     .title {
@@ -69,34 +70,6 @@ body {
         color: white !important;
         height: 3px !important;
         width: 145% !important;
-    }
-
-
-    .ourclients {
-        display: block;
-        margin-block: 3%;
-        margin-left: auto;
-        margin-right: auto;
-        padding-bottom: 30px;
-        height: 150px;
-        width: 100%;
-
-        .clients-wrap {
-            display: block;
-            width: 95%;
-            margin: 0 auto;
-            overflow: hidden;
-
-            img {
-                width: 60%;
-            }
-        }
-
-        h3 {
-            border-bottom: 2px solid #3399ff;
-            width: 150px;
-            padding: 10px;
-        }
     }
 }
 

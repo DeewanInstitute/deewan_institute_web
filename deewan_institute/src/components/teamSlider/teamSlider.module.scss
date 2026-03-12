@@ -5,7 +5,7 @@
 .teamSwiper {
 
     .swiperSlide {
-        width: 35% !important;
+        width: 50% !important;
 
         .heading {
             font-family: "Merriweather-SemiBold" !important;
@@ -15,35 +15,33 @@
             font-family: "Merriweather-Light" !important;
         }
 
-        #teacherImg {
-            width: 400px;
-            height: 400px;
-            box-shadow: #8f6e43 0px 5px 5px;
-        }
+
     }
 
-    .swiper-slide {
-        width: 400px !important;
-        height: 400px !important
-    }
-
-    .swiper-button-next,
-    .swiper-button-prev {
+    :global(.swiper-button-next) {
         color: black; // Match your theme
         opacity: 0; // Hidden by default
         transition: opacity 0.3s;
     }
 
-    &:hover .swiper-button-next,
-    &:hover .swiper-button-prev {
+    :global(.swiper-button-prev) {
+        color: black; // Match your theme
+        opacity: 0; // Hidden by default
+        transition: opacity 0.3s;
+    }
+
+    :global(.swiper-button-next):hover {
         opacity: 1; // Show on hover
     }
 
-    .swiper-button-prev {
-        left: 0px; // Position left
+    :global(.swiper-button-prev):hover {
+        opacity: 1; // Show on hover
     }
+}
 
-    .swiper-button-next {
-        right: 0px; // Position right
-    }
+#teacherImg {
+    width: 400px !important;
+    height: 400px !important;
+    box-shadow: #8f6e43 0px 5px 5px;
+
 }
