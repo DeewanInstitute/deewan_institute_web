@@ -4,7 +4,7 @@ import "bootstrap";
 
 interface BannerTitle {
     title: string,
-    description: string,
+    description?: string,
     backgroundImg: string,
 }
 

@@ -31,7 +31,7 @@ backCover?: string;
 export const mainBooks: MainBook[] = [
     {
         id: "main-book-levantine-guide-1",
-        image: "/assets/images/books/mainBooks/mainAmmiyeh1.png",
+        image: "/assets/images/books/mainbooks/mainAmmiyeh1.png",
         imageAlt: "The Comprehensive Guide to Levantine Arabic – Level 1",
         title: "The Comprehensive Guide to Levantine Arabic",
         subtitle: "Beginner Level",
@@ -61,7 +61,7 @@ export const mainBooks: MainBook[] = [
     },
     {
         id: "main-book-everyday-idioms",
-        image: "/assets/images/books/mainBooks/idoms.svg",
+        image: "/assets/images/books/mainbooks/idoms.svg",
         imageAlt: "Everyday Arabic Idioms",
         title: "Everyday Arabic Idioms",
         subtitle: "Book 6",
@@ -86,12 +86,12 @@ export const mainBooks: MainBook[] = [
         wishlistLink: "#",
         cartLink: "#",
         samplePdf: "/assets/pdf/samples/idiom-sample.pdf",
-        frontCover: "/assets/images/books/mainBooks/idiom-front.jpg",
-        backCover: "/assets/images/books/mainBooks/idiom-back.jpg",
+        frontCover: "/assets/images/books/mainbooks/idiom-front.jpg",
+        backCover: "/assets/images/books/mainbooks/idiom-back.jpg",
     },
     {
         id: "main-book-levantine-guide-2",
-        image: "/assets/images/books/mainBooks/mainBook2.png",
+        image: "/assets/images/books/mainbooks/mainBook2.png",
         imageAlt: "GUIDE TO DEEWAN ARABIC PODCAST – Season 5",
         title: "The Deewan Podcast: Bridging Education and Entertainment",
         subtitle: "Season 5",

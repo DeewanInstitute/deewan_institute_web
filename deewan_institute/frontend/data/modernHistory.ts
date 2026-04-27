@@ -42,86 +42,86 @@ export const modernHistory : modernHistory = {
         },
         {
             id: "syria",
-            flag_one: "../assets/images/flag/palestine.webp",
+            flag_one: "../assets/images/flag/syria.webp",
             caption_one: "Syria",
             description: "Syria’s modern history dates back to the end of World War I and the successes of the Great Arab Revolt when the Arab Kingdom of Syria was established in 1918, ruled by Faisal I, son of Shariff Hussein. The Kingdom did not last long however, as in 1920 the French Mandate for Syria and the Lebanon was installed, in accordance with the Sykes-Picot agreement. In 1936, it looked like the mandate was coming to an end with the Franco-Syrian Treaty of Independence and the election of the first Syrian president Hashim al-Atassi. However, due to the emerging threat of World War II, the French did not ratify the treaty and kept control over Syria. This led Syrian nationalists to enlist the help of British forces, and on April 17th, 1946 the French mandate ended and the Syrian republic gained full independence."
         },
         {
             id: "lebanon",
-            flag_one: "../assets/images/flag/palestine.webp",
+            flag_one: "../assets/images/flag/lebanon.webp",
             caption_one: "Lebanon",
             description: "The modern history of Lebanon began under the French mandate for Syria and Lebanon — declared in 1920. The mandate was first known as Greater Lebanon, but in 1926 the Lebanese Republic was declared, with its own constitution and a parliamentary system of government. France maintained a strong hold over Lebanon until World War II, when Syria and Lebanon gained independence from the French. British troops helped free Lebanon from French control, and in 1943 elections were held; the new Lebanese government unilaterally abolished the mandate, creating the Republic of Lebanon as we know it today."
         },
         {
             id: "iraq",
-            flag_one: "../assets/images/flag/palestine.webp",
+            flag_one: "../assets/images/flag/iraq.webp",
             caption_one: "Iraq",
             description: "With the partition of the Ottoman Empire, Britain planned to establish firm control over the Mandate of Mesopotamia. Instead, following a large-scale Iraqi revolt in 1920, in which Iraqis organized mass demonstrations against British mandate plans, a sovereign Hashemite Kingdom of Iraq was established in 1921 under British protection. In 1932, the Kingdom of Iraq was finally granted full independence, but during World War II Britain once again exerted control in Iraq and installed the pro-British King Faisal II, fearing the Iraqi ties to the Axis powers. In 1958, a coup d’état overthrew the Hashemite monarchy and led to the establishment of the Republic of Iraq."
         },
         {
             id: "iran",
-            flag_one: "../assets/images/flag/palestine.webp",
+            flag_one: "../assets/images/flag/iran.webp",
             caption_one: "Iran",
             description: "Iran is a vast country in Western Asia, bordered by the Caspian Sea, Persian Gulf, and neighbors like Iraq and Afghanistan, known for its diverse landscapes from snow-capped mountains and vast deserts to lush forests and historic cities. Its capital, Tehran, is a bustling metropolis with modern amenities and ancient roots, while sites like the ancient ruins of Persepolis and the beautiful mosques of Isfahan showcase a rich Persian heritage spanning thousands of years, including influences from the Achaemenid Empire and Islamic culture. With a vibrant mix of traditions, delicious cuisine like kebabs and saffron rice, and opportunities for adventure such as skiing or exploring bazaars, Iran offers a deep dive into history and hospitality for culturally curious travelers."
 
         },
         {
             id: "egypt",
-            flag_one: "../assets/images/flag/palestine.webp",
+            flag_one: "../assets/images/flag/egypt.webp",
             caption_one: "Egypt",
             description: "Fuad I crowned himself king of Egypt after the nominal independence of Egypt from the British Kingdom in 1922. Nevertheless, Britain continued to exert influence over Egypt, given its important tactical position in the Middle East and its control over the Suez Canal. Nationalist sentiment grew in 1951 after Egypt ordered British troops to vacate the Suez Canal, and a year later, King Farouk was deposed by Mohammad Naguib and Gamel Abdul Nasser. In 1953, the Egyptian Republic was officially declared with Naguib as its first president, soon to be followed by Nasser."
         },
         {
             id: "KSA",
-            flag_one: "../assets/images/flag/palestine.webp",
+            flag_one: "../assets/images/flag/ksa.webp",
             caption_one: "Palestine",
             description: "Abdulaziz bin Abdul Rahman al Saud, the first king of modern Saudi Arabia, captured Riyadh in 1902, beginning the current Saudi Arabian Kingdom. Ibn Saud did not take part in the Great Arab Revolt that would eventually result in Hussein Ibn Ali— the head of the Hashemite family—becoming King of Hejaz. In the following years, Ibn Saud conquered increasingly more land, and in 1924 he successfully conquered Hejaz and declared himself the King of Hejaz. In 1932, Ibn Saud united the lands of Najd and Hejaz into the Kingdom of Saudi Arabia."
         },
         {
             id: "turkey",
-            flag_one: "../assets/images/flag/palestine.webp",
+            flag_one: "../assets/images/flag/turkey.webp",
             caption_one: "Turkey",
             description: "Turkey was part of the Ottoman Empire which entered World War I fighting on behalf of the Central Powers against British, French, and Russian forces.After the Allies' victory in 1918, territories of the Ottoman Empire were seized from Turkish control and divided up according to the Treaty of Sèvres in 1920. Catalysed by nationalist Turkish sentiment against the occupying forces of Anatolia, Mustafa Kemal Atatürk and other head officers initiated the Turkish War of Independence, and in 1923 the Republic of Turkey was established with Atatürk as its first president. President Atatürk implemented a number of secularizing reforms that continue to influence Turkey into the modern day."
         },
         {
             id: "qatar",
-            flag_one: "../assets/images/flag/palestine.webp",
+            flag_one: "../assets/images/flag/qatar.webp",
             caption_one: "Qatar",
             description: "Qatar, part of the Arabian Peninsula under nominal Ottoman influence in the late 19th century, became a British protectorate in 1916, indirectly aligning with the Allied Powers during World War I. After the Allies' victory in 1918, Qatar remained under British control without major territorial divisions, but growing nationalist sentiments in the mid-20th century led to its peaceful independence on September 3, 1971, with Sheikh Ahmad bin Ali Al Thani as the first emir. Subsequent leaders, such as Sheikh Hamad bin Khalifa Al Thani, introduced modernization reforms focused on economic diversification and infrastructure, which continue to influence Qatar's global standing today."
         },
         {
             id: "kuwait",
-            flag_one: "../assets/images/flag/palestine.webp",
+            flag_one: "../assets/images/flag/kuwait.webp",
             caption_one: "Kuwait",
             description: "Kuwait is a small but prosperous nation on the northern shore of the Persian Gulf, bordering Iraq and Saudi Arabia, characterized by its flat desert terrain, modern skyline, and oil-fueled development. Its capital, Kuwait City, features iconic landmarks like the Kuwait Towers and the Grand Mosque, blending contemporary architecture with a history of pearl diving and trade, while cultural sites such as the Tareq Rajab Museum highlight Arab heritage and artifacts. Known for its sunny beaches, shopping malls, and warm hospitality, Kuwait provides a mix of relaxation, urban exploration, and desert adventures, making it an accessible gateway to the Middle East."
         },
         {
             id: "uae",
-            flag_one: "../assets/images/flag/palestine.webp",
+            flag_one: "../assets/images/flag/uae.webp",
             caption_one: "UAE",
             description: "The United Arab Emirates, a federation of seven emirates in the Arabian Peninsula, were established as British protectorates known as the Trucial States in the 19th century, indirectly aligning with the Allied Powers during World War I through their British ties. After the Allies' victory in 1918, the region remained under British control without significant territorial divisions, but rising nationalist sentiments and Britain's decision to withdraw from the Gulf in the 1960s led to the UAE's formation on December 2, 1971, with Sheikh Zayed bin Sultan Al Nahyan as its first president. Under his leadership and subsequent rulers, the UAE implemented ambitious modernization reforms, including economic diversification, infrastructure development, and social advancements, which continue to define its role as a prosperous global hub today."
         },
         {
             id: "oman",
-            flag_one: "../assets/images/flag/palestine.webp",
+            flag_one: "../assets/images/flag/oman.webp",
             caption_one: "Oman",
             description: "Oman is a beautiful country on the southeastern coast of the Arabian Peninsula, known for its diverse landscapes like rugged mountains, vast deserts, and stunning beaches. Its capital, Muscat, features ancient forts and a mix of traditional and modern life, reflecting the nation's rich history as a key player in ancient trade routes. With warm hospitality and cultural treasures like frankincense, Oman offers a peaceful escape where visitors can explore hidden wadis, spot wildlife such as the Arabian oryx, or enjoy activities like snorkeling in clear waters. This sultanate emphasizes tradition and sustainability, making it a welcoming destination for travelers seeking authentic Arabian experiences."
         },
         {
             id: "yemen",
-            flag_one: "../assets/images/flag/palestine.webp",
+            flag_one: "../assets/images/flag/yemen.webp",
             caption_one: "Yemen",
             description: "Yemen is a historic country on the southwestern tip of the Arabian Peninsula, bordered by Saudi Arabia and Oman, with coastlines along the Red Sea and Arabian Sea. It's known for its dramatic landscapes, including towering mountains, vast deserts, and unique islands like Socotra with its bizarre, endemic plants. The capital, Sana'a, boasts one of the world's oldest cities, featuring ancient mud-brick tower houses and a rich cultural heritage tied to ancient trade routes, coffee origins, and vibrant traditions. Despite its challenges, Yemen offers fascinating historical sites, such as the old city of Shibam and prehistoric ruins, showcasing a blend of Arab, African, and Indian influences, though travelers should be aware of current conditions before visiting."
         },
         {
             id: "bahrain",
-            flag_one: "../assets/images/flag/palestine.webp",
+            flag_one: "../assets/images/flag/bahrain.webp",
             caption_one: "Bahrain",
             description: "Bahrain is a small island nation in the Persian Gulf, connected to Saudi Arabia by a bridge, known for its modern skyline and rich history. Its capital, Manama, features a mix of contemporary towers, ancient forts like the Bahrain Fort (a UNESCO site), and bustling souks, reflecting its past as a pearl-diving and trading hub. With sunny beaches, desert landscapes, and cultural attractions such as the National Museum and Formula 1 circuit, Bahrain offers a blend of Arabian heritage and luxury, making it a convenient and vibrant destination for visitors."
         },
         {
             id: "cyprus",
-            flag_one: "../assets/images/flag/palestine.webp",
+            flag_one: "../assets/images/flag/cyprus.webp",
             caption_one: "Cyprus",
             description: "Cyprus is a sunny island in the eastern Mediterranean Sea, south of Turkey, celebrated for its beautiful beaches, rugged mountains, and ancient history. Its capital, Nicosia, is a divided city with a mix of Greek and Turkish influences, featuring medieval walls and charming old towns, while sites like the archaeological ruins of Paphos (a UNESCO World Heritage site) highlight its Greek, Roman, and Byzantine past. From the pine-covered Troodos Mountains to coastal resorts in Limassol and Ayia Napa, Cyprus boasts a Mediterranean lifestyle with delicious cuisine, clear waters for swimming, and a welcoming culture that blends Europe and the Middle East."
         },

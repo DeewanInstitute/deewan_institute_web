@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import "bootstrap";
 import style from "./accommodation.module.scss";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations";
+import Banner from "../../components/banner/banner";
 
 interface AccommodationLayoutProps {
   title: string;
@@ -24,12 +25,20 @@ function AccommodationLayout({ data }: { data: AccommodationLayoutProps }) {
   return (
     <Fragment>
       {/* <!-- Title --> */}
-      <section
+      {/* <section
         className={`${style.banner} d-flex flex-column py-2 mt-5 align-items-center justify-content-center`}
       >
         <h5 className={style.h5}>Accommodation & Student Services</h5>
         <h1 className={`${style.h1} py-2`}>{data.title}</h1>
-      </section>
+      </section> */}
+{/* <!-- Banner --> */}
+      <Banner
+        data={{
+          title: data.title,
+          // description: data.subtitle, 
+          backgroundImg: '../../assets/images/banner/visa.jpg', 
+        }}
+      />
       {/* <!-- Information Section --> */}
       <section className={`my-5 scroll-section ${style.info} `}>
         <div className="row justify-content-center">

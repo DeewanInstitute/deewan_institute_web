@@ -1,6 +1,29 @@
 @use "../../style/variables.scss" as *;
 @use "../../style/fonts.scss" as *;
 
+$title-selectors: ".title, .title h2, .title h3, h1, h2, h3, .accordionBtn";
+$para-selectors: "p, .lead, .accordion-body, .accordionSimple, .dropItem, ol, li, td, label, strong, btn,";
+
+// Mobile View (up to 767px)
+@media screen and (max-width: 767px) {
+  #{$title-selectors} {
+    font-size: x-large !important;
+  }
+  #{$para-selectors} {
+    font-size: medium !important;
+  }
+}
+
+// Tablet View (768px to 1024px)
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  #{$title-selectors} {
+    font-size: xx-large !important;
+  }
+  #{$para-selectors} {
+    font-size: large !important;
+  }
+}
+
 //Banner
 .banner {
   height: 50vh;
@@ -18,7 +41,6 @@
 
     @media screen and (max-width: 768px) {
       display: none;
-      
     }
   }
 }
@@ -56,11 +78,8 @@
   width: 425px;
   max-width: 100%;
   margin-inline: 2%;
- // z-index: 1000; 
 
   @media (max-width: 768px) { width: 100%; margin-inline: 0; font-size: medium; }
-
-
 }
 
 .dropBtn {
@@ -145,12 +164,12 @@
 
   @media (max-width: 768px) {
     position: relative;
-    top: calc(100% + 6px);  
+    top: calc(100% + 6px);
     left: 0;
     width: 100%;
-    max-height: 260px;       
+    max-height: 260px;
     border-radius: 8px;
-   }
+  }
 }
 
 .dropItem {
@@ -171,8 +190,9 @@
   justify-content: center;
   gap: 5px;
   flex-wrap: wrap;
+
   @media (max-width: 768px) {
-    padding: 14px;      
+    padding: 14px;
     font-size: 1.05rem;
   }
 
@@ -442,18 +462,15 @@
 }
 
 //Accordion
-
-// Override Bootstrap's blue highlight on the accordion button entirely
 .accordionBtn {
   font-size: large !important;
   font-family: "Merriweather-Regular", serif !important;
-  font-weight: 700 !important;        // Bold titles
+  font-weight: 700 !important;
   color: #000 !important;
   background-color: transparent !important;
   box-shadow: none !important;
   outline: none !important;
 
-  // Remove Bootstrap's blue ::after arrow color
   &::after {
     filter: none !important;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%238f6e43'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
@@ -471,10 +488,8 @@
     font-family: "Merriweather-Regular", serif !important;
   }
 
-  // Keep the chevron gold when open
   &:not(.collapsed)::after {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%238f6e43'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
-    // transform: rotate(-180deg);
   }
 }
 
@@ -487,7 +502,6 @@
   }
 }
 
-//  Accordion body content 
 .accordionSimple {
   margin: 0;
   font-size: 1rem;
@@ -546,7 +560,6 @@
   gap: 0.5rem;
 }
 
-// FIX: remove text-transform uppercase — title case only
 .currencyTitle {
   font-weight: 700;
   font-size: 0.9rem;
