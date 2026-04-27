@@ -24,6 +24,41 @@
 //   }
 // }
 
+// ─── Page-scoped font scaling ─────────────────────────────────────────────────
+
+// Mobile (up to 767px)
+@media screen and (max-width: 767px) {
+  .calculator,
+  .schedule,
+  .booking,
+  .coursePolicy,
+  .paymentOptions {
+    h2, h3              { font-size: x-large !important; }
+    p, .lead, ol, li,
+    td, label, strong   { font-size: medium !important; }
+    .accordionBtn       { font-size: large !important; }
+    .accordion-body,
+    .accordionSimple,
+    .dropItem           { font-size: medium !important; }
+  }
+}
+
+// Tablet (768px to 1024px)
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .calculator,
+  .schedule,
+  .booking,
+  .coursePolicy,
+  .paymentOptions {
+    h2, h3              { font-size: xx-large !important; }
+    p, .lead, ol, li,
+    td, label, strong   { font-size: large !important; }
+    .accordionBtn       { font-size: x-large !important; }
+    .accordion-body,
+    .accordionSimple,
+    .dropItem           { font-size: large !important; }
+  }
+}
 //Banner
 .banner {
   height: 50vh;
