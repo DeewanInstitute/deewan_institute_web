@@ -152,7 +152,7 @@ function HistoryLayout({ data }: { data: HistoryInfo }) {
                                             Click for a{' '}
                                             <a
                                                 className="text-decoration-none"
-                                                href="../pages/palestineHistory.html"
+                                                href="./the-zionist-project-in-palestine"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                             >

@@ -74,7 +74,7 @@ export const modernHistory : modernHistory = {
         {
             id: "KSA",
             flag_one: "../assets/images/flag/ksa.webp",
-            caption_one: "Palestine",
+            caption_one: "Saudi Arabia",
             description: "Abdulaziz bin Abdul Rahman al Saud, the first king of modern Saudi Arabia, captured Riyadh in 1902, beginning the current Saudi Arabian Kingdom. Ibn Saud did not take part in the Great Arab Revolt that would eventually result in Hussein Ibn Ali— the head of the Hashemite family—becoming King of Hejaz. In the following years, Ibn Saud conquered increasingly more land, and in 1924 he successfully conquered Hejaz and declared himself the King of Hejaz. In 1932, Ibn Saud united the lands of Najd and Hejaz into the Kingdom of Saudi Arabia."
         },
         {
