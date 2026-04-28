@@ -5,6 +5,10 @@ const cors = require("cors"); //Allows frontend to talk to backend
 const path = require("path"); // For handling file paths
 require("dotenv").config(); //Loads .env variables
 
+const { db, bucket } = require("./firebase");
+const generatePDF = require("./generateInternshipPDF");
+const { v4: uuidv4 } = require("uuid");
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -19,7 +23,6 @@ app.use(
   }),
 );
 app.use(express.json());
-
 
 // Multer Configuration for File Uploads (Memory Storage)
 const storage = multer.memoryStorage();
@@ -62,7 +65,7 @@ app.post("/api/career", upload.single("cv"), async (req, res) => {
     if (!file) {
       return res.status(400).json({ message: "CV file is required" });
     }
-    // Logo Path 
+    // Logo Path
     const logoPath = path.join(
       __dirname,
       "..",
@@ -126,8 +129,6 @@ app.post("/api/career", upload.single("cv"), async (req, res) => {
 app.post("/api/contact", async (req, res) => {
   try {
     const { fullName, email, phoneNumber, message } = req.body;
-
-    const path = require("path");
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
@@ -196,11 +197,6 @@ app.post("/api/contact", async (req, res) => {
   }
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
-
 // Checkout form endpoint
 app.post("/api/checkout", async (req, res) => {
   try {
@@ -239,7 +235,9 @@ app.post("/api/checkout", async (req, res) => {
         <div style="background-color: #e3f2fd; padding: 15px; border-radius: 8px; margin-top: 10px;">
           <h3 style="color: #1565c0;">💳 PayPal Payment</h3>
           <p>Please send the payment via PayPal using this link:</p>
-          <a>:https://www.paypal.com/paypalme/DeewanInstitute</a>
+          <a href="https://www.paypal.com/paypalme/DeewanInstitute" target="_blank">
+  Pay via PayPal
+</a>
           <p><strong>Amount:</strong> ${totalPrice + DELIVERY_FEE} JOD</p>
           <p>Please send a screenshot of the payment to confirm your order.</p>
         </div>
@@ -437,63 +435,150 @@ app.post("/api/checkout", async (req, res) => {
   }
 });
 
+// Internship form
+
+const uploadInternship = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 10 * 1024 * 1024 },
+  fileFilter: (req, file, cb) => {
+    const allowed = [
+      "application/pdf",
+      "application/zip",
+      "application/x-zip-compressed",
+    ];
+
+    if (allowed.includes(file.mimetype)) {
+      cb(null, true);
+    } else {
+      cb(new Error("Only PDF or ZIP files are allowed"), false);
+    }
+  },
+}).fields([
+  { name: "cv", maxCount: 1 },
+  { name: "motivationLetter", maxCount: 1 },
+  { name: "portfolio", maxCount: 1 },
+]);
+
+app.post("/api/internship", uploadInternship, async (req, res) => {
+  try {
+    const raw = req.body;
+    const files = req.files || {};
+
+    const parsed = {};
+    for (const key in raw) {
+      try { parsed[key] = JSON.parse(raw[key]); }
+      catch { parsed[key] = raw[key]; }
+    }
+
+    parsed.documents = {
+      cv: !!files.cv,
+      motivationLetter: !!files.motivationLetter,
+      portfolio: !!files.portfolio,
+    };
+
+    const id = uuidv4();
+
+    // 1. Generate and upload PDF
+    const pdfBuffer = await generatePDF(parsed);
+    const pdfFile = bucket.file(`internships/${id}/application.pdf`);
+    await pdfFile.save(pdfBuffer, { metadata: { contentType: "application/pdf" } });
+    const [pdfUrl] = await pdfFile.getSignedUrl({ action: "read", expires: "03-01-2030" });
+
+    // 2. Upload attached files
+    const uploadFile = async (file, name) => {
+      if (!file) return null;
+      const fileRef = bucket.file(`internships/${id}/${name}`);
+      await fileRef.save(file.buffer, { metadata: { contentType: file.mimetype } });
+      const [url] = await fileRef.getSignedUrl({ action: "read", expires: "03-01-2030" });
+      return url;
+    };
+
+    const cvUrl = await uploadFile(files.cv?.[0], "cv.pdf");
+    const motivationUrl = await uploadFile(files.motivationLetter?.[0], "motivation.pdf");
+    const portfolioFile = files.portfolio?.[0];
+    const portfolioExt = portfolioFile?.originalname?.split(".").pop();
+    const portfolioUrl = await uploadFile(portfolioFile, `portfolio.${portfolioExt || "file"}`);
+
+    // 3. Save to Firestore
+    await db.collection("internships").doc(id).set({
+      ...parsed,
+      files: { cv: cvUrl, motivationLetter: motivationUrl, portfolio: portfolioUrl, pdf: pdfUrl },
+      createdAt: new Date(),
+    });
+
+    const applicantEmail = parsed.personal?.email;
+    const applicantName = parsed.personal?.fullName || "Applicant";
+    const logoPath = path.join(__dirname, "..", "frontend", "public", "assets", "images", "logos", "LogoDeewan.webp");
+
+    // 4. Email to applicant
+    if (applicantEmail) {
+      await transporter.sendMail({
+        from: process.env.EMAIL_USER,
+        to: applicantEmail,
+        subject: "Deewan Institute — Internship Application Received",
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <div style="text-align: center; padding: 20px 0;">
+              <img src="cid:deewanlogo" alt="Deewan Institute" style="width: 50%;" />
+            </div>
+            <hr/>
+            <h2>Thank you for applying, ${applicantName}!</h2>
+            <p>We have successfully received your internship application at Deewan Institute.</p>
+            <p>You can download a copy of your application here:</p>
+            <p><a href="${pdfUrl}" target="_blank" style="color: #8f6e43;">Download Application PDF</a></p>
+            <br/>
+            <p>We will review your application carefully and contact you by email or WhatsApp if shortlisted.</p>
+            <hr/>
+            <p style="color: #888; font-size: 12px; text-align: center;">
+              Deewan Institute for Languages and Cultural Studies — Al-Baouneyah St. 14, Amman 11191
+            </p>
+          </div>
+        `,
+        attachments: [{ filename: "LogoDeewan.webp", path: logoPath, cid: "deewanlogo" }],
+      });
+    }
+
+    // 5. Email to HR
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: [process.env.RECEIVER_EMAIL_4, process.env.RECEIVER_EMAIL_2],
+      subject: `Internship Application — ${applicantName}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <div style="text-align: center; padding: 20px 0;">
+            <img src="cid:deewanlogo" alt="Deewan Institute" style="width: 50%;" />
+          </div>
+          <hr/>
+          <h2>New Internship Application Received</h2>
+          <p><strong>Name:</strong> ${applicantName}</p>
+          <p><strong>Email:</strong> ${applicantEmail}</p>
+          <p><strong>Phone:</strong> ${parsed.personal?.phone || "N/A"}</p>
+          <p><strong>University:</strong> ${parsed.personal?.university || "N/A"}</p>
+          <p><strong>First Preference:</strong> ${parsed.areas?.firstPreference || "N/A"}</p>
+          <p><strong>Internship Option:</strong> ${parsed.preferences?.option || "N/A"}</p>
+          <hr/>
+          <p><a href="${pdfUrl}" target="_blank" style="color: #8f6e43;">View Full Application PDF</a></p>
+          ${cvUrl ? `<p><a href="${cvUrl}" target="_blank">View CV</a></p>` : ""}
+          ${motivationUrl ? `<p><a href="${motivationUrl}" target="_blank">View Motivation Letter</a></p>` : ""}
+          ${portfolioUrl ? `<p><a href="${portfolioUrl}" target="_blank">View Portfolio</a></p>` : ""}
+          <hr/>
+          <p style="color: #888; font-size: 12px; text-align: center;">
+            Deewan Institute for Languages and Cultural Studies
+          </p>
+        </div>
+      `,
+      attachments: [{ filename: "LogoDeewan.webp", path: logoPath, cid: "deewanlogo" }],
+    });
+
+    // 6. Respond after everything succeeds
+    res.status(200).json({ message: "Application submitted successfully" });
+
+  } catch (err) {
+    console.error("Internship error:", err);
+    res.status(500).json({ message: "Error saving application" });
+  }
+});
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-
-// Multer - store in memory
-// const upload = multer({
-//   storage: multer.memoryStorage(),
-//   limits: { fileSize: 5 * 1024 * 1024 }, // 5MB max
-//   fileFilter: (req, file, cb) => {
-//     const allowedTypes = [
-//       'application/pdf',
-//       'application/msword',
-//       'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-//     ];
-//     if (allowedTypes.includes(file.mimetype)) {
-//       cb(null, true);
-//     } else {
-//       cb(new Error('Only PDF, DOC, DOCX files are allowed'));
-//     }
-//   },
-// });
-
-// Career form endpoint
-// app.post('/api/career', upload.single('cv'), async (req, res) => {
-//   try {
-//     const { firstName, lastName, email, phoneNumber, position } = req.body;
-//     const cvFile = req.file;
-
-//     const mailOptions = {
-//       from: process.env.EMAIL_USER,
-//       to: [process.env.RECEIVER_EMAIL, process.env.RECEIVER_EMAIL_2],
-//       subject: `New Career Application - ${position}`,
-//       html: `
-//         <h2>New Career Application</h2>
-//         <hr/>
-//         <p><strong>Name:</strong> ${firstName} ${lastName}</p>
-//         <p><strong>Email:</strong> ${email}</p>
-//         <p><strong>Phone:</strong> ${phoneNumber}</p>
-//         <p><strong>Position:</strong> ${position}</p>
-//         <hr/>
-//         <p>CV attached below.</p>
-//       `,
-//       attachments: cvFile ? [
-//         {
-//           filename: cvFile.originalname,
-//           content: cvFile.buffer,
-//           contentType: cvFile.mimetype,
-//         },
-//       ] : [],
-//     };
-
-//     await transporter.sendMail(mailOptions);
-//     res.status(200).json({ message: 'Application sent successfully!' });
-
-//   } catch (error) {
-//     console.error('Error:', error);
-//     res.status(500).json({ message: 'Error sending application.' });
-//   }
-// });
