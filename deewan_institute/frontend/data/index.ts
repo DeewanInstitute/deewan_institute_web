@@ -1,10 +1,10 @@
-export { mainBooks }           from './mainbooks';
-export { ammiyehCollection }   from './ammiyehcollection';
-export { fushaBook }           from './fushabook';
-export { podcastSeasons }      from './podcastseasons';
+export { mainBooks }           from './mainBooks';
+export { ammiyehCollection }   from './ammiyehCollection';
+export { fushaBook }           from './fushaBook';
+export { podcastSeasons }      from './podcastSeasons';
 
 // Type exports
-export type { MainBook, Review }    from './mainbooks';
-export type { CollectionBook }      from './ammiyehcollection';
-export type { FushaBook }           from './fushabook';
-export type { PodcastSeason }       from './podcastseasons';
+export type { MainBook, Review }    from './mainBooks';
+export type { CollectionBook }      from './ammiyehCollection';
+export type { FushaBook }           from './fushaBook';
+export type { PodcastSeason }       from './podcastSeasons';
