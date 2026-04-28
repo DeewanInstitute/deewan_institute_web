@@ -33,13 +33,27 @@
   .booking,
   .coursePolicy,
   .paymentOptions {
-    h2, h3              { font-size: x-large !important; }
-    p, .lead, ol, li,
-    td, label, strong   { font-size: medium !important; }
-    .accordionBtn       { font-size: large !important; }
+    h2,
+    h3 {
+      font-size: x-large !important;
+    }
+    p,
+    .lead,
+    ol,
+    li,
+    td,
+    label,
+    strong {
+      font-size: medium !important;
+    }
+    .accordionBtn {
+      font-size: large !important;
+    }
     .accordion-body,
     .accordionSimple,
-    .dropItem           { font-size: medium !important; }
+    .dropItem {
+      font-size: medium !important;
+    }
   }
 }
 
@@ -50,13 +64,31 @@
   .booking,
   .coursePolicy,
   .paymentOptions {
-    h2, h3              { font-size: xx-large !important; }
-    p, .lead, ol, li,
-    td, label, strong   { font-size: large !important; }
-    .accordionBtn       { font-size: x-large !important; }
+    h2,
+    h3 {
+      font-size: xx-large !important;
+    }
+    p,
+    .lead,
+    ol,
+    li,
+    td,
+    label,
+    strong {
+      font-size: large !important;
+    }
+    .accordionBtn {
+      font-size: x-large !important;
+    }
     .accordion-body,
     .accordionSimple,
-    .dropItem           { font-size: large !important; }
+    .dropItem {
+      font-size: large !important;
+    }
+  }
+
+  #heading_one{
+    
   }
 }
 //Banner
@@ -65,7 +97,9 @@
   min-height: 260px;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/banner/arabicCal.svg");
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("/assets/images/banner/arabicCal.svg");
   padding: 20px 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 
@@ -85,13 +119,19 @@
   margin-top: 2%;
   margin-inline: 15%;
 
-  @media (max-width: 1024px) { margin-inline: 8%; }
-  @media (max-width: 600px)  { margin-inline: 5%; }
+  @media (max-width: 1024px) {
+    margin-inline: 8%;
+  }
+  @media (max-width: 600px) {
+    margin-inline: 5%;
+  }
 
   .title {
     width: max-content;
     border-bottom: $primary-color 2px solid;
-    h2 { color: $primary-color; }
+    h2 {
+      color: $primary-color;
+    }
   }
 
   .heading {
@@ -104,17 +144,24 @@
 .title {
   width: max-content;
   border-bottom: $primary-color 2px solid;
-  h2, h3 { color: $primary-color; }
+  h2,
+  h3 {
+    color: $primary-color;
+  }
 }
 
-//Custom Dropdown 
+//Custom Dropdown
 .dropWrap {
   position: relative;
   width: 425px;
   max-width: 100%;
   margin-inline: 2%;
 
-  @media (max-width: 768px) { width: 100%; margin-inline: 0; font-size: medium; }
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-inline: 0;
+    font-size: medium;
+  }
 }
 
 .dropBtn {
@@ -132,7 +179,9 @@
   padding-block: 3%;
   cursor: pointer;
   text-align: left;
-  transition: background-color 0.2s, color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
 
   &:hover {
     background-color: $primary-color-light !important;
@@ -147,7 +196,9 @@
     outline: none !important;
     box-shadow: none !important;
 
-    .caret { color: white; }
+    .caret {
+      color: white;
+    }
   }
 }
 
@@ -155,7 +206,9 @@
   background-color: $primary-color-light !important;
   color: white !important;
   border: 1.5px solid white !important;
-  .caret { color: white; }
+  .caret {
+    color: white;
+  }
 }
 
 .dropBtnText {
@@ -193,9 +246,16 @@
   scrollbar-width: thin;
   scrollbar-color: $primary-color transparent;
 
-  &::-webkit-scrollbar       { width: 5px; }
-  &::-webkit-scrollbar-track { background: transparent; }
-  &::-webkit-scrollbar-thumb { background-color: $primary-color; border-radius: 10px; }
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $primary-color;
+    border-radius: 10px;
+  }
 
   @media (max-width: 768px) {
     position: relative;
@@ -211,10 +271,13 @@
   border: 1.5px solid $primary-color !important;
   border-radius: 20px !important;
   padding: 9px 12px;
-  font-size: 1.0rem !important;
+  font-size: 1rem !important;
   font-family: "Merriweather-Regular", serif;
   cursor: pointer;
-  transition: background-color 0.15s, color 0.15s, transform 0.1s;
+  transition:
+    background-color 0.15s,
+    color 0.15s,
+    transform 0.1s;
   white-space: normal;
   text-align: center;
   line-height: 2;
@@ -292,7 +355,10 @@
   padding-block: 2%;
   margin-inline: 2%;
 
-  @media (max-width: 768px) { width: 100%; margin-inline: 0; }
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-inline: 0;
+  }
 
   .heading {
     font-family: "Merriweather-Regular";
@@ -301,7 +367,7 @@
   }
 }
 
-// calculate Button 
+// calculate Button
 .calculatePriceBtn {
   display: flex;
   width: 352px;
@@ -325,15 +391,20 @@
     box-shadow: 0 15px 35px rgba(143, 110, 67, 0.4);
   }
 
-  @media (max-width: 480px) { width: 100%; padding: 10px 20px; }
+  @media (max-width: 480px) {
+    width: 100%;
+    padding: 10px 20px;
+  }
 }
 
-// Modal 
+// Modal
 #modalContent {
   .title {
     width: max-content;
     border-bottom: $primary-color 2px solid;
-    h3 { color: $primary-color; }
+    h3 {
+      color: $primary-color;
+    }
   }
 
   .featuretteDivider {
@@ -360,23 +431,33 @@
 
 .print {
   width: 20% !important;
-  img { width: 40px; }
+  img {
+    width: 40px;
+  }
 }
 
-//Schedule 
+//Schedule
 .schedule {
   margin-inline: 15%;
 
-  @media (max-width: 1024px) { margin-inline: 8%; }
-  @media (max-width: 600px)  { margin-inline: 5%; }
+  @media (max-width: 1024px) {
+    margin-inline: 8%;
+  }
+  @media (max-width: 600px) {
+    margin-inline: 5%;
+  }
 
-  #para { color: black; }
+  #para {
+    color: black;
+  }
 
   table {
     overflow-x: auto;
     display: block;
 
-    @media (min-width: 576px) { display: table; }
+    @media (min-width: 576px) {
+      display: table;
+    }
 
     #tableHeader {
       font-size: x-large;
@@ -385,8 +466,13 @@
       background: $primary-color-light;
     }
 
-    th { font-size: large; }
-    td, th { border-color: black !important; }
+    th {
+      font-size: large;
+    }
+    td,
+    th {
+      border-color: black !important;
+    }
   }
 }
 
@@ -397,15 +483,21 @@
   background: $primary-color-light;
 }
 
-//Booking & Course Policy 
+//Booking & Course Policy
 .booking,
 .coursePolicy {
   margin-inline: 15%;
 
-  @media (max-width: 1024px) { margin-inline: 8%; }
-  @media (max-width: 600px)  { margin-inline: 5%; }
+  @media (max-width: 1024px) {
+    margin-inline: 8%;
+  }
+  @media (max-width: 600px) {
+    margin-inline: 5%;
+  }
 
-  #para { color: black; }
+  #para {
+    color: black;
+  }
 }
 
 .coursePolicyBtn {
@@ -423,17 +515,33 @@
     box-shadow: 0 15px 35px rgba(143, 110, 67, 0.4);
   }
 
-  @media (max-width: 600px) { width: 80%; }
+  @media (max-width: 767.98px) {
+    width: 80%;
+    font-size: medium !important;
+  }
+  @media (min-width: 767.98px) and (max-width: 991.98px) {
+    width: 60% !important;
+    font-size: medium !important;
+  }
+  @media (min-width: 991.98px) and (max-width: 1279px) {
+    width: 60% !important;
+  }
 }
 
 // ─── Payment Options ──────────────────────────────────────────────────────────
 .paymentOptions {
   margin-inline: 15%;
 
-  @media (max-width: 1024px) { margin-inline: 8%; }
-  @media (max-width: 600px)  { margin-inline: 5%; }
+  @media (max-width: 1024px) {
+    margin-inline: 8%;
+  }
+  @media (max-width: 600px) {
+    margin-inline: 5%;
+  }
 
-  #para { color: black; }
+  #para {
+    color: black;
+  }
 
   .mail {
     display: flex;
@@ -455,8 +563,14 @@
       transform: translateY(-5px);
       box-shadow: 0 15px 35px rgba(143, 110, 67, 0.4);
 
-      a { color: white !important; }
-      img { opacity: 1; transform: scale(1.1); filter: brightness(0) invert(1); }
+      a {
+        color: white !important;
+      }
+      img {
+        opacity: 1;
+        transform: scale(1.1);
+        filter: brightness(0) invert(1);
+      }
     }
 
     img {
@@ -493,7 +607,17 @@
     box-shadow: 0 15px 35px rgba(143, 110, 67, 0.4);
   }
 
-  @media (max-width: 600px) { width: 80%; }
+  @media (max-width: 767.98px) {
+    width: 80%;
+    font-size: medium !important;
+  }
+  @media (min-width: 767.98px) and (max-width: 991.98px) {
+    width: 60% !important;
+    font-size: medium !important;
+  }
+  @media (min-width: 991.98px) and (max-width: 1279px) {
+    width: 60% !important;
+  }
 }
 
 //Accordion
@@ -575,7 +699,10 @@
   font-weight: 700;
   font-size: 1rem;
   color: $primary-color;
-  &::after { content: ':'; color: $primary-color; }
+  &::after {
+    content: ":";
+    color: $primary-color;
+  }
 }
 
 .bankEntity {
@@ -610,7 +737,10 @@
   align-items: baseline;
   gap: 0.5rem;
 
-  @media (max-width: 480px) { flex-direction: column; gap: 0.1rem; }
+  @media (max-width: 480px) {
+    flex-direction: column;
+    gap: 0.1rem;
+  }
 }
 
 .bankLabel {
@@ -619,9 +749,13 @@
   color: #000;
   min-width: 130px;
   flex-shrink: 0;
-  &::after { content: ':'; }
+  &::after {
+    content: ":";
+  }
 
-  @media (max-width: 480px) { min-width: unset; }
+  @media (max-width: 480px) {
+    min-width: unset;
+  }
 }
 
 .bankValue {
@@ -631,12 +765,30 @@
   word-break: break-all;
 }
 
-// Print 
+// Print
 @media print {
-  body * { display: none !important; }
-  .modal { display: block !important; position: static !important; background: white !important; }
-  .modal-dialog { position: static !important; max-width: none !important; }
-  .modal-content { box-shadow: none !important; border: none !important; margin: 0 !important; }
-  .modal-body { padding: 20px !important; }
-  .modal-body * { display: block !important; visibility: visible !important; }
+  body * {
+    display: none !important;
+  }
+  .modal {
+    display: block !important;
+    position: static !important;
+    background: white !important;
+  }
+  .modal-dialog {
+    position: static !important;
+    max-width: none !important;
+  }
+  .modal-content {
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+  }
+  .modal-body {
+    padding: 20px !important;
+  }
+  .modal-body * {
+    display: block !important;
+    visibility: visible !important;
+  }
 }

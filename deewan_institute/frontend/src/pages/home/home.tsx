@@ -1,10 +1,11 @@
-import { useEffect, Fragment } from "react";
+import { useEffect, Fragment, useState } from "react";
 import { Link } from "react-router";
 import HomeNavBar from "../../components/homenavbar/homenavbar";
 import Testimonials from "../../components/testimonials/testimonials";
 import Footer from "../../components/footer/footer";
 import ForeignCircles from "../../components/foreigncircles/foreigncircles";
 import Courses from "../../components/courses/courses";
+import TermsModal from "../../components/terms/terms";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations";
 import "bootstrap";
 import "../../style/animation.scss";
@@ -12,6 +13,28 @@ import style from "./home.module.scss";
 
 
 function Home() {
+
+  const [showTerms, setShowTerms] = useState<boolean>(false);
+
+  // ✅ Only show modal if user hasn't accepted before
+  useEffect(() => {
+    const hasAccepted = localStorage.getItem("termsAccepted");
+    if (!hasAccepted) {
+      setShowTerms(true);
+    }
+  }, []);
+
+  const handleAccept = (): void => {
+    // ✅ Save to localStorage so it doesn't show again
+    localStorage.setItem("termsAccepted", "true");
+    setShowTerms(false);
+  };
+
+  const handleDecline = (): void => {
+    // ✅ Redirect to google or an external page
+    window.location.href = "https://share.google/yvEpqvOtakxQUomLO";
+  };
+
   useEffect(() => {
     document.title = "Deewan Institute | Home";
   }, []);
@@ -19,7 +42,17 @@ function Home() {
   useScrollAnimation();
 
   return (
+
+    
     <Fragment>
+
+       {showTerms && (
+        <TermsModal
+          onAccept={handleAccept}
+          onDecline={handleDecline}
+        />
+      )}
+
       {/* Navigation Bar */}
       <HomeNavBar />
 

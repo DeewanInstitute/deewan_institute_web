@@ -1,7 +1,5 @@
 import "bootstrap";
 import styles from "../navbar/navbar.module.scss";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { NavLink, useLocation } from "react-router-dom";
 import { useShop } from "../../context/shopcontext";
 import { useState } from "react";
@@ -22,7 +20,7 @@ function NavBar() {
   return (
     <>
       {/* ── Navbar ── */}
-      <nav className={`navbar navbar-expand-xl`} id={styles.navBar}>
+      <nav className={`navbar navbar-expand-xl`} id={styles.navBar} style={{ backgroundColor: "transparent" }}>
         <div className="container">
           {/* ── Mobile Header (max 767px) ── */}
           <div
@@ -46,7 +44,7 @@ function NavBar() {
                     aria-label="Wishlist"
                   >
                     <img
-                      src="/assets/images/icons/heart_brown.webp"
+                      src="/assets/images/icons/heart_brown.png"
                       alt="Wishlist"
                       id={styles.wishlistIcon}
                     />
@@ -61,7 +59,7 @@ function NavBar() {
                     aria-label="Cart"
                   >
                     <img
-                      src="/assets/images/icons/cart_brown.webp"
+                      src="/assets/images/icons/cart_brown.png"
                       alt="Cart"
                       id={styles.cartIcon}
                     />
@@ -112,7 +110,7 @@ function NavBar() {
                     aria-label="Wishlist"
                   >
                     <img
-                      src="/assets/images/icons/heart_brown.webp"
+                      src="/assets/images/icons/heart_brown.png"
                       alt="Wishlist"
                       id={styles.wishlistIcon}
                     />
@@ -127,7 +125,7 @@ function NavBar() {
                     aria-label="Cart"
                   >
                     <img
-                      src="/assets/images/icons/cart_brown.webp"
+                      src="/assets/images/icons/cart_brown.png"
                       alt="Cart"
                       id={styles.cartIcon}
                     />
@@ -199,13 +197,14 @@ function NavBar() {
               <div
                 className={`d-flex align-items-center ${styles.shopIconsDesktop}`}
               >
+                {" "}
                 <NavLink
                   className="position-relative"
                   to="/wishlist"
                   aria-label="Wishlist"
                 >
                   <img
-                    src="/assets/images/icons/heart_brown.webp"
+                    src="/assets/images/icons/heart_brown.png"
                     alt="Wishlist"
                     id={styles.wishlistIcon}
                   />
@@ -213,14 +212,13 @@ function NavBar() {
                     <span className={styles.badge}>{wishlistCount}</span>
                   )}
                 </NavLink>
-
                 <NavLink
                   className="position-relative"
                   to="/cart"
                   aria-label="Cart"
                 >
                   <img
-                    src="/assets/images/icons/cart_brown.webp"
+                    src="/assets/images/icons/cart_brown.png"
                     alt="Cart"
                     id={styles.cartIcon}
                   />

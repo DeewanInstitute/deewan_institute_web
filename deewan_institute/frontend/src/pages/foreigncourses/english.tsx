@@ -2,7 +2,7 @@ import { useEffect, Fragment } from "react";
 import NavBar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 import englishData from '../../../data/english';
-import ForeignLayout from "../../layout/foreignLayout/layout";
+import ForeignLayout from "../../layout/foreignlayout/layout";
 import { useScrollAnimation } from '../../../hooks/scrollAnimations';
 import '../../style/animation.scss';
 import 'bootstrap'

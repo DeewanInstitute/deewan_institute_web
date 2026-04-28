@@ -27,7 +27,11 @@ import Podcasts from "./pages/podcasts/podcasts.tsx";
 import BildungsurlaubPage from "./pages/bildungsurlaub/bildungsurlaub.tsx";
 import NotFound from "./pages/404_page/error.tsx";
 import Careers from "./pages/careers/careers.tsx";
+<<<<<<< HEAD
 import InternshipForm from "./pages/internship/internshipform.tsx";
+=======
+// import InternshipForm from "./pages/Internship/internshipform.tsx";
+>>>>>>> 57d47b59951cfd5da603fc23e8b7e30ef17c847b
 
 function App() {
   return (
@@ -69,6 +73,7 @@ function App() {
         <Route path="/publications" element={<Publications />} />
         <Route path="/publications/book/:id" element={<PublicationInfo />} />
         <Route path="/publications/podcast/:id" element={<PublicationInfo />} />
+
         {/* Accommodation Pages */}
         <Route
           path="/accommodation-and-student-services/visa"
@@ -97,10 +102,12 @@ function App() {
         <Route path="/bildungsurlaub" element={<BildungsurlaubPage />} />
         {/*Careers*/}
         <Route path="/careers" element={<Careers />} />
-        {/* Internship */}
-        <Route path="/internship" element={<InternshipForm />} />
 
-        {/* ✅ 404 Route - must be last */}
+        {/* Internship */}
+        {/* <Route path="/internship" element={<InternshipForm />} /> */}
+
+
+        {/* 404 Route - must be last */}
         <Route path="/404" element={<NotFound />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
