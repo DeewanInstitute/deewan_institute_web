@@ -27,11 +27,7 @@ import Podcasts from "./pages/podcasts/podcasts.tsx";
 import BildungsurlaubPage from "./pages/bildungsurlaub/bildungsurlaub.tsx";
 import NotFound from "./pages/404_page/error.tsx";
 import Careers from "./pages/careers/careers.tsx";
-<<<<<<< HEAD
 import InternshipForm from "./pages/internship/internshipform.tsx";
-=======
-// import InternshipForm from "./pages/Internship/internshipform.tsx";
->>>>>>> 57d47b59951cfd5da603fc23e8b7e30ef17c847b
 
 function App() {
   return (

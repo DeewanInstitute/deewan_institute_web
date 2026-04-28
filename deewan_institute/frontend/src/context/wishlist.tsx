@@ -43,7 +43,7 @@ function Wishlist() {
           </div>
         ) : (
           <div className={`${styles.list} scroll-section`}>
-            <div className="row justify-content-start">
+            <div className="row justify-content-start" id={styles.row}>
               {wishlist.map((item) => (
                 <div
                   key={item.id}

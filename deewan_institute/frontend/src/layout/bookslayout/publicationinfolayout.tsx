@@ -82,7 +82,8 @@ function PublicationInfoLayout({
         prevEl: similarSwiperRef.current?.querySelector(".swiper-button-prev"),
       },
       breakpoints: {
-        768: { slidesPerView: 2 },
+        768: { slidesPerView: 1 },
+        991: {slidesPerView: 1}, 
         1024: { slidesPerView: 3 },
       },
     });

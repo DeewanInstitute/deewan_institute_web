@@ -208,9 +208,9 @@
 
   // Book cover image
   .bookImg {
-    width: 45%;
+    width: 50%;
     height: 500px;
-    object-fit: cover;
+    object-fit: contain;
     flex-shrink: 0;
     display: block;
   }
@@ -304,7 +304,7 @@
 
     .bookImg {
       width: 100%;
-      height: 280px;
+      height: 100%;
     }
 
     .bookInfo {
@@ -420,30 +420,46 @@
   margin-block: 4%;
   padding-inline: 13%;
   position: relative;
+}
 
-  .booksSwiper {
-    :global(.swiper-slide) {
-      transition: transform 0.5s ease-in-out;
-      cursor: pointer;
+:global(.swiper-slide) {
+  transition: transform 0.5s ease-in-out;
+  cursor: pointer;
 
-      &:hover {
-        transform: scale(1.05);
-      }
-    }
-
-    :global(.swiper-button-next),
-    :global(.swiper-button-prev) {
-      color: black;
-    }
+  &:hover {
+    transform: scale(1.05);
   }
 }
 
-//Mobile overrides
+:global(.swiper-button-next),
+:global(.swiper-button-prev) {
+  color: $primary-color !important;
+}
 
+//Mobile overrides
 @media (max-width: 767px) {
+  :global(.swiper-slide) {
+    transition: transform 0.5s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  :global(.swiper-button-next),
+  :global(.swiper-button-prev) {
+    color: black;
+    font-size: medium !important;
+  }
+
   .overview {
     padding-inline: 36px;
-    margin-block: 24px;
+    margin-block: -17px;
+  }
+
+  .banner {
+    margin-top: 25%;
   }
 
   .ammiyeh,
@@ -455,25 +471,239 @@
     padding-inline: 16px;
 
     .fushaImg {
-      width: 80%;
+      width: 85%;
 
       &:hover {
-        width: 80%;
+        width: 90%;
       }
     }
 
     .fushaViewMoreBtn {
       font-size: 15px;
       padding-inline: 10%;
+      padding-block: 4.5%;
     }
 
     .fushaIconBtn {
       height: 50px;
     }
+
+    h4 {
+      font-size: small;
+    }
+    h1 {
+      font-size: large;
+    }
+
+    h5 {
+      font-size: medium;
+    }
+
+    p {
+      font-size: small;
+      line-height: 20px;
+    }
   }
 
-  .sectionTitle span {
-    font-size: 20px;
+  .sectionTitle {
+    width: fit-content;
+    margin-bottom: 2%;
+    text-align: center !important;
+    span {
+      font-size: x-large;
+    }
+  }
+
+  .heading {
+    font-size: large;
+  }
+
+  .divider {
+    width: 80% !important;
+  }
+}
+
+// Tablet Overrides
+@media (min-width: 768px) and (max-width: 991.98px) {
+  :global(.swiper-slide) {
+    transition: transform 0.5s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  :global(.swiper-button-next),
+  :global(.swiper-button-prev) {
+    color: black;
+    font-size: large !important;
+  }
+
+  .overview {
+    padding-inline: 36px;
+    margin-block: -17px;
+  }
+
+  .banner {
+    margin-top: 16%;
+    margin-bottom: 0%;
+  }
+
+  .ammiyeh,
+  .podcasts {
+    padding-inline: 36px;
+  }
+
+  .fusha {
+    #row {
+      padding-inline: 0px;
+    }
+
+    .fushaImg {
+      width: 85%;
+
+      &:hover {
+        width: 90%;
+      }
+    }
+
+    .fushaViewMoreBtn {
+      font-size: medium;
+      width: auto;
+      padding-inline: 10%;
+      padding-block: 4.4%;
+    }
+
+    .fushaIconBtn {
+      width: auto;
+      padding-inline: 10%;
+      padding-block: 2%;
+    }
+
+    h4 {
+      font-size: medium;
+    }
+    h1 {
+      font-size: x-large;
+    }
+
+    h5 {
+      font-size: large;
+    }
+
+    p {
+      font-size: medium;
+      line-height: 20px;
+    }
+  }
+
+  .sectionTitle {
+    width: fit-content;
+    margin-bottom: 2%;
+    text-align: center !important;
+    margin-inline: auto;
+    span {
+      font-size: xx-large;
+    }
+  }
+
+  .heading {
+    font-size: x-large;
+  }
+
+  .divider {
+    width: 80% !important;
+  }
+}
+
+// Tablet Overrides
+@media (min-width: 992px) and (max-width: 1279px) {
+  :global(.swiper-slide) {
+    transition: transform 0.5s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  :global(.swiper-button-next),
+  :global(.swiper-button-prev) {
+    color: black;
+    font-size: large !important;
+  }
+
+  .overview {
+    padding-inline: 36px;
+    margin-block: -17px;
+  }
+
+  .banner {
+    margin-top: 15%;
+    margin-bottom: 0%;
+  }
+
+  .ammiyeh,
+  .podcasts {
+    padding-inline: 36px;
+  }
+
+  .fusha {
+    #row {
+      padding-inline: 0px;
+    }
+
+    .fushaImg {
+      width: 85%;
+
+      &:hover {
+        width: 90%;
+      }
+    }
+
+    .fushaViewMoreBtn {
+      font-size: large;
+      width: auto;
+      padding-inline: 10%;
+      padding-block: 4.4%;
+    }
+
+    .fushaIconBtn {
+      width: auto;
+      padding-inline: 10%;
+      padding-block: 2%;
+    }
+
+    h4 {
+      font-size: large;
+    }
+    h1 {
+      font-size: xx-large;
+    }
+
+    h5 {
+      font-size: x-large;
+    }
+
+    p {
+      font-size: large;
+      line-height: 20px;
+    }
+  }
+
+  .sectionTitle {
+    width: fit-content;
+    margin-bottom: 2%;
+    text-align: center !important;
+    margin-inline: auto;
+    span {
+      font-size: 50px;
+    }
+  }
+
+  .heading {
+    font-size: xx-large;
   }
 
   .divider {

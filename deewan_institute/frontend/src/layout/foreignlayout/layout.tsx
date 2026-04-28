@@ -55,7 +55,7 @@ function ForeignLayout({ data }: { data: Props }) {
                 {/* The Test Courses */}
                 <section className={`${styles.services} pb-5`}>
                     {/* <!-- First Row of Cards--> */}
-                    <div className="d-flex flex-row flex-wrap justify-content-evenly scroll-section">
+                    <div className="d-flex flex-row flex-wrap justify-content-evenly scroll-section gap-4">
                         {data.course.slice(0, 3).map(
                             (course, index) =>
                                 <div key={index} className={`${styles.courseItem} mx-1 col-12 col-md-6 col-lg-4`}>
@@ -76,7 +76,7 @@ function ForeignLayout({ data }: { data: Props }) {
                     </div>
                     {/* <!-- End of First Row of Cards --> */}
                     {/* <!-- Second Row of Cards--> */}
-                    <div className="d-flex flex-row flex-wrap justify-content-center scroll-section mt-5">
+                    <div className="d-flex flex-row flex-wrap justify-content-center scroll-section mt-5 gap-4">
                         {data.course.slice(3, 6).map(
                             (course, index) =>
                                 <div key={index} className={`${styles.courseItem} mx-1 col-12 col-md-6 col-lg-4 mx-3`}>

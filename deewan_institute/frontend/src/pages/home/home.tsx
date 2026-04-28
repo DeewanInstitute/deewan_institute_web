@@ -70,11 +70,11 @@ function Home() {
             data-bs-slide-to="0"
             className="active"
           ></button>
-          <button
+          {/* <button
             type="button"
             data-bs-target="#myCarousel"
             data-bs-slide-to="1"
-          ></button>
+          ></button> */}
         </div>
 
         {/* <!-- The slideshow/carousel --> */}
@@ -118,6 +118,7 @@ function Home() {
               </div>
             </div>
           </div>
+          </div>
           {/* <!-- Second Slide --> */}
           {/* <div className="carousel-item active" id={style.carouselItem2}>
             <div className="container-fluid d-flex align-items-end h-100">
@@ -158,11 +159,11 @@ function Home() {
                 </div>
               </div>
             </div>
-          </div> */}
-        </div>
+          </div>
+        </div> */}
 
         {/* <!-- Left and right controls/icons --> */}
-        <button
+        {/* <button
           className="carousel-control-prev"
           type="button"
           data-bs-target="#myCarousel"
@@ -177,7 +178,7 @@ function Home() {
           data-bs-slide="next"
         >
           <span className="carousel-control-next-icon"></span>
-        </button>
+        </button> */}
       </div>
 
       {/* <!-- About Us --> */}

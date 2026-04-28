@@ -75,8 +75,8 @@ function Publications() {
         prevEl: ammiyehSwiperRef.current?.querySelector(".swiper-button-prev"),
       },
       breakpoints: {
-        768: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 },
+        768: { slidesPerView: 1 },
+        1024: { slidesPerView: 2 },
       },
     });
 
@@ -91,8 +91,9 @@ function Publications() {
         prevEl: podcastSwiperRef.current?.querySelector(".swiper-button-prev"),
       },
       breakpoints: {
-        768: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 },
+        768: { slidesPerView: 1 },
+        991: {slidesPerView: 1},
+        1024: { slidesPerView: 2 },
       },
     });
 
@@ -293,15 +294,15 @@ function Publications() {
         onClick={() => navigate(`/publications/book/${fushaBook.id}`)}
         style={{ cursor: "pointer" }}
       >
-        <div className="row justify-content-center">
-          <div className="col-md-5 d-flex flex-column align-items-center align-items-md-center justify-content-center mb-4 mb-md-0">
+        <div className="row justify-content-center" id={styles.row}>
+          <div className="col-11 col-md-8 col-xl-5 d-flex flex-column align-items-center align-items-md-center justify-content-center mb-4 mb-md-0">
             <img
               className={`${styles.fushaImg} img-fluid`}
               src={fushaBook.image}
               alt={fushaBook.imageAlt}
             />
           </div>
-          <div className="col-md-4 d-flex flex-column align-items-start justify-content-center px-4 px-md-3">
+          <div className="col-11 col-md-8 col-xl-4 d-flex flex-column align-items-start justify-content-center px-4 px-md-3">
             <h4 className="lh-base">{fushaBook.collectionLabel}</h4>
             <h1 className="lh-base">{fushaBook.title}</h1>
             {fushaBook.subtitle && (

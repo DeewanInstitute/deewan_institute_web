@@ -1,5 +1,5 @@
-@use '../style/fonts.scss' as *;
-@use '../style/variables.scss' as *;
+@use "../style/fonts.scss" as *;
+@use "../style/variables.scss" as *;
 
 // ── Page Title ───────────────────────────────────────────────────────────────
 .scroll-section {
@@ -7,7 +7,9 @@
   /* Start hidden */
   transform: translateY(50px);
   /* Slight offset for slide effect */
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
   /* Smooth transition */
 }
 .pageTitle {
@@ -69,22 +71,22 @@
 }
 
 // ── Sign In button ────────────────────────────────────────────────────────────
-.signInBtn {
-  font-family: "Merriweather-Regular";
-  font-size: 1.0625rem;
-  color: $text-dark;
-  background: $white;
-  border: 1px solid $brown-border;
-  border-radius: 10px;
-  padding: 0.35rem 1rem;
-  cursor: pointer;
-  transition: 0.2s;
+// .signInBtn {
+//   font-family: "Merriweather-Regular";
+//   font-size: 1.0625rem;
+//   color: $text-dark;
+//   background: $white;
+//   border: 1px solid $brown-border;
+//   border-radius: 10px;
+//   padding: 0.35rem 1rem;
+//   cursor: pointer;
+//   transition: 0.2s;
 
-  &:hover {
-    background: $primary-color-dark;
-    color: $white;
-  }
-}
+//   &:hover {
+//     background: $primary-color-dark;
+//     color: $white;
+//   }
+// }
 
 // ── Form fields ──────────────────────────────────────────────────────────────
 .fieldLabel {
@@ -181,8 +183,6 @@
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-
-
 .orderItemTitle {
   font-family: "Merriweather-Regular";
   max-width: 60%;
@@ -262,11 +262,11 @@
   }
 }
 
-// Success Modal 
+// Success Modal
 .successModal {
   border-radius: 16px;
   border: none;
-  background: $cream; 
+  background: $cream;
 }
 
 .checkCircle {
@@ -300,7 +300,9 @@
 }
 
 @keyframes strokeDraw {
-  to { stroke-dashoffset: 0; }
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 .successTitle {
@@ -323,7 +325,274 @@
   animation: fadeUp 0.5s ease 1.2s both;
 }
 
+// checkout.module.scss
+
+// ── Error Modal ──
+.errorModal {
+  border-radius: 16px;
+  border: none;
+  overflow: hidden;
+
+  .errorTitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #dc3545;
+  }
+
+  .errorIcon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #dc3545;
+    color: white;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+  }
+
+  .errorMessage {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .errorCloseBtn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 2rem;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+  }
+}
+
+// ── Warning Modal (Payment + Fill Blanks) ──
+.warningModal {
+  border-radius: 16px;
+  border: none;
+  overflow: hidden;
+
+  .warningTitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #b8860b;
+  }
+
+  .warningMessage {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .warningCloseBtn {
+    background-color: #b8860b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 2rem;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+}
+
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .pageTitle {
+    margin-top: 8%;
+    padding: 2rem 0 1rem;
+
+    h1 {
+      font-family: large !important;
+    }
+  }
+
+  .titleDivider {
+    width: 100%;
+  }
+
+  .cardTitle {
+    font-family: large;
+  }
+
+  .cardTitleSm {
+    font-size: large;
+  }
+
+  .cardHint {
+    font-size: medium;
+  }
+
+  // ── Form fields ──────────────────────────────────────────────────────────────
+  .fieldLabel {
+    font-size: medium;
+  }
+
+  .paymentLabel {
+    font-size: medium;
+  }
+
+  .emptyCart {
+    font-size: medium;
+  }
+
+  .orderItemPrice {
+    font-family: "Merriweather-Regular";
+    font-size: medium;
+  }
+
+  // ── Totals ───────────────────────────────────────────────────────────────────
+  .subtotalLabel {
+    font-family: "Merriweather-Regular";
+    font-size: medium;
+  }
+
+  .subtotalValue {
+    font-family: "Merriweather-Bold";
+    font-size: medium;
+    color: $primary-color-dark;
+  }
+
+  .totalLabel {
+    font-size: medium;
+  }
+
+  .totalValue {
+    font-size: 1.25rem;
+  }
+
+  .subtotalInnerDivider {
+    border: 1px solid $brown-border;
+  }
+
+  // ── Buttons ──────────────────────────────────────────────────────────────────
+  .placeOrderBtn {
+    font-size: large;
+  }
+
+  .continueBtn {
+    font-size: medium;
+  }
+
+  .successTitle {
+    font-size: large;
+  }
+
+  .successRedirect {
+    font-size: large;
+  }
+}
+
+// Tablet Overrides
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .pageTitle {
+    margin-top: 13%;
+    padding: 2rem 0 1rem;
+
+    h1 {
+      font-family: large !important;
+    }
+  }
+
+  .titleDivider {
+    width: 100%;
+  }
+
+  .cardTitle {
+    font-family: large;
+  }
+
+  .cardTitleSm {
+    font-size: large;
+  }
+
+  .cardHint {
+    font-size: medium;
+  }
+
+  // ── Form fields ──────────────────────────────────────────────────────────────
+  .fieldLabel {
+    font-size: medium;
+  }
+
+  .paymentLabel {
+    font-size: medium;
+  }
+
+  .emptyCart {
+    font-size: medium;
+  }
+
+  .orderItemPrice {
+    font-family: "Merriweather-Regular";
+    font-size: medium;
+  }
+
+  // ── Totals ───────────────────────────────────────────────────────────────────
+  .subtotalLabel {
+    font-family: "Merriweather-Regular";
+    font-size: medium;
+  }
+
+  .subtotalValue {
+    font-family: "Merriweather-Bold";
+    font-size: medium;
+    color: $primary-color-dark;
+  }
+
+  .totalLabel {
+    font-size: medium;
+  }
+
+  .totalValue {
+    font-size: 1.25rem;
+  }
+
+  .subtotalInnerDivider {
+    border: 1px solid $brown-border;
+  }
+
+  // ── Buttons ──────────────────────────────────────────────────────────────────
+  .placeOrderBtn {
+    font-size: large;
+  }
+
+  .continueBtn {
+    font-size: medium;
+  }
+
+  .successTitle {
+    font-size: large;
+  }
+
+  .successRedirect {
+    font-size: large;
+  }
+}
+
+// Tablet Overrides
+@media (min-width: 992px) and (max-width: 1279px) {
+  .pageTitle {
+    margin-top: 10%;
+    padding: 2rem 0 1rem;
+
+    h1 {
+      font-family: large !important;
+    }
+  }
 }

@@ -10,13 +10,17 @@ import Footer from "../components/footer/footer";
 type PaymentMethod = "cash" | "cliq" | "paypal" | "";
 
 function Checkout() {
+  const modalRef = useRef<HTMLDivElement>(null);
+  const errorModalRef = useRef<HTMLDivElement>(null);
+  const paymentModalRef = useRef<HTMLDivElement>(null);
+  const fillModalRef = useRef<HTMLDivElement>(null);
   const { cart, totalPrice } = useShop();
   const navigate = useNavigate();
 
   const DELIVERY_FEE = 3;
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("");
   const [validated, setValidated] = useState(false);
-  const modalRef = useRef<HTMLDivElement>(null);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     if (cart.length === 0) {
@@ -28,30 +32,48 @@ function Checkout() {
     e.preventDefault();
     const form = e.currentTarget;
 
-    if (!form.checkValidity() || !paymentMethod) {
+    // ✅ Show "fill blanks" modal if form is invalid
+    if (!form.checkValidity()) {
       setValidated(true);
-      if (!paymentMethod) alert("Please select a payment method.");
+      const fillModalEl = fillModalRef.current;
+      if (fillModalEl) {
+        const modal = new Modal(fillModalEl, { backdrop: true });
+        modal.show();
+      }
       return;
     }
 
-    // ✅ Collect form data
+    // ✅ Show "select payment" modal if no payment method
+    if (!paymentMethod) {
+      setValidated(true);
+      const paymentModalEl = paymentModalRef.current;
+      if (paymentModalEl) {
+        const modal = new Modal(paymentModalEl, { backdrop: true });
+        modal.show();
+      }
+      return;
+    }
+
     const formData = new FormData(form);
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/checkout`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          firstName: formData.get("firstName"),
-          lastName: formData.get("lastName"),
-          email: formData.get("email"),
-          address: formData.get("address"),
-          region: formData.get("region"),
-          paymentMethod, // ✅ cash | cliq | paypal
-          cart, // ✅ from useShop()
-          totalPrice, // ✅ from useShop()
-        }),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/checkout`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            firstName: formData.get("firstName"),
+            lastName: formData.get("lastName"),
+            email: formData.get("email"),
+            address: formData.get("address"),
+            region: formData.get("region"),
+            paymentMethod,
+            cart,
+            totalPrice,
+          }),
+        },
+      );
 
       if (response.ok) {
         // ✅ Show success modal
@@ -65,11 +87,23 @@ function Checkout() {
           }, 3500);
         }
       } else {
-        alert("Failed to place order. Please try again.");
+        setErrorMessage("Failed to place order. Please try again.");
+        const errorModalEl = errorModalRef.current;
+        if (errorModalEl) {
+          const modal = new Modal(errorModalEl, { backdrop: true });
+          modal.show();
+        }
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("Failed to place order. Please try again.");
+      setErrorMessage(
+        "Network error. Please check your connection and try again.",
+      );
+      const errorModalEl = errorModalRef.current;
+      if (errorModalEl) {
+        const modal = new Modal(errorModalEl, { backdrop: true });
+        modal.show();
+      }
     }
   };
 
@@ -110,9 +144,122 @@ function Checkout() {
         </div>
       </div>
 
+      {/* ── Error Modal ── */}
+      <div
+        className="modal fade"
+        ref={errorModalRef}
+        tabIndex={-1}
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div className={`modal-content ${styles.errorModal}`}>
+            <div className="modal-header border-0">
+              <h5 className={`modal-title ${styles.errorTitle}`}>
+                ⚠️ Something Went Wrong
+              </h5>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              />
+            </div>
+            <div className="modal-body text-center py-3 px-4">
+              <div className={styles.errorIcon}>✕</div>
+              <p className={styles.errorMessage}>{errorMessage}</p>
+            </div>
+            <div className="modal-footer border-0 justify-content-center">
+              <button
+                type="button"
+                className={styles.errorCloseBtn}
+                data-bs-dismiss="modal"
+              >
+                Try Again
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Payment Method Modal ── */}
+      <div
+        className="modal fade"
+        ref={paymentModalRef}
+        tabIndex={-1}
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div className={`modal-content ${styles.warningModal}`}>
+            <div className="modal-header border-0">
+              <h5 className={`modal-title ${styles.warningTitle}`}>
+                💳 Payment Method Required
+              </h5>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              />
+            </div>
+            <div className="modal-body text-center py-3 px-4">
+              <p className={styles.warningMessage}>
+                Please select a payment method before placing your order.
+              </p>
+            </div>
+            <div className="modal-footer border-0 justify-content-center">
+              <button
+                type="button"
+                className={styles.warningCloseBtn}
+                data-bs-dismiss="modal"
+              >
+                OK, Got It
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Fill Blanks Modal ── */}
+      <div
+        className="modal fade"
+        ref={fillModalRef}
+        tabIndex={-1}
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div className={`modal-content ${styles.warningModal}`}>
+            <div className="modal-header border-0">
+              <h5 className={`modal-title ${styles.warningTitle}`}>
+                📋 Incomplete Form
+              </h5>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              />
+            </div>
+            <div className="modal-body text-center py-3 px-4">
+              <p className={styles.warningMessage}>
+                Please fill in all required fields before placing your order.
+              </p>
+            </div>
+            <div className="modal-footer border-0 justify-content-center">
+              <button
+                type="button"
+                className={styles.warningCloseBtn}
+                data-bs-dismiss="modal"
+              >
+                OK, Got It
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* ── Page Title ── */}
       <section className={`${styles.pageTitle} text-center`}>
-        <h1>CheckOut Page</h1>
+        <h1>Checkout Page</h1>
         <hr className={styles.titleDivider} />
       </section>
 
@@ -128,9 +275,9 @@ function Checkout() {
                   className={`d-flex justify-content-between align-items-start ${styles.cardHeader}`}
                 >
                   <h2 className={styles.cardTitle}>Checkout As Guest:</h2>
-                  <button className={styles.signInBtn} type="button">
+                  {/* <button className={styles.signInBtn} type="button">
                     Sign In
-                  </button>
+                  </button> */}
                 </div>
                 <hr className={styles.cardDivider} />
                 <p className={styles.cardHint}>
