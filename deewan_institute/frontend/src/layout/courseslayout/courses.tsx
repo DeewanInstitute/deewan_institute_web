@@ -1,5 +1,5 @@
 import { Fragment } from 'react/jsx-runtime';
-import styles from '../courseslayout/course.module.scss';
+import styles from './course.module.scss';
 import '../../style/animation.scss';
 import { useScrollAnimation } from '../../../hooks/scrollAnimations'
 import 'bootstrap';

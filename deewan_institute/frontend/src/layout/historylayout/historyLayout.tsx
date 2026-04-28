@@ -1,5 +1,5 @@
 import { Fragment, useState, useEffect, useRef } from "react";
-import styles from "../historylayout/history.module.scss";
+import styles from "./history.module.scss";
 import "bootstrap";
 
 interface HistoryInfo {

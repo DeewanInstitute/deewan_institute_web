@@ -1,5 +1,5 @@
 import { Fragment } from "react/jsx-runtime"
-import styles from "../foreignlayout/foreignCourse.module.scss"
+import styles from "./foreigncourse.module.scss"
 
 interface Props {
     title: string,
