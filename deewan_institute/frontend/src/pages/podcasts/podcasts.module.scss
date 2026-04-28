@@ -17,12 +17,15 @@ $podcast-bg: #f4f4f4;
   justify-content: center;
   padding: 0 20px; // Added horizontal padding to prevent edge touching
 
+  
+  
+  
   @media (max-width: 991px) {
-    height: 60vh; // Tablet height
+    height: 80vh; // Tablet height
   }
 
   @media (max-width: 767px) {
-    height: 50vh; // Mobile height
+    height: 65vh; // Mobile height
     padding: 0 15px;
   }
 
@@ -76,6 +79,11 @@ $podcast-bg: #f4f4f4;
     opacity: 1;
     z-index: 1;
     pointer-events: none;
+
+    @media (min-width: 820px) {
+      height: 80%; // Slightly shorter on tablet
+      width: 30%;
+    }
 
     @media (max-width: 991px) {
       height: 80%; // Slightly shorter on tablet

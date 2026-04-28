@@ -1,7 +1,5 @@
 @use "../../style/variables.scss" as *;
 @use "../../style/fonts.scss" as *;
-@use "/../src/style/variables.scss" as *;
-@use "/../src/style/fonts.scss" as *;
 
 // ── Navbar ──
 #navBar {
@@ -16,39 +14,119 @@
   transition: background-color 0.3s ease;
   border-bottom: $primary_color 1px solid;
 
-  @media (max-width: 1024px) {   // ← was 767px
+  // ── Tablet ──
+  @media (min-width: 768px) and (max-width: 1279px) {
     position: absolute !important;
-    margin-inline: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    margin-top: 2%;
+    border-radius: 41px;
+    padding: 6px 16px;
+    background-color: rgba(143, 110, 67, 0.5) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: none;
+  }
+
+  // ── Mobile ──
+  @media (max-width: 767px) {
+    position: absolute !important;
+    left: 50%;
+    transform: translateX(-50%);
     width: 95%;
     margin-top: 3%;
     border-radius: 41px;
-    padding: 2px 0;
-    background-color: rgb(143, 110, 67, 0.5) !important;
+    padding: 2px 12px;
+    background-color: rgba(143, 110, 67, 0.5) !important;
     backdrop-filter: blur(10px);
+    border-bottom: none;
   }
 }
 
-// ✅ Force override Bootstrap navbar background
-.navBar#navbar {
-  background-color: transparent !important;
-  background: none !important;
-
-  &:hover {
-    background-color: $primary_color !important;
-  }
-
-  @media (max-width: 1024px) {   // ← was 767px
-    background-color: transparent !important;
-    background: none !important;
-    position: static;
-
-    &:hover {
-      background-color: transparent !important;
-      background: none !important;
-    }
+// ── Mobile Header ──
+.mobileHeader {
+  @media (min-width: 768px) {
+    display: none !important;
   }
 }
 
+// ── Tablet Header ──
+.tabletHeader {
+  padding: 19px 0;
+  position: relative; // ← allows absolute positioning of children
+
+  @media (min-width: 1025px) {
+    display: none !important;
+  }
+
+  @media (max-width: 767px) {
+    display: none !important;
+  }
+}
+
+// ── Tablet Logo (centered) ──
+.tabletLogo {
+  position: absolute;
+  left: 17%;
+  transform: translateX(-50%);
+}
+
+// ── Tablet Spacer (balances the right side) ──
+.tabletSpacer {
+  flex: 1;
+}
+
+// ── Mobile Right Group (icons + toggler) ──
+.mobileRightGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+// ── Shop Icons Inline (mobile + tablet) ──
+.shopIconsInline {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    display: block;
+  }
+}
+
+// ── Shop Icons Desktop ──
+.shopIconsDesktop {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: 20px;
+
+  a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  img {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    display: block;
+  }
+}
+
+// ── Border Pills (desktop only) ──
 .border {
   border-radius: 20px;
   background: rgba(143, 110, 67, 0.5);
@@ -56,11 +134,12 @@
   border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 14px 28px !important;
 
-  @media (max-width: 1024px) {   // ← was 767px
-    display: none;
+  @media (max-width: 1280px) {
+    display: none !important;
   }
 }
 
+// ── Nav Items ──
 #navitem {
   color: white !important;
   font-family: "Merriweather-Regular";
@@ -86,33 +165,63 @@
   }
 }
 
+// ── Logo ──
 #mainLogo {
   width: 160px;
   margin-inline: 24px;
-}
 
-// ── Toggler ──
-.toggler {
-  border-color: rgba(255, 255, 255, 0.3) !important;
-  filter: invert(1);
-  display: none;
+  @media (min-width: 768px) and (max-width: 1279px) {
+    width: 220px;
+    margin-inline: 0;
+    margin-block: 2%;
+  }
 
-  @media (max-width: 1024px) {   // ← was 767px
-    display: block;
-    margin-left: auto;
+  @media (max-width: 767px) {
+    width: 160px;
+    margin-inline: 0;
+    margin-block: 2%;
   }
 }
 
-// ── Hide mobile logo from navbar (it lives in the drawer) ──
-.mobileLogo {
-  display: none !important;
+// ── Toggler Button ──
+.toggler {
+  display: none;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  padding: 6px 10px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+
+  @media (min-width: 768px) and (max-width: 1279px) {
+    display: flex;
+  }
+
+  @media (max-width: 767px) {
+    display: flex;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  button:active {
+    border-color: $primary-color !important;
+  }
 }
 
-// ── Backdrop (mobile + tablet) ──
+// ── React Icon ──
+.togglerIcon {
+  color: #ffffff;
+  font-size: 26px;
+}
+
+// ── Backdrop ──
 .backdrop {
   display: none;
 
-  @media (max-width: 1024px) {   // ← was 767px
+  @media (max-width: 1280px) {
     display: block;
     position: fixed;
     inset: 0;
@@ -127,20 +236,21 @@
 }
 
 .backdropOpen {
-  @media (max-width: 1024px) {   // ← was 767px
+  @media (max-width: 1280px) {
     opacity: 1;
     visibility: visible;
   }
 }
 
-// ── Full Screen Overlay (desktop) / Drawer (mobile + tablet) ──
+// ── Overlay ──
 .overlay {
   position: fixed;
   z-index: 999;
   background-color: $primary_color;
   transition: all 0.4s ease;
 
-  @media (min-width: 1025px) {   // ← was 768px
+  // ── Desktop: fullscreen ──
+  @media (min-width: 1025px) {
     top: 0;
     left: 0;
     width: 100%;
@@ -149,7 +259,23 @@
     visibility: hidden;
   }
 
-  @media (max-width: 1024px) {   // ← was 767px
+  // ── Tablet: same as mobile drawer ──
+  @media (min-width: 768px) and (max-width: 1279px) {
+    top: 0;
+    left: 0;
+    width: 85%;
+    max-width: 50%;
+    height: 100%;
+    transform: translateX(-100%);
+    opacity: 1;
+    visibility: visible;
+    overflow-y: auto;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.3);
+    border-radius: 0px 62px 62px 0px;
+  }
+
+  // ── Mobile: narrow drawer ──
+  @media (max-width: 767px) {
     top: 0;
     left: 0;
     width: 85%;
@@ -165,12 +291,12 @@
 }
 
 .overlayOpen {
-  @media (min-width: 1025px) {   // ← was 768px
+  @media (min-width: 1025px) {
     opacity: 1;
     visibility: visible;
   }
 
-  @media (max-width: 1024px) {   // ← was 767px
+  @media (max-width: 1280px) {
     transform: translateX(0);
   }
 }
@@ -185,7 +311,18 @@
   gap: 40px;
   padding: 40px 24px;
 
-  @media (max-width: 1024px) {   // ← was 767px
+  // ── Tablet: same as mobile ──
+  @media (min-width: 768px) and (max-width: 1279px) {
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 27px 38px 40px;
+    gap: 24px;
+    min-height: 100%;
+    height: auto;
+  }
+
+  // ── Mobile ──
+  @media (max-width: 767px) {
     justify-content: flex-start;
     align-items: flex-start;
     padding: 50px 31px 40px;
@@ -222,9 +359,19 @@
   width: 325px;
   opacity: 1;
 
-  @media (max-width: 1024px) {   // ← was 767px
+  // ── Tablet: same as mobile ──
+  @media (min-width: 768px) and (max-width: 1279px) {
+    width: 100%;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 16px;
+    margin-inline: auto !important;
+  }
+
+  // ── Mobile ──
+  @media (max-width: 767px) {
     width: 250px;
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 16px;
   }
 }
 
@@ -235,11 +382,19 @@
   align-items: flex-start;
   justify-content: center;
 
-  @media (max-width: 1024px) {   // ← was 767px
+  // ── Tablet: same as mobile (single column) ──
+  @media (min-width: 768px) and (max-width: 1279px) {
     flex-direction: column;
     gap: 28px;
     align-items: flex-start;
-    text-align: left;
+    width: 100%;
+  }
+
+  // ── Mobile: single column ──
+  @media (max-width: 767px) {
+    flex-direction: column;
+    gap: 28px;
+    align-items: flex-start;
     width: 100%;
   }
 }
@@ -250,7 +405,7 @@
   flex-direction: column;
   gap: 12px;
 
-  @media (max-width: 1024px) {   // ← was 767px
+  @media (max-width: 1280px) {
     width: 100%;
   }
 }
@@ -283,12 +438,17 @@
     padding-left: 12px;
   }
 
-  @media (max-width: 1024px) {   // ← was 767px
-    font-size: 15px;
+  // ── Tablet: same as mobile ──
+  @media (min-width: 768px) and (max-width: 1279px) {
+    font-size: large !important;
+  }
+
+  @media (max-width: 767px) {
+    font-size: medium !important;
   }
 }
 
-// ── Mobile + Tablet Links ──
+// ── Mobile Links ──
 .mobileLinks {
   display: flex;
   flex-direction: column;
@@ -305,15 +465,7 @@
   margin: 8px 0;
 }
 
-.shopIcons {
-  gap: 12px;
-  img {
-    width: 26px;
-    height: 26px;
-    object-fit: contain;
-  }
-}
-
+// ── Badge ──
 .badge {
   position: absolute;
   top: -6px;
@@ -336,4 +488,9 @@
   width: 26px;
   height: 26px;
   display: block;
+
+  @media (max-width: 1280px) {
+    width: 24px;
+    height: 24px;
+  }
 }

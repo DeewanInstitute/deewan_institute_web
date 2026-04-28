@@ -291,8 +291,9 @@ ul {
     }
 
     @media (max-width: 768px) {
-      height: 213px;
+      height: auto;
     }
+    
   }
 }
 
@@ -410,11 +411,30 @@ ul {
   }
 
   .title h2 {
-    font-size: 2rem !important;
+    font-size: x-large !important;
   }
 
   .messageForm {
     padding: 2rem 1.5rem !important;
+  }
+
+
+  .form,
+  .information,
+  .openingHours,
+  .location {
+    margin-inline: 1% !important;
+    padding: 0 2rem;
+    margin-block: 6%;
+
+
+    .sectionTitle{
+      font-size: x-large !important; 
+    }
+    .para {
+      font-size: medium !important;
+      line-height: 26px !important;
+    }
   }
 }
 

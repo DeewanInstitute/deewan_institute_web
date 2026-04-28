@@ -5,15 +5,14 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { NavLink, useLocation } from "react-router-dom";
 import { useShop } from "../../context/shopcontext";
 import { useState } from "react";
+import { RiMenu3Line } from "react-icons/ri";
 
-// Routes where shop icons should appear
 const SHOP_ROUTES = ["/publications", "/wishlist", "/cart"];
 
 function NavBar() {
   const { wishlistCount, cartCount } = useShop();
   const { pathname } = useLocation();
 
-  // Show icons on exact matches AND any sub-route of /publications
   const showShopIcons =
     SHOP_ROUTES.some((route) => pathname === route) ||
     pathname.startsWith("/publications/");
@@ -23,10 +22,9 @@ function NavBar() {
   return (
     <>
       {/* ── Navbar ── */}
-      <nav className={`navbar navbar-expand-md`} id={styles.navBar}>
+      <nav className={`navbar navbar-expand-xl`} id={styles.navBar}>
         <div className="container">
-
-          {/* ── Mobile Header (hidden on desktop) ── */}
+          {/* ── Mobile Header (max 767px) ── */}
           <div
             className={`d-flex d-md-none justify-content-between align-items-center w-100 ${styles.mobileHeader}`}
           >
@@ -38,16 +36,120 @@ function NavBar() {
               />
             </NavLink>
 
-            <button
-              className={`navbar-toggler ${styles.toggler}`}
-              onClick={() => setIsOverlayOpen(true)}
-            >
-              <span className="navbar-toggler-icon" />
-            </button>
+            <div className={styles.mobileRightGroup}>
+              {/* Shop Icons on Mobile */}
+              {showShopIcons && (
+                <div className={styles.shopIconsInline}>
+                  <NavLink
+                    className="position-relative"
+                    to="/wishlist"
+                    aria-label="Wishlist"
+                  >
+                    <img
+                      src="/assets/images/icons/heart_brown.webp"
+                      alt="Wishlist"
+                      id={styles.wishlistIcon}
+                    />
+                    {wishlistCount > 0 && (
+                      <span className={styles.badge}>{wishlistCount}</span>
+                    )}
+                  </NavLink>
+
+                  <NavLink
+                    className="position-relative"
+                    to="/cart"
+                    aria-label="Cart"
+                  >
+                    <img
+                      src="/assets/images/icons/cart_brown.webp"
+                      alt="Cart"
+                      id={styles.cartIcon}
+                    />
+                    {cartCount > 0 && (
+                      <span className={styles.badge}>{cartCount}</span>
+                    )}
+                  </NavLink>
+                </div>
+              )}
+
+              <button
+                className={styles.toggler}
+                onClick={() => setIsOverlayOpen(true)}
+                aria-label="Open menu"
+              >
+                <RiMenu3Line className={styles.togglerIcon} />
+              </button>
+            </div>
           </div>
 
-          {/* ── Desktop Menu (hidden on mobile) ── */}
-          <div className="collapse navbar-collapse d-none d-md-flex justify-content-center align-items-center">
+          {/* ── Tablet Header (768px - 1024px) ── */}
+
+          <div
+            className={`d-none d-md-flex d-xl-none align-items-center w-100 ${styles.tabletHeader}`}
+          >
+            {/* Invisible spacer to balance the toggler */}
+            <div className={styles.tabletSpacer} />
+
+            {/* Centered Logo */}
+            <NavLink
+              className={`navbar-brand mb-0 ${styles.tabletLogo}`}
+              to="/"
+            >
+              <img
+                src="/assets/images/logos/horizontalLogo.png"
+                alt="Deewan Institute Logo"
+                id={styles.mainLogo}
+              />
+            </NavLink>
+
+            {/* Right side: shop icons + toggler */}
+            <div className={styles.mobileRightGroup}>
+              {showShopIcons && (
+                <div className={styles.shopIconsInline}>
+                  <NavLink
+                    className="position-relative"
+                    to="/wishlist"
+                    aria-label="Wishlist"
+                  >
+                    <img
+                      src="/assets/images/icons/heart_brown.webp"
+                      alt="Wishlist"
+                      id={styles.wishlistIcon}
+                    />
+                    {wishlistCount > 0 && (
+                      <span className={styles.badge}>{wishlistCount}</span>
+                    )}
+                  </NavLink>
+
+                  <NavLink
+                    className="position-relative"
+                    to="/cart"
+                    aria-label="Cart"
+                  >
+                    <img
+                      src="/assets/images/icons/cart_brown.webp"
+                      alt="Cart"
+                      id={styles.cartIcon}
+                    />
+                    {cartCount > 0 && (
+                      <span className={styles.badge}>{cartCount}</span>
+                    )}
+                  </NavLink>
+                </div>
+              )}
+
+              <button
+                className={styles.toggler}
+                onClick={() => setIsOverlayOpen(true)}
+                aria-label="Open menu"
+              >
+                <RiMenu3Line className={styles.togglerIcon} />
+              </button>
+            </div>
+          </div>
+
+          {/* ── Desktop Menu (1025px+) ── */}
+          <div className="collapse navbar-collapse d-none d-xl-flex justify-content-center align-items-center w-100">
             {/* Left Group */}
             <div className={`${styles.border} p-2`}>
               <ul className="navbar-nav" id={styles.navbarNav}>
@@ -91,56 +193,54 @@ function NavBar() {
                 </li>
               </ul>
             </div>
+
+            {/* ── Shop Icons Desktop (inside nav, right side) ── */}
+            {showShopIcons && (
+              <div
+                className={`d-flex align-items-center ${styles.shopIconsDesktop}`}
+              >
+                <NavLink
+                  className="position-relative"
+                  to="/wishlist"
+                  aria-label="Wishlist"
+                >
+                  <img
+                    src="/assets/images/icons/heart_brown.webp"
+                    alt="Wishlist"
+                    id={styles.wishlistIcon}
+                  />
+                  {wishlistCount > 0 && (
+                    <span className={styles.badge}>{wishlistCount}</span>
+                  )}
+                </NavLink>
+
+                <NavLink
+                  className="position-relative"
+                  to="/cart"
+                  aria-label="Cart"
+                >
+                  <img
+                    src="/assets/images/icons/cart_brown.webp"
+                    alt="Cart"
+                    id={styles.cartIcon}
+                  />
+                  {cartCount > 0 && (
+                    <span className={styles.badge}>{cartCount}</span>
+                  )}
+                </NavLink>
+              </div>
+            )}
           </div>
         </div>
-
-        {/* ── Shop Icons (conditional) ── */}
-        {showShopIcons && (
-          <div
-            className={`d-flex align-items-center gap-2 mx-2 ${styles.shopIcons}`}
-          >
-            {/* Wishlist */}
-            <NavLink
-              className="position-relative"
-              to="/wishlist"
-              aria-label="Wishlist"
-            >
-              <img
-                src="/assets/images/icons/heart_brown.webp"
-                alt="Wishlist"
-                id={styles.wishlistIcon}
-              />
-              {wishlistCount > 0 && (
-                <span className={styles.badge}>{wishlistCount}</span>
-              )}
-            </NavLink>
-
-            {/* Cart */}
-            <NavLink
-              className="position-relative"
-              to="/cart"
-              aria-label="Cart"
-            >
-              <img
-                src="/assets/images/icons/cart_brown.webp"
-                alt="Cart"
-                id={styles.cartIcon}
-              />
-              {cartCount > 0 && (
-                <span className={styles.badge}>{cartCount}</span>
-              )}
-            </NavLink>
-          </div>
-        )}
       </nav>
 
-      {/* ── Backdrop (mobile only) ── */}
+      {/* ── Backdrop ── */}
       <div
         className={`${styles.backdrop} ${isOverlayOpen ? styles.backdropOpen : ""}`}
         onClick={() => setIsOverlayOpen(false)}
       />
 
-      {/* ── Full Screen Overlay (desktop) / Drawer (mobile) ── */}
+      {/* ── Overlay ── */}
       <div
         className={`${styles.overlay} ${isOverlayOpen ? styles.overlayOpen : ""}`}
       >
@@ -164,8 +264,8 @@ function NavBar() {
 
           {/* ── Links ── */}
           <div className={styles.overlayLinks}>
-            {/* Mobile Links */}
-            <div className={`d-md-none ${styles.mobileLinks}`}>
+            {/* Mobile + Tablet Nav Links */}
+            <div className={`d-xl-none ${styles.mobileLinks}`}>
               <NavLink
                 to="/"
                 className={styles.overlayLink}

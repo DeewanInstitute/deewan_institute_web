@@ -6,9 +6,10 @@ import Footer from "../../components/footer/footer";
 import ForeignCircles from "../../components/foreigncircles/foreigncircles";
 import Courses from "../../components/courses/courses";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations";
+import "bootstrap";
 import "../../style/animation.scss";
 import style from "./home.module.scss";
-import "bootstrap";
+
 
 function Home() {
   useEffect(() => {
@@ -46,7 +47,7 @@ function Home() {
         {/* <!-- The slideshow/carousel --> */}
         <div className="carousel-inner">
           {/* <!-- First Slide --> */}
-          {/* <div className="carousel-item active" id={style.carouselItem1}>
+          <div className="carousel-item active" id={style.carouselItem1}>
             <div className="container-fluid d-flex align-items-end h-100">
               <div className="row w-100" id={style.firstRow}>
                 <div
@@ -83,14 +84,14 @@ function Home() {
                 </div>
               </div>
             </div>
-          </div> */}
+          </div>
           {/* <!-- Second Slide --> */}
-          <div className="carousel-item active" id={style.carouselItem2}>
+          {/* <div className="carousel-item active" id={style.carouselItem2}>
             <div className="container-fluid d-flex align-items-end h-100">
               <div className="row w-100" id={style.secondRow}>
-                <div className="col-lg-6 d-flex flex-column align-items-start justify-content-center scroll-section slide-in-right">
+                <div className="col-lg-6 d-flex flex-column align-items-start justify-content-center scroll-section slide-in-right"> */}
                   {/* <!-- Right column --> */}
-                  <div
+                  {/* <div
                     className="d-flex flex-column"
                     id={style.secondContainer}
                   >
@@ -124,7 +125,7 @@ function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* <!-- Left and right controls/icons --> */}
@@ -152,7 +153,7 @@ function Home() {
           className="row featurette align-items-center justify-content-center mx-auto"
           id={style.row}
         >
-          <div className="col-lg-4 order-md-2 pr-2 d-flex flex-column gap-2">
+          <div className="col-lg-6 col-lg-8 col-xl-6 col-xl-4 order-md-2 pr-2 d-flex flex-column gap-2">
             <h2
               className={`${style.featuretteHeading} scroll-section slide-in-left`}
             >
@@ -177,7 +178,7 @@ function Home() {
               Explore Our Courses
             </Link>
           </div>
-          <div className="col-lg-5 order-md-1 d-flex mt-2">
+          <div className="col-lg-5 col-lg-8 col-xl-6 col-xl-4  order-md-1 d-flex mt-2">
             <img
               className="featurette-image img-fluid mx-auto scroll-section slide-in-right"
               src={"/assets/images/others/location.png"}
@@ -188,9 +189,9 @@ function Home() {
 
       {/*Habibi Section*/}
       <section id={style.habibiSection}>
-        <div className="row featurette align-items-center justify-content-center mx-auto">
+        <div className="row featurette align-items-center justify-content-center mx-auto" id={style.row}>
           {/* Text column — order-md-1 so it sits LEFT on desktop */}
-          <div className="col-lg-5 order-md-1 pr-2 d-flex flex-column gap-2">
+          <div className="col-lg-6 col-xl-8 col-xl-6 col-xl-6 order-md-1 pr-2 d-flex flex-column gap-2">
             <h2
               className={`${style.featuretteHeading} text-white scroll-section slide-in-right`}
             >
@@ -215,7 +216,7 @@ function Home() {
           </div>
 
           {/* Image slider column — order-md-2 so it sits RIGHT on desktop */}
-          <div className="col-lg-4 order-md-2 d-flex justify-content-center">
+          <div className="col-lg-4 col-xl-4 col-xl-6 col-xl-5 order-md-2 d-flex justify-content-center">
             <div
               id="habibCarousel"
               className={`carousel slide w-100 ${style.habibCarousel}`}

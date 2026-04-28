@@ -90,7 +90,7 @@ export const teamData: TeamMember = {
     },
     {
         name: "Qutaibh", 
-        title: "Full Stack Developer",
+        title: "Full Stack Developer & Trainer",
         img: "../assets/images/teams/18.JPG",
     },
     {

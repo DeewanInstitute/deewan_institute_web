@@ -41,10 +41,10 @@ function AccommodationLayoutR({ data }: { data: AccommodationLayoutRProps }) {
         }}
       />
       {/* <!-- Information Section --> */}
-      <section className={`my-5 scroll-section ${style.info} `}>
-        <div className="row justify-content-center">
+      <section className={`my-5 scroll-section ${style.info} `} >
+        <div className="row justify-content-center" id={style.row}>
           {/* Information */}
-          <div className="col-md-4 d-flex flex-column align-items-start justify-content-center">
+          <div className="col-12 col-xl-4 d-flex flex-column align-items-start justify-content-center">
             <h5 className="featurette-heading mb-3">{data.subtitle}</h5>
             <h1 className="featurette-heading">{data.header}</h1>
             <p className="lead">{data.description}</p>
@@ -86,7 +86,7 @@ function AccommodationLayoutR({ data }: { data: AccommodationLayoutRProps }) {
               )}
           </div>
           {/* <!-- The Building Image --> */}
-          <div className="col-md-5 d-flex flex-column align-items-start justify-content-center">
+          <div className="col-12 col-xl-4 d-flex flex-column align-items-start justify-content-center">
             <img
               className="featurette-image img-fluid mx-auto"
               data-src="holder.js/500x500/auto"

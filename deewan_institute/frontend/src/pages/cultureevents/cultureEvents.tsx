@@ -62,7 +62,7 @@ function CultureEvents() {
       {/* ── Intro ── */}
       <section className={`${styles.intro} scroll-section`}>
         <div className="row justify-content-center align-items-center g-5">
-          <div className="col-md-4 d-flex flex-column">
+          <div className="col-md-4 col-xl-8 col-md-5 d-flex flex-column">
             <span className={styles.introLabel}>Cultural Events</span>
             <p className="lead">
               At Deewan Institute, we invite students and guests to experience
@@ -72,7 +72,7 @@ function CultureEvents() {
               together.
             </p>
           </div>
-          <div className="col-md-5 d-flex justify-content-center">
+          <div className="col-md-5 col-xl-8 col-md-6 d-flex justify-content-center">
             <img
               className={styles.introImg}
               src="/assets/images/others/culture1.svg"

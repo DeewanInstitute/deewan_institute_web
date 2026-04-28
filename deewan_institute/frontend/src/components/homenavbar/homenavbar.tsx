@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import { RiMenu3Line } from "react-icons/ri";
 
 function HomeNavBar() {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
@@ -11,10 +12,9 @@ function HomeNavBar() {
   return (
     <>
       {/* ── Navbar ── */}
-      <nav className={`navbar navbar-expand-md`} id={styles.navBar}>
+      <nav className={`navbar navbar-expand-xl`} id={styles.navBar}>
         <div className="container">
-          {/* Mobile Logo */}
-          {/* Mobile Header - Only visible on mobile */}
+          {/* ── Mobile Header (max 767px) ── */}
           <div
             className={`d-flex d-md-none justify-content-between align-items-center w-100 ${styles.mobileHeader}`}
           >
@@ -26,16 +26,42 @@ function HomeNavBar() {
               />
             </NavLink>
 
-            <button
-              className={`navbar-toggler ${styles.toggler}`}
-              onClick={() => setIsOverlayOpen(true)}
-            >
-              <span className="navbar-toggler-icon" />
-            </button>
+            <div className={styles.mobileRightGroup}>
+              <button
+                className={styles.toggler}
+                onClick={() => setIsOverlayOpen(true)}
+                aria-label="Open menu"
+              >
+                <RiMenu3Line className={styles.togglerIcon} />
+              </button>
+            </div>
           </div>
 
-          {/* Desktop Menu */}
-          <div className="collapse navbar-collapse d-flex justify-content-center align-items-center">
+          {/* ── Tablet Header (768px - 1279px) ── */}
+          <div
+            className={`d-none d-md-flex d-xl-none justify-content-between align-items-center w-100 ${styles.tabletHeader}`}
+          >
+            <NavLink className="navbar-brand mb-0" to="/">
+              <img
+                src="/assets/images/logos/horizontalLogo.png"
+                alt="Deewan Institute Logo"
+                id={styles.mainLogo}
+              />
+            </NavLink>
+
+            <div className={styles.mobileRightGroup}>
+              <button
+                className={styles.toggler}
+                onClick={() => setIsOverlayOpen(true)}
+                aria-label="Open menu"
+              >
+                <RiMenu3Line className={styles.togglerIcon} />
+              </button>
+            </div>
+          </div>
+
+          {/* ── Desktop Menu (1280px+) ── */}
+          <div className="collapse navbar-collapse d-none d-xl-flex justify-content-center align-items-center w-100">
             {/* Left Group */}
             <div className={`${styles.border}`}>
               <ul className="navbar-nav">
@@ -53,7 +79,7 @@ function HomeNavBar() {
             </div>
 
             {/* Center Logo */}
-            <NavLink className="navbar-brand d-none d-md-block" to="/">
+            <NavLink className="navbar-brand" to="/">
               <img
                 src="/assets/images/logos/nobgLogo.webp"
                 alt="Deewan Institute Logo"
@@ -83,13 +109,13 @@ function HomeNavBar() {
         </div>
       </nav>
 
-      {/* ── Backdrop (mobile only) ── */}
+      {/* ── Backdrop ── */}
       <div
         className={`${styles.backdrop} ${isOverlayOpen ? styles.backdropOpen : ""}`}
         onClick={() => setIsOverlayOpen(false)}
       />
 
-      {/* ── Full Screen Overlay (desktop) / Drawer (mobile) ── */}
+      {/* ── Overlay ── */}
       <div
         className={`${styles.overlay} ${isOverlayOpen ? styles.overlayOpen : ""}`}
       >
@@ -113,8 +139,8 @@ function HomeNavBar() {
 
           {/* ── Links ── */}
           <div className={styles.overlayLinks}>
-            {/* Mobile Links */}
-            <div className={`d-md-none ${styles.mobileLinks}`}>
+            {/* Mobile + Tablet Nav Links */}
+            <div className={`d-xl-none ${styles.mobileLinks}`}>
               <NavLink
                 to="/"
                 className={styles.overlayLink}
@@ -158,7 +184,6 @@ function HomeNavBar() {
               >
                 Arabic Calculator Price
               </NavLink>
-              {/* <NavLink to="/arabic-courses/arabic-for-kids" className={styles.overlayLink} onClick={() => setIsOverlayOpen(false)}>Arabic For Kids</NavLink> */}
               <NavLink
                 to="/arabic-courses/arabi-talk"
                 className={styles.overlayLink}

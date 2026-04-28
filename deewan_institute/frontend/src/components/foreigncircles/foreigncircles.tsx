@@ -14,7 +14,7 @@ function ForeignCircles(){
                   Spanish and German, all led by native speakers in vibrant Amman. Discover how our flexible classes make
                   multilingual mastery accessible and culturally engaging for learners worldwide.</p>
             </div>
-            <div className="d-flex flex-row gap-5 justify-content-center scroll-section" id={style.foreignGroup}>
+            <div className="d-flex flex-row gap-5 justify-content-center flex-wrap scroll-section" id={style.foreignGroup}>
                <div className="d-flex flex-column gap-4 align-items-center">
                   <img className="rounded-circle" id={style.image} src="/assets/images/others/english.png" alt="Generic placeholder image"
                      width="300" height="300" />
