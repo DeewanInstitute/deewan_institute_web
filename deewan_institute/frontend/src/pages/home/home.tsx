@@ -191,7 +191,7 @@ function Home() {
       <section id={style.habibiSection}>
         <div className="row featurette align-items-center justify-content-center mx-auto" id={style.row}>
           {/* Text column — order-md-1 so it sits LEFT on desktop */}
-          <div className="col-lg-6 col-xl-8 col-xl-6 col-xl-6 order-md-1 pr-2 d-flex flex-column gap-2">
+          <div className="col-lg-6 col-lg-8 col-xl-6 col-xl-6 order-md-1 pr-2 d-flex flex-column gap-2">
             <h2
               className={`${style.featuretteHeading} text-white scroll-section slide-in-right`}
             >
