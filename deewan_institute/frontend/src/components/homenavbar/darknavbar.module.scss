@@ -5,14 +5,18 @@
 #navBar {
   background-color: transparent !important;
   z-index: 100;
-  position: static;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
   padding: 16px 0;
-  transition: background-color 0.3s ease;
-  border-bottom: $primary_color 1px solid;
+
+  --bs-navbar-bg: transparent !important;
+
+  &.navbar {
+    background-color: transparent !important;
+  }
 
   // ── Tablet ──
   @media (min-width: 768px) and (max-width: 1279px) {
@@ -40,6 +44,23 @@
     background-color: rgba(143, 110, 67, 0.5) !important;
     backdrop-filter: blur(10px);
     border-bottom: none;
+  }
+}
+
+
+// ✅ Force override Bootstrap navbar background
+#navbar {
+  background-color: transparent !important;
+  background: none !important;
+
+  @media (max-width: 767px) {
+    background-color: transparent !important;
+    background: none !important;
+
+    &:hover {
+      background-color: transparent !important;
+      background: none !important;
+    }
   }
 }
 
