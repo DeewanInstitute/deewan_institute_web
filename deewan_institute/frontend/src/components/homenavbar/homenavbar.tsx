@@ -326,7 +326,7 @@ function HomeNavBar() {
                 className={styles.overlayLink}
                 onClick={() => setIsOverlayOpen(false)}
               >
-                French
+                Careers
               </NavLink>
             </div>
           </div>
