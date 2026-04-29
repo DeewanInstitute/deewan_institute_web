@@ -16,9 +16,14 @@ const PORT = process.env.PORT || 5000;
 app.use(
   cors({
     origin: [
+
       "http://localhost:5000",
       "http://deewaninstitutewebsite.netlify.app",
       "https://69f1a656175d2ffc865aba71--deewanweb.netlify.app",
+
+      "http://localhost:5173",
+      "https://deewanweb.netlify.app/",
+
       "https://deewaninstitute.com",
       "https://www.deewaninstitute.com",
     ],
@@ -27,7 +32,6 @@ app.use(
     credentials: true
   }),
 );
-
 
 app.use(express.json());
 
@@ -580,11 +584,13 @@ app.post("/api/internship", uploadInternship, async (req, res) => {
     // 6. Respond after everything succeeds
     res.status(200).json({ message: "Application submitted successfully" });
 
+
   } catch (err) {
     console.error("Internship error:", err);
     res.status(500).json({ message: "Error saving application" });
   }
 });
+
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
