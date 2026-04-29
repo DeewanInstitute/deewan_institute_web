@@ -17,8 +17,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "deewaninstitutewebsite.netlify.app",
-      "https://69f1a656175d2ffc865aba71--deewanweb.netlify.app",
+      "https://deewanweb.netlify.app/",
       "https://deewaninstitute.com",
       "https://www.deewaninstitute.com",
     ],
