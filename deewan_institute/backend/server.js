@@ -17,10 +17,10 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "http://deewaninstitutewebsite.netlify.app",
+      "deewaninstitutewebsite.netlify.app",
       "https://69f1a656175d2ffc865aba71--deewanweb.netlify.app",
-      "https://deewaninstitute.com",
-      "https://www.deewaninstitute.com",
+      "http://deewaninstitute.com",
+      // "http://www.deewaninstitute.com",
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
