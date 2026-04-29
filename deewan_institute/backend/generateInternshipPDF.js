@@ -1,187 +1,208 @@
-// const PDFDocument = require("pdfkit");
+const PDFDocument = require("pdfkit");
+const path = require("path");
+function generateInternshipPDF(data) {
+  return new Promise((resolve) => {
+    const doc = new PDFDocument({ margin: 40 });
+    const buffers = [];
 
-// function generateInternshipPDF(data) {
-//   return new Promise((resolve) => {
-//     const doc = new PDFDocument({ margin: 40 });
-//     const buffers = [];
+    doc.on("data", buffers.push.bind(buffers));
+    doc.on("end", () => resolve(Buffer.concat(buffers)));
 
-//     doc.on("data", buffers.push.bind(buffers));
-//     doc.on("end", () => resolve(Buffer.concat(buffers)));
+    // ===== Helpers =====
+    const section = (title) => {
+      doc.moveDown(1.5);
+      doc.fontSize(16).font("Helvetica-Bold").text(title);
+      doc.moveDown(0.5);
+      doc.moveTo(doc.x, doc.y).lineTo(550, doc.y).stroke();
+      doc.moveDown(0.7);
+    };
 
-//     // ===== Helpers =====
-//     const section = (title) => {
-//       doc.moveDown(1.5);
-//       doc.fontSize(16).font("Helvetica-Bold").text(title);
-//       doc.moveDown(0.5);
-//       doc.moveTo(doc.x, doc.y).lineTo(550, doc.y).stroke();
-//       doc.moveDown(0.7);
-//     };
+    const field = (label, value) => {
+      doc
+        .fontSize(11)
+        .font("Helvetica-Bold")
+        .text(`${label}: `, { continued: true })
+        .font("Helvetica")
+        .text(value || "N/A");
+    };
 
-//     const field = (label, value) => {
-//       doc
-//         .fontSize(11)
-//         .font("Helvetica-Bold")
-//         .text(`${label}: `, { continued: true })
-//         .font("Helvetica")
-//         .text(value || "N/A");
-//     };
+    const multiLine = (label, value) => {
+      doc.fontSize(11).font("Helvetica-Bold").text(`${label}:`);
+      doc.moveDown(0.3);
+      doc.font("Helvetica").text(value || "N/A", {
+        width: 500,
+      });
+      doc.moveDown(0.7);
+    };
 
-//     const multiLine = (label, value) => {
-//       doc.fontSize(11).font("Helvetica-Bold").text(`${label}:`);
-//       doc.moveDown(0.3);
-//       doc.font("Helvetica").text(value || "N/A", {
-//         width: 500,
-//       });
-//       doc.moveDown(0.7);
-//     };
+    // // ===== Title =====
+    // doc
+    //   .fontSize(20)
+    //   .font("Helvetica-Bold")
+    //   .text("Internship Application", { align: "center" });
 
-//     // ===== Title =====
-//     doc
-//       .fontSize(20)
-//       .font("Helvetica-Bold")
-//       .text("Internship Application", { align: "center" });
+    // doc.moveDown(1);
 
-//     doc.moveDown(1);
+    //the Image
+  // ===== Header =====
+const imageWidth = 80;
+const imagePath = path.join(
+  __dirname, "..", "frontend", "public", "assets", "images", "logos", "nobgLogo.png"
+);
 
-//     // =========================
-//     // 1. PERSONAL INFORMATION
-//     // =========================
-//     section("1. Personal Information");
+const headerY = 40; // same as doc margin, so it starts at the very top
+const xPosition = doc.page.width - imageWidth - 40;
 
-//     field("Full Name", data.personal.fullName);
-//     field("Gender", data.personal.gender);
-//     field("Date of Birth", data.personal.dateOfBirth);
-//     field("Nationality", data.personal.nationality);
-//     field("Residence", data.personal.residence);
-//     field("Email", data.personal.email);
-//     field("Phone", data.personal.phone);
-//     field("University", data.personal.university);
-//     field("Field of Study", data.personal.fieldOfStudy);
-//     field("Academic Level", data.personal.academicLevel);
+doc.image(imagePath, xPosition, headerY, { width: imageWidth });
 
-//     // =========================
-//     // 2. INTERNSHIP PREFERENCES
-//     // =========================
-//     section("2. Internship Preferences");
+doc
+  .fontSize(20)
+  .font("Helvetica-Bold")
+  .text("Internship Application", 40, headerY + 20, {
+    width: doc.page.width - imageWidth - 80,
+    align: "left",
+  });
 
-//     field("Internship Option", data.preferences.option);
-//     field("Duration", data.preferences.duration);
-//     field("Start Date", data.preferences.startDate);
-//     field("End Date", data.preferences.endDate);
-//     field("Dates Flexible", data.preferences.datesFlexible);
+doc.y = headerY + imageWidth + 10;
+    // =========================
+    // 1. PERSONAL INFORMATION
+    // =========================
+    section("1. Personal Information");
 
-//     // =========================
-//     // 3. AREAS OF INTEREST
-//     // =========================
-//     section("3. Areas of Interest");
+    field("Full Name", data.personal.fullName);
+    field("Gender", data.personal.gender);
+    field("Date of Birth", data.personal.dateOfBirth);
+    field("Nationality", data.personal.nationality);
+    field("Residence", data.personal.residence);
+    field("Email", data.personal.email);
+    field("Phone", data.personal.phone);
+    field("University", data.personal.university);
+    field("Field of Study", data.personal.fieldOfStudy);
+    field("Academic Level", data.personal.academicLevel);
 
-//     field(
-//       "Selected Areas",
-//       Array.isArray(data.areas?.areas)
-//         ? data.areas.areas.join(", ")
-//         : data.areas?.areas || "N/A",
-//     );
-//     field("First Preference", data.areas.firstPreference);
-//     field("Second Preference", data.areas.secondPreference || "None");
+    // =========================
+    // 2. INTERNSHIP PREFERENCES
+    // =========================
+    section("2. Internship Preferences");
 
-//     // =========================
-//     // 4. SKILLS & EXPERIENCE
-//     // =========================
-//     section("4. Skills & Experience");
+    field("Internship Option", data.preferences.option);
+    field("Duration", data.preferences.duration);
+    field("Start Date", data.preferences.startDate);
+    field("End Date", data.preferences.endDate);
+    field("Dates Flexible", data.preferences.datesFlexible);
 
-//     multiLine("Background", data.skills.background);
-//     field("Has Previous Experience", data.skills.hasPreviousExperience);
+    // =========================
+    // 3. AREAS OF INTEREST
+    // =========================
+    section("3. Areas of Interest");
 
-//     if (data.skills.hasPreviousExperience === "Yes") {
-//       multiLine("Previous Experience", data.skills.previousExperience);
-//     }
+    field(
+      "Selected Areas",
+      Array.isArray(data.areas?.areas)
+        ? data.areas.areas.join(", ")
+        : data.areas?.areas || "N/A",
+    );
+    field("First Preference", data.areas.firstPreference);
+    field("Second Preference", data.areas.secondPreference || "None");
 
-//     // Fix this line too — same Array.isArray guard:
-//     field(
-//       "Skills",
-//       Array.isArray(data.skills?.skills)
-//         ? data.skills.skills.join(", ")
-//         : data.skills?.skills || "N/A",
-//     );
-//     multiLine("Tools", data.skills.tools);
+    // =========================
+    // 4. SKILLS & EXPERIENCE
+    // =========================
+    section("4. Skills & Experience");
 
-//     // =========================
-//     // 5. LANGUAGE SKILLS
-//     // =========================
-//     section("5. Language Skills");
+    multiLine("Background", data.skills.background);
+    field("Has Previous Experience", data.skills.hasPreviousExperience);
 
-//     field("English Level", data.languages.english);
-//     field("Arabic Level", data.languages.arabic);
-//     field("Other Languages", data.languages.otherLanguages || "None");
+    if (data.skills.hasPreviousExperience === "Yes") {
+      multiLine("Previous Experience", data.skills.previousExperience);
+    }
 
-//     // =========================
-//     // 6. MOTIVATION
-//     // =========================
-//     section("6. Motivation");
+    // Fix this line too — same Array.isArray guard:
+    field(
+      "Skills",
+      Array.isArray(data.skills?.skills)
+        ? data.skills.skills.join(", ")
+        : data.skills?.skills || "N/A",
+    );
+    multiLine("Tools", data.skills.tools);
 
-//     multiLine("Why Deewan", data.motivation.why);
-//     multiLine("Learning Goals", data.motivation.learn);
-//     multiLine("Interest in Jordan / Arabic", data.motivation.jordan);
+    // =========================
+    // 5. LANGUAGE SKILLS
+    // =========================
+    section("5. Language Skills");
 
-//     // =========================
-//     // 7. ACCOMMODATION & CLASSES
-//     // =========================
-//     section("7. Accommodation & Activities");
+    field("English Level", data.languages.english);
+    field("Arabic Level", data.languages.arabic);
+    field("Other Languages", data.languages.otherLanguages || "None");
 
-//     field("Need Accommodation", data.accommodation.needAccommodation);
-//     field("Arabic Classes", data.accommodation.arabicClasses);
-//     field("Cultural Activities", data.accommodation.culturalActivities);
+    // =========================
+    // 6. MOTIVATION
+    // =========================
+    section("6. Motivation");
 
-//     // =========================
-//     // 8. AVAILABILITY
-//     // =========================
-//     section("8. Availability & Commitment");
+    multiLine("Why Deewan", data.motivation.why);
+    multiLine("Learning Goals", data.motivation.learn);
+    multiLine("Interest in Jordan / Arabic", data.motivation.jordan);
 
-//     field("Can Commit", data.availability.canCommit);
+    // =========================
+    // 7. ACCOMMODATION & CLASSES
+    // =========================
+    section("7. Accommodation & Activities");
 
-//     multiLine(
-//       "Scheduling Limitations",
-//       data.availability.schedulingLimitations,
-//     );
+    field("Need Accommodation", data.accommodation.needAccommodation);
+    field("Arabic Classes", data.accommodation.arabicClasses);
+    field("Cultural Activities", data.accommodation.culturalActivities);
 
-//     field("Applying Through", data.availability.applyingThrough);
+    // =========================
+    // 8. AVAILABILITY
+    // =========================
+    section("8. Availability & Commitment");
 
-//     if (data.availability.applyingThrough === "Through a university program") {
-//       field("Coordinator Info", data.availability.coordinatorInfo);
-//     }
+    field("Can Commit", data.availability.canCommit);
 
-//     // =========================
-//     // 9. DOCUMENTS
-//     // =========================
-//     section("9. Documents");
+    multiLine(
+      "Scheduling Limitations",
+      data.availability.schedulingLimitations,
+    );
 
-//     field("CV Uploaded", "Yes");
-//     field("Motivation Letter", data.documents?.motivationLetter ? "Yes" : "No");
-//     field("Portfolio", data.documents?.portfolio ? "Yes" : "No");
+    field("Applying Through", data.availability.applyingThrough);
 
-//     // =========================
-//     // 10. DECLARATION
-//     // =========================
-//     section("10. Final Declaration");
+    if (data.availability.applyingThrough === "Through a university program") {
+      field("Coordinator Info", data.availability.coordinatorInfo);
+    }
 
-//     field("Heard About", data.declaration.heardAbout);
+    // =========================
+    // 9. DOCUMENTS
+    // =========================
+    section("9. Documents");
 
-//     multiLine("Additional Info", data.declaration.anythingElse);
+    field("CV Uploaded", "Yes");
+    field("Motivation Letter", data.documents?.motivationLetter ? "Yes" : "No");
+    field("Portfolio", data.documents?.portfolio ? "Yes" : "No");
 
-//     field("Confirmed", data.declaration.confirmed ? "Yes" : "No");
+    // =========================
+    // 10. DECLARATION
+    // =========================
+    section("10. Final Declaration");
 
-//     // ===== Footer =====
-//     doc.moveDown(2);
-//     doc
-//       .fontSize(9)
-//       .fillColor("gray")
-//       .text(
-//         "Deewan Institute for Languages and Cultural Studies — Amman, Jordan",
-//         { align: "center" },
-//       );
+    field("Heard About", data.declaration.heardAbout);
 
-//     doc.end();
-//   });
-// }
+    multiLine("Additional Info", data.declaration.anythingElse);
 
-// module.exports = generateInternshipPDF;
+    field("Confirmed", data.declaration.confirmed ? "Yes" : "No");
+
+    // ===== Footer =====
+    doc.moveDown(2);
+    doc
+      .fontSize(9)
+      .fillColor("gray")
+      .text(
+        "Deewan Institute for Languages and Cultural Studies — Amman, Jordan",
+        { align: "center" },
+      );
+
+    doc.end();
+  });
+}
+
+module.exports = generateInternshipPDF;

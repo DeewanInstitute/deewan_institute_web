@@ -87,6 +87,10 @@ export const HEARD_ABOUT_OPTIONS = [
 export const YES_NO_MAYBE = ["Yes", "No", "Maybe"] as const;
 export const YES_NO = ["Yes", "No"] as const;
 
+// ─── Validation helpers ───────────────────────────────────────────────────────
+
+export const isValidEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+export const isValidPhone = (v: string) => /^\+?[\d\s\-().]{7,20}$/.test(v.trim());
 // ─── Section metadata ─────────────────────────────────────────────────────────
 
 export interface SectionMeta {
@@ -224,8 +228,10 @@ export const DEFAULT_FORM_STATE: InternshipFormState = {
 
 export const sectionValidators: Array<(state: InternshipFormState) => boolean> = [
   ({ personal: p }) =>
-    !!(p.fullName && p.gender && p.dateOfBirth && p.nationality &&
-       p.residence && p.email && p.phone && p.university && p.fieldOfStudy && p.academicLevel),
+  !!(p.fullName && p.gender && p.dateOfBirth && p.nationality &&
+     p.residence && p.email && p.phone && p.university && p.fieldOfStudy && p.academicLevel)
+  && isValidEmail(p.email)
+  && isValidPhone(p.phone),
 
   ({ preferences: p }) =>
     !!(p.option && p.duration && p.startDate && p.endDate && p.datesFlexible),

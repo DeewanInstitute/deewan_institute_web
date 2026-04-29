@@ -101,11 +101,11 @@
 // Shared base for icon buttons
 %iconBase {
   display: flex;
-  align-items: center;
+  // align-items: center;
   justify-content: center;
   border-radius: 10px;
-  width: 44px;
-  height: 44px;
+  width: 70px;
+  height: 70px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 26px 26px;
