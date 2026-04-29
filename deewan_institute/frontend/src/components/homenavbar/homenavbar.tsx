@@ -328,6 +328,7 @@ function HomeNavBar() {
               >
                 French
               </NavLink>
+            </div>
           </div>
         </div>
       </div>
