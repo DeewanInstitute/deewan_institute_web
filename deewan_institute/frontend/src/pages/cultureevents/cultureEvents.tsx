@@ -62,7 +62,7 @@ function CultureEvents() {
       {/* ── Intro ── */}
       <section className={`${styles.intro} scroll-section`}>
        <div className="row justify-content-center align-items-center g-5 flex-column flex-md-row">
-         <div className="col-12 col-sm-10 col-xl-8 d-flex flex-column">
+         <div className="col-12 col-sm-10 col-xl-6 d-flex flex-column">
             <span className={styles.introLabel}>Cultural Events</span>
             <p className="lead">
               At Deewan Institute, we invite students and guests to experience
@@ -72,7 +72,7 @@ function CultureEvents() {
               together.
             </p>
           </div>
-         <div className="col-12 col-sm-10 col-xl-8 d-flex justify-content-center">
+         <div className="col-12 col-sm-10 col-xl-6 d-flex justify-content-center">
             <img
               className={styles.introImg}
               src="/assets/images/others/culture1.png"
@@ -85,14 +85,14 @@ function CultureEvents() {
       {/* ── Living Cultural Space ── */}
       <section className={`${styles.livingSpace} scroll-section`}>
         <div className="row justify-content-center align-items-center g-5 flex-column flex-md-row">
-          <div className="col-12 col-sm-10 d-flex justify-content-center order-md-1 order-2">
+          <div className="col-12 col-sm-10 col-xl-6 d-flex justify-content-center order-md-1 order-2">
             <img
               className={styles.livingImg}
               src="/assets/images/others/culture9.svg"
               alt="A Living Cultural Space"
             />
           </div>
-          <div className="col-12 col-sm-10 order-md-2 order-1">
+          <div className="col-12 col-sm-10 col-xl-6 order-md-2 order-1">
             <span className={styles.livingLabel}>Our Philosophy</span>
             <h2>A Living Cultural Space</h2>
             <p className={`${styles.livingText} mt-4`}>
@@ -123,7 +123,7 @@ function CultureEvents() {
 
             <div className="row justify-content-center align-items-center g-4 g-md-5 flex-column flex-xl-row">
               {/* Text column */}
-              <div className={`col-12 col-sm-10 d-flex flex-column ${event.imageLeft ? "order-md-2" : "order-md-1"} order-2`}>
+              <div className={`col-12 col-sm-10 col-xl-6 d-flex flex-column ${event.imageLeft ? "order-md-2" : "order-md-1"} order-2`}>
                 <span
                   className={`${styles.eventLabel} ${styles[event.accentKey]}`}
                 >
@@ -149,7 +149,7 @@ function CultureEvents() {
               </div>
 
               {/* Image column */}
-              <div className={`col-12 col-sm-10 d-flex justify-content-center ${event.imageLeft ? "order-md-1" : "order-md-2"} order-1`}>
+              <div className={`col-12 col-sm-10 col-xl-6 d-flex justify-content-center ${event.imageLeft ? "order-md-1" : "order-md-2"} order-1`}>
                 <img
                   className={styles.eventImg}
                   src={event.image}
