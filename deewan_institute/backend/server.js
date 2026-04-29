@@ -28,8 +28,6 @@ app.use(
   }),
 );
 
-app.options('*', cors()); 
-
 app.use(express.json());
 
 // Multer Configuration for File Uploads (Memory Storage)
@@ -586,7 +584,9 @@ const uploadInternship = multer({
 //     res.status(500).json({ message: "Error saving application" });
 //   }
 // });
+
+
 // Start server
-// app.listen(PORT, () => {
-//   console.log(`Server running on port ${PORT}`);
-// });
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
