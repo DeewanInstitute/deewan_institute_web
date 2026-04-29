@@ -440,6 +440,19 @@ function NavBar() {
                 English
               </NavLink>
             </div>
+
+            {/* Join Our Team Column */}
+            <div className={styles.overlayColumn}>
+              <h3 className={styles.overlayTitle}>Join Our Team</h3>
+              <NavLink
+                to="/careers"
+                className={styles.overlayLink}
+                onClick={() => setIsOverlayOpen(false)}
+              >
+                French
+              </NavLink>
+              
+            </div>
           </div>
         </div>
       </div>

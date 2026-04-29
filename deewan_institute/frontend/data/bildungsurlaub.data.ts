@@ -81,4 +81,12 @@ export const germanStateCards: GermanStateCard[] = [
     description: 'For more information, click the button below!',
     viewMoreLink: 'assets/pdf/bildungsurlaub/Saarland.pdf',
   },
+        {
+    id: 'Bradenburg',
+    stateName: 'Bradenburg',
+    logoSrc: '/assets/images/logos/brandenburg.webp',
+    logoAlt: 'Bradenburg Bildungsurlaub Logo',
+    description: 'For more information, click the button below!',
+    viewMoreLink: 'assets/pdf/bildungsurlaub/Brandenburg.pdf',
+  },
 ];

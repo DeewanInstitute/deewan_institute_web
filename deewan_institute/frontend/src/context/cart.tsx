@@ -5,6 +5,7 @@ import { useShop } from './shopcontext';
 import NavBar from '../components/navbar/navbar';
 import Footer from '../components/footer/footer';
 
+
 function Cart() {
     const { cart, updateQuantity, removeFromCart, totalPrice } = useShop();
     const navigate = useNavigate();
@@ -43,11 +44,11 @@ function Cart() {
                                     {item.subtitle && <h4 className={styles.bookTitle}>{item.subtitle}</h4>}
                                     <div className={`d-flex flex-row justify-content-center align-items-center mt-3 ${styles.counter}`}>
                                         <button className={styles.qtyBtn} onClick={() => updateQuantity(item.id, -1)}>
-                                            <img src="/assets/images/icons/minus.svg" alt="Minus" />
+                                            <img src="/assets/images/icons/minusbutton.png" alt="Minus" />
                                         </button>
                                         <p className={styles.quantity}>{item.quantity}</p>
                                         <button className={styles.qtyBtn} onClick={() => updateQuantity(item.id, 1)}>
-                                            <img src="/assets/images/icons/plus.svg" alt="Plus" />
+                                            <img src="/assets/images/icons/plusbutton.png" alt="Plus" />
                                         </button>
                                     </div>
                                 </div>
