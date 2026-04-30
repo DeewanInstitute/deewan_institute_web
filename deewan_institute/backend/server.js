@@ -22,9 +22,9 @@ app.use(
       "https://69f1a656175d2ffc865aba71--deewanweb.netlify.app",
       "https://deewanweb.netlify.app/",
     ],
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
   }),
 );
 
@@ -71,17 +71,7 @@ app.post("/api/career", upload.single("cv"), async (req, res) => {
     if (!file) {
       return res.status(400).json({ message: "CV file is required" });
     }
-    // Logo Path
-    const logoPath = path.join(
-      __dirname,
-      "..",
-      "frontend",
-      "public",
-      "assets",
-      "images",
-      "logos",
-      "LogoDeewan.webp",
-    );
+   
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
@@ -112,7 +102,7 @@ app.post("/api/career", upload.single("cv"), async (req, res) => {
       attachments: [
         {
           filename: "LogoDeewan.webp",
-          path: logoPath,
+          path: "https://deewaninstitute.com/assets/images/logos/LogoDeewan.webp",
           cid: "deewanlogo",
         },
         {
@@ -176,17 +166,8 @@ app.post("/api/contact", async (req, res) => {
       attachments: [
         {
           filename: "LogoDeewan.webp",
-          path: path.join(
-            __dirname,
-            "..",
-            "frontend",
-            "public",
-            "assets",
-            "images",
-            "logos",
-            "LogoDeewan.webp",
-          ),
-          cid: "deewanlogo", // must match src="cid:deewanlogo"
+          path: "https://deewaninstitute.com/assets/images/logos/LogoDeewan.webp",
+          cid: "deewanlogo",
         },
       ],
     };
@@ -332,16 +313,7 @@ app.post("/api/checkout", async (req, res) => {
       attachments: [
         {
           filename: "LogoDeewan.webp",
-          path: require("path").join(
-            __dirname,
-            "..",
-            "frontend",
-            "public",
-            "assets",
-            "images",
-            "logos",
-            "LogoDeewan.webp",
-          ),
+          path: "https://deewaninstitute.com/assets/images/logos/LogoDeewan.webp",
           cid: "deewanlogo",
         },
       ],
@@ -411,16 +383,7 @@ app.post("/api/checkout", async (req, res) => {
       attachments: [
         {
           filename: "LogoDeewan.webp",
-          path: require("path").join(
-            __dirname,
-            "..",
-            "frontend",
-            "public",
-            "assets",
-            "images",
-            "logos",
-            "LogoDeewan.webp",
-          ),
+          path: "https://deewaninstitute.com/assets/images/logos/LogoDeewan.webp",
           cid: "deewanlogo",
         },
       ],
@@ -472,8 +435,11 @@ app.post("/api/internship", uploadInternship, async (req, res) => {
 
     const parsed = {};
     for (const key in raw) {
-      try { parsed[key] = JSON.parse(raw[key]); }
-      catch { parsed[key] = raw[key]; }
+      try {
+        parsed[key] = JSON.parse(raw[key]);
+      } catch {
+        parsed[key] = raw[key];
+      }
     }
 
     parsed.documents = {
@@ -487,34 +453,58 @@ app.post("/api/internship", uploadInternship, async (req, res) => {
     // 1. Generate and upload PDF
     const pdfBuffer = await generatePDF(parsed);
     const pdfFile = bucket.file(`internships/${id}/application.pdf`);
-    await pdfFile.save(pdfBuffer, { metadata: { contentType: "application/pdf" } });
-    const [pdfUrl] = await pdfFile.getSignedUrl({ action: "read", expires: "03-01-2030" });
+    await pdfFile.save(pdfBuffer, {
+      metadata: { contentType: "application/pdf" },
+    });
+    const [pdfUrl] = await pdfFile.getSignedUrl({
+      action: "read",
+      expires: "03-01-2030",
+    });
 
     // 2. Upload attached files
     const uploadFile = async (file, name) => {
       if (!file) return null;
       const fileRef = bucket.file(`internships/${id}/${name}`);
-      await fileRef.save(file.buffer, { metadata: { contentType: file.mimetype } });
-      const [url] = await fileRef.getSignedUrl({ action: "read", expires: "03-01-2030" });
+      await fileRef.save(file.buffer, {
+        metadata: { contentType: file.mimetype },
+      });
+      const [url] = await fileRef.getSignedUrl({
+        action: "read",
+        expires: "03-01-2030",
+      });
       return url;
     };
 
     const cvUrl = await uploadFile(files.cv?.[0], "cv.pdf");
-    const motivationUrl = await uploadFile(files.motivationLetter?.[0], "motivation.pdf");
+    const motivationUrl = await uploadFile(
+      files.motivationLetter?.[0],
+      "motivation.pdf",
+    );
     const portfolioFile = files.portfolio?.[0];
     const portfolioExt = portfolioFile?.originalname?.split(".").pop();
-    const portfolioUrl = await uploadFile(portfolioFile, `portfolio.${portfolioExt || "file"}`);
+    const portfolioUrl = await uploadFile(
+      portfolioFile,
+      `portfolio.${portfolioExt || "file"}`,
+    );
 
     // 3. Save to Firestore
-    await db.collection("internships").doc(id).set({
-      ...parsed,
-      files: { cv: cvUrl, motivationLetter: motivationUrl, portfolio: portfolioUrl, pdf: pdfUrl },
-      createdAt: new Date(),
-    });
+    await db
+      .collection("internships")
+      .doc(id)
+      .set({
+        ...parsed,
+        files: {
+          cv: cvUrl,
+          motivationLetter: motivationUrl,
+          portfolio: portfolioUrl,
+          pdf: pdfUrl,
+        },
+        createdAt: new Date(),
+      });
 
     const applicantEmail = parsed.personal?.email;
     const applicantName = parsed.personal?.fullName || "Applicant";
-    const logoPath = path.join(__dirname, "..", "frontend", "public", "assets", "images", "logos", "LogoDeewan.webp");
+    
 
     // 4. Email to applicant
     if (applicantEmail) {
@@ -540,7 +530,13 @@ app.post("/api/internship", uploadInternship, async (req, res) => {
             </p>
           </div>
         `,
-        attachments: [{ filename: "LogoDeewan.webp", path: logoPath, cid: "deewanlogo" }],
+        attachments: [
+          {
+            filename: "LogoDeewan.webp",
+            path: "https://deewaninstitute.com/assets/images/logos/LogoDeewan.webp",
+            cid: "deewanlogo",
+          },
+        ],
       });
     }
 
@@ -573,17 +569,25 @@ app.post("/api/internship", uploadInternship, async (req, res) => {
           </p>
         </div>
       `,
-      attachments: [{ filename: "LogoDeewan.webp", path: logoPath, cid: "deewanlogo" }],
+      attachments: [
+        {
+          filename: "LogoDeewan.webp",
+          path: "https://deewaninstitute.com/assets/images/logos/LogoDeewan.webp",
+          cid: "deewanlogo",
+        },
+      ],
     });
 
     // 6. Respond after everything succeeds
     res.status(200).json({ message: "Application submitted successfully" });
-
-
   } catch (err) {
     console.error("Internship error:", err);
     res.status(500).json({ message: "Error saving application" });
   }
+});
+
+app.get("/api/health", (req, res) => {
+  res.status(200).json({ status: "Server is running!" });
 });
 
 // Start server
