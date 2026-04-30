@@ -7,29 +7,44 @@ import ForeignCircles from "../../components/foreigncircles/foreigncircles";
 import Courses from "../../components/courses/courses";
 import TermsModal from "../../components/terms/terms";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations";
-import { showLoader, hideLoader } from '../../../hooks/loader';
+import { showLoader, hideLoader } from "../../../hooks/loader";
 import "bootstrap";
 import "../../style/animation.scss";
 import style from "./home.module.scss";
 
-
 function Home() {
-
   const [showTerms, setShowTerms] = useState<boolean>(false);
 
-  // ✅ Only show modal if user hasn't accepted before
   useEffect(() => {
-    const hasAccepted = localStorage.getItem("termsAccepted");
-    if (!hasAccepted) {
-      setShowTerms(true);
-    }
     showLoader();
-    // Simulate fetching data
-    setTimeout(() => hideLoader(), 2000);
+
+    // Get all images on page
+    const images = document.querySelectorAll("img");
+    let loadedImages = 0;
+
+    const checkAllLoaded = () => {
+      loadedImages++;
+      if (loadedImages >= images.length) {
+        hideLoader();
+      }
+    };
+
+    images.forEach((img) => {
+      if (img.complete) {
+        checkAllLoaded();
+      } else {
+        img.addEventListener("load", checkAllLoaded);
+        img.addEventListener("error", checkAllLoaded); // Hide even if error
+      }
+    });
+
+    // Fallback
+    const timeout = setTimeout(() => hideLoader(), 5000);
+
+    return () => clearTimeout(timeout);
   }, []);
 
   const handleAccept = (): void => {
-    // ✅ Save to localStorage so it doesn't show again
     localStorage.setItem("termsAccepted", "true");
     setShowTerms(false);
   };
@@ -46,15 +61,9 @@ function Home() {
   useScrollAnimation();
 
   return (
-
-    
     <Fragment>
-
-       {showTerms && (
-        <TermsModal
-          onAccept={handleAccept}
-          onDecline={handleDecline}
-        />
+      {showTerms && (
+        <TermsModal onAccept={handleAccept} onDecline={handleDecline} />
       )}
 
       {/* Navigation Bar */}
@@ -122,14 +131,14 @@ function Home() {
               </div>
             </div>
           </div>
-          </div>
-          {/* <!-- Second Slide --> */}
-          {/* <div className="carousel-item active" id={style.carouselItem2}>
+        </div>
+        {/* <!-- Second Slide --> */}
+        {/* <div className="carousel-item active" id={style.carouselItem2}>
             <div className="container-fluid d-flex align-items-end h-100">
               <div className="row w-100" id={style.secondRow}>
                 <div className="col-lg-6 d-flex flex-column align-items-start justify-content-center scroll-section slide-in-right"> */}
-                  {/* <!-- Right column --> */}
-                  {/* <div
+        {/* <!-- Right column --> */}
+        {/* <div
                     className="d-flex flex-column"
                     id={style.secondContainer}
                   >
@@ -227,7 +236,10 @@ function Home() {
 
       {/*Habibi Section*/}
       <section id={style.habibiSection}>
-        <div className="row featurette align-items-center justify-content-center mx-auto" id={style.row}>
+        <div
+          className="row featurette align-items-center justify-content-center mx-auto"
+          id={style.row}
+        >
           {/* Text column — order-md-1 so it sits LEFT on desktop */}
           <div className="col-lg-6 col-lg-8 col-xl-6 col-xl-6 order-md-1 pr-2 d-flex flex-column gap-2">
             <h2
