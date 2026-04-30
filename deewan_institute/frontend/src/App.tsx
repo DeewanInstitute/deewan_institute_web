@@ -1,4 +1,13 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  useLocation,
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  BrowserRouter,
+} from "react-router-dom";
+import { useEffect } from "react";
+import { showLoader, hideLoader } from "../hooks/loader";
+import Loader from "./components/loader/loader.tsx";
 import Home from "./pages/home/home.tsx";
 import About from "./pages/about/about.tsx";
 import Contact from "./pages/contact/contact.tsx";
@@ -28,10 +37,19 @@ import BildungsurlaubPage from "./pages/bildungsurlaub/bildungsurlaub.tsx";
 import NotFound from "./pages/404_page/error.tsx";
 import Careers from "./pages/careers/careers.tsx";
 import InternshipForm from "./pages/internship/internshipform.tsx";
+// ✅ Create a separate component that uses useLocation
+function AppContent() {
+  const location = useLocation();
 
-function App() {
+  useEffect(() => {
+    showLoader();
+    const timer = setTimeout(hideLoader, 500);
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
+
   return (
-    <Router>
+    <>
+      <Loader />
       <Routes>
         {/* Standard Pages */}
         <Route path="/" element={<Home />} />
@@ -101,12 +119,19 @@ function App() {
         {/* Internship */}
         <Route path="/internship" element={<InternshipForm />} />
 
-
         {/* 404 Route - must be last */}
         <Route path="/404" element={<NotFound />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </Router>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
   );
 }
 

@@ -7,6 +7,7 @@ import ForeignCircles from "../../components/foreigncircles/foreigncircles";
 import Courses from "../../components/courses/courses";
 import TermsModal from "../../components/terms/terms";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations";
+import { showLoader, hideLoader } from '../../../hooks/loader';
 import "bootstrap";
 import "../../style/animation.scss";
 import style from "./home.module.scss";
@@ -22,6 +23,9 @@ function Home() {
     if (!hasAccepted) {
       setShowTerms(true);
     }
+    showLoader();
+    // Simulate fetching data
+    setTimeout(() => hideLoader(), 2000);
   }, []);
 
   const handleAccept = (): void => {
