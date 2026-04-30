@@ -18,7 +18,7 @@ app.use(
     origin: [
       "https://deewaninstitute.com",
       "https://www.deewaninstitute.com",
-      "http://deewaninstitutewebsite.netlify.app",
+      "https://deewaninstitutewebsite.netlify.app",
       "https://69f1a656175d2ffc865aba71--deewanweb.netlify.app",
       "https://deewanweb.netlify.app/",
     ],
