@@ -1,18 +1,39 @@
-const express = require("express"); // Web framework for Node.js
-const nodemailer = require("nodemailer"); // Sending emails
-const multer = require("multer"); //Handling file uploads
-const cors = require("cors"); //Allows frontend to talk to backend
-const path = require("path"); // For handling file paths
-require("dotenv").config(); //Loads .env variables
+const express = require("express");
+const multer = require("multer");
+const cors = require("cors");
+const path = require("path");
+require("dotenv").config();
 
+const { Resend } = require("resend");
 const { db, bucket } = require("./firebase");
 const generatePDF = require("./generateInternshipPDF");
 const { v4: uuidv4 } = require("uuid");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Middleware
+// ─── Helpers ────────────────────────────────────────────────────────────────
+
+const LOGO_URL =
+  "https://deewaninstitute.com/assets/images/logos/LogoDeewan.webp";
+
+// Wraps the logo as an inline <img> tag (no CID needed with Resend)
+const logoHtml = `
+  <div style="text-align: center; padding: 20px 0;">
+    <img src="${LOGO_URL}" alt="Deewan Institute Logo" style="width: 65%;" />
+  </div>
+`;
+
+const footer = `
+  <div style="text-align: center; padding: 20px 0; color: #888; font-size: 12px;">
+    <p>Deewan Institute for Languages and Cultural Studies</p>
+    <p>Al - Baouneyah St. 14, Amman 11191</p>
+  </div>
+`;
+
+// ─── Middleware ──────────────────────────────────────────────────────────────
+
 app.use(
   cors({
     origin: [
@@ -20,7 +41,7 @@ app.use(
       "https://www.deewaninstitute.com",
       "https://deewaninstitutewebsite.netlify.app",
       "https://69f1a656175d2ffc865aba71--deewanweb.netlify.app",
-      "https://deewanweb.netlify.app/",
+      "https://deewanweb.netlify.app",
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
@@ -30,11 +51,11 @@ app.use(
 
 app.use(express.json());
 
-// Multer Configuration for File Uploads (Memory Storage)
-const storage = multer.memoryStorage();
+// ─── Multer: Career CV ───────────────────────────────────────────────────────
+
 const upload = multer({
-  storage: storage,
-  limits: { fileSize: 10 * 1024 * 1024 }, // 10MB limit
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 10 * 1024 * 1024 },
   fileFilter: (req, file, cb) => {
     if (file.mimetype === "application/pdf") {
       cb(null, true);
@@ -44,42 +65,50 @@ const upload = multer({
   },
 });
 
-// Nodemailer transporter
-// With this:
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
+// ─── Multer: Internship Files ────────────────────────────────────────────────
+
+const uploadInternship = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 10 * 1024 * 1024 },
+  fileFilter: (req, file, cb) => {
+    const allowed = [
+      "application/pdf",
+      "application/zip",
+      "application/x-zip-compressed",
+    ];
+    if (allowed.includes(file.mimetype)) {
+      cb(null, true);
+    } else {
+      cb(new Error("Only PDF or ZIP files are allowed"), false);
+    }
   },
-});
-// CAREER FORM ENDPOINT
+}).fields([
+  { name: "cv", maxCount: 1 },
+  { name: "motivationLetter", maxCount: 1 },
+  { name: "portfolio", maxCount: 1 },
+]);
+
+// ─── CAREER ENDPOINT ─────────────────────────────────────────────────────────
+
 app.post("/api/career", upload.single("cv"), async (req, res) => {
   try {
     const { firstName, lastName, email, phoneNumber, position } = req.body;
     const file = req.file;
 
-    // Validation
     if (!firstName || !lastName || !email || !phoneNumber || !position) {
       return res.status(400).json({ message: "All fields are required" });
     }
     if (!file) {
       return res.status(400).json({ message: "CV file is required" });
     }
-   
 
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: [process.env.RECEIVER_EMAIL_4, process.env.RECEIVER_EMAIL_5], // HR Emails
+    await resend.emails.send({
+      from: "Deewan Institute <app@deewaninstitute.com>",
+      to: [process.env.RECEIVER_EMAIL_4, process.env.RECEIVER_EMAIL_5],
       subject: `Career Application: ${position} - ${firstName} ${lastName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto;">
-          <!-- Logo -->
-          <div style="text-align: center; padding: 20px 0;">
-            <img src="cid:deewanlogo" alt="Deewan Institute Logo" style="width: 65%;" />
-          </div>
+          ${logoHtml}
           <hr/>
           <h2>New Career Application</h2>
           <hr/>
@@ -90,27 +119,18 @@ app.post("/api/career", upload.single("cv"), async (req, res) => {
           <hr/>
           <p><strong>Attached CV:</strong> ${file.originalname}</p>
           <hr/>
-          <div style="text-align: center; padding: 20px 0; color: #888; font-size: 12px;">
-            <p>Deewan Institute for Languages and Cultural Studies</p>
-            <p>Al - Baouneyah St. 14, Amman 11191</p>
-          </div>
+          ${footer}
         </div>
       `,
       attachments: [
         {
-          filename: "LogoDeewan.webp",
-          path: "https://deewaninstitute.com/assets/images/logos/LogoDeewan.webp",
-          cid: "deewanlogo",
-        },
-        {
           filename: file.originalname,
-          content: file.buffer,
-          contentType: file.mimetype,
+          content: file.buffer.toString("base64"),
+          content_type: file.mimetype,
         },
       ],
-    };
+    });
 
-    await transporter.sendMail(mailOptions);
     res.status(200).json({ message: "Application sent successfully!" });
   } catch (error) {
     console.error("Career Form Error:", error);
@@ -118,70 +138,43 @@ app.post("/api/career", upload.single("cv"), async (req, res) => {
   }
 });
 
-// Contact form endpoint
+// ─── CONTACT ENDPOINT ────────────────────────────────────────────────────────
+
 app.post("/api/contact", async (req, res) => {
   try {
     const { fullName, email, phoneNumber, message } = req.body;
 
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
+    await resend.emails.send({
+      from: "Deewan Institute <app@deewaninstitute.com>",
       to: [process.env.RECEIVER_EMAIL_2, process.env.RECEIVER_EMAIL_4],
       subject: `Deewan Website: Message from ${fullName}`,
       html: `
-    <div style="font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto;">
-      
-      <!-- Logo using cid (Content ID) -->
-      <div style="text-align: center; padding: 20px 0;">
-        <img 
-          src="cid:deewanlogo" 
-          alt="Deewan Institute Logo" 
-          style="width: 65%;"
-        />
-      </div>
-
-      <hr/>
-
-      <h2>Deewan Website Message</h2>
-      <hr/>
-      <p><strong>Name:</strong> ${fullName}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Phone:</strong> ${phoneNumber}</p>
-      <hr/>
-      <p><strong>Inquiry:</strong></p>
-      <p>${message}</p>
-
-      <hr/>
-      <div style="text-align: center; padding: 20px 0; color: #888; font-size: 12px;">
-        <p>Deewan Institute for Languages and Cultural Studies</p>
-        <p>Al - Baouneyah St. 14, Amman 11191</p>
-      </div>
-
-    </div>
-  `,
-
-      // ✅ Attach the logo as an embedded image
-      attachments: [
-        {
-          filename: "LogoDeewan.webp",
-          path: "https://deewaninstitute.com/assets/images/logos/LogoDeewan.webp",
-          cid: "deewanlogo",
-        },
-      ],
-    };
-
-    await transporter.sendMail(mailOptions);
-    res.status(200).json({
-      message: "Message sent successfully!",
+        <div style="font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto;">
+          ${logoHtml}
+          <hr/>
+          <h2>Deewan Website Message</h2>
+          <hr/>
+          <p><strong>Name:</strong> ${fullName}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Phone:</strong> ${phoneNumber}</p>
+          <hr/>
+          <p><strong>Inquiry:</strong></p>
+          <p>${message}</p>
+          <hr/>
+          ${footer}
+        </div>
+      `,
     });
+
+    res.status(200).json({ message: "Message sent successfully!" });
   } catch (error) {
-    console.error("Error:", error);
-    res.status(500).json({
-      message: "Error sending message.",
-    });
+    console.error("Contact Form Error:", error);
+    res.status(500).json({ message: "Error sending message." });
   }
 });
 
-// Checkout form endpoint
+// ─── CHECKOUT ENDPOINT ───────────────────────────────────────────────────────
+
 app.post("/api/checkout", async (req, res) => {
   try {
     const {
@@ -197,7 +190,6 @@ app.post("/api/checkout", async (req, res) => {
 
     const DELIVERY_FEE = 3;
 
-    // ✅ Payment method message
     const paymentInstructions = {
       cash: `
         <div style="background-color: #fff8e1; padding: 15px; border-radius: 8px; margin-top: 10px;">
@@ -219,9 +211,7 @@ app.post("/api/checkout", async (req, res) => {
         <div style="background-color: #e3f2fd; padding: 15px; border-radius: 8px; margin-top: 10px;">
           <h3 style="color: #1565c0;">💳 PayPal Payment</h3>
           <p>Please send the payment via PayPal using this link:</p>
-          <a href="https://www.paypal.com/paypalme/DeewanInstitute" target="_blank">
-  Pay via PayPal
-</a>
+          <a href="https://www.paypal.com/paypalme/DeewanInstitute" target="_blank">Pay via PayPal</a>
           <p><strong>Amount:</strong> ${totalPrice + DELIVERY_FEE} JOD</p>
           <p>Please send a screenshot of the payment to confirm your order.</p>
         </div>
@@ -230,200 +220,103 @@ app.post("/api/checkout", async (req, res) => {
 
     const selectedPaymentInstruction = paymentInstructions[paymentMethod] || "";
 
-    // ✅ Cart items HTML
     const cartItemsHtml = cart
       .map(
         (item) => `
-      <tr>
-        <td style="padding: 8px; border-bottom: 1px solid #eee;">${item.title} ${item.subtitle || ""}</td>
-        <td style="padding: 8px; border-bottom: 1px solid #eee; text-align: center;">${item.quantity}</td>
-        <td style="padding: 8px; border-bottom: 1px solid #eee; text-align: right;">${(item.price || 0) * item.quantity} JOD</td>
-      </tr>
-    `,
+        <tr>
+          <td style="padding: 8px; border-bottom: 1px solid #eee;">${item.title} ${item.subtitle || ""}</td>
+          <td style="padding: 8px; border-bottom: 1px solid #eee; text-align: center;">${item.quantity}</td>
+          <td style="padding: 8px; border-bottom: 1px solid #eee; text-align: right;">${(item.price || 0) * item.quantity} JOD</td>
+        </tr>
+      `,
       )
       .join("");
 
-    // ✅ Email to Customer
-    const customerMailOptions = {
-      from: process.env.EMAIL_USER,
-      to: email,
-      subject: `Deewan Institute - Book Order Confirmation`,
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">      
-          <!-- Logo -->
-          <div style="text-align: center; padding: 20px 0;">
-            <img src="cid:deewanlogo" alt="Deewan Institute" style="width: 50%;" />
-          </div>
+    const orderTable = `
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr style="background-color: #f5f5f5;">
+            <th style="padding: 8px; text-align: left;">Item</th>
+            <th style="padding: 8px; text-align: center;">Quantity</th>
+            <th style="padding: 8px; text-align: right;">Price</th>
+          </tr>
+        </thead>
+        <tbody>${cartItemsHtml}</tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2" style="padding: 8px; text-align: right;"><strong>Subtotal:</strong></td>
+            <td style="padding: 8px; text-align: right;">${totalPrice} JOD</td>
+          </tr>
+          <tr>
+            <td colspan="2" style="padding: 8px; text-align: right;"><strong>Delivery:</strong></td>
+            <td style="padding: 8px; text-align: right;">${DELIVERY_FEE} JOD</td>
+          </tr>
+          <tr style="background-color: #f5f5f5;">
+            <td colspan="2" style="padding: 8px; text-align: right;"><strong>Total:</strong></td>
+            <td style="padding: 8px; text-align: right;"><strong>${totalPrice + DELIVERY_FEE} JOD</strong></td>
+          </tr>
+        </tfoot>
+      </table>
+    `;
 
+    // Email to customer
+    await resend.emails.send({
+      from: "Deewan Institute <app@deewaninstitute.com>",
+      to: email,
+      subject: "Deewan Institute - Book Order Confirmation",
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          ${logoHtml}
           <hr/>
           <h2>Thank you for your order, ${firstName}!</h2>
           <p>Here is a summary of your order:</p>
-
-          <!-- Order Details -->
           <h3>Order Summary:</h3>
-          <table style="width: 100%; border-collapse: collapse;">
-            <thead>
-              <tr style="background-color: #f5f5f5;">
-                <th style="padding: 8px; text-align: left;">Item</th>
-                <th style="padding: 8px; text-align: center;">Quantity</th>
-                <th style="padding: 8px; text-align: right;">Price</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${cartItemsHtml}
-            </tbody>
-            <tfoot>
-              <tr>
-                <td colspan="2" style="padding: 8px; text-align: right;"><strong>Subtotal:</strong></td>
-                <td style="padding: 8px; text-align: right;">${totalPrice} JOD</td>
-              </tr>
-              <tr>
-                <td colspan="2" style="padding: 8px; text-align: right;"><strong>Delivery:</strong></td>
-                <td style="padding: 8px; text-align: right;">${DELIVERY_FEE} JOD</td>
-              </tr>
-              <tr style="background-color: #f5f5f5;">
-                <td colspan="2" style="padding: 8px; text-align: right;"><strong>Total:</strong></td>
-                <td style="padding: 8px; text-align: right;"><strong>${totalPrice + DELIVERY_FEE} JOD</strong></td>
-              </tr>
-            </tfoot>
-          </table>
-
-          <!-- Shipping Details -->
+          ${orderTable}
           <h3>Shipping Details:</h3>
           <p><strong>Name:</strong> ${firstName} ${lastName}</p>
           <p><strong>Address:</strong> ${address}</p>
           <p><strong>Region:</strong> ${region}</p>
-
-          <!-- Payment Instructions based on method -->
           <h3>Payment Instructions:</h3>
-          
           ${selectedPaymentInstruction}
-
           <hr/>
-          <div style="text-align: center; padding: 20px 0; color: #888; font-size: 12px;">
-            <p>Deewan Institute for Languages and Cultural Studies</p>
-            <p>Al - Baouneyah St. 14, Amman 11191</p>
-          </div>
-
+          ${footer}
         </div>
       `,
-      attachments: [
-        {
-          filename: "LogoDeewan.webp",
-          path: "https://deewaninstitute.com/assets/images/logos/LogoDeewan.webp",
-          cid: "deewanlogo",
-        },
-      ],
-    };
+    });
 
-    // ✅ Email to Admin
-    const adminMailOptions = {
-      from: process.env.EMAIL_USER,
+    // Email to admin
+    await resend.emails.send({
+      from: "Deewan Institute <app@deewaninstitute.com>",
       to: [process.env.RECEIVER_EMAIL, process.env.RECEIVER_EMAIL_2],
       cc: process.env.RECEIVER_EMAIL_3,
       subject: `Deewan Website: New Book Order from ${firstName} ${lastName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto;">
-
-          <!-- Logo -->
-          <div style="text-align: center; padding: 20px 0;">
-            <img src="cid:deewanlogo" alt="Deewan Institute" style="width: 50%;" />
-          </div>
-
+          ${logoHtml}
           <hr/>
           <h2>New Order Received!</h2>
-
-          <!-- Customer Details -->
           <h3>Customer Details:</h3>
           <p><strong>Name:</strong> ${firstName} ${lastName}</p>
           <p><strong>Email:</strong> ${email}</p>
           <p><strong>Address:</strong> ${address}</p>
           <p><strong>Region:</strong> ${region}</p>
           <p><strong>Payment Method:</strong> ${paymentMethod.toUpperCase()}</p>
-
-          <!-- Order Details -->
           <h3>Order Summary:</h3>
-          <table style="width: 100%; border-collapse: collapse;">
-            <thead>
-              <tr style="background-color: #f5f5f5;">
-                <th style="padding: 8px; text-align: left;">Item</th>
-                <th style="padding: 8px; text-align: center;">Qty</th>
-                <th style="padding: 8px; text-align: right;">Price</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${cartItemsHtml}
-            </tbody>
-            <tfoot>
-              <tr>
-                <td colspan="2" style="padding: 8px; text-align: right;"><strong>Subtotal:</strong></td>
-                <td style="padding: 8px; text-align: right;">${totalPrice} JOD</td>
-              </tr>
-              <tr>
-                <td colspan="2" style="padding: 8px; text-align: right;"><strong>Delivery:</strong></td>
-                <td style="padding: 8px; text-align: right;">${DELIVERY_FEE} JOD</td>
-              </tr>
-              <tr style="background-color: #f5f5f5;">
-                <td colspan="2" style="padding: 8px; text-align: right;"><strong>Total:</strong></td>
-                <td style="padding: 8px; text-align: right;"><strong>${totalPrice + DELIVERY_FEE} JOD</strong></td>
-              </tr>
-            </tfoot>
-          </table>
-
+          ${orderTable}
           <hr/>
-          <div style="text-align: center; padding: 20px 0; color: #888; font-size: 12px;">
-            <p>Deewan Institute for Languages and Cultural Studies</p>
-          </div>
-
+          ${footer}
         </div>
       `,
-      attachments: [
-        {
-          filename: "LogoDeewan.webp",
-          path: "https://deewaninstitute.com/assets/images/logos/LogoDeewan.webp",
-          cid: "deewanlogo",
-        },
-      ],
-    };
-
-    // ✅ Send both emails
-    await transporter.sendMail(customerMailOptions);
-    await transporter.sendMail(adminMailOptions);
-
-    res.status(200).json({
-      message: "Order placed successfully!",
     });
+
+    res.status(200).json({ message: "Order placed successfully!" });
   } catch (error) {
-    console.error("Error:", error);
-    res.status(500).json({
-      message: "Error placing order.",
-    });
+    console.error("Checkout Error:", error);
+    res.status(500).json({ message: "Error placing order." });
   }
 });
 
-// Internship form
-
-const uploadInternship = multer({
-  storage: multer.memoryStorage(),
-  limits: { fileSize: 10 * 1024 * 1024 },
-  fileFilter: (req, file, cb) => {
-    const allowed = [
-      "application/pdf",
-      "application/zip",
-      "application/x-zip-compressed",
-    ];
-
-    if (allowed.includes(file.mimetype)) {
-      cb(null, true);
-    } else {
-      cb(new Error("Only PDF or ZIP files are allowed"), false);
-    }
-  },
-}).fields([
-  { name: "cv", maxCount: 1 },
-  { name: "motivationLetter", maxCount: 1 },
-  { name: "portfolio", maxCount: 1 },
-]);
+// ─── INTERNSHIP ENDPOINT ─────────────────────────────────────────────────────
 
 app.post("/api/internship", uploadInternship, async (req, res) => {
   try {
@@ -447,7 +340,7 @@ app.post("/api/internship", uploadInternship, async (req, res) => {
 
     const id = uuidv4();
 
-    // 1. Generate and upload PDF
+    // 1. Generate and upload application PDF
     const pdfBuffer = await generatePDF(parsed);
     const pdfFile = bucket.file(`internships/${id}/application.pdf`);
     await pdfFile.save(pdfBuffer, {
@@ -458,7 +351,7 @@ app.post("/api/internship", uploadInternship, async (req, res) => {
       expires: "03-01-2030",
     });
 
-    // 2. Upload attached files
+    // 2. Upload attached files to Firebase Storage
     const uploadFile = async (file, name) => {
       if (!file) return null;
       const fileRef = bucket.file(`internships/${id}/${name}`);
@@ -501,19 +394,16 @@ app.post("/api/internship", uploadInternship, async (req, res) => {
 
     const applicantEmail = parsed.personal?.email;
     const applicantName = parsed.personal?.fullName || "Applicant";
-    
 
     // 4. Email to applicant
     if (applicantEmail) {
-      await transporter.sendMail({
-        from: process.env.EMAIL_USER,
+      await resend.emails.send({
+        from: "Deewan Institute <app@deewaninstitute.com>",
         to: applicantEmail,
         subject: "Deewan Institute — Internship Application Received",
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <div style="text-align: center; padding: 20px 0;">
-              <img src="cid:deewanlogo" alt="Deewan Institute" style="width: 50%;" />
-            </div>
+            ${logoHtml}
             <hr/>
             <h2>Thank you for applying, ${applicantName}!</h2>
             <p>We have successfully received your internship application at Deewan Institute.</p>
@@ -522,31 +412,20 @@ app.post("/api/internship", uploadInternship, async (req, res) => {
             <br/>
             <p>We will review your application carefully and contact you by email or WhatsApp if shortlisted.</p>
             <hr/>
-            <p style="color: #888; font-size: 12px; text-align: center;">
-              Deewan Institute for Languages and Cultural Studies — Al-Baouneyah St. 14, Amman 11191
-            </p>
+            ${footer}
           </div>
         `,
-        attachments: [
-          {
-            filename: "LogoDeewan.webp",
-            path: "https://deewaninstitute.com/assets/images/logos/LogoDeewan.webp",
-            cid: "deewanlogo",
-          },
-        ],
       });
     }
 
     // 5. Email to HR
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
+    await resend.emails.send({
+      from: "Deewan Institute <app@deewaninstitute.com>",
       to: [process.env.RECEIVER_EMAIL_4, process.env.RECEIVER_EMAIL_2],
       subject: `Internship Application — ${applicantName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <div style="text-align: center; padding: 20px 0;">
-            <img src="cid:deewanlogo" alt="Deewan Institute" style="width: 50%;" />
-          </div>
+          ${logoHtml}
           <hr/>
           <h2>New Internship Application Received</h2>
           <p><strong>Name:</strong> ${applicantName}</p>
@@ -561,33 +440,26 @@ app.post("/api/internship", uploadInternship, async (req, res) => {
           ${motivationUrl ? `<p><a href="${motivationUrl}" target="_blank">View Motivation Letter</a></p>` : ""}
           ${portfolioUrl ? `<p><a href="${portfolioUrl}" target="_blank">View Portfolio</a></p>` : ""}
           <hr/>
-          <p style="color: #888; font-size: 12px; text-align: center;">
-            Deewan Institute for Languages and Cultural Studies
-          </p>
+          ${footer}
         </div>
       `,
-      attachments: [
-        {
-          filename: "LogoDeewan.webp",
-          path: "https://deewaninstitute.com/assets/images/logos/LogoDeewan.webp",
-          cid: "deewanlogo",
-        },
-      ],
     });
 
-    // 6. Respond after everything succeeds
     res.status(200).json({ message: "Application submitted successfully" });
   } catch (err) {
-    console.error("Internship error:", err);
+    console.error("Internship Error:", err);
     res.status(500).json({ message: "Error saving application" });
   }
 });
+
+// ─── HEALTH CHECK ────────────────────────────────────────────────────────────
 
 app.get("/api/health", (req, res) => {
   res.status(200).json({ status: "Server is running!" });
 });
 
-// Start server
+// ─── START ───────────────────────────────────────────────────────────────────
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
