@@ -328,6 +328,13 @@ function HomeNavBar() {
               >
                 Careers
               </NavLink>
+               <NavLink
+                to="/internship"
+                className={styles.overlayLink}
+                onClick={() => setIsOverlayOpen(false)}
+              >
+                Internships
+              </NavLink>
             </div>
           </div>
         </div>

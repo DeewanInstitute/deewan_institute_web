@@ -16,16 +16,11 @@ const PORT = process.env.PORT || 5000;
 app.use(
   cors({
     origin: [
-
-      "http://localhost:5000",
-      "http://deewaninstitutewebsite.netlify.app",
-      "https://69f1a656175d2ffc865aba71--deewanweb.netlify.app",
-
-      "http://localhost:5173",
-      "https://deewanweb.netlify.app/",
-
       "https://deewaninstitute.com",
       "https://www.deewaninstitute.com",
+      "http://deewaninstitutewebsite.netlify.app",
+      "https://69f1a656175d2ffc865aba71--deewanweb.netlify.app",
+      "https://deewanweb.netlify.app/",
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],

@@ -1000,7 +1000,7 @@ function Calculator() {
         <div className="d-flex flex-row justify-content-center my-3 scroll-section">
           <a
             className={`btn rounded-pill text-white fw-bold ${styles.coursePolicyBtn}`}
-            href="./public/assets/pdf/Course-Policy.pdf"
+            href="/assets/pdf/coursePolicy.pdf"
             target="_blank"
             rel="noreferrer"
           >
@@ -1038,7 +1038,7 @@ function Calculator() {
         <div className="d-flex flex-row justify-content-center my-4">
           <a
             className={`btn rounded-pill text-white fw-bold ${styles.paymentAgreementFormBtn}`}
-            href="./public/assets/pdf/Payment_Agreement.pdf"
+            href="assets/pdf/paymentAgreement.pdf"
             target="_blank"
             rel="noreferrer"
           >

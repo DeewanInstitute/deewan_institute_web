@@ -13,7 +13,7 @@ export const bildungsurlaubContent = {
 
 The exact regulations vary by state, but in general, employees are entitled to several days per year for further education, provided the course is approved by the relevant state authority.
 
-The Deewan Institute for Languages and Cultural Studies is officially recognized in Berlin and Lower Saxony to offer Bildungsurlaub programs. Our courses meet the required legal and quality standards in these states.
+The Deewan Institute for Languages and Cultural Studies is officially recognized in Berlin, Lower Saxony,  to offer Bildungsurlaub programs. Our courses meet the required legal and quality standards in these states.
 
 This means:
 - Employees in Berlin and Lower Saxony can apply for paid educational leave to attend our courses.
