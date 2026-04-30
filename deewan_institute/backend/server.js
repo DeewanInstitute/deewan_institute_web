@@ -54,9 +54,6 @@ const transporter = nodemailer.createTransport({
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
-  tls: {
-    rejectUnauthorized: false,
-  },
 });
 // CAREER FORM ENDPOINT
 app.post("/api/career", upload.single("cv"), async (req, res) => {
