@@ -1,9 +1,4 @@
-import {
-  useLocation,
-  Routes,
-  Route,
-  BrowserRouter,
-} from "react-router-dom";
+import { useLocation, Routes, Route, BrowserRouter } from "react-router-dom";
 import { useEffect } from "react";
 import { showLoader, hideLoader } from "../hooks/loader";
 import Loader from "./components/loader/loader.tsx";
@@ -113,6 +108,9 @@ function AppContent() {
         <Route path="/podcasts" element={<Podcasts />} />
         {/*Bildungsurlaub*/}
         <Route path="/bildungsurlaub" element={<BildungsurlaubPage />} />
+        <Route path="/bildungsurlaub-courses/" element={<BildungsurlaubPage />} />
+        <Route path="/bildungsurlaub-courses" element={<BildungsurlaubPage />} />
+
         {/*Careers*/}
         <Route path="/careers" element={<Careers />} />
         {/* Internship */}
