@@ -5,6 +5,7 @@ import styles from "./careers.module.scss";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations";
 import JobAccordin from "../../components/careers/jobaccordin";
 import CareerForm from "../../components/careers/careerform";
+import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 
 function Career() {
   console.log("API URL:", import.meta.env.VITE_API_URL); // Should show: http://localhost:5000
@@ -18,6 +19,7 @@ function Career() {
   return (
     <Fragment>
       <NavBar />
+      <FloatingActionButton />
       <main className={styles.career_page}>
 
         {/* Hero Section */}

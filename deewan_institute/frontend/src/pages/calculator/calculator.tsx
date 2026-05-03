@@ -5,6 +5,7 @@ import { useScrollAnimation } from '../../../hooks/scrollAnimations';
 import NavBar from '../../components/navbar/navbar';
 import Footer from '../../components/footer/footer';
 import html2pdf from 'html2pdf.js';
+import FloatingActionButton from '../../components/floatingbutton/floatingactionbutton';
 
 // Types
 interface Selections {
@@ -734,6 +735,7 @@ function Calculator() {
   return (
     <Fragment>
       <NavBar />
+      <FloatingActionButton />
 
       {showGroupModal && (
         <GroupClassInfoModal onClose={() => setShowGroupModal(false)} />

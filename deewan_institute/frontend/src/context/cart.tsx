@@ -4,6 +4,7 @@ import styles from './cart.module.scss';
 import { useShop } from './shopcontext';
 import NavBar from '../components/navbar/navbar';
 import Footer from '../components/footer/footer';
+import FloatingActionButton from '../components/floatingbutton/floatingactionbutton';
 
 
 function Cart() {
@@ -14,6 +15,7 @@ function Cart() {
     return (
         <Fragment>
             <NavBar />
+            <FloatingActionButton />
             <section className={`${styles.cart} py-3 mt-2 mb-5`}>
                 <div className={styles.title}>
                     <h2>Your Cart</h2>

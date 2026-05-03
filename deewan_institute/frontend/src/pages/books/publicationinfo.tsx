@@ -12,6 +12,7 @@ import NavBar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 import PublicationInfoLayout, { type BookDetail } from "../../layout/bookslayout/publicationinfolayout";
 import styles from "./publicationinfo.module.scss";
+import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 
 function getAllBooks(): BookDetail[] {
   const books: BookDetail[] = [
@@ -136,6 +137,7 @@ function PublicationInfo() {
   return (
     <Fragment>
       <NavBar />
+      <FloatingActionButton />
       <PublicationInfoLayout
         book={book}
         similar={similar}

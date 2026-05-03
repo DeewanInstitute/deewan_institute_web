@@ -5,6 +5,7 @@ import { useShop } from "./shopcontext";
 import { useScrollAnimation } from "../../hooks/scrollAnimations";
 import NavBar from "../components/navbar/navbar";
 import Footer from "../components/footer/footer";
+import FloatingActionButton from "../components/floatingbutton/floatingactionbutton";
 
 function Wishlist() {
   useScrollAnimation();
@@ -23,6 +24,7 @@ function Wishlist() {
   return (
     <Fragment>
       <NavBar />
+      <FloatingActionButton />
       <section className={`${styles.wishlist} py-3 mt-2 mb-5`}>
         {/* ── Title ── */}
         <div className={styles.titleWrapper}>

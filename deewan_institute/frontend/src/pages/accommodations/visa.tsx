@@ -5,6 +5,7 @@ import Footer from "../../components/footer/footer";
 import visaData from "../../../data/visa.ts";
 import BottomBanner from "../../components/bottombanner/bottombanner.tsx";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations.ts";
+import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton.tsx";
 
 function Visa() {
   useEffect(() => {
@@ -17,6 +18,7 @@ function Visa() {
     <Fragment>
       {/* NavBar */}
       <NavBar />
+      <FloatingActionButton />
       {/* Accommodation Layout */}
       <AccommodationLayout data={visaData} />
       {/* BottomBanner */}

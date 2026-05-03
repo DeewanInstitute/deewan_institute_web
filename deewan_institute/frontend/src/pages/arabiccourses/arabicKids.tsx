@@ -9,6 +9,7 @@ import style from '../arabiccourses/arabic.module.scss';
 import '../../style/animation.scss';
 import 'bootstrap';
 import BottomBanner from "../../components/bottombanner/bottombanner";
+import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 
 function ArabicKids() {
     useEffect(() => {
@@ -21,6 +22,7 @@ function ArabicKids() {
         <Fragment>
             {/* NavBar */}
             <NavBar />
+            <FloatingActionButton />
             
             {/* Banner */}
             <ShadowBanner 

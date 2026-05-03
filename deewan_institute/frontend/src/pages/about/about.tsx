@@ -9,6 +9,7 @@ import "../../style/animation.scss";
 import "bootstrap";
 import style from "./about.module.scss";
 import YouTubeSlider from "../../components/youtubeslider/youtubeslider";
+import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 
 function About() {
   useEffect(() => {
@@ -20,6 +21,7 @@ function About() {
   return (
     <Fragment>
       <NavBar />
+      <FloatingActionButton />
       <main className={`${style.aboutpage}`}>
         {/* Banner Image */}
         <section

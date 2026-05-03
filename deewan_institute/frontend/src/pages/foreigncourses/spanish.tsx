@@ -6,6 +6,7 @@ import ForeignLayout from "../../layout/foreignlayout/layout";
 import { useScrollAnimation } from '../../../hooks/scrollAnimations';
 import '../../style/animation.scss';
 import 'bootstrap'
+import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 
 
 function Spanish() {
@@ -19,6 +20,7 @@ function Spanish() {
 
     return (
         <Fragment>
+            <FloatingActionButton />
             {/* Navbar */}
             <NavBar />
             {/* Main Layout */}

@@ -9,6 +9,7 @@ import { useScrollAnimation } from "../../../hooks/scrollAnimations";
 import style from "./arabic.module.scss";
 import "../../style/animation.scss";
 import "bootstrap";
+import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 
 function ArabiTalk() {
   useEffect(() => {
@@ -21,6 +22,7 @@ function ArabiTalk() {
     <Fragment>
       {/* NavBar */}
       <NavBar />
+      <FloatingActionButton />
       {/* Banner */}
       <ShadowBanner
         data={{

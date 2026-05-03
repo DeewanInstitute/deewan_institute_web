@@ -7,6 +7,7 @@ import courseData from "../../../data/arabicCourses"
 import { useScrollAnimation } from '../../../hooks/scrollAnimations';
 import '../../style/animation.scss';
 import "bootstrap"
+import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 
 function ArabicCourses() {
 
@@ -21,6 +22,7 @@ function ArabicCourses() {
         <Fragment>
             {/* Navbar */}
             <NavBar />
+            <FloatingActionButton />
             {/* Banner */}
             <Banner data={{
                 title: "Arabic Courses",

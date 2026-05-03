@@ -23,6 +23,7 @@ import {
   type InternshipFormState,
 } from "../../../data/internship.data";
 import Banner from "../../components/banner/banner";
+import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -439,6 +440,8 @@ function InternshipForm() {
   return (
     <Fragment>
       <NavBar />
+        <FloatingActionButton />
+
       <Banner
         data={{
           title: "Internship Application",
