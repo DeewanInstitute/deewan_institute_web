@@ -31,6 +31,7 @@ import BildungsurlaubPage from "./pages/bildungsurlaub/bildungsurlaub.tsx";
 import NotFound from "./pages/404_page/error.tsx";
 import Careers from "./pages/careers/careers.tsx";
 import InternshipForm from "./pages/internship/internshipform.tsx";
+import Newsletter from "./pages/newsletter/newsletter.tsx";
 // ✅ Create a separate component that uses useLocation
 function AppContent() {
   const location = useLocation();
@@ -115,7 +116,8 @@ function AppContent() {
         <Route path="/careers" element={<Careers />} />
         {/* Internship */}
         <Route path="/internship" element={<InternshipForm />} />
-
+        {/* Newsletter */}
+        <Route path="/newsletter" element={<Newsletter />} />
         {/* 404 Route - must be last */}
         <Route path="/404" element={<NotFound />} />
         <Route path="*" element={<NotFound />} />

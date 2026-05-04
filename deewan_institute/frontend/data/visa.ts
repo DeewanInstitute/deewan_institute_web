@@ -19,7 +19,7 @@ export const visaData: VisaData = {
   subtitle: "Visa Support Services",
   header: "What We Offer",
   description:
-    "Deewan provides full support with visa applications and extensions to ensure your stay in Jordan is smooth and stress-free. Our team guides you through every step of the process, accompanies you to the relevant authorities, and arranges transportation when needed. All required assistance is included, so your visa is handled efficiently and with care.",
+    "Deewan provides support with visa applications and extensions to ensure your stay in Jordan is smooth and stress-free. Our team guides you through every step of the process, accompanies you to the relevant authorities, and arranges transportation when needed. All required assistance is included, so your visa is handled efficiently and with care.",
   listDescription: "What's included:",
   list: [
     " Guidance through visa applications and extensions.",

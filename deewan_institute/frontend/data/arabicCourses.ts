@@ -103,7 +103,7 @@ export const courseData : arabicCourse = {
         {
             arabicTitle: "برنامج ديوان الصيفي المكثف",
             title: "DEEWAN INTENSIVE SUMMER PROGRAM",
-            description: "Deewan's Intensive Summer Program is a rigorous language learning program that helps students improve their Arabic skills noticably. With focus on all aspects of the language, including grammar, vocabulary, reading, writing, and conversation, this program is taught by experienced instructors using interactive teaching methods. Different study plans are available, and students of all levels can benefit from the program to accelerate their Arabic learning and deepen their cultural understanding."
+            description: "Deewan's Intensive Summer and Fall Program is a rigorous language learning program that helps students improve their Arabic skills noticably. With focus on all aspects of the language, including grammar, vocabulary, reading, writing, and conversation, this program is taught by experienced instructors using interactive teaching methods. Different study plans are available, and students of all levels can benefit from the program to accelerate their Arabic learning and deepen their cultural understanding."
         },
     ]
 

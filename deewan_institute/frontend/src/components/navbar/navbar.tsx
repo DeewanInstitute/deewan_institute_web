@@ -4,8 +4,69 @@ import { NavLink, useLocation } from "react-router-dom";
 import { useShop } from "../../context/shopcontext";
 import { useState } from "react";
 import { RiMenu3Line } from "react-icons/ri";
+import { RiArrowDownSLine } from "react-icons/ri";
 
 const SHOP_ROUTES = ["/publications", "/wishlist", "/cart"];
+
+const overlayColumns = [
+  {
+    id: "arabic",
+    title: "Arabic Language & Culture",
+    links: [
+      { label: "Arabic Courses", to: "/arabic-courses" },
+      { label: "Arabic Calculator Price", to: "/calculator" },
+      { label: "Arabi Talk", to: "/arabic-courses/arabi-talk" },
+      { label: "Intensive Summer and Fall Program", to: "/arabic-courses/intensive-program" },
+      { label: "Bildungsurlaub Courses", to: "/bildungsurlaub" },
+      { label: "Culture Events", to: "/cultureEvents" },
+    ],
+  },
+  {
+    id: "middle-east",
+    title: "Middle Eastern Studies",
+    links: [
+      { label: "History of the Middle East", to: "/middle-eastern-studies/history-of-the-middle-east" },
+      { label: "Modern History of the Middle East", to: "/middle-eastern-studies/modern-history-of-the-middle-east" },
+      { label: "The Zionist Project in Palestine", to: "/middle-eastern-studies/the-zionist-project-in-palestine" },
+      { label: "People of the Middle East", to: "/middle-eastern-studies/people-of-the-middle-east" },
+    ],
+  },
+  {
+    id: "library",
+    title: "Deewan Library",
+    links: [
+      { label: "Publications", to: "/publications" },
+      { label: "Podcasts", to: "/podcasts" },
+    ],
+  },
+  {
+    id: "accommodation",
+    title: "Accommodation",
+    links: [
+      { label: "Trips", to: "/accommodation-and-student-services/trips" },
+      { label: "Visa", to: "/accommodation-and-student-services/visa" },
+    ],
+  },
+  {
+    id: "languages",
+    title: "Foreign Languages",
+    links: [
+      { label: "French", to: "/foreign-languages/french-course" },
+      { label: "German", to: "/foreign-languages/german-course" },
+      { label: "Spanish", to: "/foreign-languages/spanish-course" },
+      { label: "English", to: "/foreign-languages/english-course" },
+    ],
+  },
+  {
+    id: "team",
+    title: "Join Our Team",
+    links: [
+      { label: "Careers", to: "/careers" },
+      { label: "Internships", to: "/internship" },
+    ],
+  },
+    
+];
 
 function NavBar() {
   const { wishlistCount, cartCount } = useShop();
@@ -16,6 +77,16 @@ function NavBar() {
     pathname.startsWith("/publications/");
 
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
+  const toggleDropdown = (id: string) => {
+    setOpenDropdown((prev) => (prev === id ? null : id));
+  };
+
+  const closeAll = () => {
+    setIsOverlayOpen(false);
+    setOpenDropdown(null);
+  };
 
   return (
     <>
@@ -23,9 +94,7 @@ function NavBar() {
       <nav className={`navbar navbar-expand-xl`} id={styles.navBar} style={{ backgroundColor: "transparent" }}>
         <div className="container">
           {/* ── Mobile Header (max 767px) ── */}
-          <div
-            className={`d-flex d-md-none justify-content-between align-items-center w-100 ${styles.mobileHeader}`}
-          >
+          <div className={`d-flex d-md-none justify-content-between align-items-center w-100 ${styles.mobileHeader}`}>
             <NavLink className="navbar-brand mb-0" to="/">
               <img
                 src="/assets/images/logos/horizontalLogo.png"
@@ -35,131 +104,63 @@ function NavBar() {
             </NavLink>
 
             <div className={styles.mobileRightGroup}>
-              {/* Shop Icons on Mobile */}
               {showShopIcons && (
                 <div className={styles.shopIconsInline}>
-                  <NavLink
-                    className="position-relative"
-                    to="/wishlist"
-                    aria-label="Wishlist"
-                  >
-                    <img
-                      src="/assets/images/icons/heart_brown.png"
-                      alt="Wishlist"
-                      id={styles.wishlistIcon}
-                    />
-                    {wishlistCount > 0 && (
-                      <span className={styles.badge}>{wishlistCount}</span>
-                    )}
+                  <NavLink className="position-relative" to="/wishlist" aria-label="Wishlist">
+                    <img src="/assets/images/icons/heart_brown.png" alt="Wishlist" id={styles.wishlistIcon} />
+                    {wishlistCount > 0 && <span className={styles.badge}>{wishlistCount}</span>}
                   </NavLink>
-
-                  <NavLink
-                    className="position-relative"
-                    to="/cart"
-                    aria-label="Cart"
-                  >
-                    <img
-                      src="/assets/images/icons/cart_brown.png"
-                      alt="Cart"
-                      id={styles.cartIcon}
-                    />
-                    {cartCount > 0 && (
-                      <span className={styles.badge}>{cartCount}</span>
-                    )}
+                  <NavLink className="position-relative" to="/cart" aria-label="Cart">
+                    <img src="/assets/images/icons/cart_brown.png" alt="Cart" id={styles.cartIcon} />
+                    {cartCount > 0 && <span className={styles.badge}>{cartCount}</span>}
                   </NavLink>
                 </div>
               )}
-
-              <button
-                className={styles.toggler}
-                onClick={() => setIsOverlayOpen(true)}
-                aria-label="Open menu"
-              >
+              <button className={styles.toggler} onClick={() => setIsOverlayOpen(true)} aria-label="Open menu">
                 <RiMenu3Line className={styles.togglerIcon} />
               </button>
             </div>
           </div>
 
-          {/* ── Tablet Header (768px - 1024px) ── */}
-
-          <div
-            className={`d-none d-md-flex d-xl-none align-items-center w-100 ${styles.tabletHeader}`}
-          >
-            {/* Invisible spacer to balance the toggler */}
+          {/* ── Tablet Header (768px - 1279px) ── */}
+          <div className={`d-none d-md-flex d-xl-none align-items-center w-100 ${styles.tabletHeader}`}>
             <div className={styles.tabletSpacer} />
-
-            {/* Centered Logo */}
-            <NavLink
-              className={`navbar-brand mb-0 ${styles.tabletLogo}`}
-              to="/"
-            >
+            <NavLink className={`navbar-brand mb-0 ${styles.tabletLogo}`} to="/">
               <img
                 src="/assets/images/logos/horizontalLogo.png"
                 alt="Deewan Institute Logo"
                 id={styles.mainLogo}
               />
             </NavLink>
-
-            {/* Right side: shop icons + toggler */}
             <div className={styles.mobileRightGroup}>
               {showShopIcons && (
                 <div className={styles.shopIconsInline}>
-                  <NavLink
-                    className="position-relative"
-                    to="/wishlist"
-                    aria-label="Wishlist"
-                  >
-                    <img
-                      src="/assets/images/icons/heart_brown.png"
-                      alt="Wishlist"
-                      id={styles.wishlistIcon}
-                    />
-                    {wishlistCount > 0 && (
-                      <span className={styles.badge}>{wishlistCount}</span>
-                    )}
+                  <NavLink className="position-relative" to="/wishlist" aria-label="Wishlist">
+                    <img src="/assets/images/icons/heart_brown.png" alt="Wishlist" id={styles.wishlistIcon} />
+                    {wishlistCount > 0 && <span className={styles.badge}>{wishlistCount}</span>}
                   </NavLink>
-
-                  <NavLink
-                    className="position-relative"
-                    to="/cart"
-                    aria-label="Cart"
-                  >
-                    <img
-                      src="/assets/images/icons/cart_brown.png"
-                      alt="Cart"
-                      id={styles.cartIcon}
-                    />
-                    {cartCount > 0 && (
-                      <span className={styles.badge}>{cartCount}</span>
-                    )}
+                  <NavLink className="position-relative" to="/cart" aria-label="Cart">
+                    <img src="/assets/images/icons/cart_brown.png" alt="Cart" id={styles.cartIcon} />
+                    {cartCount > 0 && <span className={styles.badge}>{cartCount}</span>}
                   </NavLink>
                 </div>
               )}
-
-              <button
-                className={styles.toggler}
-                onClick={() => setIsOverlayOpen(true)}
-                aria-label="Open menu"
-              >
+              <button className={styles.toggler} onClick={() => setIsOverlayOpen(true)} aria-label="Open menu">
                 <RiMenu3Line className={styles.togglerIcon} />
               </button>
             </div>
           </div>
 
-          {/* ── Desktop Menu (1025px+) ── */}
+          {/* ── Desktop Menu (1280px+) ── */}
           <div className="collapse navbar-collapse d-none d-xl-flex justify-content-center align-items-center w-100">
             {/* Left Group */}
             <div className={`${styles.border} p-2`}>
               <ul className="navbar-nav" id={styles.navbarNav}>
                 <li className="nav-item" id={styles.navitem}>
-                  <NavLink className="nav-link" to="/">
-                    Home
-                  </NavLink>
+                  <NavLink className="nav-link" to="/">Home</NavLink>
                 </li>
                 <li className="nav-item" id={styles.navitem}>
-                  <NavLink className="nav-link" to="/about">
-                    About Us
-                  </NavLink>
+                  <NavLink className="nav-link" to="/about">About Us</NavLink>
                 </li>
               </ul>
             </div>
@@ -185,46 +186,22 @@ function NavBar() {
                   </button>
                 </li>
                 <li className="nav-item" id={styles.navitem}>
-                  <NavLink className="nav-link" to="/contact">
-                    Contact Us
-                  </NavLink>
+                  <NavLink className="nav-link" to="/contact">Contact Us</NavLink>
                 </li>
               </ul>
             </div>
+            
 
-            {/* ── Shop Icons Desktop (inside nav, right side) ── */}
+            {/* Shop Icons Desktop */}
             {showShopIcons && (
-              <div
-                className={`d-flex align-items-center ${styles.shopIconsDesktop}`}
-              >
-                {" "}
-                <NavLink
-                  className="position-relative"
-                  to="/wishlist"
-                  aria-label="Wishlist"
-                >
-                  <img
-                    src="/assets/images/icons/heart_brown.png"
-                    alt="Wishlist"
-                    id={styles.wishlistIcon}
-                  />
-                  {wishlistCount > 0 && (
-                    <span className={styles.badge}>{wishlistCount}</span>
-                  )}
+              <div className={`d-flex align-items-center ${styles.shopIconsDesktop}`}>
+                <NavLink className="position-relative" to="/wishlist" aria-label="Wishlist">
+                  <img src="/assets/images/icons/heart_brown.png" alt="Wishlist" id={styles.wishlistIcon} />
+                  {wishlistCount > 0 && <span className={styles.badge}>{wishlistCount}</span>}
                 </NavLink>
-                <NavLink
-                  className="position-relative"
-                  to="/cart"
-                  aria-label="Cart"
-                >
-                  <img
-                    src="/assets/images/icons/cart_brown.png"
-                    alt="Cart"
-                    id={styles.cartIcon}
-                  />
-                  {cartCount > 0 && (
-                    <span className={styles.badge}>{cartCount}</span>
-                  )}
+                <NavLink className="position-relative" to="/cart" aria-label="Cart">
+                  <img src="/assets/images/icons/cart_brown.png" alt="Cart" id={styles.cartIcon} />
+                  {cartCount > 0 && <span className={styles.badge}>{cartCount}</span>}
                 </NavLink>
               </div>
             )}
@@ -235,24 +212,17 @@ function NavBar() {
       {/* ── Backdrop ── */}
       <div
         className={`${styles.backdrop} ${isOverlayOpen ? styles.backdropOpen : ""}`}
-        onClick={() => setIsOverlayOpen(false)}
+        onClick={closeAll}
       />
 
       {/* ── Overlay ── */}
-      <div
-        className={`${styles.overlay} ${isOverlayOpen ? styles.overlayOpen : ""}`}
-      >
+      <div className={`${styles.overlay} ${isOverlayOpen ? styles.overlayOpen : ""}`}>
         <div className={styles.overlayInner}>
           {/* Close Button */}
-          <button
-            className={styles.closeBtn}
-            onClick={() => setIsOverlayOpen(false)}
-          >
-            ✕
-          </button>
+          <button className={styles.closeBtn} onClick={closeAll}>✕</button>
 
           {/* Logo */}
-          <NavLink to="/" onClick={() => setIsOverlayOpen(false)}>
+          <NavLink to="/" onClick={closeAll}>
             <img
               src="/assets/images/logos/nobgLogo.webp"
               alt="Deewan Institute Logo"
@@ -262,203 +232,91 @@ function NavBar() {
 
           {/* ── Links ── */}
           <div className={styles.overlayLinks}>
-            {/* Mobile + Tablet Nav Links */}
+
+            {/* ── Mobile + Tablet: flat links ── */}
             <div className={`d-xl-none ${styles.mobileLinks}`}>
-              <NavLink
-                to="/"
-                className={styles.overlayLink}
-                onClick={() => setIsOverlayOpen(false)}
-              >
-                Home
-              </NavLink>
-              <NavLink
-                to="/about"
-                className={styles.overlayLink}
-                onClick={() => setIsOverlayOpen(false)}
-              >
-                About Us
-              </NavLink>
-              <NavLink
-                to="/contact"
-                className={styles.overlayLink}
-                onClick={() => setIsOverlayOpen(false)}
-              >
-                Contact Us
-              </NavLink>
+              <NavLink to="/" className={styles.overlayLink} onClick={closeAll}>Home</NavLink>
+              <NavLink to="/about" className={styles.overlayLink} onClick={closeAll}>About Us</NavLink>
+              <NavLink to="/contact" className={styles.overlayLink} onClick={closeAll}>Contact Us</NavLink>
+              <NavLink to="/newsletter" className={styles.overlayLink} onClick={closeAll}>Newsletter</NavLink>
+
               <div className={styles.divider} />
             </div>
 
-            {/* Courses Column */}
-            <div className={styles.overlayColumn}>
-              <h3 className={styles.overlayTitle}>
-                Arabic Language and Culture
-              </h3>
-              <NavLink
-                to="/arabic-courses"
-                className={styles.overlayLink}
-                onClick={() => setIsOverlayOpen(false)}
-              >
-                Arabic Courses
-              </NavLink>
-              <NavLink
-                to="/calculator"
-                className={styles.overlayLink}
-                onClick={() => setIsOverlayOpen(false)}
-              >
-                Arabic Calculator Price
-              </NavLink>
-              <NavLink
-                to="/arabic-courses/arabi-talk"
-                className={styles.overlayLink}
-                onClick={() => setIsOverlayOpen(false)}
-              >
-                Arabi Talk
-              </NavLink>
-              <NavLink
-                to="/arabic-courses/intensive-program"
-                className={styles.overlayLink}
-                onClick={() => setIsOverlayOpen(false)}
-              >
-                Intensive Summer and Fall Program
-              </NavLink>
-              <NavLink
-                to="/bildungsurlaub"
-                className={styles.overlayLink}
-                onClick={() => setIsOverlayOpen(false)}
-              >
-                Bildungsurlaub Courses
-              </NavLink>
-              <NavLink
-                to="/cultureEvents"
-                className={styles.overlayLink}
-                onClick={() => setIsOverlayOpen(false)}
-              >
-                Culture Events
-              </NavLink>
+            {/* ── Mobile + Tablet: columns flat (unchanged) ── */}
+            <div className={`d-xl-none ${styles.mobileColumnsWrap}`}>
+              {overlayColumns.map((col) => (
+                <div key={col.id} className={styles.overlayColumn}>
+                  <h3 className={styles.overlayTitle}>{col.title}</h3>
+                  {col.links.map((link) => (
+                    <NavLink key={link.to} to={link.to} className={styles.overlayLink} onClick={closeAll}>
+                      {link.label}
+                    </NavLink>
+                  ))
+                  }
+                  
+                </div>
+                
+              ))}
+
             </div>
 
-            {/* History Column */}
-            <div className={styles.overlayColumn}>
-              <h3 className={styles.overlayTitle}>Middle Eastern Studies</h3>
-              <NavLink
-                to="/middle-eastern-studies/history-of-the-middle-east"
-                className={styles.overlayLink}
-                onClick={() => setIsOverlayOpen(false)}
-              >
-                History of the Middle East
-              </NavLink>
-              <NavLink
-                to="/middle-eastern-studies/modern-history-of-the-middle-east"
-                className={styles.overlayLink}
-                onClick={() => setIsOverlayOpen(false)}
-              >
-                Modern History of the Middle East
-              </NavLink>
-              <NavLink
-                to="/middle-eastern-studies/the-zionist-project-in-palestine"
-                className={styles.overlayLink}
-                onClick={() => setIsOverlayOpen(false)}
-              >
-                The Zionist Project in Palestine
-              </NavLink>
-              <NavLink
-                to="/middle-eastern-studies/people-of-the-middle-east"
-                className={styles.overlayLink}
-                onClick={() => setIsOverlayOpen(false)}
-              >
-                People of the Middle East
-              </NavLink>
+            {/* ── Desktop only: dropdown accordion columns ── */}
+            <div className={`d-none d-xl-flex ${styles.desktopDropdownsWrap}`}>
+              {overlayColumns.map((col) => (
+                <div
+                  key={col.id}
+                  className={`${styles.desktopDropdown} ${openDropdown === col.id ? styles.desktopDropdownOpen : ""}`}
+                >
+                  <button
+                    className={styles.desktopDropdownTrigger}
+                    onClick={() => toggleDropdown(col.id)}
+                    aria-expanded={openDropdown === col.id}
+                  >
+                    <span>{col.title}</span>
+                    <RiArrowDownSLine
+                      className={`${styles.dropdownChevron} ${openDropdown === col.id ? styles.dropdownChevronOpen : ""}`}
+                    />
+                  </button>
+
+                  <div className={styles.desktopDropdownPanel}>
+                    {col.links.map((link) => (
+                      <NavLink key={link.to} to={link.to} className={styles.desktopDropdownLink} onClick={closeAll}>
+                        {link.label}
+                      </NavLink>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
 
-            {/* Deewan Library Column */}
-            <div className={styles.overlayColumn}>
-              <h3 className={styles.overlayTitle}>Deewan Library</h3>
-              <NavLink
-                to="/publications"
-                className={styles.overlayLink}
-                onClick={() => setIsOverlayOpen(false)}
-              >
-                Publications
-              </NavLink>
-              <NavLink
-                to="/podcasts"
-                className={styles.overlayLink}
-                onClick={() => setIsOverlayOpen(false)}
-              >
-                Podcasts
-              </NavLink>
-            </div>
+            {/* ── Desktop only: Newsletter Card ── */}
+            <NavLink
+              to="/newsletter"
+              className={`d-none d-xl-flex ${styles.newsletterCard}`}
+              onClick={closeAll}
+              aria-label="newsletter"
+            >
+              <div className={styles.newsletterCardInner}>
+                <img
+                  src="/assets/images/others/news.png"
+                  alt="Deewan Newsletter"
+                  className={styles.newsletterCardImg}
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = "none";
+                  }}
+                />
+                <div className={styles.newsletterCardOverlay}>
+                  <div className={styles.newsletterCardBadge}>Newsletter</div>
+                  <p className={styles.newsletterCardTitle}>Stay in the know</p>
+                  <p className={styles.newsletterCardSub}>
+                    Arabic culture, events & stories and more.
+                  </p>
+                  <span className={styles.newsletterCardCta}>See More →</span>
+                </div>
+              </div>
+            </NavLink>
 
-            {/* Accommodation Column */}
-            <div className={styles.overlayColumn}>
-              <h3 className={styles.overlayTitle}>Accommodation</h3>
-              <NavLink
-                to="/accommodation-and-student-services/trips"
-                className={styles.overlayLink}
-                onClick={() => setIsOverlayOpen(false)}
-              >
-                Trips
-              </NavLink>
-              <NavLink
-                to="/accommodation-and-student-services/visa"
-                className={styles.overlayLink}
-                onClick={() => setIsOverlayOpen(false)}
-              >
-                Visa
-              </NavLink>
-            </div>
-
-            {/* Foreign Language Column */}
-            <div className={styles.overlayColumn}>
-              <h3 className={styles.overlayTitle}>Foreign Languages</h3>
-              <NavLink
-                to="/foreign-languages/french-course"
-                className={styles.overlayLink}
-                onClick={() => setIsOverlayOpen(false)}
-              >
-                French
-              </NavLink>
-              <NavLink
-                to="/foreign-languages/german-course"
-                className={styles.overlayLink}
-                onClick={() => setIsOverlayOpen(false)}
-              >
-                German
-              </NavLink>
-              <NavLink
-                to="/foreign-languages/spanish-course"
-                className={styles.overlayLink}
-                onClick={() => setIsOverlayOpen(false)}
-              >
-                Spanish
-              </NavLink>
-              <NavLink
-                to="/foreign-languages/english-course"
-                className={styles.overlayLink}
-                onClick={() => setIsOverlayOpen(false)}
-              >
-                English
-              </NavLink>
-            </div>
-
-            {/* Join Our Team Column */}
-            <div className={styles.overlayColumn}>
-              <h3 className={styles.overlayTitle}>Join Our Team</h3>
-              <NavLink
-                to="/careers"
-                className={styles.overlayLink}
-                onClick={() => setIsOverlayOpen(false)}
-              >
-                Careers
-              </NavLink>
-               <NavLink
-                to="/internship"
-                className={styles.overlayLink}
-                onClick={() => setIsOverlayOpen(false)}
-              >
-                Internships
-              </NavLink>
-            </div>
           </div>
         </div>
       </div>
