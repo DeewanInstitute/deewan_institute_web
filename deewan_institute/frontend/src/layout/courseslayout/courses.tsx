@@ -38,7 +38,7 @@ function Courses({ data }: { data: arabicCourse }) {
                     purchasing any of our Course Packages. Explore Deewan’s Arabic Courses!</h5>
 
                 {/* First Row */}
-                <div className="row d-flex flex-row flex-wrap  scroll-section" id={styles.firstRow}>
+                <div className="row d-flex flex-row flex-nowrap  scroll-section" id={styles.firstRow}>
                     {data.courses.slice(0, 3).map((course, index) => (
                         <div key={index} className={`${styles.courseItem} mx-1 col-12 col-md-4 col-lg-3`}>
                             <div className={`${styles.front} d-flex flex-column justify-content-center align-items-center`}>
@@ -66,7 +66,7 @@ function Courses({ data }: { data: arabicCourse }) {
                     ))}
                 </div>
                 {/* Second Row */}
-                <div className="d-flex flex-row flex-wrap mt-5 scroll-section" id={styles.secondRow}>
+                <div className="d-flex flex-row flex-nowrap mt-5 scroll-section" id={styles.secondRow}>
                     {data.courses.slice(3, 6).map((course, index) => (
                         <div key={index} className={`${styles.courseItem} mx-1 col-12 col-md-4 col-lg-3`}>
                             <div className={`${styles.front} d-flex flex-column justify-content-center align-items-center`}>
@@ -84,7 +84,7 @@ function Courses({ data }: { data: arabicCourse }) {
                     ))}
                 </div>
                 {/* Third Row */}
-                <div className="d-flex flex-row flex-wrap mt-5 scroll-section" id={styles.thirdRow}>
+                <div className="d-flex flex-row flex-nowrap mt-5 scroll-section" id={styles.thirdRow}>
                     {data.courses.slice(6, 9).map((course, index) => (
                         <div key={index} className={`${styles.courseItem} mx-1 col-12 col-md-4 col-lg-3`}>
                             <div className={`${styles.front} d-flex flex-column justify-content-center align-items-center`}>
