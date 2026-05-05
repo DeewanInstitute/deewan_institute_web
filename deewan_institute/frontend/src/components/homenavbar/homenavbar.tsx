@@ -16,7 +16,15 @@ const overlayColumns = [
       { label: "Arabic Courses", to: "/arabic-courses" },
       { label: "Arabic Calculator Price", to: "/calculator" },
       { label: "Arabi Talk", to: "/arabic-courses/arabi-talk" },
-      { label: "Intensive Summer and Fall Program", to: "/arabic-courses/intensive-program" },
+      {
+        label: (
+          <>
+            Intensive Summer <br />
+            and Fall Program
+          </>
+        ),
+        to: "/arabic-courses/intensive-program",
+      },
       { label: "Bildungsurlaub Courses", to: "/bildungsurlaub" },
       { label: "Culture Events", to: "/cultureEvents" },
     ],
@@ -25,10 +33,37 @@ const overlayColumns = [
     id: "middle-east",
     title: "Middle Eastern Studies",
     links: [
-      { label: "History of the Middle East", to: "/middle-eastern-studies/history-of-the-middle-east" },
-      { label: "Modern History of the Middle East", to: "/middle-eastern-studies/modern-history-of-the-middle-east" },
-      { label: "The Zionist Project in Palestine", to: "/middle-eastern-studies/the-zionist-project-in-palestine" },
-      { label: "People of the Middle East", to: "/middle-eastern-studies/people-of-the-middle-east" },
+      {
+        label: (
+          <>
+            History of the <br />
+            Middle East{" "}
+          </>
+        ),
+        to: "/middle-eastern-studies/history-of-the-middle-east",
+      },
+      {
+        label: (
+          <>
+            Modern History of <br />
+            the Middle East
+          </>
+        ),
+        to: "/middle-eastern-studies/modern-history-of-the-middle-east",
+      },
+      {
+        label: (
+          <>
+            The Zionist Project
+            <br /> in Palestine
+          </>
+        ),
+        to: "/middle-eastern-studies/the-zionist-project-in-palestine",
+      },
+      {
+        label: "People of the Middle East",
+        to: "/middle-eastern-studies/people-of-the-middle-east",
+      },
     ],
   },
   {
@@ -65,7 +100,6 @@ const overlayColumns = [
       { label: "Internships", to: "/internship" },
     ],
   },
-    
 ];
 
 function HomeNavBar() {
@@ -79,7 +113,6 @@ function HomeNavBar() {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
-
   const toggleDropdown = (id: string) => {
     setOpenDropdown((prev) => (prev === id ? null : id));
   };
@@ -92,10 +125,16 @@ function HomeNavBar() {
   return (
     <>
       {/* ── Navbar ── */}
-      <nav className={`navbar navbar-expand-xl`} id={styles.navBar} style={{ backgroundColor: "transparent" }}>
+      <nav
+        className={`navbar navbar-expand-xl`}
+        id={styles.navBar}
+        style={{ backgroundColor: "transparent" }}
+      >
         <div className="container">
           {/* ── Mobile Header (max 767px) ── */}
-          <div className={`d-flex d-md-none justify-content-between align-items-center w-100 ${styles.mobileHeader}`}>
+          <div
+            className={`d-flex d-md-none justify-content-between align-items-center w-100 ${styles.mobileHeader}`}
+          >
             <NavLink className="navbar-brand mb-0" to="/">
               <img
                 src="/assets/images/logos/horizontalLogo.png"
@@ -107,26 +146,55 @@ function HomeNavBar() {
             <div className={styles.mobileRightGroup}>
               {showShopIcons && (
                 <div className={styles.shopIconsInline}>
-                  <NavLink className="position-relative" to="/wishlist" aria-label="Wishlist">
-                    <img src="/assets/images/icons/heart_brown.png" alt="Wishlist" id={styles.wishlistIcon} />
-                    {wishlistCount > 0 && <span className={styles.badge}>{wishlistCount}</span>}
+                  <NavLink
+                    className="position-relative"
+                    to="/wishlist"
+                    aria-label="Wishlist"
+                  >
+                    <img
+                      src="/assets/images/icons/heart_brown.png"
+                      alt="Wishlist"
+                      id={styles.wishlistIcon}
+                    />
+                    {wishlistCount > 0 && (
+                      <span className={styles.badge}>{wishlistCount}</span>
+                    )}
                   </NavLink>
-                  <NavLink className="position-relative" to="/cart" aria-label="Cart">
-                    <img src="/assets/images/icons/cart_brown.png" alt="Cart" id={styles.cartIcon} />
-                    {cartCount > 0 && <span className={styles.badge}>{cartCount}</span>}
+                  <NavLink
+                    className="position-relative"
+                    to="/cart"
+                    aria-label="Cart"
+                  >
+                    <img
+                      src="/assets/images/icons/cart_brown.png"
+                      alt="Cart"
+                      id={styles.cartIcon}
+                    />
+                    {cartCount > 0 && (
+                      <span className={styles.badge}>{cartCount}</span>
+                    )}
                   </NavLink>
                 </div>
               )}
-              <button className={styles.toggler} onClick={() => setIsOverlayOpen(true)} aria-label="Open menu">
+              <button
+                className={styles.toggler}
+                onClick={() => setIsOverlayOpen(true)}
+                aria-label="Open menu"
+              >
                 <RiMenu3Line className={styles.togglerIcon} />
               </button>
             </div>
           </div>
 
           {/* ── Tablet Header (768px - 1279px) ── */}
-          <div className={`d-none d-md-flex d-xl-none align-items-center w-100 ${styles.tabletHeader}`}>
+          <div
+            className={`d-none d-md-flex d-xl-none align-items-center w-100 ${styles.tabletHeader}`}
+          >
             <div className={styles.tabletSpacer} />
-            <NavLink className={`navbar-brand mb-0 ${styles.tabletLogo}`} to="/">
+            <NavLink
+              className={`navbar-brand mb-0 ${styles.tabletLogo}`}
+              to="/"
+            >
               <img
                 src="/assets/images/logos/horizontalLogo.png"
                 alt="Deewan Institute Logo"
@@ -136,17 +204,41 @@ function HomeNavBar() {
             <div className={styles.mobileRightGroup}>
               {showShopIcons && (
                 <div className={styles.shopIconsInline}>
-                  <NavLink className="position-relative" to="/wishlist" aria-label="Wishlist">
-                    <img src="/assets/images/icons/heart_brown.png" alt="Wishlist" id={styles.wishlistIcon} />
-                    {wishlistCount > 0 && <span className={styles.badge}>{wishlistCount}</span>}
+                  <NavLink
+                    className="position-relative"
+                    to="/wishlist"
+                    aria-label="Wishlist"
+                  >
+                    <img
+                      src="/assets/images/icons/heart_brown.png"
+                      alt="Wishlist"
+                      id={styles.wishlistIcon}
+                    />
+                    {wishlistCount > 0 && (
+                      <span className={styles.badge}>{wishlistCount}</span>
+                    )}
                   </NavLink>
-                  <NavLink className="position-relative" to="/cart" aria-label="Cart">
-                    <img src="/assets/images/icons/cart_brown.png" alt="Cart" id={styles.cartIcon} />
-                    {cartCount > 0 && <span className={styles.badge}>{cartCount}</span>}
+                  <NavLink
+                    className="position-relative"
+                    to="/cart"
+                    aria-label="Cart"
+                  >
+                    <img
+                      src="/assets/images/icons/cart_brown.png"
+                      alt="Cart"
+                      id={styles.cartIcon}
+                    />
+                    {cartCount > 0 && (
+                      <span className={styles.badge}>{cartCount}</span>
+                    )}
                   </NavLink>
                 </div>
               )}
-              <button className={styles.toggler} onClick={() => setIsOverlayOpen(true)} aria-label="Open menu">
+              <button
+                className={styles.toggler}
+                onClick={() => setIsOverlayOpen(true)}
+                aria-label="Open menu"
+              >
                 <RiMenu3Line className={styles.togglerIcon} />
               </button>
             </div>
@@ -158,10 +250,14 @@ function HomeNavBar() {
             <div className={`${styles.border} p-2`}>
               <ul className="navbar-nav" id={styles.navbarNav}>
                 <li className="nav-item" id={styles.navitem}>
-                  <NavLink className="nav-link" to="/">Home</NavLink>
+                  <NavLink className="nav-link" to="/">
+                    Home
+                  </NavLink>
                 </li>
                 <li className="nav-item" id={styles.navitem}>
-                  <NavLink className="nav-link" to="/about">About Us</NavLink>
+                  <NavLink className="nav-link" to="/about">
+                    About Us
+                  </NavLink>
                 </li>
               </ul>
             </div>
@@ -187,22 +283,45 @@ function HomeNavBar() {
                   </button>
                 </li>
                 <li className="nav-item" id={styles.navitem}>
-                  <NavLink className="nav-link" to="/contact">Contact Us</NavLink>
+                  <NavLink className="nav-link" to="/contact">
+                    Contact Us
+                  </NavLink>
                 </li>
               </ul>
             </div>
-            
 
             {/* Shop Icons Desktop */}
             {showShopIcons && (
-              <div className={`d-flex align-items-center ${styles.shopIconsDesktop}`}>
-                <NavLink className="position-relative" to="/wishlist" aria-label="Wishlist">
-                  <img src="/assets/images/icons/heart_brown.png" alt="Wishlist" id={styles.wishlistIcon} />
-                  {wishlistCount > 0 && <span className={styles.badge}>{wishlistCount}</span>}
+              <div
+                className={`d-flex align-items-center ${styles.shopIconsDesktop}`}
+              >
+                <NavLink
+                  className="position-relative"
+                  to="/wishlist"
+                  aria-label="Wishlist"
+                >
+                  <img
+                    src="/assets/images/icons/heart_brown.png"
+                    alt="Wishlist"
+                    id={styles.wishlistIcon}
+                  />
+                  {wishlistCount > 0 && (
+                    <span className={styles.badge}>{wishlistCount}</span>
+                  )}
                 </NavLink>
-                <NavLink className="position-relative" to="/cart" aria-label="Cart">
-                  <img src="/assets/images/icons/cart_brown.png" alt="Cart" id={styles.cartIcon} />
-                  {cartCount > 0 && <span className={styles.badge}>{cartCount}</span>}
+                <NavLink
+                  className="position-relative"
+                  to="/cart"
+                  aria-label="Cart"
+                >
+                  <img
+                    src="/assets/images/icons/cart_brown.png"
+                    alt="Cart"
+                    id={styles.cartIcon}
+                  />
+                  {cartCount > 0 && (
+                    <span className={styles.badge}>{cartCount}</span>
+                  )}
                 </NavLink>
               </div>
             )}
@@ -217,10 +336,14 @@ function HomeNavBar() {
       />
 
       {/* ── Overlay ── */}
-      <div className={`${styles.overlay} ${isOverlayOpen ? styles.overlayOpen : ""}`}>
+      <div
+        className={`${styles.overlay} ${isOverlayOpen ? styles.overlayOpen : ""}`}
+      >
         <div className={styles.overlayInner}>
           {/* Close Button */}
-          <button className={styles.closeBtn} onClick={closeAll}>✕</button>
+          <button className={styles.closeBtn} onClick={closeAll}>
+            ✕
+          </button>
 
           {/* Logo */}
           <NavLink to="/" onClick={closeAll}>
@@ -233,13 +356,32 @@ function HomeNavBar() {
 
           {/* ── Links ── */}
           <div className={styles.overlayLinks}>
-
             {/* ── Mobile + Tablet: flat links ── */}
             <div className={`d-xl-none ${styles.mobileLinks}`}>
-              <NavLink to="/" className={styles.overlayLink} onClick={closeAll}>Home</NavLink>
-              <NavLink to="/about" className={styles.overlayLink} onClick={closeAll}>About Us</NavLink>
-              <NavLink to="/contact" className={styles.overlayLink} onClick={closeAll}>Contact Us</NavLink>
-              <NavLink to="/newsletter" className={styles.overlayLink} onClick={closeAll}>Newsletter</NavLink>
+              <NavLink to="/" className={styles.overlayLink} onClick={closeAll}>
+                Home
+              </NavLink>
+              <NavLink
+                to="/about"
+                className={styles.overlayLink}
+                onClick={closeAll}
+              >
+                About Us
+              </NavLink>
+              <NavLink
+                to="/contact"
+                className={styles.overlayLink}
+                onClick={closeAll}
+              >
+                Contact Us
+              </NavLink>
+              <NavLink
+                to="/newsletter"
+                className={styles.overlayLink}
+                onClick={closeAll}
+              >
+                Newsletter
+              </NavLink>
 
               <div className={styles.divider} />
             </div>
@@ -250,16 +392,17 @@ function HomeNavBar() {
                 <div key={col.id} className={styles.overlayColumn}>
                   <h3 className={styles.overlayTitle}>{col.title}</h3>
                   {col.links.map((link) => (
-                    <NavLink key={link.to} to={link.to} className={styles.overlayLink} onClick={closeAll}>
+                    <NavLink
+                      key={link.to}
+                      to={link.to}
+                      className={styles.overlayLink}
+                      onClick={closeAll}
+                    >
                       {link.label}
                     </NavLink>
-                  ))
-                  }
-                  
+                  ))}
                 </div>
-                
               ))}
-
             </div>
 
             {/* ── Desktop only: dropdown accordion columns ── */}
@@ -282,7 +425,12 @@ function HomeNavBar() {
 
                   <div className={styles.desktopDropdownPanel}>
                     {col.links.map((link) => (
-                      <NavLink key={link.to} to={link.to} className={styles.desktopDropdownLink} onClick={closeAll}>
+                      <NavLink
+                        key={link.to}
+                        to={link.to}
+                        className={styles.desktopDropdownLink}
+                        onClick={closeAll}
+                      >
                         {link.label}
                       </NavLink>
                     ))}
@@ -317,7 +465,6 @@ function HomeNavBar() {
                 </div>
               </div>
             </NavLink>
-
           </div>
         </div>
       </div>

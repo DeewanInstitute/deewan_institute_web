@@ -408,7 +408,7 @@
   }
 
   // Non-desktop: centered large logo (unchanged)
-  width: 325px;
+  width: 294px;
   opacity: 1;
 
   @media (min-width: 768px) and (max-width: 1279px) {
@@ -743,7 +743,7 @@
   flex-direction: column;
   justify-content: flex-end;
   height: 100%;
-  min-height: 200px;
+  min-height: 315px;
   padding: 16px;
   background: linear-gradient(
     to top,
@@ -757,8 +757,8 @@
   position: absolute;
   top: 12px;
   left: 12px;
-  background: #e0b97f;
-  color: #3a2510;
+  background: $primary-color;
+  color: $cream;
   font-family: "Merriweather-Regular";
   font-size: 9px;
   font-weight: 700;
