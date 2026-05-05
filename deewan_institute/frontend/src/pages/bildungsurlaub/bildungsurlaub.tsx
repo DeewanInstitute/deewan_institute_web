@@ -6,6 +6,7 @@ import { useScrollAnimation } from "../../../hooks/scrollAnimations";
 import { germanStateCards, bildungsurlaubContent } from "../../../data/bildungsurlaub.data"; 
 import styles from "./bildungsurlaub.module.scss";
 import { FaCircleInfo } from "react-icons/fa6";
+import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 
 const BildungsurlaubPage = () => {
     useEffect(() => {
@@ -37,6 +38,7 @@ const BildungsurlaubPage = () => {
   return (
     <div className={styles.page}>
       <NavBar />
+      <FloatingActionButton />
 
       <main className={styles.main}>
         <div className={`scroll-section ${styles.section} ${styles["section--hero"]}`}>

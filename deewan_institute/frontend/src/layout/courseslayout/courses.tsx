@@ -3,6 +3,7 @@ import styles from './course.module.scss';
 import '../../style/animation.scss';
 import { useScrollAnimation } from '../../../hooks/scrollAnimations'
 import 'bootstrap';
+import FloatingActionButton from '../../components/floatingbutton/floatingactionbutton';
 
 interface arabicCourse {
     title: string,
@@ -23,6 +24,7 @@ function Courses({ data }: { data: arabicCourse }) {
 
     return (
         <Fragment>
+            <FloatingActionButton />
             {/* The Main Section */}
             <section className={`${styles.courses} pb-5`}>
                 <div className={`${styles.title} mt-5 scroll-section`}>

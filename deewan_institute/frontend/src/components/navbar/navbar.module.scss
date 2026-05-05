@@ -53,7 +53,7 @@
 // ── Tablet Header ──
 .tabletHeader {
   padding: 19px 0;
-  position: relative; // ← allows absolute positioning of children
+  position: relative;
 
   @media (min-width: 1025px) {
     display: none !important;
@@ -71,12 +71,12 @@
   transform: translateX(-50%);
 }
 
-// ── Tablet Spacer (balances the right side) ──
+// ── Tablet Spacer ──
 .tabletSpacer {
   flex: 1;
 }
 
-// ── Mobile Right Group (icons + toggler) ──
+// ── Mobile Right Group ──
 .mobileRightGroup {
   display: flex;
   align-items: center;
@@ -165,8 +165,9 @@
   }
 }
 
-// ── Logo ──
+// ── Logo — DESKTOP: smaller ──
 #mainLogo {
+  // Desktop: reduced from 160px to 110px
   width: 160px;
   margin-inline: 24px;
 
@@ -235,11 +236,25 @@
   }
 }
 
-.backdropOpen {
-  @media (max-width: 1280px) {
-    opacity: 1;
-    visibility: visible;
+// Desktop backdrop (fullscreen overlay uses its own bg)
+@media (min-width: 1281px) {
+  .backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.55);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.4s ease,
+      visibility 0.4s ease;
   }
+}
+
+.backdropOpen {
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 // ── Overlay ──
@@ -249,17 +264,25 @@
   background-color: $primary_color;
   transition: all 0.4s ease;
 
-  // ── Desktop: fullscreen ──
-  @media (min-width: 1025px) {
+  // ── Desktop: top bar panel (slides down from top) ──
+  @media (min-width: 1280px) {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    // Height auto but min enough to show content
+    height: auto;
+    min-height: 0;
+    max-height: 0;
+    overflow: hidden;
     opacity: 0;
     visibility: hidden;
+    transition:
+      max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.3s ease,
+      visibility 0.3s ease;
   }
 
-  // ── Tablet: same as mobile drawer ──
+  // ── Tablet ──
   @media (min-width: 768px) and (max-width: 1279px) {
     top: 0;
     left: 0;
@@ -291,12 +314,15 @@
 }
 
 .overlayOpen {
-  @media (min-width: 1025px) {
+  // Desktop: expand downward
+  @media (min-width: 1280px) {
+    max-height: 380px;
     opacity: 1;
     visibility: visible;
+    overflow: visible;
   }
 
-  @media (max-width: 1280px) {
+  @media (max-width: 1279px) {
     transform: translateX(0);
   }
 }
@@ -311,7 +337,17 @@
   gap: 40px;
   padding: 40px 24px;
 
-  // ── Tablet: same as mobile ──
+  // Desktop: horizontal top-bar layout
+  @media (min-width: 1280px) {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 28px 48px 32px;
+    gap: 40px;
+    height: auto;
+  }
+
+  // ── Tablet ──
   @media (min-width: 768px) and (max-width: 1279px) {
     justify-content: flex-start;
     align-items: flex-start;
@@ -335,15 +371,15 @@
 // ── Close Button ──
 .closeBtn {
   position: absolute;
-  top: 24px;
+  top: 16px;
   right: 24px;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: #fff;
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
   transition: all 0.2s ease;
   z-index: 10;
@@ -354,12 +390,21 @@
   }
 }
 
-// ── Overlay Logo ──
+// ── Overlay Logo — Desktop: smaller, left-aligned ──
 .overlayLogo {
+  // Desktop: compact logo on the left of the panel
+  @media (min-width: 1280px) {
+    width: 90px;
+    flex-shrink: 0;
+    align-self: center;
+    opacity: 0.92;
+    margin-top: 4px;
+  }
+
+  // Non-desktop: centered large logo (unchanged)
   width: 325px;
   opacity: 1;
 
-  // ── Tablet: same as mobile ──
   @media (min-width: 768px) and (max-width: 1279px) {
     width: 100%;
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
@@ -367,7 +412,6 @@
     margin-inline: auto !important;
   }
 
-  // ── Mobile ──
   @media (max-width: 767px) {
     width: 250px;
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
@@ -382,7 +426,15 @@
   align-items: flex-start;
   justify-content: center;
 
-  // ── Tablet: same as mobile (single column) ──
+  // Desktop: full-width flex row with all dropdowns + newsletter
+  @media (min-width: 1280px) {
+    flex: 1;
+    gap: 0;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  // ── Tablet ──
   @media (min-width: 768px) and (max-width: 1279px) {
     flex-direction: column;
     gap: 28px;
@@ -390,7 +442,7 @@
     width: 100%;
   }
 
-  // ── Mobile: single column ──
+  // ── Mobile ──
   @media (max-width: 767px) {
     flex-direction: column;
     gap: 28px;
@@ -399,18 +451,26 @@
   }
 }
 
-// ── Column ──
+// ── Mobile Columns Wrap (tablet + mobile only) ──
+.mobileColumnsWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+}
+
+// ── Column (tablet/mobile) ──
 .overlayColumn {
   display: flex;
   flex-direction: column;
   gap: 12px;
 
-  @media (max-width: 1280px) {
+  @media (max-width: 1279px) {
     width: 100%;
   }
 }
 
-// ── Title ──
+// ── Title (tablet/mobile) ──
 .overlayTitle {
   color: #e0b97f;
   font-family: "Merriweather-Regular";
@@ -422,7 +482,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-// ── Link ──
+// ── Link (tablet/mobile) ──
 .overlayLink {
   color: #ffffff;
   font-size: 16px;
@@ -438,7 +498,6 @@
     padding-left: 12px;
   }
 
-  // ── Tablet: same as mobile ──
   @media (min-width: 768px) and (max-width: 1279px) {
     font-size: large !important;
   }
@@ -493,4 +552,236 @@
     width: 24px;
     height: 24px;
   }
+}
+
+// ═══════════════════════════════════════════════
+// ── DESKTOP DROPDOWN SYSTEM ──
+// ═══════════════════════════════════════════════
+
+// Wrapper that holds all desktop dropdowns in a row
+.desktopDropdownsWrap {
+  display: flex;
+  align-items: stretch;
+  flex: 1;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+// Each dropdown column
+.desktopDropdown {
+  position: relative;
+  flex: 1;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+
+  &:hover .desktopDropdownTrigger {
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+// Trigger button (the always-visible section header)
+.desktopDropdownTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  width: 100%;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: $cream;
+  font-family: "Merriweather-Regular";
+  font-size: 11px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  text-align: left;
+  transition: background 0.2s ease;
+  border-radius: 6px 6px 0 0;
+
+  span {
+    flex: 1;
+    line-height: 1.3;
+  }
+}
+
+// Chevron arrow
+.dropdownChevron {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.6);
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dropdownChevronOpen {
+  transform: rotate(180deg);
+  color: #e0b97f;
+}
+
+// The sliding panel of links
+.desktopDropdownPanel {
+  position: absolute;
+  // top: calc(100% - 1px); // pull up 1px to close the seam with the trigger
+  left: 0;
+  min-width: 100%;
+  width: max-content;
+  max-width: 260px;
+  background-color: #6b5130;
+  border-radius: 0 0 16px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid #6b5130; // match own bg — hides the top border seam
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.25s ease,
+    padding 0.25s ease;
+  z-index: 10;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+// Open state for the panel
+.desktopDropdownOpen .desktopDropdownPanel {
+  max-height: 320px;
+  opacity: 1;
+  padding: 10px 0 14px;
+}
+
+// Highlight the open trigger — square off the bottom so it merges flush with the panel
+.desktopDropdownOpen .desktopDropdownTrigger {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 6px 6px 0 0;
+  // extend background down 1px to cover the calc(100% - 1px) pull-up
+  padding-bottom: 13px;
+}
+
+// Individual link inside the dropdown panel
+.desktopDropdownLink {
+  display: block;
+  color: rgba(255, 255, 255, 0.88);
+  font-family: "Merriweather-Regular";
+  font-size: 13.5px;
+  line-height: 1.4;
+  text-decoration: none;
+  padding: 9px 20px;
+  border-left: 2px solid transparent;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+
+  &:hover {
+    color: #e0b97f;
+    border-left: 2px solid #e0b97f;
+    padding-left: 24px;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  &.active {
+    color: #e0b97f;
+    border-left: 2px solid #e0b97f;
+  }
+}
+
+// ═══════════════════════════════════════════════
+// ── NEWSLETTER CARD (Desktop only) ──
+// ═══════════════════════════════════════════════
+
+.newsletterCard {
+  display: flex;
+  flex-shrink: 0;
+  width: 200px;
+  text-decoration: none;
+  margin-left: 20px;
+  align-self: stretch;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+
+    .newsletterCardImg {
+      transform: scale(1.06);
+    }
+
+    .newsletterCardCta {
+      letter-spacing: 1px;
+    }
+  }
+}
+
+.newsletterCardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  background: linear-gradient(135deg, #5a3e22 0%, #3a2510 100%);
+}
+
+.newsletterCardImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+  transition: transform 0.4s ease;
+}
+
+.newsletterCardOverlay {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  min-height: 200px;
+  padding: 16px;
+  background: linear-gradient(
+    to top,
+    rgba(40, 24, 8, 0.92) 0%,
+    rgba(40, 24, 8, 0.3) 60%,
+    transparent 100%
+  );
+}
+
+.newsletterCardBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #e0b97f;
+  color: #3a2510;
+  font-family: "Merriweather-Regular";
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 20px;
+}
+
+.newsletterCardTitle {
+  color: #ffffff;
+  font-family: "Merriweather-Regular";
+  font-size: 15px;
+  line-height: 1.3;
+  margin: 0 0 4px;
+}
+
+.newsletterCardSub {
+  color: rgba(255, 255, 255, 0.7);
+  font-family: "Merriweather-Regular";
+  font-size: 10.5px;
+  line-height: 1.45;
+  margin: 0 0 10px;
+}
+
+.newsletterCardCta {
+  color: #e0b97f;
+  font-family: "Merriweather-Regular";
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  transition: letter-spacing 0.2s ease;
 }

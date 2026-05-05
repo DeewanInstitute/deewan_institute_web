@@ -454,9 +454,9 @@ app.post("/api/internship", uploadInternship, async (req, res) => {
 
 // ─── HEALTH CHECK ────────────────────────────────────────────────────────────
 
-app.get("/api/health", (req, res) => {
-  res.status(200).json({ status: "Server is running!" });
-});
+// app.get("/api/health", (req, res) => {
+//   res.status(200).json({ status: "Server is running!" });
+// });
 
 // ─── START ───────────────────────────────────────────────────────────────────
 

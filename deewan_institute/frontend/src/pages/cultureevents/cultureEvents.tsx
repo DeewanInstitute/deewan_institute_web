@@ -8,6 +8,7 @@ import NavBar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 import { events, SIGNUP_LINK } from "../../../data/cultureEvents.data";
 import type { EventMeta } from "../../../data/cultureEvents.data";
+import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 
 function EventMetaBlock({ meta }: { meta: EventMeta }) {
   return (
@@ -43,6 +44,7 @@ function CultureEvents() {
   return (
     <Fragment>
       <NavBar />
+      <FloatingActionButton />
 
       {/* ── Banner ── */}
       <section className={`${styles.banner} scroll-section`}>

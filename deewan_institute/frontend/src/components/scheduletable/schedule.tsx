@@ -71,13 +71,13 @@ function Schedule({data}: {data: ScheduleProps}) {
                   className="text-center"
                   style={{ paddingBlock: "2%", verticalAlign: "middle" }}
                 >
-                  <p className="lead mb-1">10 JD per hour</p>
+                  <p className="lead mb-1">10.5 JD per hour</p>
                   <span className="lead" style={{ color: "red" }}>
                     Total : {data.oneTotalPrice}
                   </span>
                 </td>
               </tr>
-              <tr>
+              {/* <tr>
                 <th
                   className="text-center"
                   colSpan={2}
@@ -113,7 +113,7 @@ function Schedule({data}: {data: ScheduleProps}) {
                     Total : {data.groupTotalPrice}
                   </span>
                 </td>
-              </tr>
+              </tr> */}
             </tbody>
           </table>
         </div>

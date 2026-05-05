@@ -5,6 +5,7 @@ import tripsData from "../../../data/trips.ts";
 import BottomBanner from "../../components/bottombanner/bottombanner.tsx";
 import AccommodationLayoutR from "../../layout/accommodationlayout/accommodationlayoutr.tsx";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations.ts";
+import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton.tsx";
 function Trips() {
 
   useEffect(() => {
@@ -17,6 +18,7 @@ function Trips() {
     <Fragment>
       {/* NavBar */}
       <NavBar />
+      <FloatingActionButton />
       {/* Accommodation Layout */}
       <AccommodationLayoutR data={tripsData} />
       {/* BottomBanner */}

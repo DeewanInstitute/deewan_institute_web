@@ -1,9 +1,4 @@
-import {
-  useLocation,
-  Routes,
-  Route,
-  BrowserRouter,
-} from "react-router-dom";
+import { useLocation, Routes, Route, BrowserRouter } from "react-router-dom";
 import { useEffect } from "react";
 import { showLoader, hideLoader } from "../hooks/loader";
 import Loader from "./components/loader/loader.tsx";
@@ -36,6 +31,7 @@ import BildungsurlaubPage from "./pages/bildungsurlaub/bildungsurlaub.tsx";
 import NotFound from "./pages/404_page/error.tsx";
 import Careers from "./pages/careers/careers.tsx";
 import InternshipForm from "./pages/internship/internshipform.tsx";
+import Newsletter from "./pages/newsletter/newsletter.tsx";
 // ✅ Create a separate component that uses useLocation
 function AppContent() {
   const location = useLocation();
@@ -113,11 +109,15 @@ function AppContent() {
         <Route path="/podcasts" element={<Podcasts />} />
         {/*Bildungsurlaub*/}
         <Route path="/bildungsurlaub" element={<BildungsurlaubPage />} />
+        <Route path="/bildungsurlaub-courses/" element={<BildungsurlaubPage />} />
+        <Route path="/bildungsurlaub-courses" element={<BildungsurlaubPage />} />
+
         {/*Careers*/}
         <Route path="/careers" element={<Careers />} />
         {/* Internship */}
         <Route path="/internship" element={<InternshipForm />} />
-
+        {/* Newsletter */}
+        <Route path="/newsletter" element={<Newsletter />} />
         {/* 404 Route - must be last */}
         <Route path="/404" element={<NotFound />} />
         <Route path="*" element={<NotFound />} />

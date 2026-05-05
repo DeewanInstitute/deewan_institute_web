@@ -3,6 +3,7 @@ import NavBar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 import HistoryLayout from "../../layout/historylayout/historyLayout";
 import { palestineHistory } from "../../../data/palestineHistory";
+import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 
 
 
@@ -15,6 +16,7 @@ function PalestineHistory() {
 
     return (
         <Fragment>
+            <FloatingActionButton />
             {/* NavBar */}
             <NavBar />
             {/* Main Layout */}

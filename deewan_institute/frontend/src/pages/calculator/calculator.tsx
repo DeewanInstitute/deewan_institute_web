@@ -5,6 +5,7 @@ import { useScrollAnimation } from '../../../hooks/scrollAnimations';
 import NavBar from '../../components/navbar/navbar';
 import Footer from '../../components/footer/footer';
 import html2pdf from 'html2pdf.js';
+import FloatingActionButton from '../../components/floatingbutton/floatingactionbutton';
 
 // Types
 interface Selections {
@@ -166,7 +167,7 @@ function GroupClassInfoModal({ onClose }: GroupClassModalProps) {
               }}
             >
               Please note: Group classes are held for 4 hours per week on Mondays and Wednesdays
-              only. The minimum enrollment is 4 weeks, and all classes take place in the evenings.
+              only. The minimum enrollment is 4 weeks, and all classes take place at 6:20 PM - 8:00 PM.
             </p>
           </div>
           <div className="modal-footer" style={{ border: 'none', padding: '0.75rem 1.5rem 1.25rem' }}>
@@ -184,6 +185,62 @@ function GroupClassInfoModal({ onClose }: GroupClassModalProps) {
     </div>
   );
 }
+// function HopClassInfoModal({ onClose }: GroupClassModalProps) {
+//   return (
+//     <div
+//       className="modal fade show d-block"
+//       tabIndex={-1}
+//       aria-modal="true"
+//       role="dialog"
+//       style={{ backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 1060 }}
+//       onClick={onClose}
+//     >
+//       <div
+//         className="modal-dialog modal-dialog-centered"
+//         style={{ maxWidth: '500px', margin: '1.75rem auto', padding: '0 1rem' }}
+//         onClick={e => e.stopPropagation()}
+//       >
+//         <div className="modal-content" style={{ borderRadius: '12px', border: '2px solid #8F6E43', overflow: 'hidden' }}>
+//           <div className="modal-header" style={{ background: '#8F6E43', border: 'none', padding: '1rem 1.5rem' }}>
+//             <h5 className="modal-title text-white fw-bold mb-0" style={{ fontFamily: 'Merriweather, serif' }}>
+//               Group Class Information
+//             </h5>
+//             <button
+//               type="button"
+//               className="btn-close btn-close-white"
+//               onClick={onClose}
+//               aria-label="Close"
+//             />
+//           </div>
+//           <div className="modal-body" style={{ padding: '1.5rem' }}>
+//             <p
+//               style={{
+//                 color: '#c0392b',
+//                 fontWeight: '600',
+//                 fontSize: '0.95rem',
+//                 lineHeight: '1.7',
+//                 margin: 0,
+//               }}
+//             >
+//               Please note: Group classes are held for 4 hours per week on Mondays and Wednesdays
+//               only. The minimum enrollment is 4 weeks, and all classes take place at 6:20 PM - 8:00 PM.
+//             </p>
+//           </div>
+//           <div className="modal-footer" style={{ border: 'none', padding: '0.75rem 1.5rem 1.25rem' }}>
+//             <button
+//               type="button"
+//               className="btn rounded-pill text-white fw-bold px-4"
+//               style={{ background: '#8F6E43', border: 'none' }}
+//               onClick={onClose}
+//             >
+//               Got it
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
 
 // Dropdown
 interface DropdownOption {
@@ -667,6 +724,8 @@ function Calculator() {
 
   const [showModal, setShowModal]           = useState(false);
   const [showGroupModal, setShowGroupModal] = useState(false);
+  // const [showHopModal, setShowHopModal] = useState(false);
+
   const [openAccordion, setOpenAccordion]   = useState<string | null>(null);
 
   const isGroupClass    = selections.classType === 'Group Class';
@@ -734,10 +793,14 @@ function Calculator() {
   return (
     <Fragment>
       <NavBar />
+      <FloatingActionButton />
 
       {showGroupModal && (
         <GroupClassInfoModal onClose={() => setShowGroupModal(false)} />
       )}
+
+      
+
 
       {/* Banner */}
       <section className={`${styles.banner} d-flex justify-content-center align-items-center`}>
@@ -958,7 +1021,7 @@ function Calculator() {
                   Sunday-Thursday
                 </td>
                 <td className="text-center border-1" rowSpan={3} style={{ paddingBlock: '4%', verticalAlign: 'middle' }}>
-                  Saturday <br /> (11:00 - 14:40)
+                  Saturday <br /> (11:00 AM - 2:40 PM)
                 </td>
               </tr>
               <tr className="border">

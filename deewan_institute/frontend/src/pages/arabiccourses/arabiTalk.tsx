@@ -9,6 +9,7 @@ import { useScrollAnimation } from "../../../hooks/scrollAnimations";
 import style from "./arabic.module.scss";
 import "../../style/animation.scss";
 import "bootstrap";
+import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 
 function ArabiTalk() {
   useEffect(() => {
@@ -21,6 +22,7 @@ function ArabiTalk() {
     <Fragment>
       {/* NavBar */}
       <NavBar />
+      <FloatingActionButton />
       {/* Banner */}
       <ShadowBanner
         data={{
@@ -90,7 +92,7 @@ function ArabiTalk() {
                   <hr className="my-2" />
                   <div className="my-3">
                     <h4>Flexible Schedule:</h4>
-                    <h4>11:00am - 7:00pm</h4>
+                    <h4>11:00am - 6:00pm</h4>
                   </div>
                   <a
                     className={`text-decoration-none text-white ${style.cardBtn}`}
@@ -111,7 +113,7 @@ function ArabiTalk() {
                   <hr className="my-2" />
                   <div className="my-3">
                     <h4>Flexible Schedule:</h4>
-                    <h4>11:00am - 7:00pm</h4>
+                    <h4>11:00am - 6:00pm</h4>
                   </div>
                   <a
                     className={`text-decoration-none text-white ${style.cardBtn}`}

@@ -6,6 +6,7 @@ import styles from "./checkout.module.scss";
 import { useShop } from "./shopcontext";
 import NavBar from "../components/navbar/navbar";
 import Footer from "../components/footer/footer";
+import FloatingActionButton from "../components/floatingbutton/floatingactionbutton";
 
 type PaymentMethod = "cash" | "cliq" | "paypal" | "";
 
@@ -110,6 +111,7 @@ function Checkout() {
   return (
     <Fragment>
       <NavBar />
+      <FloatingActionButton />
 
       {/* ── Success Modal ── */}
       <div
