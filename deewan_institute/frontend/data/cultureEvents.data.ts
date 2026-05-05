@@ -32,8 +32,8 @@ export const events: CultureEvent[] = [
     body: "In this weekly hands-on workshop, students will discover different styles of Palestinian embroidery, learn the stories behind the patterns, and practice traditional cross-stitch techniques — no prior experience needed.",
     meta: {
       time: "Sundays 6:20 PM – 8:00 PM",
-      oneToOne: "7 JDs (includes all materials)",
-      group: "14 JDs (includes all materials)",
+      oneToOne: "14 JDs (includes all materials)",
+      group: "7 JDs (includes all materials)",
     },
     image: "/assets/images/others/embroidery.png",
     imageAlt: "Palestinian Embroidery Workshop",
@@ -49,8 +49,8 @@ export const events: CultureEvent[] = [
     body: "Turn your passion for food into a fun and flavorful cultural experience. Learn Arabic while cooking and enjoying some of the region's most iconic and delicious dishes. Come cook, learn, and eat with us!",
     meta: {
       time: "Mondays 5:00 PM – 8:00 PM",
-      oneToOne: "7 JDs (includes all materials)",
-      group: "14 JDs (includes all materials)",
+      oneToOne: "14 JDs (includes all materials)",
+      group: "7 JDs (includes all materials)",
     },
     image: "/assets/images/others/cooking.png",
     imageAlt: "Arabic Cooking Class",
@@ -66,8 +66,8 @@ export const events: CultureEvent[] = [
     body: "Discover the beauty of Arabic through calligraphy in this creative and hands-on 2-hour session, where art meets language. Learn the basics of Arabic lettering, experiment with traditional styles, and create your own calligraphy artwork — no prior experience needed.",
     meta: {
       time: "Tuesdays 6:20 PM – 8:00 PM",
-      oneToOne: "7 JDs (includes all materials)",
-      group: "14 JDs (includes all materials)",
+      oneToOne: "14 JDs (includes all materials)",
+      group: "7 JDs (includes all materials)",
     },
     image: "/assets/images/others/calligraphy.png",
     imageAlt: "Arabic Calligraphy Course",

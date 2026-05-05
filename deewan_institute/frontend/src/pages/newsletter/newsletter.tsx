@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Banner from "../../components/banner/banner";
 import NavBar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
