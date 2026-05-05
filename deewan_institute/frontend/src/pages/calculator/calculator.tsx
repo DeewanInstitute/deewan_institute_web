@@ -1,11 +1,11 @@
-import { Fragment, useState, useRef, useEffect, useMemo } from 'react';
-import styles from './calculator.module.scss';
-import '../../style/animation.scss';
-import { useScrollAnimation } from '../../../hooks/scrollAnimations';
-import NavBar from '../../components/navbar/navbar';
-import Footer from '../../components/footer/footer';
-import html2pdf from 'html2pdf.js';
-import FloatingActionButton from '../../components/floatingbutton/floatingactionbutton';
+import { Fragment, useState, useRef, useEffect, useMemo } from "react";
+import styles from "./calculator.module.scss";
+import "../../style/animation.scss";
+import { useScrollAnimation } from "../../../hooks/scrollAnimations";
+import NavBar from "../../components/navbar/navbar";
+import Footer from "../../components/footer/footer";
+import html2pdf from "html2pdf.js";
+import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 
 // Types
 interface Selections {
@@ -31,26 +31,35 @@ function calculateTotal(selections: Selections): number {
   const { arabicType, classType, time, hours, weeks, discount } = selections;
 
   const isAmmiyehOrMix =
-    arabicType === 'Colloquial Levantine Arabic (Ammiyeh)' ||
-    arabicType === 'Mix (FusHa and Colloquial)';
-  const isFusha = arabicType === 'FusHa Arabic (MSA, Media & Classical Arabic)';
-  const isMorning = time === 'Morning (Between 9:00 AM - 2:40 PM)';
-  const isEvening = time === 'Evening (Between 4:20 PM - 8:00 PM)';
+    arabicType === "Colloquial Levantine Arabic (Ammiyeh)" ||
+    arabicType === "Mix (FusHa and Colloquial)";
+  const isFusha = arabicType === "FusHa Arabic (MSA, Media & Classical Arabic)";
+  const isMorning = time === "Morning (Between 9:00 AM - 2:40 PM)";
+  const isEvening = time === "Evening (Between 4:20 PM - 8:00 PM)";
 
   function applyDiscount(amount: number): number {
-    if (!discount || discount === 'none') return amount;
-    if (['google', 'cash', 'amazon', 'publications', 'friend', 'threemonths'].includes(discount))
+    if (!discount || discount === "none") return amount;
+    if (
+      [
+        "google",
+        "cash",
+        "amazon",
+        "publications",
+        "friend",
+        "threemonths",
+      ].includes(discount)
+    )
       return amount * 0.95;
-    if (discount === 'university') return amount * 0.97;
-    if (discount === 'sixmonths') return amount * 0.93;
-    if (discount === 'ninemonths') return amount * 0.90;
-    if (discount === 'twelvemonths') return amount * 0.88;
+    if (discount === "university") return amount * 0.97;
+    if (discount === "sixmonths") return amount * 0.93;
+    if (discount === "ninemonths") return amount * 0.9;
+    if (discount === "twelvemonths") return amount * 0.88;
     return amount;
   }
 
-  if (classType === 'Trial Class') return isFusha ? 33 : 29;
+  if (classType === "Trial Class") return isFusha ? 33 : 29;
 
-  if (classType === 'One-to-One Class') {
+  if (classType === "One-to-One Class") {
     let base = 0;
     if (isAmmiyehOrMix) {
       if (isMorning) {
@@ -76,7 +85,10 @@ function calculateTotal(selections: Selections): number {
     return applyDiscount(base * weeks);
   }
 
-  if (classType === 'Group Class' || classType === 'Hop On Hop Off Group Class') {
+  if (
+    classType === "Group Class" ||
+    classType === "Hop On Hop Off Group Class"
+  ) {
     const rate = isAmmiyehOrMix ? 9.5 : isFusha ? 10.5 : 0;
     return applyDiscount(rate * hours * weeks);
   }
@@ -84,25 +96,25 @@ function calculateTotal(selections: Selections): number {
   return 0;
 }
 
-// Static Data 
+// Static Data
 const ARABIC_TYPES = [
-  'Colloquial Levantine Arabic (Ammiyeh)',
-  'Mix (FusHa and Colloquial)',
-  'FusHa Arabic (MSA, Media & Classical Arabic)',
- // 'Arabic for Kids (Ages 5-12)',
- // 'Arabi Talk (Conversational Arabic)',
+  "Colloquial Levantine Arabic (Ammiyeh)",
+  "Mix (FusHa and Colloquial)",
+  "FusHa Arabic (MSA, Media & Classical Arabic)",
+  // 'Arabic for Kids (Ages 5-12)',
+  // 'Arabi Talk (Conversational Arabic)',
 ];
 
 const CLASS_TYPES = [
-  'One-to-One Class',
-  'Group Class',
-  'Hop On Hop Off Group Class',
-  'Trial Class',
+  "One-to-One Class",
+  "Group Class",
+  "Hop On Hop Off Group Class",
+  "Trial Class",
 ];
 
 const TIME_OPTIONS = [
-  'Morning (Between 9:00 AM - 2:40 PM)',
-  'Evening (Between 4:20 PM - 8:00 PM)',
+  "Morning (Between 9:00 AM - 2:40 PM)",
+  "Evening (Between 4:20 PM - 8:00 PM)",
 ];
 
 const DISCOUNT_OPTIONS: {
@@ -111,17 +123,37 @@ const DISCOUNT_OPTIONS: {
   minWeeks?: number;
   hint?: string;
 }[] = [
-  { value: 'none',         label: 'No Discount' },
-  { value: 'cash',         label: '5% - Pay Cash' },
-  { value: 'google',       label: '5% - Google Review' },
-  { value: 'amazon',       label: '5% - Amazon Review' },
-  { value: 'university',   label: '3% - University Student' },
-  { value: 'publications', label: '5% - Purchase 3 Deewan Publications.' },
-  { value: 'friend',       label: '5% - Refer a Friend' },
-  { value: 'threemonths',  label: '5% - 3 Months Package',   minWeeks: 12, hint: 'Please add 12+ weeks to your package' },
-  { value: 'sixmonths',    label: '7% - 6 Months Package',   minWeeks: 24, hint: 'Please add 24+ weeks to your package' },
-  { value: 'ninemonths',   label: '10% - 9 Months Package',  minWeeks: 36, hint: 'Please add 36+ weeks to your package' },
-  { value: 'twelvemonths', label: '12% - 12 Months Package', minWeeks: 48, hint: 'Please add 48+ weeks to your package' },
+  { value: "none", label: "No Discount" },
+  { value: "cash", label: "5% - Pay Cash" },
+  { value: "google", label: "5% - Google Review" },
+  { value: "amazon", label: "5% - Amazon Review" },
+  { value: "university", label: "3% - University Student" },
+  { value: "publications", label: "5% - Purchase 3 Deewan Publications." },
+  { value: "friend", label: "5% - Refer a Friend" },
+  {
+    value: "threemonths",
+    label: "5% - 3 Months Package",
+    minWeeks: 12,
+    hint: "Please add 12+ weeks to your package",
+  },
+  {
+    value: "sixmonths",
+    label: "7% - 6 Months Package",
+    minWeeks: 24,
+    hint: "Please add 24+ weeks to your package",
+  },
+  {
+    value: "ninemonths",
+    label: "10% - 9 Months Package",
+    minWeeks: 36,
+    hint: "Please add 36+ weeks to your package",
+  },
+  {
+    value: "twelvemonths",
+    label: "12% - 12 Months Package",
+    minWeeks: 48,
+    hint: "Please add 48+ weeks to your package",
+  },
 ];
 
 // Group Class Info Modal
@@ -136,17 +168,34 @@ function GroupClassInfoModal({ onClose }: GroupClassModalProps) {
       tabIndex={-1}
       aria-modal="true"
       role="dialog"
-      style={{ backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 1060 }}
+      style={{ backgroundColor: "rgba(0,0,0,0.5)", zIndex: 1060 }}
       onClick={onClose}
     >
       <div
         className="modal-dialog modal-dialog-centered"
-        style={{ maxWidth: '500px', margin: '1.75rem auto', padding: '0 1rem' }}
-        onClick={e => e.stopPropagation()}
+        style={{ maxWidth: "500px", margin: "1.75rem auto", padding: "0 1rem" }}
+        onClick={(e) => e.stopPropagation()}
       >
-        <div className="modal-content" style={{ borderRadius: '12px', border: '2px solid #8F6E43', overflow: 'hidden' }}>
-          <div className="modal-header" style={{ background: '#8F6E43', border: 'none', padding: '1rem 1.5rem' }}>
-            <h5 className="modal-title text-white fw-bold mb-0" style={{ fontFamily: 'Merriweather, serif' }}>
+        <div
+          className="modal-content"
+          style={{
+            borderRadius: "12px",
+            border: "2px solid #8F6E43",
+            overflow: "hidden",
+          }}
+        >
+          <div
+            className="modal-header"
+            style={{
+              background: "#8F6E43",
+              border: "none",
+              padding: "1rem 1.5rem",
+            }}
+          >
+            <h5
+              className="modal-title text-white fw-bold mb-0"
+              style={{ fontFamily: "Merriweather, serif" }}
+            >
               Group Class Information
             </h5>
             <button
@@ -156,25 +205,29 @@ function GroupClassInfoModal({ onClose }: GroupClassModalProps) {
               aria-label="Close"
             />
           </div>
-          <div className="modal-body" style={{ padding: '1.5rem' }}>
+          <div className="modal-body" style={{ padding: "1.5rem" }}>
             <p
               style={{
-                color: '#c0392b',
-                fontWeight: '600',
-                fontSize: '0.95rem',
-                lineHeight: '1.7',
+                color: "#c0392b",
+                fontWeight: "600",
+                fontSize: "0.95rem",
+                lineHeight: "1.7",
                 margin: 0,
               }}
             >
-              Please note: Group classes are held for 4 hours per week on Mondays and Wednesdays
-              only. The minimum enrollment is 4 weeks, and all classes take place at 6:20 PM - 8:00 PM.
+              Please note: Group classes are held for 4 hours per week on
+              Mondays and Wednesdays only. The minimum enrollment is 4 weeks,
+              and all classes take place at 6:20 PM - 8:00 PM.
             </p>
           </div>
-          <div className="modal-footer" style={{ border: 'none', padding: '0.75rem 1.5rem 1.25rem' }}>
+          <div
+            className="modal-footer"
+            style={{ border: "none", padding: "0.75rem 1.5rem 1.25rem" }}
+          >
             <button
               type="button"
               className="btn rounded-pill text-white fw-bold px-4"
-              style={{ background: '#8F6E43', border: 'none' }}
+              style={{ background: "#8F6E43", border: "none" }}
               onClick={onClose}
             >
               Got it
@@ -185,62 +238,82 @@ function GroupClassInfoModal({ onClose }: GroupClassModalProps) {
     </div>
   );
 }
-// function HopClassInfoModal({ onClose }: GroupClassModalProps) {
-//   return (
-//     <div
-//       className="modal fade show d-block"
-//       tabIndex={-1}
-//       aria-modal="true"
-//       role="dialog"
-//       style={{ backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 1060 }}
-//       onClick={onClose}
-//     >
-//       <div
-//         className="modal-dialog modal-dialog-centered"
-//         style={{ maxWidth: '500px', margin: '1.75rem auto', padding: '0 1rem' }}
-//         onClick={e => e.stopPropagation()}
-//       >
-//         <div className="modal-content" style={{ borderRadius: '12px', border: '2px solid #8F6E43', overflow: 'hidden' }}>
-//           <div className="modal-header" style={{ background: '#8F6E43', border: 'none', padding: '1rem 1.5rem' }}>
-//             <h5 className="modal-title text-white fw-bold mb-0" style={{ fontFamily: 'Merriweather, serif' }}>
-//               Group Class Information
-//             </h5>
-//             <button
-//               type="button"
-//               className="btn-close btn-close-white"
-//               onClick={onClose}
-//               aria-label="Close"
-//             />
-//           </div>
-//           <div className="modal-body" style={{ padding: '1.5rem' }}>
-//             <p
-//               style={{
-//                 color: '#c0392b',
-//                 fontWeight: '600',
-//                 fontSize: '0.95rem',
-//                 lineHeight: '1.7',
-//                 margin: 0,
-//               }}
-//             >
-//               Please note: Group classes are held for 4 hours per week on Mondays and Wednesdays
-//               only. The minimum enrollment is 4 weeks, and all classes take place at 6:20 PM - 8:00 PM.
-//             </p>
-//           </div>
-//           <div className="modal-footer" style={{ border: 'none', padding: '0.75rem 1.5rem 1.25rem' }}>
-//             <button
-//               type="button"
-//               className="btn rounded-pill text-white fw-bold px-4"
-//               style={{ background: '#8F6E43', border: 'none' }}
-//               onClick={onClose}
-//             >
-//               Got it
-//             </button>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
+function HopClassInfoModal({ onClose }: GroupClassModalProps) {
+  return (
+    <div
+      className="modal fade show d-block"
+      tabIndex={-1}
+      aria-modal="true"
+      role="dialog"
+      style={{ backgroundColor: "rgba(0,0,0,0.5)", zIndex: 1060 }}
+      onClick={onClose}
+    >
+      <div
+        className="modal-dialog modal-dialog-centered"
+        style={{ maxWidth: "500px", margin: "1.75rem auto", padding: "0 1rem" }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div
+          className="modal-content"
+          style={{
+            borderRadius: "12px",
+            border: "2px solid #8F6E43",
+            overflow: "hidden",
+          }}
+        >
+          <div
+            className="modal-header"
+            style={{
+              background: "#8F6E43",
+              border: "none",
+              padding: "1rem 1.5rem",
+            }}
+          >
+            <h5
+              className="modal-title text-white fw-bold mb-0"
+              style={{ fontFamily: "Merriweather, serif" }}
+            >
+              Hop On Hop Off Group Class Information
+            </h5>
+            <button
+              type="button"
+              className="btn-close btn-close-white"
+              onClick={onClose}
+              aria-label="Close"
+            />
+          </div>
+          <div className="modal-body" style={{ padding: "1.5rem" }}>
+            <p
+              style={{
+                color: "#c0392b",
+                fontWeight: "600",
+                fontSize: "0.95rem",
+                lineHeight: "1.7",
+                margin: 0,
+              }}
+            >
+              Please note: Hop On Hop Off group classes are flexible drop-in
+              sessions held for up to 6 hours per week. All classes take place at 6:20 PM - 8:00 PM  at Sundays,Tuesdays and Thursdays.
+            </p>
+          </div>
+          <div
+            className="modal-footer"
+            style={{ border: "none", padding: "0.75rem 1.5rem 1.25rem" }}
+          >
+            <button
+              type="button"
+              className="btn rounded-pill text-white fw-bold px-4"
+              style={{ background: "#8F6E43", border: "none" }}
+              onClick={onClose}
+            >
+              Got it
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 // Dropdown
 interface DropdownOption {
@@ -259,34 +332,46 @@ interface DropdownProps {
   disabled?: boolean;
 }
 
-function Dropdown({ label, placeholder, options, value, onChange, disabled }: DropdownProps) {
+function Dropdown({
+  label,
+  placeholder,
+  options,
+  value,
+  onChange,
+  disabled,
+}: DropdownProps) {
   const [open, setOpen] = useState(false);
   const [flipLeft, setFlipLeft] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleOutside(e: MouseEvent) {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+      if (ref.current && !ref.current.contains(e.target as Node))
+        setOpen(false);
     }
-    document.addEventListener('mousedown', handleOutside);
-    return () => document.removeEventListener('mousedown', handleOutside);
+    document.addEventListener("mousedown", handleOutside);
+    return () => document.removeEventListener("mousedown", handleOutside);
   }, []);
 
   useEffect(() => {
     if (!open || !ref.current) return;
-    if (window.innerWidth <= 768) { setFlipLeft(false); return; }
+    if (window.innerWidth <= 768) {
+      setFlipLeft(false);
+      return;
+    }
     const rect = ref.current.getBoundingClientRect();
     const menuWidth = 500;
     const spaceRight = window.innerWidth - rect.right;
     setFlipLeft(spaceRight < menuWidth + 16);
   }, [open]);
 
-  const menuStyle: React.CSSProperties = (flipLeft && window.innerWidth > 768)
-    ? { right: 'calc(100% + 8px)', left: 'auto', top: 0 }
-    : {};
+  const menuStyle: React.CSSProperties =
+    flipLeft && window.innerWidth > 768
+      ? { right: "calc(100% + 8px)", left: "auto", top: 0 }
+      : {};
 
-  const normalizedOptions: DropdownOption[] = options.map(o =>
-    typeof o === 'string' ? { label: o } : o
+  const normalizedOptions: DropdownOption[] = options.map((o) =>
+    typeof o === "string" ? { label: o } : o,
   );
 
   return (
@@ -298,8 +383,8 @@ function Dropdown({ label, placeholder, options, value, onChange, disabled }: Dr
         <div className={styles.dropWrap} ref={ref}>
           <button
             type="button"
-            className={`${styles.dropBtn} ${open && !disabled ? styles.dropBtnActive : ''} ${disabled ? styles.dropBtnDisabled : ''}`}
-            onClick={() => !disabled && setOpen(o => !o)}
+            className={`${styles.dropBtn} ${open && !disabled ? styles.dropBtnActive : ""} ${disabled ? styles.dropBtnDisabled : ""}`}
+            onClick={() => !disabled && setOpen((o) => !o)}
             disabled={disabled}
           >
             <span className={styles.dropBtnText}>{value || placeholder}</span>
@@ -310,16 +395,24 @@ function Dropdown({ label, placeholder, options, value, onChange, disabled }: Dr
               {normalizedOptions.map((opt, i) => (
                 <li
                   key={`${opt.label}-${i}`}
-                  className={`${styles.dropItem} ${opt.locked ? styles.dropItemLocked : ''}`}
-                  onClick={() => { if (!opt.locked) { onChange(opt.label); setOpen(false); } }}
+                  className={`${styles.dropItem} ${opt.locked ? styles.dropItemLocked : ""}`}
+                  onClick={() => {
+                    if (!opt.locked) {
+                      onChange(opt.label);
+                      setOpen(false);
+                    }
+                  }}
                   title={opt.locked && opt.hint ? opt.hint : undefined}
                 >
-                  {opt.locked && (
-                    <span className={styles.lockDot}>🔒</span>
-                  )}
+                  {opt.locked && <span className={styles.lockDot}>🔒</span>}
                   <span>{opt.label}</span>
                   {opt.hint && (
-                    <span className={styles.lockHint} style={opt.hintColor ? { color: opt.hintColor } : undefined}>
+                    <span
+                      className={styles.lockHint}
+                      style={
+                        opt.hintColor ? { color: opt.hintColor } : undefined
+                      }
+                    >
                       {opt.hint}
                     </span>
                   )}
@@ -342,52 +435,63 @@ interface DiscountDropdownProps {
   onReset: () => void;
 }
 
-function DiscountDropdown({ value, weeks, hours, onChange, onReset }: DiscountDropdownProps) {
+function DiscountDropdown({
+  value,
+  weeks,
+  hours,
+  onChange,
+  onReset,
+}: DiscountDropdownProps) {
   const [open, setOpen] = useState(false);
   const [flipLeft, setFlipLeft] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const selected = DISCOUNT_OPTIONS.find(d => d.value === value);
+  const selected = DISCOUNT_OPTIONS.find((d) => d.value === value);
 
   const dropdownEnabled = weeks > 0 && hours > 0;
 
-  function isLocked(opt: typeof DISCOUNT_OPTIONS[0]): boolean {
+  function isLocked(opt: (typeof DISCOUNT_OPTIONS)[0]): boolean {
     if (!dropdownEnabled) return true;
     if (opt.minWeeks && weeks < opt.minWeeks) return true;
     return false;
   }
 
   useEffect(() => {
-    if (!value || value === 'none') return;
-    const current = DISCOUNT_OPTIONS.find(d => d.value === value);
+    if (!value || value === "none") return;
+    const current = DISCOUNT_OPTIONS.find((d) => d.value === value);
     if (current && isLocked(current)) onReset();
   }, [weeks, hours]);
 
   useEffect(() => {
     function handleOutside(e: MouseEvent) {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+      if (ref.current && !ref.current.contains(e.target as Node))
+        setOpen(false);
     }
-    document.addEventListener('mousedown', handleOutside);
-    return () => document.removeEventListener('mousedown', handleOutside);
+    document.addEventListener("mousedown", handleOutside);
+    return () => document.removeEventListener("mousedown", handleOutside);
   }, []);
 
   useEffect(() => {
     if (!open || !ref.current) return;
-    if (window.innerWidth <= 768) { setFlipLeft(false); return; }
+    if (window.innerWidth <= 768) {
+      setFlipLeft(false);
+      return;
+    }
     const rect = ref.current.getBoundingClientRect();
     const menuWidth = 500;
     const spaceRight = window.innerWidth - rect.right;
     setFlipLeft(spaceRight < menuWidth + 16);
   }, [open]);
 
-  const menuStyle: React.CSSProperties = (flipLeft && window.innerWidth > 768)
-    ? { right: 'calc(100% + 8px)', left: 'auto', top: 0 }
-    : {};
+  const menuStyle: React.CSSProperties =
+    flipLeft && window.innerWidth > 768
+      ? { right: "calc(100% + 8px)", left: "auto", top: 0 }
+      : {};
 
   const buttonLabel = !dropdownEnabled
-    ? 'Enter weeks & hours first'
+    ? "Enter weeks & hours first"
     : selected
-    ? selected.label
-    : 'Please Choose the Discount';
+      ? selected.label
+      : "Please Choose the Discount";
 
   return (
     <div className="row my-5 align-items-center scroll-section">
@@ -398,10 +502,14 @@ function DiscountDropdown({ value, weeks, hours, onChange, onReset }: DiscountDr
         <div className={styles.dropWrap} ref={ref}>
           <button
             type="button"
-            className={`${styles.dropBtn} ${open && dropdownEnabled ? styles.dropBtnActive : ''} ${!dropdownEnabled ? styles.dropBtnDisabled : ''}`}
-            onClick={() => dropdownEnabled && setOpen(o => !o)}
+            className={`${styles.dropBtn} ${open && dropdownEnabled ? styles.dropBtnActive : ""} ${!dropdownEnabled ? styles.dropBtnDisabled : ""}`}
+            onClick={() => dropdownEnabled && setOpen((o) => !o)}
             disabled={!dropdownEnabled}
-            title={!dropdownEnabled ? 'Please select at least 1 week and 1 hour first' : undefined}
+            title={
+              !dropdownEnabled
+                ? "Please select at least 1 week and 1 hour first"
+                : undefined
+            }
           >
             <span className={styles.dropBtnText}>{buttonLabel}</span>
             <span className={styles.caret}>▾</span>
@@ -413,14 +521,19 @@ function DiscountDropdown({ value, weeks, hours, onChange, onReset }: DiscountDr
                 return (
                   <li
                     key={`${opt.value}-${i}`}
-                    className={`${styles.dropItem} ${locked ? styles.dropItemLocked : ''}`}
+                    className={`${styles.dropItem} ${locked ? styles.dropItemLocked : ""}`}
                     onClick={() => {
-                      if (!locked) { onChange(opt.value, opt.label); setOpen(false); }
+                      if (!locked) {
+                        onChange(opt.value, opt.label);
+                        setOpen(false);
+                      }
                     }}
                     title={locked && opt.hint ? opt.hint : undefined}
                   >
                     {locked && opt.minWeeks && (
-                      <span className={styles.lockDot} title={opt.hint}>🔒</span>
+                      <span className={styles.lockDot} title={opt.hint}>
+                        🔒
+                      </span>
                     )}
                     <span>{opt.label}</span>
                     {locked && opt.hint && (
@@ -437,7 +550,7 @@ function DiscountDropdown({ value, weeks, hours, onChange, onReset }: DiscountDr
   );
 }
 
-//Counter 
+//Counter
 interface CounterProps {
   id: string;
   label: string;
@@ -449,7 +562,16 @@ interface CounterProps {
   locked?: boolean;
 }
 
-function Counter({ id, label, value, step, min, max, onChange, locked }: CounterProps) {
+function Counter({
+  id,
+  label,
+  value,
+  step,
+  min,
+  max,
+  onChange,
+  locked,
+}: CounterProps) {
   return (
     <div className="row my-5 align-items-center scroll-section" id={id}>
       <div className="col-12 col-md-2 text-start mb-2 mb-md-0">
@@ -458,19 +580,34 @@ function Counter({ id, label, value, step, min, max, onChange, locked }: Counter
       <div className="col-12 col-md-4">
         <div
           className={`${styles.counter} d-flex justify-content-center`}
-          style={locked ? { opacity: 0.65, pointerEvents: 'none' } : undefined}
-          title={locked ? 'Fixed for this class type' : undefined}
+          style={locked ? { opacity: 0.65, pointerEvents: "none" } : undefined}
+          title={locked ? "Fixed for this class type" : undefined}
         >
           <div className="btn-group align-items-center" role="group">
             <button
               type="button"
               className="px-2 btn border-0 bg-transparent"
-              onClick={() => !locked && value - step >= min && onChange(value - step)}
+              onClick={() =>
+                !locked && value - step >= min && onChange(value - step)
+              }
               disabled={locked || value <= min}
             >
               <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <circle cx="14" cy="14" r="13" stroke="#8F6E43" strokeWidth="1.5" />
-                <rect x="7" y="13" width="14" height="2" rx="1" fill="#8F6E43" />
+                <circle
+                  cx="14"
+                  cy="14"
+                  r="13"
+                  stroke="#8F6E43"
+                  strokeWidth="1.5"
+                />
+                <rect
+                  x="7"
+                  y="13"
+                  width="14"
+                  height="2"
+                  rx="1"
+                  fill="#8F6E43"
+                />
               </svg>
             </button>
             <button type="button" className="btn btn-white px-5">
@@ -479,13 +616,35 @@ function Counter({ id, label, value, step, min, max, onChange, locked }: Counter
             <button
               type="button"
               className="px-2 btn border-0 bg-transparent"
-              onClick={() => !locked && value + step <= max && onChange(value + step)}
+              onClick={() =>
+                !locked && value + step <= max && onChange(value + step)
+              }
               disabled={locked || value >= max}
             >
               <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <circle cx="14" cy="14" r="13" stroke="#8F6E43" strokeWidth="1.5" />
-                <rect x="7" y="13" width="14" height="2" rx="1" fill="#8F6E43" />
-                <rect x="13" y="7" width="2" height="14" rx="1" fill="#8F6E43" />
+                <circle
+                  cx="14"
+                  cy="14"
+                  r="13"
+                  stroke="#8F6E43"
+                  strokeWidth="1.5"
+                />
+                <rect
+                  x="7"
+                  y="13"
+                  width="14"
+                  height="2"
+                  rx="1"
+                  fill="#8F6E43"
+                />
+                <rect
+                  x="13"
+                  y="7"
+                  width="2"
+                  height="14"
+                  rx="1"
+                  fill="#8F6E43"
+                />
               </svg>
             </button>
           </div>
@@ -499,26 +658,36 @@ function Counter({ id, label, value, step, min, max, onChange, locked }: Counter
 interface ModalProps {
   display: DisplaySelections;
   total: number;
+  hideTime: boolean;
   onClose: () => void;
 }
 
-function PriceModal({ display, total, onClose }: ModalProps) {
+function PriceModal({ display, total, hideTime, onClose }: ModalProps) {
   const rows = [
-    { label: 'Type of Arabic Language:', value: display.arabicType || 'Not selected' },
-    { label: 'Type of Classes:',         value: display.classType  || 'Not selected' },
-    { label: 'Time in The Day:',          value: display.time       || 'Not selected' },
-    { label: 'No. of Hours per Week:',    value: display.hours },
-    { label: 'No. of Week:',              value: display.weeks },
-    { label: 'Discount:',                 value: display.discount },
+    {
+      label: "Type of Arabic Language:",
+      value: display.arabicType || "Not selected",
+    },
+    { label: "Type of Classes:", value: display.classType || "Not selected" },
+    ...(!hideTime
+      ? [{ label: "Time in The Day:", value: display.time || "Not selected" }]
+      : []),
+    { label: "No. of Hours per Week:", value: display.hours },
+    { label: "No. of Week:", value: display.weeks },
+    { label: "Discount:", value: display.discount },
   ];
 
-   const generateInvoiceHtml = () => {
-    const rowsHtml = rows.map(row => `
+  const generateInvoiceHtml = () => {
+    const rowsHtml = rows
+      .map(
+        (row) => `
       <tr>
         <td class="label">${row.label}</td>
         <td class="value">${row.value}</td>
       </tr>
-    `).join('');
+    `,
+      )
+      .join("");
 
     return `
       <div style="font-family: Georgia, 'Times New Roman', serif; color: #000; padding: 20px;">
@@ -556,7 +725,7 @@ function PriceModal({ display, total, onClose }: ModalProps) {
   };
 
   function handlePrint() {
-    const printWin = window.open('', '_blank', 'width=800,height=700');
+    const printWin = window.open("", "_blank", "width=800,height=700");
     if (!printWin) return;
     printWin.document.write(`
       <!DOCTYPE html>
@@ -567,21 +736,24 @@ function PriceModal({ display, total, onClose }: ModalProps) {
     `);
     printWin.document.close();
     printWin.focus();
-    setTimeout(() => { printWin.print(); printWin.close(); }, 300);
+    setTimeout(() => {
+      printWin.print();
+      printWin.close();
+    }, 300);
   }
 
   // NEW FUNCTION: Handles PDF Download
   async function handleDownloadPDF() {
     // Create a temporary element to hold the HTML content
-    const element = document.createElement('div');
+    const element = document.createElement("div");
     element.innerHTML = generateInvoiceHtml();
 
     const options = {
       margin: 1,
-      filename: 'Arabic_Course_Price.pdf',
-      image: { type: 'jpeg', quality: 0.98 },
+      filename: "Arabic_Course_Price.pdf",
+      image: { type: "jpeg", quality: 0.98 },
       html2canvas: { scale: 2, logging: false, useCORS: true },
-      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+      jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
     } as const;
 
     try {
@@ -598,41 +770,48 @@ function PriceModal({ display, total, onClose }: ModalProps) {
       tabIndex={-1}
       aria-modal="true"
       role="dialog"
-      style={{ backgroundColor: 'rgba(0,0,0,0.45)' }}
+      style={{ backgroundColor: "rgba(0,0,0,0.45)" }}
       onClick={onClose}
     >
-      <div className="modal-dialog modal-dialog-centered" onClick={e => e.stopPropagation()}>
+      <div
+        className="modal-dialog modal-dialog-centered"
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="modal-content" id={styles.modalContent}>
           <div className="modal-body">
             <div className="row align-items-center">
               <div className={`${styles.title} my-4`}>
                 <h3>Arabic Courses Price</h3>
               </div>
-              <div className={`${styles.print} d-flex justify-content-evenly gap-3`}>
+              <div
+                className={`${styles.print} d-flex justify-content-evenly gap-3`}
+              >
                 {/* PRINT BUTTON */}
                 <a
                   className="text-decoration-none"
                   onClick={handlePrint}
-                  style={{ cursor: 'pointer' }}
+                  style={{ cursor: "pointer" }}
                   title="Print"
                 >
                   <img src="../assets/images/icons/print.png" alt="Print" />
                 </a>
-                
+
                 {/* DOWNLOAD BUTTON */}
                 <a
                   className="text-decoration-none"
                   onClick={handleDownloadPDF}
-                  style={{ cursor: 'pointer' }}
+                  style={{ cursor: "pointer" }}
                   title="Download PDF"
                 >
-                  
-                  <img src="../assets/images/icons/download.png" alt="Download PDF" />
+                  <img
+                    src="../assets/images/icons/download.png"
+                    alt="Download PDF"
+                  />
                 </a>
               </div>
             </div>
 
-            {rows.map(row => (
+            {rows.map((row) => (
               <div key={row.label} className="row my-3 align-items-center">
                 <div className="col-md-4 text-start">
                   <label className={styles.heading}>{row.label}</label>
@@ -647,10 +826,14 @@ function PriceModal({ display, total, onClose }: ModalProps) {
 
             <div className="row my-3 align-items-center">
               <div className="col-md-4 text-start">
-                <label className={styles.heading}><strong>Total Cost:</strong></label>
+                <label className={styles.heading}>
+                  <strong>Total Cost:</strong>
+                </label>
               </div>
               <div className="col-md-8">
-                <p className="mb-0"><strong>{total.toFixed(2)} JOD</strong></p>
+                <p className="mb-0">
+                  <strong>{total.toFixed(2)} JOD</strong>
+                </p>
               </div>
             </div>
           </div>
@@ -661,16 +844,25 @@ function PriceModal({ display, total, onClose }: ModalProps) {
 }
 //  Accordion Item
 function AccordionItem({
-  id, title, content, parentId, isOpen, onToggle,
+  id,
+  title,
+  content,
+  parentId,
+  isOpen,
+  onToggle,
 }: {
-  id: string; title: string; content: React.ReactNode;
-  parentId: string; isOpen: boolean; onToggle: () => void;
+  id: string;
+  title: string;
+  content: React.ReactNode;
+  parentId: string;
+  isOpen: boolean;
+  onToggle: () => void;
 }) {
   return (
     <div className="accordion-item">
       <h2 className="accordion-header" id={`heading-${id}`}>
         <button
-          className={`accordion-button ${isOpen ? '' : 'collapsed'} ${styles.accordionBtn}`}
+          className={`accordion-button ${isOpen ? "" : "collapsed"} ${styles.accordionBtn}`}
           type="button"
           onClick={onToggle}
           aria-expanded={isOpen}
@@ -692,99 +884,119 @@ function AccordionItem({
   );
 }
 
-// Constants 
-const GROUP_CLASS_HOURS      = 4;
-const GROUP_CLASS_MIN_WEEKS  = 4;
+// Constants
+const GROUP_CLASS_HOURS = 4;
+const GROUP_CLASS_MIN_WEEKS = 4;
 const HOP_ON_HOP_OFF_MAX_HOURS = 6;
 
 // Main Component
 function Calculator() {
-    useEffect(() => {
+  useEffect(() => {
     document.title = "Calculator";
   }, []);
   useScrollAnimation();
 
   const [selections, setSelections] = useState<Selections>({
     arabicType: null,
-    classType:  null,
-    time:       null,
-    hours:      0,
-    weeks:      0,
-    discount:   null,
+    classType: null,
+    time: null,
+    hours: 0,
+    weeks: 0,
+    discount: null,
   });
 
-  const [displaySelections, setDisplaySelections] = useState<DisplaySelections>({
-    arabicType: null,
-    classType:  null,
-    time:       null,
-    hours:      '0 Hours',
-    weeks:      '0 Weeks',
-    discount:   'No Discount',
-  });
+  const [displaySelections, setDisplaySelections] = useState<DisplaySelections>(
+    {
+      arabicType: null,
+      classType: null,
+      time: null,
+      hours: "0 Hours",
+      weeks: "0 Weeks",
+      discount: "No Discount",
+    },
+  );
 
-  const [showModal, setShowModal]           = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [showGroupModal, setShowGroupModal] = useState(false);
-  // const [showHopModal, setShowHopModal] = useState(false);
+  const [showHopModal, setShowHopModal] = useState(false);
 
-  const [openAccordion, setOpenAccordion]   = useState<string | null>(null);
+  const [openAccordion, setOpenAccordion] = useState<string | null>(null);
 
-  const isGroupClass    = selections.classType === 'Group Class';
-  const isHopOnHopOff   = selections.classType === 'Hop On Hop Off Group Class';
-  const isTrialClass    = selections.classType === 'Trial Class';
+  const isGroupClass = selections.classType === "Group Class";
+  const isHopOnHopOff = selections.classType === "Hop On Hop Off Group Class";
+  const isTrialClass = selections.classType === "Trial Class";
 
   function toggleAccordion(id: string) {
-    setOpenAccordion(prev => (prev === id ? null : id));
+    setOpenAccordion((prev) => (prev === id ? null : id));
   }
 
   function handleClassTypeChange(v: string) {
-    if (v === 'Group Class') {
+    if (v === "Group Class") {
       setShowGroupModal(true);
       const lockedWeeks = Math.max(selections.weeks, GROUP_CLASS_MIN_WEEKS);
       const eveningTime = TIME_OPTIONS[1];
-      setSelections(s => ({ ...s, classType: v, hours: GROUP_CLASS_HOURS, weeks: lockedWeeks, time: eveningTime }));
-      setDisplaySelections(d => ({
+      setSelections((s) => ({
+        ...s,
+        classType: v,
+        hours: GROUP_CLASS_HOURS,
+        weeks: lockedWeeks,
+        time: eveningTime,
+      }));
+      setDisplaySelections((d) => ({
         ...d,
         classType: v,
         hours: `${GROUP_CLASS_HOURS} Hours`,
-        weeks: `${lockedWeeks} Week${lockedWeeks !== 1 ? 's' : ''}`,
+        weeks: `${lockedWeeks} Week${lockedWeeks !== 1 ? "s" : ""}`,
         time: eveningTime,
       }));
+    } else if (v === "Hop On Hop Off Group Class") {
+      setShowHopModal(true);
+      setSelections((s) => ({ ...s, classType: v, time: null }));
+      setDisplaySelections((d) => ({ ...d, classType: v, time: null }));
     } else {
-      setSelections(s => ({ ...s, classType: v, time: null }));
-      setDisplaySelections(d => ({ ...d, classType: v, time: null }));
+      setSelections((s) => ({ ...s, classType: v, time: null }));
+      setDisplaySelections((d) => ({ ...d, classType: v, time: null }));
     }
   }
 
   const total = useMemo(() => calculateTotal(selections), [selections]);
 
   const effectiveDisplay: DisplaySelections = useMemo(() => {
-    if (selections.classType === 'Trial Class') {
+    if (selections.classType === "Trial Class") {
       return {
         ...displaySelections,
-        time:     'Morning or Evening',
-        hours:    '90 mins',
-        weeks:    'Only One Time',
-        discount: 'No Discount',
+        time: "Morning or Evening",
+        hours: "90 mins",
+        weeks: "Only One Time",
+        discount: "No Discount",
       };
     }
     return displaySelections;
   }, [displaySelections, selections.classType]);
 
   // Build Time dropdown options based on current class type
-  const timeOptions = TIME_OPTIONS.map(opt => {
-    const isEvening    = opt === TIME_OPTIONS[1];
-    const isOneOnOne   = selections.classType === 'One-to-One Class';
+  const timeOptions = TIME_OPTIONS.map((opt) => {
+    const isEvening = opt === TIME_OPTIONS[1];
+    const isOneOnOne = selections.classType === "One-to-One Class";
 
     if (isGroupClass) {
       return isEvening
         ? { label: opt }
-        : { label: opt, locked: true, hint: 'Group classes are evenings only' };
+        : { label: opt, locked: true, hint: "Group classes are evenings only" };
     }
 
     if (isOneOnOne) {
       return isEvening
-        ? { label: opt, hint: 'Evening classes are more expensive.', hintColor: '#c0392b' }
-        : { label: opt, hint: 'Special offer for morning classes: more hours = more savings.', hintColor: '#27ae60' };
+        ? {
+            label: opt,
+            hint: "Evening classes are more expensive.",
+            hintColor: "#c0392b",
+          }
+        : {
+            label: opt,
+            hint: "Special offer for morning classes: more hours = more savings.",
+            hintColor: "#27ae60",
+          };
     }
 
     return { label: opt };
@@ -798,20 +1010,25 @@ function Calculator() {
       {showGroupModal && (
         <GroupClassInfoModal onClose={() => setShowGroupModal(false)} />
       )}
-
-      
-
+      {showHopModal && (
+        <HopClassInfoModal onClose={() => setShowHopModal(false)} />
+      )}
 
       {/* Banner */}
-      <section className={`${styles.banner} d-flex justify-content-center align-items-center`}>
+      <section
+        className={`${styles.banner} d-flex justify-content-center align-items-center`}
+      >
         <div className="px-4 text-center d-flex flex-column align-items-center">
-          <h1 className="display-5 fw-bold text-white my-4">Arabic Course Price Calculator</h1>
+          <h1 className="display-5 fw-bold text-white my-4">
+            Arabic Course Price Calculator
+          </h1>
           <div className="col-lg-8 mx-auto">
             <p className="lead mb-4 text-center text-white">
-              Here you'll find a complete breakdown of our course fees to guide you in selecting
-              the right learning experience. Whether you thrive with individualized one-to-one
-              course or enjoy growing alongside others in a group class, our pricing page gives
-              you all the information you need with clarity and confidence.
+              Here you'll find a complete breakdown of our course fees to guide
+              you in selecting the right learning experience. Whether you thrive
+              with individualized one-to-one course or enjoy growing alongside
+              others in a group class, our pricing page gives you all the
+              information you need with clarity and confidence.
             </p>
           </div>
         </div>
@@ -824,7 +1041,9 @@ function Calculator() {
         </div>
 
         <div id="instructions" className="scroll-section">
-          <p className="col-lg-6 lead text-start">To learn more about our pricing:</p>
+          <p className="col-lg-6 lead text-start">
+            To learn more about our pricing:
+          </p>
           <ol className="lead text-start">
             <li className="py-2">
               <a
@@ -832,25 +1051,35 @@ function Calculator() {
                 href="https://docs.google.com/forms/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform"
                 target="_blank"
                 rel="noreferrer"
-                style={{ color: '#8F6E43' }}
-                onMouseEnter={e => (e.currentTarget.style.textDecoration = 'underline')}
+                style={{ color: "#8F6E43" }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.textDecoration = "underline")
+                }
               >
-                Take the Initial Skills Evaluation or Course Placement Consultation:
+                Take the Initial Skills Evaluation or Course Placement
+                Consultation:
               </a>
               <span className="px-2 fw-normal">
-                This helps determine the most suitable course level and learning plan for you.
+                This helps determine the most suitable course level and learning
+                plan for you.
               </span>
             </li>
             <li className="py-2">
-              <span className="fw-bold" style={{ color: '#8F6E43' }}>Select Your Course Options Below: </span>
+              <span className="fw-bold" style={{ color: "#8F6E43" }}>
+                Select Your Course Options Below:{" "}
+              </span>
               <span className="px-2 fw-normal">
-                Choose the type of class (one-to-one or group), type of arabic, duration, and discount.
+                Choose the type of class (one-to-one or group), type of arabic,
+                duration, and discount.
               </span>
             </li>
             <li className="py-2">
-              <span className="fw-bold" style={{ color: '#8F6E43' }}>View Your Total Cost: </span>
+              <span className="fw-bold" style={{ color: "#8F6E43" }}>
+                View Your Total Cost:{" "}
+              </span>
               <span className="px-2 fw-normal">
-                Once your options are selected, the calculator will automatically display the full price.
+                Once your options are selected, the calculator will
+                automatically display the full price.
               </span>
             </li>
             <li className="py-2">
@@ -859,8 +1088,10 @@ function Calculator() {
                 href="/arabic-courses"
                 target="_blank"
                 rel="noreferrer"
-                style={{ color: '#8F6E43' }}
-                onMouseEnter={e => (e.currentTarget.style.textDecoration = 'underline')}
+                style={{ color: "#8F6E43" }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.textDecoration = "underline")
+                }
               >
                 Click this link
               </a>
@@ -876,9 +1107,9 @@ function Calculator() {
           placeholder="Please Choose a Level"
           options={ARABIC_TYPES}
           value={selections.arabicType}
-          onChange={v => {
-            setSelections(s => ({ ...s, arabicType: v }));
-            setDisplaySelections(d => ({ ...d, arabicType: v }));
+          onChange={(v) => {
+            setSelections((s) => ({ ...s, arabicType: v }));
+            setDisplaySelections((d) => ({ ...d, arabicType: v }));
           }}
         />
 
@@ -895,10 +1126,10 @@ function Calculator() {
           placeholder="Please Choose the Time of the Day"
           options={timeOptions}
           value={selections.time}
-          disabled={isGroupClass || isTrialClass}
-          onChange={v => {
-            setSelections(s => ({ ...s, time: v }));
-            setDisplaySelections(d => ({ ...d, time: v }));
+          disabled={isGroupClass || isHopOnHopOff || isTrialClass}
+          onChange={(v) => {
+            setSelections((s) => ({ ...s, time: v }));
+            setDisplaySelections((d) => ({ ...d, time: v }));
           }}
         />
 
@@ -909,14 +1140,19 @@ function Calculator() {
           step={2}
           min={isGroupClass ? GROUP_CLASS_HOURS : 0}
           max={
-            isGroupClass  ? GROUP_CLASS_HOURS :
-            isHopOnHopOff ? HOP_ON_HOP_OFF_MAX_HOURS :
-            100
+            isGroupClass
+              ? GROUP_CLASS_HOURS
+              : isHopOnHopOff
+                ? HOP_ON_HOP_OFF_MAX_HOURS
+                : 100
           }
           locked={isGroupClass || isTrialClass}
-          onChange={v => {
-            setSelections(s => ({ ...s, hours: v }));
-            setDisplaySelections(d => ({ ...d, hours: `${v} Hour${v !== 1 ? 's' : ''}` }));
+          onChange={(v) => {
+            setSelections((s) => ({ ...s, hours: v }));
+            setDisplaySelections((d) => ({
+              ...d,
+              hours: `${v} Hour${v !== 1 ? "s" : ""}`,
+            }));
           }}
         />
 
@@ -928,9 +1164,12 @@ function Calculator() {
           min={isGroupClass ? GROUP_CLASS_MIN_WEEKS : 0}
           max={100}
           locked={isTrialClass}
-          onChange={v => {
-            setSelections(s => ({ ...s, weeks: v }));
-            setDisplaySelections(d => ({ ...d, weeks: `${v} Week${v !== 1 ? 's' : ''}` }));
+          onChange={(v) => {
+            setSelections((s) => ({ ...s, weeks: v }));
+            setDisplaySelections((d) => ({
+              ...d,
+              weeks: `${v} Week${v !== 1 ? "s" : ""}`,
+            }));
           }}
         />
 
@@ -939,12 +1178,12 @@ function Calculator() {
           weeks={isTrialClass ? 0 : selections.weeks}
           hours={isTrialClass ? 0 : selections.hours}
           onChange={(value, label) => {
-            setSelections(s => ({ ...s, discount: value }));
-            setDisplaySelections(d => ({ ...d, discount: label }));
+            setSelections((s) => ({ ...s, discount: value }));
+            setDisplaySelections((d) => ({ ...d, discount: label }));
           }}
           onReset={() => {
-            setSelections(s => ({ ...s, discount: null }));
-            setDisplaySelections(d => ({ ...d, discount: 'No Discount' }));
+            setSelections((s) => ({ ...s, discount: null }));
+            setDisplaySelections((d) => ({ ...d, discount: "No Discount" }));
           }}
         />
 
@@ -963,20 +1202,21 @@ function Calculator() {
         <div
           className="scroll-section mt-4 mb-2"
           style={{
-            borderTop: '1px solid #e8ddd0',
-            paddingTop: '1rem',
+            borderTop: "1px solid #e8ddd0",
+            paddingTop: "1rem",
           }}
         >
           <p
             style={{
-              fontSize: '0.82rem',
-              color: '#999',
-              fontStyle: 'italic',
-              textAlign: 'center',
+              fontSize: "0.82rem",
+              color: "#999",
+              fontStyle: "italic",
+              textAlign: "center",
               margin: 0,
             }}
           >
-            Prices are subject to change and may vary. Please contact us for the most up-to-date information.
+            Prices are subject to change and may vary. Please contact us for the
+            most up-to-date information.
           </p>
         </div>
       </section>
@@ -986,6 +1226,7 @@ function Calculator() {
         <PriceModal
           display={effectiveDisplay}
           total={total}
+          hideTime={isGroupClass || isHopOnHopOff || isTrialClass}
           onClose={() => setShowModal(false)}
         />
       )}
@@ -996,42 +1237,74 @@ function Calculator() {
           <h2>Schedule Grid</h2>
         </div>
         <p className="lead text-start scroll-section" id={styles.para}>
-          We recommend that students book a package for at least 4 weeks of lessons at a time.
-          If you are unsure of your future availability, there is the possibility of more flexible
-          scheduling. However, we can not guarantee the same time slots will stay open.
+          We recommend that students book a package for at least 4 weeks of
+          lessons at a time. If you are unsure of your future availability,
+          there is the possibility of more flexible scheduling. However, we can
+          not guarantee the same time slots will stay open.
         </p>
         <div className="table-responsive my-5 scroll-section">
           <table className="table">
             <thead>
               <tr>
-                <th className="text-center" colSpan={3} id={styles.tableHeader}>Available Times</th>
+                <th className="text-center" colSpan={3} id={styles.tableHeader}>
+                  Available Times
+                </th>
               </tr>
             </thead>
             <tbody className="align-middle">
               <tr className="border">
-                <th className="text-center border border-1 fw-bold" scope="col">Time in the Day</th>
-                <th className="text-center border-1 fw-bold" scope="col">Weekdays (In-Person/Online)</th>
-                <th className="text-center border-1 fw-bold" scope="col">Weekend (Online)</th>
+                <th className="text-center border border-1 fw-bold" scope="col">
+                  Time in the Day
+                </th>
+                <th className="text-center border-1 fw-bold" scope="col">
+                  Weekdays (In-Person/Online)
+                </th>
+                <th className="text-center border-1 fw-bold" scope="col">
+                  Weekend (Online)
+                </th>
               </tr>
               <tr className="border justify-content-center">
-                <td className="text-center border-1" scope="row" style={{ paddingBlock: '4%' }}>
+                <td
+                  className="text-center border-1"
+                  scope="row"
+                  style={{ paddingBlock: "4%" }}
+                >
                   Between 9:00 AM - 2:40 PM
                 </td>
-                <td className="text-center border-1" style={{ paddingBlock: '4%' }}>
+                <td
+                  className="text-center border-1"
+                  style={{ paddingBlock: "4%" }}
+                >
                   Sunday-Thursday
                 </td>
-                <td className="text-center border-1" rowSpan={3} style={{ paddingBlock: '4%', verticalAlign: 'middle' }}>
+                <td
+                  className="text-center border-1"
+                  rowSpan={3}
+                  style={{ paddingBlock: "4%", verticalAlign: "middle" }}
+                >
                   Saturday <br /> (11:00 AM - 2:40 PM)
                 </td>
               </tr>
               <tr className="border">
-                <td className="text-center border" colSpan={2} id={styles.tableHeader} style={{ paddingBlock: '2%' }}></td>
+                <td
+                  className="text-center border"
+                  colSpan={2}
+                  id={styles.tableHeader}
+                  style={{ paddingBlock: "2%" }}
+                ></td>
               </tr>
               <tr className="border">
-                <td className="text-center border-1" scope="row" style={{ paddingBlock: '4%' }}>
+                <td
+                  className="text-center border-1"
+                  scope="row"
+                  style={{ paddingBlock: "4%" }}
+                >
                   Between 4:20 PM - 8:00 PM
                 </td>
-                <td className="text-center border-1" style={{ paddingBlock: '4%' }}>
+                <td
+                  className="text-center border-1"
+                  style={{ paddingBlock: "4%" }}
+                >
                   Sunday-Thursday
                 </td>
               </tr>
@@ -1046,19 +1319,24 @@ function Calculator() {
           <h3>Booking Class</h3>
         </div>
         <p className="lead text-start scroll-section" id={styles.para}>
-          Booking classes can be done at your convenience through our Arabic Program Coordinator.
-          Our Admin will be very happy to assist you with scheduling, rescheduling, or cancelling
-          your classes at your preference and convenience.
+          Booking classes can be done at your convenience through our Arabic
+          Program Coordinator. Our Admin will be very happy to assist you with
+          scheduling, rescheduling, or cancelling your classes at your
+          preference and convenience.
         </p>
       </section>
 
       {/* Course Policy */}
-      <section id="coursePolicy" className={`mt-2 scroll-section ${styles.coursePolicy}`}>
+      <section
+        id="coursePolicy"
+        className={`mt-2 scroll-section ${styles.coursePolicy}`}
+      >
         <div className={`${styles.title} my-3 scroll-section`}>
           <h3>Course Policy Agreement</h3>
         </div>
         <p className="lead text-start lh-base scroll-section" id={styles.para}>
-          Prior to booking your classes with Deewan, it is crucial to thoroughly review this document.
+          Prior to booking your classes with Deewan, it is crucial to thoroughly
+          review this document.
         </p>
         <div className="d-flex flex-row justify-content-center my-3 scroll-section">
           <a
@@ -1073,30 +1351,46 @@ function Calculator() {
       </section>
 
       {/* Payment Options */}
-      <section id="paymentOptions" className={`scroll-section ${styles.paymentOptions}`}>
+      <section
+        id="paymentOptions"
+        className={`scroll-section ${styles.paymentOptions}`}
+      >
         <div className={`${styles.title} my-3`}>
           <h2>Payment Options</h2>
         </div>
         <p className="lead text-start lh-base" id={styles.para}>
-          You have the convenience of making payments instantly using credit cards. However, in case
-          you encounter any issues with your payment or prefer an alternative method,{' '}
-          <span className="fst-italic fw-bolder" style={{ color: 'black' }}>
-            please see the payment options below, complete the transaction, and kindly send us
-            the proof of payment at:
+          You have the convenience of making payments instantly using credit
+          cards. However, in case you encounter any issues with your payment or
+          prefer an alternative method,{" "}
+          <span className="fst-italic fw-bolder" style={{ color: "black" }}>
+            please see the payment options below, complete the transaction, and
+            kindly send us the proof of payment at:
           </span>
         </p>
 
-        <div className={`d-flex flex-row align-items-center justify-content-center my-4 ${styles.mail}`}>
-          <img className="px-2" src="../assets/images/icons/mail.svg" alt="Mail" />
-          <a className="px-2" href="mailto:arabic@deewaninstitute.com" target="_blank" rel="noreferrer">
+        <div
+          className={`d-flex flex-row align-items-center justify-content-center my-4 ${styles.mail}`}
+        >
+          <img
+            className="px-2"
+            src="../assets/images/icons/mail.svg"
+            alt="Mail"
+          />
+          <a
+            className="px-2"
+            href="mailto:arabic@deewaninstitute.com"
+            target="_blank"
+            rel="noreferrer"
+          >
             arabic@deewaninstitute.com
           </a>
         </div>
 
         <p className="lead text-start lh-base" id={styles.para}>
-          All balances are due 2 days before the start date of a lesson package. Payment instalment
-          plans are available upon request for any packages of 3 months or longer, subject to a
-          signed PAF (Payment Agreement Form).
+          All balances are due 2 days before the start date of a lesson package.
+          Payment instalment plans are available upon request for any packages
+          of 3 months or longer, subject to a signed PAF (Payment Agreement
+          Form).
         </p>
         <div className="d-flex flex-row justify-content-center my-4">
           <a
@@ -1109,26 +1403,43 @@ function Calculator() {
           </a>
         </div>
 
-        <div className="accordion accordion-flush my-4" id="accordionFlushExample">
+        <div
+          className="accordion accordion-flush my-4"
+          id="accordionFlushExample"
+        >
           <AccordionItem
-            id="one" parentId="accordionFlushExample" title="1. PayPal"
-            isOpen={openAccordion === 'one'} onToggle={() => toggleAccordion('one')}
+            id="one"
+            parentId="accordionFlushExample"
+            title="1. PayPal"
+            isOpen={openAccordion === "one"}
+            onToggle={() => toggleAccordion("one")}
             content={
               <p className={styles.accordionSimple}>
-                Please click the PayPal link{' '}
-                <a href="https://paypal.me/DeewanInstitute" target="_blank" rel="noreferrer">here</a>
-                {' '}to make the payment.
+                Please click the PayPal link{" "}
+                <a
+                  href="https://paypal.me/DeewanInstitute"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  here
+                </a>{" "}
+                to make the payment.
               </p>
             }
           />
           <AccordionItem
-            id="two" parentId="accordionFlushExample" title="2. Bank Transfer or Deposit To:"
-            isOpen={openAccordion === 'two'} onToggle={() => toggleAccordion('two')}
+            id="two"
+            parentId="accordionFlushExample"
+            title="2. Bank Transfer or Deposit To:"
+            isOpen={openAccordion === "two"}
+            onToggle={() => toggleAccordion("two")}
             content={
               <div className={styles.bankContent}>
                 <div className={styles.bankHeader}>
                   <span className={styles.bankName}>Arab Bank</span>
-                  <span className={styles.bankEntity}>DEEWAN FOR LANGUAGES</span>
+                  <span className={styles.bankEntity}>
+                    DEEWAN FOR LANGUAGES
+                  </span>
                 </div>
                 <div className={styles.currencyBlock}>
                   <p className={styles.currencyTitle}>Jordanian Dinars (JOD)</p>
@@ -1138,7 +1449,9 @@ function Calculator() {
                   </div>
                   <div className={styles.bankRow}>
                     <span className={styles.bankLabel}>IBAN</span>
-                    <span className={styles.bankValue}>JO82 ARAB 1160 0000 0011 6634 3965 00</span>
+                    <span className={styles.bankValue}>
+                      JO82 ARAB 1160 0000 0011 6634 3965 00
+                    </span>
                   </div>
                   <div className={styles.bankRow}>
                     <span className={styles.bankLabel}>SWIFT Code</span>
@@ -1153,7 +1466,10 @@ function Calculator() {
                   </div>
                   <div className={styles.bankRow}>
                     <span className={styles.bankLabel}>IBAN</span>
-                    <span className={styles.bankValue}> JO06 ARAB 1160 0000 0011 6634 3965 10</span>
+                    <span className={styles.bankValue}>
+                      {" "}
+                      JO06 ARAB 1160 0000 0011 6634 3965 10
+                    </span>
                   </div>
                   <div className={styles.bankRow}>
                     <span className={styles.bankLabel}>SWIFT Code</span>
@@ -1164,8 +1480,11 @@ function Calculator() {
             }
           />
           <AccordionItem
-            id="three" parentId="accordionFlushExample" title="3. Western Union"
-            isOpen={openAccordion === 'three'} onToggle={() => toggleAccordion('three')}
+            id="three"
+            parentId="accordionFlushExample"
+            title="3. Western Union"
+            isOpen={openAccordion === "three"}
+            onToggle={() => toggleAccordion("three")}
             content={
               <p className={styles.accordionSimple}>
                 <span className={styles.accordionLabel}>Recipient Name: </span>
@@ -1174,8 +1493,11 @@ function Calculator() {
             }
           />
           <AccordionItem
-            id="four" parentId="accordionFlushExample" title="4. Cash"
-            isOpen={openAccordion === 'four'} onToggle={() => toggleAccordion('four')}
+            id="four"
+            parentId="accordionFlushExample"
+            title="4. Cash"
+            isOpen={openAccordion === "four"}
+            onToggle={() => toggleAccordion("four")}
             content={
               <p className={styles.accordionSimple}>
                 <span className={styles.accordionLabel}>Location: </span>
@@ -1184,8 +1506,11 @@ function Calculator() {
             }
           />
           <AccordionItem
-            id="five" parentId="accordionFlushExample" title="5. Cliq Alias"
-            isOpen={openAccordion === 'five'} onToggle={() => toggleAccordion('five')}
+            id="five"
+            parentId="accordionFlushExample"
+            title="5. Cliq Alias"
+            isOpen={openAccordion === "five"}
+            onToggle={() => toggleAccordion("five")}
             content={
               <p className={styles.accordionSimple}>
                 <span className={styles.accordionLabel}>Alias Name: </span>
