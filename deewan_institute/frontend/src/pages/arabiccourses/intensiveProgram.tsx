@@ -118,7 +118,7 @@ function IntensiveProgram() {
             data={{
               subtitle: "4 Weeks Course",
               iconImage: "../assets/images/icons/one.png",
-              oneTotalPrice: "800 JD",
+              oneTotalPrice: "840 JD",
               groupTotalPrice: "880 JD",
               oneHours: "80 hours",
               groupHours: "80 hours",
@@ -128,7 +128,7 @@ function IntensiveProgram() {
             data={{
               subtitle: "8 Weeks Course",
               iconImage: "../assets/images/icons/two.png",
-              oneTotalPrice: "1600 JD",
+              oneTotalPrice: "1680 JD",
               groupTotalPrice: "1760 JD",
               oneHours: "160 hours",
               groupHours: "160 hours",
