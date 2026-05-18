@@ -5,6 +5,7 @@ import Footer from "../../components/footer/footer";
 import "bootstrap";
 import style from "./error.module.scss";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
+import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
 
 function NotFound() {
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ function NotFound() {
       {/* Navigation Bar */}
       <NavBar />
       <FloatingActionButton />
+      <FloatingActionButtonInstitute />
       {/* 404 Content */}
       <section className="d-flex flex-column align-items-center justify-content-center text-center mx-auto" id={style.errorPage} >
         <img id={style.image} className="mx-auto" src={"/assets/images/others/404.png"} />  

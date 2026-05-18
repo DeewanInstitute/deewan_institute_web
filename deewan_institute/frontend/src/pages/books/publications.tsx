@@ -13,6 +13,7 @@ import NavBar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 import { useNavigate } from "react-router-dom";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
+import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
 
 declare const Swiper: any;
 
@@ -140,6 +141,7 @@ function Publications() {
     <Fragment>
       <NavBar />
       <FloatingActionButton />
+      <FloatingActionButtonInstitute />
 
       {/* ── Banner ── */}
       <section

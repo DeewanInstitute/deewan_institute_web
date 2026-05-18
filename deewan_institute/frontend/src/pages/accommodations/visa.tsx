@@ -6,6 +6,7 @@ import visaData from "../../../data/visa.ts";
 import BottomBanner from "../../components/bottombanner/bottombanner.tsx";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations.ts";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton.tsx";
+import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute.tsx";
 
 function Visa() {
   useEffect(() => {
@@ -19,6 +20,7 @@ function Visa() {
       {/* NavBar */}
       <NavBar />
       <FloatingActionButton />
+      <FloatingActionButtonInstitute />
       {/* Accommodation Layout */}
       <AccommodationLayout data={visaData} />
       {/* BottomBanner */}

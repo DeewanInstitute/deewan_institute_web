@@ -4,37 +4,10 @@ import NavBar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 import styles from "./newsletter.module.scss";
 import { EDITIONS } from "../../../data/newsletter.data";
+import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
 
 
 
-// ── Animated counter ──────────────────────────────────────────────────────────
-// function CountUp({ target, suffix = "" }: { target: number; suffix?: string }) {
-//   const [value, setValue] = useState(0);
-//   const ref = useRef<HTMLSpanElement>(null);
-
-//   useEffect(() => {
-//     const observer = new IntersectionObserver(
-//       ([entry]) => {
-//         if (!entry.isIntersecting) return;
-//         observer.disconnect();
-//         let start = 0;
-//         const step = Math.ceil(target / 60);
-//         const timer = setInterval(() => {
-//           start += step;
-//           if (start >= target) { setValue(target); clearInterval(timer); }
-//           else setValue(start);
-//         }, 20);
-//       },
-//       { threshold: 0.5 }
-//     );
-//     if (ref.current) observer.observe(ref.current);
-//     return () => observer.disconnect();
-//   }, [target]);
-
-//   return <span ref={ref}>{value}{suffix}</span>;
-// }
-
-// ── Canva Embed — mirrors Canva's own recommended HTML exactly ───────────────
 function CanvaEmbed({
   src,
   title,
@@ -101,6 +74,8 @@ export default function NewsletterPage() {
   return (
     <div className={styles.page}>
       <NavBar />
+      <FloatingActionButtonInstitute />
+
       <Banner
         data={{
           title: "Newsletter",

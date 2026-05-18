@@ -11,6 +11,7 @@ import Schedule from "../../components/scheduletable/schedule";
 import style from "./arabic.module.scss";
 import "../../style/animation.scss";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
+import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
 
 function IntensiveProgram() {
   useEffect(() => {
@@ -23,6 +24,7 @@ function IntensiveProgram() {
     <Fragment>
       <NavBar />
       <FloatingActionButton />
+      <FloatingActionButtonInstitute />
       <Banner
         data={{
           title: "Intensive Summer & Fall Program",

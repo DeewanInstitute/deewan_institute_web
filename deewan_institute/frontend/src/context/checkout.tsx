@@ -7,6 +7,7 @@ import { useShop } from "./shopcontext";
 import NavBar from "../components/navbar/navbar";
 import Footer from "../components/footer/footer";
 import FloatingActionButton from "../components/floatingbutton/floatingactionbutton";
+import FloatingActionButtonInstitute from "../components/floatingbutton/floatingactionbuttoninstitute";
 
 type PaymentMethod = "cash" | "cliq" | "paypal" | "";
 
@@ -112,6 +113,7 @@ function Checkout() {
     <Fragment>
       <NavBar />
       <FloatingActionButton />
+      <FloatingActionButtonInstitute />
 
       {/* ── Success Modal ── */}
       <div

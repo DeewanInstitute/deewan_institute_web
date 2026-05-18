@@ -50,7 +50,8 @@
 
 #firstRow,
 #secondRow,
-#thirdRow {
+#thirdRow,
+#fourthRow {
   margin-inline: -2% !important;
 }
 
@@ -139,7 +140,8 @@
 
   #firstRow,
   #secondRow,
-  #thirdRow {
+  #thirdRow,
+  #fourthRow {
     flex-direction: column !important;
     justify-content: center !important;
     margin: 0 auto !important;
@@ -199,7 +201,8 @@
 
   #firstRow,
   #secondRow,
-  #thirdRow {
+  #thirdRow, 
+  #fourthRow {
     gap: 10% !important;
     flex-direction: column !important;
     justify-content: space-between !important;
@@ -260,7 +263,8 @@
 
   #firstRow,
   #secondRow,
-  #thirdRow {
+  #thirdRow,
+  #fourthRow {
     gap: 10% !important;
     flex-direction: column !important;
     justify-content: space-between !important;

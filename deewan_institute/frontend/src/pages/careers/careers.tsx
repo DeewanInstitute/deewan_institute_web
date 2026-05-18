@@ -6,6 +6,7 @@ import { useScrollAnimation } from "../../../hooks/scrollAnimations";
 import JobAccordin from "../../components/careers/jobaccordin";
 import CareerForm from "../../components/careers/careerform";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
+import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
 
 function Career() {
   console.log("API URL:", import.meta.env.VITE_API_URL); // Should show: http://localhost:5000
@@ -20,6 +21,8 @@ function Career() {
     <Fragment>
       <NavBar />
       <FloatingActionButton />
+      <FloatingActionButtonInstitute />
+
       <main className={styles.career_page}>
 
         {/* Hero Section */}

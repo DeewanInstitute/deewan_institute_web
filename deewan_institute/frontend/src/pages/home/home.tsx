@@ -12,6 +12,7 @@ import "bootstrap";
 import "../../style/animation.scss";
 import style from "./home.module.scss";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
+import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
 
 function Home() {
   const [showTerms, setShowTerms] = useState<boolean>(false);
@@ -64,6 +65,7 @@ function Home() {
   return (
     <Fragment>
       <FloatingActionButton />
+      <FloatingActionButtonInstitute />
 
       {showTerms && (
         <TermsModal onAccept={handleAccept} onDecline={handleDecline} />

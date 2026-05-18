@@ -4,6 +4,7 @@ import Footer from "../../components/footer/footer";
 import HistoryLayout from "../../layout/historylayout/historyLayout";
 import { peopleHistory } from "../../../data/peopleHistory";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
+import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
 
 
 
@@ -16,6 +17,7 @@ function PeopleOfME() {
     return (
         <Fragment>
           <FloatingActionButton />
+            <FloatingActionButtonInstitute />
 
             {/* NavBar */}
             <NavBar />

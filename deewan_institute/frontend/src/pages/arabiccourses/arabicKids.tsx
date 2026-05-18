@@ -10,6 +10,7 @@ import '../../style/animation.scss';
 import 'bootstrap';
 import BottomBanner from "../../components/bottombanner/bottombanner";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
+import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
 
 function ArabicKids() {
     useEffect(() => {
@@ -23,6 +24,7 @@ function ArabicKids() {
             {/* NavBar */}
             <NavBar />
             <FloatingActionButton />
+            <FloatingActionButtonInstitute />
             
             {/* Banner */}
             <ShadowBanner 

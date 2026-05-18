@@ -6,6 +6,7 @@ import NavBar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 import html2pdf from "html2pdf.js";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
+import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
 
 // Types
 interface Selections {
@@ -1006,6 +1007,7 @@ function Calculator() {
     <Fragment>
       <NavBar />
       <FloatingActionButton />
+      <FloatingActionButtonInstitute />
 
       {showGroupModal && (
         <GroupClassInfoModal onClose={() => setShowGroupModal(false)} />

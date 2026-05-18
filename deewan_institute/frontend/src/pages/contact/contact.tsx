@@ -5,6 +5,7 @@ import NavBar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 import styles from "./contact.module.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
+import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
 
 interface ContactFormData {
   fullName: string;
@@ -90,6 +91,8 @@ function Contact() {
   return (
     <Fragment>
       <NavBar />
+      <FloatingActionButtonInstitute />
+
 
       {/* ── Contact Modal ── */}
       <div

@@ -8,6 +8,7 @@ import { useScrollAnimation } from '../../../hooks/scrollAnimations';
 import '../../style/animation.scss';
 import "bootstrap"
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
+import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
 
 function ArabicCourses() {
 
@@ -23,6 +24,7 @@ function ArabicCourses() {
             {/* Navbar */}
             <NavBar />
             <FloatingActionButton />
+            <FloatingActionButtonInstitute />
             {/* Banner */}
             <Banner data={{
                 title: "Arabic Courses",

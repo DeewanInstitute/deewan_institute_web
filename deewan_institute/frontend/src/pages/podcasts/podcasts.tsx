@@ -6,6 +6,7 @@ import PodcastSeasonBlock from "../../components/podcastblocks/podcastseasonbloc
 import styles from "./podcasts.module.scss";
 import { seasons, seasonCards } from "../../../data/podcasts.data";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
+import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
 
 function Podcasts() {
     useEffect(() => {
@@ -15,6 +16,7 @@ function Podcasts() {
     <Fragment>
       <NavBar />
         <FloatingActionButton />
+        <FloatingActionButtonInstitute />
 
 
       {/*  Hero Banner  */}

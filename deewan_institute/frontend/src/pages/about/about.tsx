@@ -10,6 +10,7 @@ import "bootstrap";
 import style from "./about.module.scss";
 import YouTubeSlider from "../../components/youtubeslider/youtubeslider";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
+import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
 
 function About() {
   useEffect(() => {
@@ -22,6 +23,7 @@ function About() {
     <Fragment>
       <NavBar />
       <FloatingActionButton />
+      <FloatingActionButtonInstitute />
       <main className={`${style.aboutpage}`}>
         {/* Banner Image */}
         <section
@@ -109,7 +111,10 @@ function About() {
             <span>Our Values</span>
           </div>
           <div id={style.row} className="row my-5 py-5">
-            <div className="col-lg-4 col-md-4 d-flex flex-column align-items-center gap-4" id={style.value}>
+            <div
+              className="col-lg-4 col-md-4 d-flex flex-column align-items-center gap-4"
+              id={style.value}
+            >
               <img
                 id={style.image}
                 src="/assets/images/icons/firstValue.png"
@@ -119,7 +124,10 @@ function About() {
                 Community and <br /> Inclusivity
               </h4>
             </div>
-            <div className="col-lg-4 col-md-4 d-flex flex-column align-items-center gap-4" id={style.value}>
+            <div
+              className="col-lg-4 col-md-4 d-flex flex-column align-items-center gap-4"
+              id={style.value}
+            >
               <img
                 id={style.image}
                 src="/assets/images/icons/secondValue.png"
@@ -129,7 +137,10 @@ function About() {
                 Excellence in <br /> Education
               </h4>
             </div>
-            <div className="col-lg-4 col-md-4 d-flex flex-column align-items-center gap-4" id={style.value}>
+            <div
+              className="col-lg-4 col-md-4 d-flex flex-column align-items-center gap-4"
+              id={style.value}
+            >
               <img
                 id={style.image}
                 src="/assets/images/icons/thirdValue.png"
@@ -190,6 +201,74 @@ function About() {
 
         {/* Testimonials */}
         <YouTubeSlider />
+
+        {/* Social Media Section */}
+        <section
+          className={`${style.socialMedia} d-flex flex-column align-items-center justify-content-center`}
+        >
+          <div
+            className={`${style.title} mt-5 d-flex flex-column align-items-center scroll-section`}
+          >
+            <span>Our Social Medias</span>
+            <hr className={`${style.featuretteDivider}`} />
+          </div>
+          <p className={`${style.para} lead text-center my-4 scroll-section`}>
+            Follow Deewan Institute on social media to stay updated on Arabic
+            programs, student life, cultural activities, events, and learning
+            opportunities.
+          </p>
+          <div className={`${style.cardsRow} row scroll-section`}>
+  {[
+  {
+    id: "facebook",
+    embedUrl: "https://www.facebook.com/plugins/post.php?href=%2Freel%2F4492868834279349%2F&&show_text=true",
+    icons: ["facebook"]
+  },
+  {
+    id: "linkedin",
+    embedUrl: "https://www.linkedin.com/embed/feed/update/urn:li:share:7459936498294091776?",
+    icons: ["linkedin"]
+  },
+  {
+    id: "instagram",
+    embedUrl: "https://www.instagram.com/p/DYUpYdLjRwa/embed",
+    icons: ["instagram"]
+  }
+].map((card) => (
+  <div key={card.id} className={`col-md-4 d-flex justify-content-center`}>
+    <div className={style.socialCard}>
+      <iframe
+        src={card.embedUrl}
+        className={style.cardImage}
+        scrolling="no"
+        allowTransparency
+        allow="encrypted-media"
+      />
+        <div className={style.cardIcons}>
+                    <a href="https://www.facebook.com/profile.php?id=61579964781468" aria-label="Facebook">
+                      <img
+                        src="/assets/images/icons/facebook.png"
+                        alt="Facebook"
+                      />
+                    </a>
+                    <a href="https://www.linkedin.com/company/deewaninstitute/posts/?feedView=all" aria-label="LinkedIn">
+                      <img
+                        src="/assets/images/icons/linkedin.png"
+                        alt="LinkedIn"
+                      />
+                    </a>
+                    <a href="https://www.instagram.com/deewan_arabic_institute/" aria-label="Instagram">
+                      <img
+                        src="/assets/images/icons/instagram.png"
+                        alt="Instagram"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
       <Footer />
     </Fragment>

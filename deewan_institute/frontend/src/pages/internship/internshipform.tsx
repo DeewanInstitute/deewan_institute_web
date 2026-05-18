@@ -24,6 +24,7 @@ import {
 } from "../../../data/internship.data";
 import Banner from "../../components/banner/banner";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
+import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -297,17 +298,17 @@ function SuccessModal() {
   const [secondsLeft, setSecondsLeft] = useState(8);
 
   useEffect(() => {
-  const interval = setInterval(() => {
-    setSecondsLeft((s) => {
-      if (s <= 1) {
-        clearInterval(interval);
-        window.location.href = "/"; 
-      }
-      return s - 1;
-    });
-  }, 1000);
-  return () => clearInterval(interval);
-}, []);
+    const interval = setInterval(() => {
+      setSecondsLeft((s) => {
+        if (s <= 1) {
+          clearInterval(interval);
+          window.location.href = "/";
+        }
+        return s - 1;
+      });
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const circumference = 2 * Math.PI * 20; // r=20
   const progress = ((8 - secondsLeft) / 8) * circumference;
@@ -380,7 +381,6 @@ function InternshipForm() {
     setOpenSection(openSection === i ? -1 : i);
   };
 
-
   const next = (current: number) => {
     if (current + 1 < SECTIONS.length) setOpenSection(current + 1);
   };
@@ -440,7 +440,8 @@ function InternshipForm() {
   return (
     <Fragment>
       <NavBar />
-        <FloatingActionButton />
+      <FloatingActionButton />
+      <FloatingActionButtonInstitute />
 
       <Banner
         data={{
@@ -460,6 +461,21 @@ function InternshipForm() {
               }}
             />
           </div>
+          <div>
+            <p>
+              Please complete the internship form carefully and make sure all
+              required information is accurate before submitting.
+            </p>
+
+            <p>
+              If you have any questions, please contact us at{" "}
+              <a href="mailto:arabic@deewaninstitute.com">
+                arabic@deewaninstitute.com
+              </a>
+              .
+            </p>
+          </div>
+
           <span className={styles.progress_label}>
             {completions.filter(Boolean).length} of {SECTIONS.length} sections
             complete

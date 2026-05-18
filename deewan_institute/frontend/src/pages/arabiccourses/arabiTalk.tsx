@@ -10,6 +10,7 @@ import style from "./arabic.module.scss";
 import "../../style/animation.scss";
 import "bootstrap";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
+import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
 
 function ArabiTalk() {
   useEffect(() => {
@@ -23,6 +24,8 @@ function ArabiTalk() {
       {/* NavBar */}
       <NavBar />
       <FloatingActionButton />
+      <FloatingActionButtonInstitute />
+
       {/* Banner */}
       <ShadowBanner
         data={{

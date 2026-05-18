@@ -4,6 +4,7 @@ import Footer from "../../components/footer/footer";
 import HistoryLayout from "../../layout/historylayout/historyLayout";
 import { modernHistory } from "../../../data/modernHistory";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
+import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
 
 
 
@@ -16,6 +17,7 @@ function ModernME() {
     return (
         <Fragment>
             <FloatingActionButton />
+            <FloatingActionButtonInstitute />
             {/* NavBar */}
             <NavBar />
             {/* Main Layout */}

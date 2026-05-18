@@ -5,6 +5,7 @@ import { useShop } from './shopcontext';
 import NavBar from '../components/navbar/navbar';
 import Footer from '../components/footer/footer';
 import FloatingActionButton from '../components/floatingbutton/floatingactionbutton';
+import FloatingActionButtonInstitute from '../components/floatingbutton/floatingactionbuttoninstitute';
 
 
 function Cart() {
@@ -16,6 +17,7 @@ function Cart() {
         <Fragment>
             <NavBar />
             <FloatingActionButton />
+            <FloatingActionButtonInstitute />
             <section className={`${styles.cart} py-3 mt-2 mb-5`}>
                 <div className={styles.title}>
                     <h2>Your Cart</h2>

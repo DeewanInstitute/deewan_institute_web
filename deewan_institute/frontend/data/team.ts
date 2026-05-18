@@ -11,12 +11,12 @@ export const teamData: TeamMember = {
     {
       name: "Mohammad",
       title: "Director & Founder",
-      img: "../assets/images/teams/1.jpg",
+      img: "../assets/images/teams/mohammad.JPG",
     },
     {
       name: "Ghayda",
       title: "Arabic Program Administrator",
-      img: "../assets/images/teams/16.png",
+      img: "../assets/images/teams/ghayda.jpg",
     },
     {
       name: "Raghad",
@@ -31,12 +31,12 @@ export const teamData: TeamMember = {
     {
       name: "Ayah",
       title: "Program Coordinator",
-      img: "../assets/images/teams/17.png",
+      img: "../assets/images/teams/aya.JPG",
     },
     {
       name: "Nusaiba",
       title: "Arabic Teacher",
-      img: "../assets/images/teams/3.jpg",
+      img: "../assets/images/teams/nusaiba.JPG",
     },
     {
       name: "Huda",
@@ -49,24 +49,19 @@ export const teamData: TeamMember = {
       img: "../assets/images/teams/2.jpg",
     },
     {
-      name: "Raghad",
-      title: "Arabic Teacher",
-      img: "../assets/images/teams/12.jpg",
-    },
-    {
       name: "Rania",
       title: "Arabic Teacher",
-      img: "../assets/images/teams/11.jpg",
+      img: "../assets/images/teams/rania.JPG",
     },
     {
       name: "Tasneem",
       title: "Arabic Teacher",
-      img: "../assets/images/teams/10.jpg",
+      img: "../assets/images/teams/tasneem.JPG",
     },
     {
       name: "Noora",
       title: "Arabic Teacher",
-      img: "../assets/images/teams/6.jpg",
+      img: "../assets/images/teams/noura.JPG",
     },
     {
       name: "Doha",
@@ -81,7 +76,7 @@ export const teamData: TeamMember = {
     {
       name: "Mutaz",
       title: "Arabic Teacher",
-      img: "../assets/images/teams/5.jpg",
+      img: "../assets/images/teams/mutaz.JPG",
     },
     {
         name: "Saba", 
@@ -91,7 +86,7 @@ export const teamData: TeamMember = {
     {
         name: "Qutaibh", 
         title: "Full Stack Developer & Trainer",
-        img: "../assets/images/teams/18.JPG",
+        img: "../assets/images/teams/qutaibh.JPG",
     },
     {
       name: "Deyaa",

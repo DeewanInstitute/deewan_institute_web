@@ -15,7 +15,7 @@ const overlayColumns = [
     links: [
       { label: "Arabic Courses", to: "/arabic-courses" },
       { label: "Arabic Calculator Price", to: "/calculator" },
-      { label: "Arabi Talk", to: "/arabic-courses/arabi-talk" },
+      // { label: "Arabi Talk", to: "/arabic-courses/arabi-talk" },
       {
         label: (
           <>
@@ -67,19 +67,21 @@ const overlayColumns = [
     ],
   },
   {
-    id: "library",
-    title: "Deewan Library",
+    id: "learning-resources",
+    title: "Learning Resources",
     links: [
       { label: "Publications", to: "/publications" },
       { label: "Podcasts", to: "/podcasts" },
     ],
   },
   {
-    id: "accommodation",
-    title: "Accommodation",
+    id: "Student Services",
+    title: "Student Services",
     links: [
+      { label: "Accommodation", to: "https://www.deewantourism.com"},
       { label: "Trips", to: "/accommodation-and-student-services/trips" },
       { label: "Visa", to: "/accommodation-and-student-services/visa" },
+
     ],
   },
   {
