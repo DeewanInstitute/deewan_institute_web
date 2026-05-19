@@ -1,9 +1,6 @@
 @use "../../style/variables.scss" as *;
 @use "../../style/fonts.scss" as *;
 
-// ─────────────────────────────────────────────
-// ── BASE NAVBAR
-// ─────────────────────────────────────────────
 
 #navBar {
   z-index: 100;
@@ -19,7 +16,6 @@
   border-bottom: none;
   box-shadow: none;
 
-  // Smooth transition for all morphing properties
   transition:
     padding 0.45s cubic-bezier(0.4, 0, 0.2, 1),
     background-color 0.45s ease,
@@ -27,10 +23,7 @@
     box-shadow 0.45s ease;
 }
 
-// ─────────────────────────────────────────────
-// ── SCROLLED STATE — Desktop (1280px+)
-// Morphs into a centered floating pill
-// ─────────────────────────────────────────────
+
 
 @media (min-width: 1280px) {
   .navScrolled {
@@ -38,7 +31,6 @@
     background: transparent !important;
     box-shadow: none !important;
 
-    // The container becomes the pill
     .containerScrolled {
       background: rgba(60, 38, 16, 0.72) !important;
       backdrop-filter: blur(20px) saturate(160%) !important;
@@ -60,7 +52,6 @@
         box-shadow 0.45s ease;
     }
 
-    // Shrink .border pills inside the scrolled pill
     .border {
       background: transparent !important;
       border: none !important;
@@ -68,17 +59,11 @@
       padding: 4px 16px !important;
     }
 
-    // Slightly tighten nav items
     #navitem {
       font-size: 14px !important;
     }
   }
 }
-
-// ─────────────────────────────────────────────
-// ── SCROLLED STATE — Tablet (768px–1279px)
-// Slim frosted bar
-// ─────────────────────────────────────────────
 
 @media (min-width: 768px) and (max-width: 1279px) {
   #navBar {
@@ -112,10 +97,6 @@
   }
 }
 
-// ─────────────────────────────────────────────
-// ── SCROLLED STATE — Mobile (max 767px)
-// Slim frosted strip
-// ─────────────────────────────────────────────
 
 @media (max-width: 767px) {
   #navBar {
@@ -148,19 +129,10 @@
   }
 }
 
-// ─────────────────────────────────────────────
-// ── LOGO SHRINK on scroll
-// ─────────────────────────────────────────────
-
 .logoScrolled {
   width: 110px !important;
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
-
-// ─────────────────────────────────────────────
-// ── SCROLL PROGRESS LINE
-// Thin amber line that fills across the bottom of the navbar
-// ─────────────────────────────────────────────
 
 .progressLine {
   position: absolute;
@@ -187,9 +159,6 @@
   width: 60%;
 }
 
-// ─────────────────────────────────────────────
-// ── Mobile Header
-// ─────────────────────────────────────────────
 
 .mobileHeader {
   @media (min-width: 768px) {
@@ -197,9 +166,6 @@
   }
 }
 
-// ─────────────────────────────────────────────
-// ── Tablet Header
-// ─────────────────────────────────────────────
 
 .tabletHeader {
   padding: 19px 0;
@@ -224,9 +190,6 @@
   flex: 1;
 }
 
-// ─────────────────────────────────────────────
-// ── Mobile Right Group
-// ─────────────────────────────────────────────
 
 .mobileRightGroup {
   display: flex;
@@ -234,9 +197,6 @@
   gap: 10px;
 }
 
-// ─────────────────────────────────────────────
-// ── Shop Icons
-// ─────────────────────────────────────────────
 
 .shopIconsInline {
   display: flex;
@@ -279,9 +239,6 @@
   }
 }
 
-// ─────────────────────────────────────────────
-// ── Border Pills (desktop)
-// ─────────────────────────────────────────────
 
 .border {
   border-radius: 20px;
@@ -300,9 +257,6 @@
   }
 }
 
-// ─────────────────────────────────────────────
-// ── Nav Items
-// ─────────────────────────────────────────────
 
 #navitem {
   color: white !important;
@@ -329,9 +283,6 @@
   }
 }
 
-// ─────────────────────────────────────────────
-// ── Logo
-// ─────────────────────────────────────────────
 
 #mainLogo {
   width: 160px;
@@ -351,9 +302,6 @@
   }
 }
 
-// ─────────────────────────────────────────────
-// ── Toggler Button
-// ─────────────────────────────────────────────
 
 .toggler {
   display: none;
@@ -388,9 +336,6 @@
   font-size: 26px;
 }
 
-// ─────────────────────────────────────────────
-// ── Backdrop
-// ─────────────────────────────────────────────
 
 .backdrop {
   display: none;
@@ -428,10 +373,6 @@
   opacity: 1 !important;
   visibility: visible !important;
 }
-
-// ─────────────────────────────────────────────
-// ── Overlay
-// ─────────────────────────────────────────────
 
 .overlay {
   position: fixed;
@@ -497,10 +438,6 @@
   }
 }
 
-// ─────────────────────────────────────────────
-// ── Overlay Inner
-// ─────────────────────────────────────────────
-
 .overlayInner {
   display: flex;
   flex-direction: column;
@@ -538,10 +475,6 @@
   }
 }
 
-// ─────────────────────────────────────────────
-// ── Close Button
-// ─────────────────────────────────────────────
-
 .closeBtn {
   position: absolute;
   top: 16px;
@@ -563,9 +496,6 @@
   }
 }
 
-// ─────────────────────────────────────────────
-// ── Overlay Logo
-// ─────────────────────────────────────────────
 
 .overlayLogo {
   @media (min-width: 1280px) {
@@ -593,9 +523,6 @@
   }
 }
 
-// ─────────────────────────────────────────────
-// ── Overlay Links Grid
-// ─────────────────────────────────────────────
 
 .overlayLinks {
   display: flex;
@@ -692,9 +619,6 @@
   margin: 8px 0;
 }
 
-// ─────────────────────────────────────────────
-// ── Badge
-// ─────────────────────────────────────────────
 
 .badge {
   position: absolute;
@@ -724,10 +648,6 @@
     height: 24px;
   }
 }
-
-// ═══════════════════════════════════════════════
-// ── DESKTOP DROPDOWN SYSTEM
-// ═══════════════════════════════════════════════
 
 .desktopDropdownsWrap {
   display: flex;
@@ -842,9 +762,6 @@
   }
 }
 
-// ═══════════════════════════════════════════════
-// ── NEWSLETTER CARD (Desktop only)
-// ═══════════════════════════════════════════════
 
 .newsletterCard {
   display: flex;
