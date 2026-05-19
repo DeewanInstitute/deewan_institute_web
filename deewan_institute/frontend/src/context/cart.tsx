@@ -13,6 +13,7 @@ function Cart() {
     const navigate = useNavigate();
     const DELEVERY_FEE = 3;
 
+    
     return (
         <Fragment>
             <NavBar />

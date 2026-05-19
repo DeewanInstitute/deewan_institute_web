@@ -17,6 +17,7 @@ export interface CartItem extends ShopItem {
     quantity: number;
 }
 
+
 interface ShopContextType {
     wishlist: ShopItem[];
     toggleWishlist: (item: ShopItem) => void;

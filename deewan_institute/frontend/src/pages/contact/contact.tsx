@@ -21,6 +21,7 @@ function Contact() {
     phone: "",
     message: "",
   });
+  
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const modalRef = useRef<HTMLDivElement>(null);

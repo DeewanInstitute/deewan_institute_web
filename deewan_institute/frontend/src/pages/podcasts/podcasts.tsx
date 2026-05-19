@@ -18,7 +18,6 @@ function Podcasts() {
         <FloatingActionButton />
         <FloatingActionButtonInstitute />
 
-
       {/*  Hero Banner  */}
       <section className={styles.heroBanner}>
         <div className={styles.heroContent}>
