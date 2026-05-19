@@ -2,7 +2,7 @@ import "bootstrap";
 import styles from "../navbar/navbar.module.scss";
 import { NavLink, useLocation } from "react-router-dom";
 import { useShop } from "../../context/shopcontext";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { RiMenu3Line } from "react-icons/ri";
 import { RiArrowDownSLine } from "react-icons/ri";
 
@@ -15,7 +15,6 @@ const overlayColumns = [
     links: [
       { label: "Arabic Courses", to: "/arabic-courses" },
       { label: "Arabic Calculator Price", to: "/calculator" },
-      // { label: "Arabi Talk", to: "/arabic-courses/arabi-talk" },
       {
         label: (
           <>
@@ -33,17 +32,31 @@ const overlayColumns = [
     id: "middle-east",
     title: "Middle Eastern Studies",
     links: [
-
       {
-        label: ( <>History of the <br />Middle East </> ),
+        label: (
+          <>
+            History of the <br />
+            Middle East{" "}
+          </>
+        ),
         to: "/middle-eastern-studies/history-of-the-middle-east",
       },
       {
-        label: ( <>Modern History of <br />the Middle East</>) ,
+        label: (
+          <>
+            Modern History of <br />
+            the Middle East
+          </>
+        ),
         to: "/middle-eastern-studies/modern-history-of-the-middle-east",
       },
       {
-        label:( <>The Zionist Project<br /> in Palestine</>),
+        label: (
+          <>
+            The Zionist Project
+            <br /> in Palestine
+          </>
+        ),
         to: "/middle-eastern-studies/the-zionist-project-in-palestine",
       },
       {
@@ -64,8 +77,9 @@ const overlayColumns = [
     id: "Student Services",
     title: "Student Services",
     links: [
-      { label: "Trips", to: "/accommodation-and-student-services/trips" },
-      { label: "Visa", to: "/accommodation-and-student-services/visa" },
+      { label: "Accommodation", to: "https://deewantourism.com/accommodation" },
+      { label: "Trips", to: "https://deewantourism.com/trips" },
+      { label: "Visa", to: "https://deewantourism.com/visa" },
     ],
   },
   {
@@ -88,7 +102,7 @@ const overlayColumns = [
   },
 ];
 
-function NavBar() {
+function HomeNavBar() {
   const { wishlistCount, cartCount } = useShop();
   const { pathname } = useLocation();
 
@@ -98,6 +112,15 @@ function NavBar() {
 
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const THRESHOLD = 60;
+    const onScroll = () => setScrolled(window.scrollY > THRESHOLD);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const toggleDropdown = (id: string) => {
     setOpenDropdown((prev) => (prev === id ? null : id));
@@ -112,11 +135,12 @@ function NavBar() {
     <>
       {/* ── Navbar ── */}
       <nav
-        className={`navbar navbar-expand-xl`}
+        ref={navRef}
+        className={`navbar navbar-expand-xl ${scrolled ? styles.navScrolled : ""}`}
         id={styles.navBar}
         style={{ backgroundColor: "transparent" }}
       >
-        <div className="container">
+        <div className={`container ${scrolled ? styles.containerScrolled : ""}`}>
           {/* ── Mobile Header (max 767px) ── */}
           <div
             className={`d-flex d-md-none justify-content-between align-items-center w-100 ${styles.mobileHeader}`}
@@ -126,6 +150,7 @@ function NavBar() {
                 src="/assets/images/logos/horizontalLogo.png"
                 alt="Deewan Institute Logo"
                 id={styles.mainLogo}
+                className={scrolled ? styles.logoScrolled : ""}
               />
             </NavLink>
 
@@ -185,6 +210,7 @@ function NavBar() {
                 src="/assets/images/logos/horizontalLogo.png"
                 alt="Deewan Institute Logo"
                 id={styles.mainLogo}
+                className={scrolled ? styles.logoScrolled : ""}
               />
             </NavLink>
             <div className={styles.mobileRightGroup}>
@@ -254,6 +280,7 @@ function NavBar() {
                 src="/assets/images/logos/nobgLogo.webp"
                 alt="Deewan Institute Logo"
                 id={styles.mainLogo}
+                className={scrolled ? styles.logoScrolled : ""}
               />
             </NavLink>
 
@@ -313,6 +340,9 @@ function NavBar() {
             )}
           </div>
         </div>
+
+        {/* ── Scroll progress line ── */}
+        <div className={`${styles.progressLine} ${scrolled ? styles.progressLineVisible : ""}`} />
       </nav>
 
       {/* ── Backdrop ── */}
@@ -372,7 +402,7 @@ function NavBar() {
               <div className={styles.divider} />
             </div>
 
-            {/* ── Mobile + Tablet: columns flat (unchanged) ── */}
+            {/* ── Mobile + Tablet: columns flat ── */}
             <div className={`d-xl-none ${styles.mobileColumnsWrap}`}>
               {overlayColumns.map((col) => (
                 <div key={col.id} className={styles.overlayColumn}>
@@ -458,4 +488,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default HomeNavBar;

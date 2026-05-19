@@ -9,94 +9,61 @@
 
   display: flex;
   align-items: center;
-  flex-direction: row-reverse; // icon on right, label expands to the left
-  gap: 0;
+  flex-direction: row;
+  gap: 0.6rem;
 
-  background-color: $cream;
-  color: $primary-color;
+  background-color: $primary-color-light;
+  color: $cream;
   border-radius: 50px;
   text-decoration: none;
 
-  padding: 1.3rem;
+  padding: 0.85rem 1.2rem;
   overflow: hidden;
-  max-width: 5rem;
+  // max-width: 12rem;
 
   box-shadow:
-    0 4px 14px rgba(0, 0, 0, 0.35),
-    0 1px 3px rgba(0, 0, 0, 0.2);
+    0 6px 20px rgba(0, 0, 0, 0.4),
+    0 2px 6px rgba(0, 0, 0, 0.15);
 
   transition:
-    max-width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-    padding 0.3s ease,
     background-color 0.2s ease,
     box-shadow 0.2s ease;
 
-  will-change: max-width;
-
   &:hover,
   &:focus-visible {
-    background-color: #fbecc9;
-    max-width: 12rem;
-    padding: 0.85rem 1.2rem;
-    gap: 0.6rem;
-    color: $primary-color;
-    box-shadow:
-      0 6px 20px rgba(0, 0, 0, 0.4),
-      0 2px 6px rgba(0, 0, 0, 0.15);
-    outline: none;
+    color: $black;
+    outline: $primary-color 2px solid;
   }
 
   @media (min-width: 768px) {
-    padding: 1.5rem;
-    max-width: 5rem;
     bottom: 2.5rem;
     left: 2.5rem;
-
-    &:hover,
-    &:focus-visible {
-      max-width: 14rem;
-      padding: 1rem 1.5rem;
-      gap: 0.75rem;
-    }
+    max-width: 20rem;
+    padding: 1rem 1.5rem;
+    gap: 0.75rem;
   }
 }
 
 .label {
   font-family: "Merriweather-Regular", serif;
-  font-size: 0.9rem;
+  font-size: small;
   white-space: nowrap;
-  opacity: 0;
-  width: 0;
+  opacity: 1;
+  width: auto;
   overflow: hidden;
   letter-spacing: 0.02em;
-  transition:
-    opacity 0.25s ease 0.1s,
-    width 0.3s ease;
 
   @media (min-width: 768px) {
-    font-size: 0.95rem;
+    font-size: smaller;
   }
 }
 
-.labelVisible {
-  opacity: 1;
-  width: auto;
-}
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
 
-.iconWrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  line-height: 1;
-
-  img {
-    width: 30px;
-    height: 30px;
-
-    @media (min-width: 768px) {
-      width: 30px;
-      height: 30px;
-    }
+  @media (min-width: 768px) {
+    width: 1.75rem;
+    height: 1.75rem;
   }
 }

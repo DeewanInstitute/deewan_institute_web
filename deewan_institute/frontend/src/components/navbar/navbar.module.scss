@@ -1,56 +1,206 @@
 @use "../../style/variables.scss" as *;
 @use "../../style/fonts.scss" as *;
 
-// ── Navbar ──
+// ─────────────────────────────────────────────
+// ── BASE NAVBAR
+// ─────────────────────────────────────────────
+
 #navBar {
-  background-color: transparent !important;
   z-index: 100;
-  position: static;
+  position: sticky; // sticky from the start
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
   padding: 16px 0;
-  transition: background-color 0.3s ease;
-  border-bottom: $primary_color 1px solid;
 
-  // ── Tablet ──
-  @media (min-width: 768px) and (max-width: 1279px) {
-    position: absolute !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border-bottom: none;
+  box-shadow: none;
+
+  // Smooth transition for all morphing properties
+  transition:
+    padding 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.45s ease,
+    backdrop-filter 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+// ─────────────────────────────────────────────
+// ── SCROLLED STATE — Desktop (1280px+)
+// Morphs into a centered floating pill
+// ─────────────────────────────────────────────
+
+@media (min-width: 1280px) {
+  .navScrolled {
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+
+    // The container becomes the pill
+    .containerScrolled {
+      background: rgba(60, 38, 16, 0.72) !important;
+      backdrop-filter: blur(20px) saturate(160%) !important;
+      -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      border-radius: 50px !important;
+      padding: 6px 20px !important;
+      max-width: 860px !important;
+      margin: 10px auto !important;
+      box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.35),
+        0 2px 8px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+      transition:
+        background 0.45s ease,
+        border-radius 0.45s ease,
+        max-width 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+        padding 0.45s ease,
+        box-shadow 0.45s ease;
+    }
+
+    // Shrink .border pills inside the scrolled pill
+    .border {
+      background: transparent !important;
+      border: none !important;
+      backdrop-filter: none !important;
+      padding: 4px 16px !important;
+    }
+
+    // Slightly tighten nav items
+    #navitem {
+      font-size: 14px !important;
+    }
+  }
+}
+
+// ─────────────────────────────────────────────
+// ── SCROLLED STATE — Tablet (768px–1279px)
+// Slim frosted bar
+// ─────────────────────────────────────────────
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  #navBar {
+    position: fixed !important;
     left: 50%;
     transform: translateX(-50%);
     width: 95%;
     margin-top: 2%;
     border-radius: 41px;
     padding: 6px 16px;
-    background-color: rgba(143, 110, 67, 0.5) !important;
-    backdrop-filter: blur(10px);
+    background: transparent !important;
+    backdrop-filter: none;
     border-bottom: none;
+    transition:
+      background 0.4s ease,
+      box-shadow 0.4s ease,
+      padding 0.4s ease,
+      margin-top 0.4s ease,
+      backdrop-filter 0.4s ease;
   }
 
-  // ── Mobile ──
-  @media (max-width: 767px) {
-    position: absolute !important;
+  .navScrolled {
+    background: rgba(55, 34, 12, 0.78) !important;
+    backdrop-filter: blur(18px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(150%) !important;
+    box-shadow:
+      0 6px 24px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.07) !important;
+    margin-top: 8px !important;
+    padding: 4px 16px !important;
+  }
+}
+
+// ─────────────────────────────────────────────
+// ── SCROLLED STATE — Mobile (max 767px)
+// Slim frosted strip
+// ─────────────────────────────────────────────
+
+@media (max-width: 767px) {
+  #navBar {
+    position: fixed !important;
     left: 50%;
     transform: translateX(-50%);
     width: 95%;
     margin-top: 3%;
-    border-radius: 41px;
-    padding: 2px 12px;
-    background-color: rgba(143, 110, 67, 0.5) !important;
-    backdrop-filter: blur(10px);
+    background: transparent !important;
+    backdrop-filter: none;
     border-bottom: none;
+    transition:
+      background 0.4s ease,
+      box-shadow 0.4s ease,
+      padding 0.4s ease,
+      margin-top 0.4s ease,
+      backdrop-filter 0.4s ease;
+  }
+
+  .navScrolled {
+    background: rgba(55, 34, 12, 0.82) !important;
+    backdrop-filter: blur(16px) saturate(140%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(140%) !important;
+    box-shadow:
+      0 4px 20px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+    margin-top: 5px !important;
+    border-radius: 20px;
+    padding: 2px 8px !important;
   }
 }
 
-// ── Mobile Header ──
+// ─────────────────────────────────────────────
+// ── LOGO SHRINK on scroll
+// ─────────────────────────────────────────────
+
+.logoScrolled {
+  width: 110px !important;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+// ─────────────────────────────────────────────
+// ── SCROLL PROGRESS LINE
+// Thin amber line that fills across the bottom of the navbar
+// ─────────────────────────────────────────────
+
+.progressLine {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, transparent, #e0b97f, #c8973e, #e0b97f, transparent);
+  border-radius: 2px;
+  opacity: 0;
+  transition:
+    opacity 0.4s ease,
+    width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+
+  @media (max-width: 1279px) {
+    display: none;
+  }
+}
+
+.progressLineVisible {
+  opacity: 1;
+  width: 60%;
+}
+
+// ─────────────────────────────────────────────
+// ── Mobile Header
+// ─────────────────────────────────────────────
+
 .mobileHeader {
   @media (min-width: 768px) {
     display: none !important;
   }
 }
 
-// ── Tablet Header ──
+// ─────────────────────────────────────────────
+// ── Tablet Header
+// ─────────────────────────────────────────────
+
 .tabletHeader {
   padding: 19px 0;
   position: relative;
@@ -64,26 +214,30 @@
   }
 }
 
-// ── Tablet Logo (centered) ──
 .tabletLogo {
   position: absolute;
   left: 17%;
   transform: translateX(-50%);
 }
 
-// ── Tablet Spacer ──
 .tabletSpacer {
   flex: 1;
 }
 
-// ── Mobile Right Group ──
+// ─────────────────────────────────────────────
+// ── Mobile Right Group
+// ─────────────────────────────────────────────
+
 .mobileRightGroup {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-// ── Shop Icons Inline (mobile + tablet) ──
+// ─────────────────────────────────────────────
+// ── Shop Icons
+// ─────────────────────────────────────────────
+
 .shopIconsInline {
   display: flex;
   align-items: center;
@@ -104,7 +258,6 @@
   }
 }
 
-// ── Shop Icons Desktop ──
 .shopIconsDesktop {
   display: flex;
   align-items: center;
@@ -126,20 +279,31 @@
   }
 }
 
-// ── Border Pills (desktop only) ──
+// ─────────────────────────────────────────────
+// ── Border Pills (desktop)
+// ─────────────────────────────────────────────
+
 .border {
   border-radius: 20px;
   background: rgba(143, 110, 67, 0.5);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 14px 28px !important;
+  transition:
+    background 0.4s ease,
+    border 0.4s ease,
+    backdrop-filter 0.4s ease,
+    padding 0.4s ease;
 
   @media (max-width: 1280px) {
     display: none !important;
   }
 }
 
-// ── Nav Items ──
+// ─────────────────────────────────────────────
+// ── Nav Items
+// ─────────────────────────────────────────────
+
 #navitem {
   color: white !important;
   font-family: "Merriweather-Regular";
@@ -148,7 +312,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, font-size 0.3s ease;
   padding-block: 0%;
 
   a,
@@ -165,11 +329,14 @@
   }
 }
 
-// ── Logo — DESKTOP: smaller ──
+// ─────────────────────────────────────────────
+// ── Logo
+// ─────────────────────────────────────────────
+
 #mainLogo {
-  // Desktop: reduced from 160px to 110px
   width: 160px;
   margin-inline: 24px;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (min-width: 768px) and (max-width: 1279px) {
     width: 220px;
@@ -184,7 +351,10 @@
   }
 }
 
-// ── Toggler Button ──
+// ─────────────────────────────────────────────
+// ── Toggler Button
+// ─────────────────────────────────────────────
+
 .toggler {
   display: none;
   background: rgba(255, 255, 255, 0.1);
@@ -207,18 +377,21 @@
   &:hover {
     background: rgba(255, 255, 255, 0.2);
   }
+
   button:active {
     border-color: $primary-color !important;
   }
 }
 
-// ── React Icon ──
 .togglerIcon {
   color: #ffffff;
   font-size: 26px;
 }
 
-// ── Backdrop ──
+// ─────────────────────────────────────────────
+// ── Backdrop
+// ─────────────────────────────────────────────
+
 .backdrop {
   display: none;
 
@@ -236,7 +409,6 @@
   }
 }
 
-// Desktop backdrop (fullscreen overlay uses its own bg)
 @media (min-width: 1281px) {
   .backdrop {
     display: block;
@@ -257,19 +429,20 @@
   visibility: visible !important;
 }
 
-// ── Overlay ──
+// ─────────────────────────────────────────────
+// ── Overlay
+// ─────────────────────────────────────────────
+
 .overlay {
   position: fixed;
   z-index: 999;
   background-color: $primary_color;
   transition: all 0.4s ease;
 
-  // ── Desktop: top bar panel (slides down from top) ──
   @media (min-width: 1280px) {
     top: 0;
     left: 0;
     width: 100%;
-    // Height auto but min enough to show content
     height: auto;
     min-height: 0;
     max-height: 0;
@@ -282,7 +455,6 @@
       visibility 0.3s ease;
   }
 
-  // ── Tablet ──
   @media (min-width: 768px) and (max-width: 1279px) {
     top: 0;
     left: 0;
@@ -297,7 +469,6 @@
     border-radius: 0px 62px 62px 0px;
   }
 
-  // ── Mobile: narrow drawer ──
   @media (max-width: 767px) {
     top: 0;
     left: 0;
@@ -314,7 +485,6 @@
 }
 
 .overlayOpen {
-  // Desktop: expand downward
   @media (min-width: 1280px) {
     max-height: 380px;
     opacity: 1;
@@ -327,7 +497,10 @@
   }
 }
 
-// ── Overlay Inner ──
+// ─────────────────────────────────────────────
+// ── Overlay Inner
+// ─────────────────────────────────────────────
+
 .overlayInner {
   display: flex;
   flex-direction: column;
@@ -337,7 +510,6 @@
   gap: 40px;
   padding: 40px 24px;
 
-  // Desktop: horizontal top-bar layout
   @media (min-width: 1280px) {
     flex-direction: row;
     align-items: flex-start;
@@ -347,7 +519,6 @@
     height: auto;
   }
 
-  // ── Tablet ──
   @media (min-width: 768px) and (max-width: 1279px) {
     justify-content: flex-start;
     align-items: flex-start;
@@ -357,7 +528,6 @@
     height: auto;
   }
 
-  // ── Mobile ──
   @media (max-width: 767px) {
     justify-content: flex-start;
     align-items: flex-start;
@@ -368,7 +538,10 @@
   }
 }
 
-// ── Close Button ──
+// ─────────────────────────────────────────────
+// ── Close Button
+// ─────────────────────────────────────────────
+
 .closeBtn {
   position: absolute;
   top: 16px;
@@ -390,9 +563,11 @@
   }
 }
 
-// ── Overlay Logo — Desktop: smaller, left-aligned ──
+// ─────────────────────────────────────────────
+// ── Overlay Logo
+// ─────────────────────────────────────────────
+
 .overlayLogo {
-  // Desktop: compact logo on the left of the panel
   @media (min-width: 1280px) {
     width: 90px;
     flex-shrink: 0;
@@ -401,7 +576,6 @@
     margin-top: 4px;
   }
 
-  // Non-desktop: centered large logo (unchanged)
   width: 294px;
   opacity: 1;
 
@@ -419,14 +593,16 @@
   }
 }
 
-// ── Overlay Links Grid ──
+// ─────────────────────────────────────────────
+// ── Overlay Links Grid
+// ─────────────────────────────────────────────
+
 .overlayLinks {
   display: flex;
   gap: 80px;
   align-items: flex-start;
   justify-content: center;
 
-  // Desktop: full-width flex row with all dropdowns + newsletter
   @media (min-width: 1280px) {
     flex: 1;
     gap: 0;
@@ -434,7 +610,6 @@
     justify-content: flex-start;
   }
 
-  // ── Tablet ──
   @media (min-width: 768px) and (max-width: 1279px) {
     flex-direction: column;
     gap: 28px;
@@ -442,7 +617,6 @@
     width: 100%;
   }
 
-  // ── Mobile ──
   @media (max-width: 767px) {
     flex-direction: column;
     gap: 28px;
@@ -451,7 +625,6 @@
   }
 }
 
-// ── Mobile Columns Wrap (tablet + mobile only) ──
 .mobileColumnsWrap {
   display: flex;
   flex-direction: column;
@@ -459,7 +632,6 @@
   width: 100%;
 }
 
-// ── Column (tablet/mobile) ──
 .overlayColumn {
   display: flex;
   flex-direction: column;
@@ -470,7 +642,6 @@
   }
 }
 
-// ── Title (tablet/mobile) ──
 .overlayTitle {
   color: #e0b97f;
   font-family: "Merriweather-Regular";
@@ -482,7 +653,6 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-// ── Link (tablet/mobile) ──
 .overlayLink {
   color: #ffffff;
   font-size: 16px;
@@ -507,7 +677,6 @@
   }
 }
 
-// ── Mobile Links ──
 .mobileLinks {
   display: flex;
   flex-direction: column;
@@ -516,7 +685,6 @@
   width: 100%;
 }
 
-// ── Divider ──
 .divider {
   width: 100%;
   height: 1px;
@@ -524,7 +692,10 @@
   margin: 8px 0;
 }
 
-// ── Badge ──
+// ─────────────────────────────────────────────
+// ── Badge
+// ─────────────────────────────────────────────
+
 .badge {
   position: absolute;
   top: -6px;
@@ -555,10 +726,9 @@
 }
 
 // ═══════════════════════════════════════════════
-// ── DESKTOP DROPDOWN SYSTEM ──
+// ── DESKTOP DROPDOWN SYSTEM
 // ═══════════════════════════════════════════════
 
-// Wrapper that holds all desktop dropdowns in a row
 .desktopDropdownsWrap {
   display: flex;
   align-items: stretch;
@@ -566,7 +736,6 @@
   border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-// Each dropdown column
 .desktopDropdown {
   position: relative;
   flex: 1;
@@ -577,7 +746,6 @@
   }
 }
 
-// Trigger button (the always-visible section header)
 .desktopDropdownTrigger {
   display: flex;
   align-items: center;
@@ -603,7 +771,6 @@
   }
 }
 
-// Chevron arrow
 .dropdownChevron {
   font-size: 18px;
   color: rgba(255, 255, 255, 0.6);
@@ -616,10 +783,8 @@
   color: #e0b97f;
 }
 
-// The sliding panel of links
 .desktopDropdownPanel {
   position: absolute;
-  // top: calc(100% - 1px); // pull up 1px to close the seam with the trigger
   left: 0;
   min-width: 100%;
   width: max-content;
@@ -627,7 +792,7 @@
   background-color: #6b5130;
   border-radius: 0 0 16px 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-top: 1px solid #6b5130; // match own bg — hides the top border seam
+  border-top: 1px solid #6b5130;
   padding: 0;
   max-height: 0;
   overflow: hidden;
@@ -640,22 +805,18 @@
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
 }
 
-// Open state for the panel
 .desktopDropdownOpen .desktopDropdownPanel {
   max-height: 320px;
   opacity: 1;
   padding: 10px 0 14px;
 }
 
-// Highlight the open trigger — square off the bottom so it merges flush with the panel
 .desktopDropdownOpen .desktopDropdownTrigger {
   background: rgba(255, 255, 255, 0.08);
   border-radius: 6px 6px 0 0;
-  // extend background down 1px to cover the calc(100% - 1px) pull-up
   padding-bottom: 13px;
 }
 
-// Individual link inside the dropdown panel
 .desktopDropdownLink {
   display: block;
   color: rgba(255, 255, 255, 0.88);
@@ -682,7 +843,7 @@
 }
 
 // ═══════════════════════════════════════════════
-// ── NEWSLETTER CARD (Desktop only) ──
+// ── NEWSLETTER CARD (Desktop only)
 // ═══════════════════════════════════════════════
 
 .newsletterCard {
