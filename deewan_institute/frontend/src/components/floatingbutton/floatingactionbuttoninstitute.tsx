@@ -11,7 +11,7 @@ const FloatingActionButtonInstitute = () => {
     >
       <span className={styles.iconWrap}>
         <img
-          src="assets/images/logos/tourism-logo.svg"
+          src="/assets/images/logos/tourism-logo.svg"
           alt="Deewan Tourism Logo"
           className={styles.icon}
         />

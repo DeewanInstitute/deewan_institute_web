@@ -364,7 +364,7 @@ function HomeNavBar() {
           {/* Logo */}
           <NavLink to="/" onClick={closeAll}>
             <img
-              src="/assets/images/logos/nobgLogo.webp"
+              src="/assets/images/logos/institute-white.png"
               alt="Deewan Institute Logo"
               className={styles.overlayLogo}
             />

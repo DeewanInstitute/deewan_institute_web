@@ -294,7 +294,8 @@ function HopClassInfoModal({ onClose }: GroupClassModalProps) {
               }}
             >
               Please note: Hop On Hop Off group classes are flexible drop-in
-              sessions held for up to 6 hours per week. All classes take place at 6:20 PM - 8:00 PM  at Sundays,Tuesdays and Thursdays.
+              sessions held for up to 6 hours per week. All classes take place
+              at 6:20 PM - 8:00 PM at Sundays,Tuesdays and Thursdays.
             </p>
           </div>
           <div
@@ -1101,6 +1102,44 @@ function Calculator() {
                 To learn more about each course and what it covers.
               </span>
             </li>
+            <li className="py-2">
+              <span className="fw-bold">
+                Please note that this is a standardized calculator used for our
+                curriculum. If you need any assistance or have any questions,
+                feel free to contact us at
+                <a
+                  className="fw-bold"
+                  href="mailto:arabic@deewaninstitute.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{ color: "#8F6E43" }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.textDecoration = "underline")
+                  }
+                >
+                  <span> </span> arabic@deewaninstitute.com
+                </a>
+              </span>
+            </li>
+            {/* <li className="py-2">
+              <a
+                className="fw-bold"
+                href="https://docs.google.com/forms/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform"
+                target="_blank"
+                rel="noreferrer"
+                style={{ color: "#8F6E43" }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.textDecoration = "underline")
+                }
+              >
+                Take the Initial Skills Evaluation or Course Placement
+                Consultation:
+              </a>
+              <span className="px-2 fw-normal">
+                This helps determine the most suitable course level and learning
+                plan for you.
+              </span>
+            </li> */}
           </ol>
         </div>
 
@@ -1210,15 +1249,26 @@ function Calculator() {
         >
           <p
             style={{
-              fontSize: "0.82rem",
+              fontSize: "0.92rem",
               color: "#999",
               fontStyle: "italic",
               textAlign: "center",
               margin: 0,
+              fontWeight: "1000",
             }}
           >
             Prices are subject to change and may vary. Please contact us for the
-            most up-to-date information.
+            most up-to-date information. For a more detailed schedule and
+            additional information, please check{" "}
+            <a
+              href="https://drive.google.com/file/d/1Tups08llCgssEAUPiGtdOb6WZIRHmcvF/view?usp=drive_link"
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: "#8F6E43", fontWeight: "bold" }}
+            >
+              this link
+            </a>
+            .
           </p>
         </div>
       </section>

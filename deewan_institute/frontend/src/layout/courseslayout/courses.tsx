@@ -34,7 +34,7 @@ function Courses({ data }: { data: arabicCourse }) {
       <div className="text-center mt-3">
         <a
           href={course.buttonLink}
-          className="btn btn-primary"
+          className={`btn ${styles.courseButton}`}
           target="_blank"
           rel="noopener noreferrer"
         >
