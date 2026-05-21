@@ -3,29 +3,41 @@ import styles from "../shadowbanner/shadowbanner.module.scss";
 import "bootstrap";
 
 interface BannerProps {
-    title: string,
-    rgbColor: string,
-    backgroundImg: string,
+  title: string;
+  rgbColor: string;
+  backgroundImg: string;
+  titleBgColor?: string; // optional, example: "30, 80, 60"
 }
 
 function ShadowBanner({ data }: { data: BannerProps }) {
-    return (
-        <Fragment>
-            <section 
-                className={`${styles.banner} d-flex align-items-center justify-content-center`} 
-                style={{ 
-                    '--banner-image': `url(${data.backgroundImg})`, 
-                    '--primary-color-rgb': data.rgbColor 
-                } as React.CSSProperties}
-            >
-                <div className="container text-center d-flex flex-column align-items-center justify-content-center">
-                    <div className={styles.para}>
-                        <h1 className="display-5 text-white my-3 my-md-4">{data.title}</h1>
-                    </div>
-                </div>
-            </section>
-        </Fragment>
-    )
+  return (
+    <Fragment>
+      <section
+        className={`${styles.banner} d-flex align-items-center justify-content-center`}
+        style={
+          {
+            "--banner-image": `url(${data.backgroundImg})`,
+            "--primary-color-rgb": data.rgbColor,
+            "--title-bg-color": data.titleBgColor
+              ? `rgba(${data.titleBgColor}, 0.7)`
+              : "transparent",
+          } as React.CSSProperties
+        }
+      >
+        <div className="container text-center d-flex flex-column align-items-center justify-content-center">
+          <div
+            className={`${styles.para} ${
+              data.titleBgColor ? styles.withBackground : ""
+            }`}
+          >
+            <h1 className={`${styles.title} display-5 text-white my-3 my-md-4`}>
+              {data.title}
+            </h1>
+          </div>
+        </div>
+      </section>
+    </Fragment>
+  );
 }
 
 export default ShadowBanner;

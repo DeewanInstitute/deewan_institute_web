@@ -32,6 +32,7 @@ import NotFound from "./pages/404_page/error.tsx";
 import Careers from "./pages/careers/careers.tsx";
 import InternshipForm from "./pages/internship/internshipform.tsx";
 import Newsletter from "./pages/newsletter/newsletter.tsx";
+import ArabiCafe from "./pages/arabicafe/arabicafe.tsx";
 // ✅ Create a separate component that uses useLocation
 function AppContent() {
   const location = useLocation();
@@ -118,6 +119,9 @@ function AppContent() {
         <Route path="/internship" element={<InternshipForm />} />
         {/* Newsletter */}
         <Route path="/newsletter" element={<Newsletter />} />
+
+        {/* online Arabi Cafe */}
+        <Route path="/arabicafe" element={<ArabiCafe />} />
         {/* 404 Route - must be last */}
         <Route path="/404" element={<NotFound />} />
         <Route path="*" element={<NotFound />} />

@@ -151,8 +151,8 @@ export const courseData: arabicCourse = {
     },
     //ArabiFlex
     {
-      arabicTitle: "عربي فليكس",
-      title: "ArabiFlex",
+      arabicTitle: "عربي فليكس للمحادثةالجماعية",
+      title: "ArabiFlex Conversation Group Class",
       description:"A flexible Levantine Arabic conversation program focused on speaking, fluency, and real-life communication for B1+ learners.",
       buttonText: "Sign Up",
       buttonLink: "https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform",
@@ -162,8 +162,8 @@ export const courseData: arabicCourse = {
       arabicTitle: "عربي كافيه أونلاين",
       title: "Online ArabiCafe",
       description:"An interactive online conversation space where B1+ learners practice Levantine Arabic through discussions, cultural topics, and social interaction in a relaxed café-style environment.",
-      buttonText: "Sign Up",
-      buttonLink: "https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform",
+      buttonText: "Learn More",
+      buttonLink: "https://deewaninstitute.com/arabicafe",
     },
   ],
 };

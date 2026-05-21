@@ -1,0 +1,228 @@
+@use "../../style/variables.scss" as *;
+@use "../../style/fonts.scss" as *;
+
+$cafe-green: #38704d;
+$cafe-dark-blue: #0d5071;
+$cafe-blue: #0c608b;
+$cafe-brown: #472211;
+
+.arabiCafe {
+
+  // ─── Hero Title ───────────────────────────────────────────────
+  .hero {
+    text-align: center;
+    padding: 3rem 6% 1rem;
+
+    .subtitle {
+      font-family: "Merriweather-Light" !important;
+      font-size: clamp(16px, 2vw, 25px);
+      color: $cafe-dark-blue;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-family: "Merriweather-Bold" !important;
+      font-size: clamp(28px, 5vw, 64px);
+      line-height: 1.4;
+      color: $cafe-dark-blue;
+      margin-bottom: 1.5rem;
+    }
+
+    .divider {
+      width: clamp(200px, 70%, 1280px);
+      margin: 0 auto;
+      border: 2px solid $cafe-blue;
+      opacity: 1;
+    }
+  }
+
+  //  About Section
+  .about {
+    padding: 3rem 6%;
+
+    p {
+      font-family: "Merriweather-Regular" !important;
+      font-size: clamp(15px, 1.8vw, 25px);
+      line-height: 1.5;
+      color: $cafe-dark-blue;
+      margin-bottom: 1.2rem;
+    }
+
+    .imageWrapper {
+      position: relative;
+      border-radius: 30px;
+      overflow: hidden;
+
+
+
+      img {
+        position: relative;
+        z-index: 1;
+        border-radius: 30px;
+        width: 100%;
+        object-fit: cover;
+       // max-height: 480px;
+      }
+    }
+  }
+
+  //Program Schedule
+ // Program Schedule
+.schedule {
+  background: $cafe-green;
+  padding: clamp(2.5rem, 6vw, 3.5rem) 6%;
+  margin-top: 3rem;
+
+  .scheduleInner {
+    max-width: 1280px;
+    margin: 0 auto;
+
+    h2 {
+      font-family: "Merriweather-Bold" !important;
+      font-size: clamp(28px, 4vw, 50px);
+      color: white;
+      margin-bottom: 0.5rem;
+      text-align: left;
+    }
+
+    .scheduleDivider {
+      width: clamp(180px, 35vw, 490px);
+      border: 3px solid white;
+      opacity: 1;
+      margin: 0 0 clamp(2rem, 5vw, 2.5rem);
+    }
+  }
+
+  .scheduleCards {
+    row-gap: 2.5rem;
+
+    > div {
+      padding-inline: 1rem;
+    }
+
+    .scheduleIcon {
+      width: clamp(72px, 11vw, 130px);
+      height: clamp(72px, 11vw, 130px);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .scheduleImg {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    p {
+      font-family: "Merriweather-Bold" !important;
+      font-size: clamp(14px, 1.6vw, 20px);
+      color: white;
+      text-align: center;
+      line-height: 1.5;
+      max-width: 280px;
+      margin: 0;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .schedule {
+    padding: 2.5rem 1.25rem;
+
+    .scheduleInner {
+      h2 {
+        text-align: center;
+      }
+
+      .scheduleDivider {
+        margin-inline: auto;
+      }
+    }
+
+    .scheduleCards {
+      row-gap: 2rem;
+
+      .scheduleIcon {
+        width: 86px;
+        height: 86px;
+      }
+
+      p {
+        max-width: 320px;
+      }
+    }
+  }
+}
+  // ─── Who Can Join ─────────────────────────────────────────────
+  .whoCanJoin {
+    padding: 4rem 6%;
+
+    .imageWrapper {
+      position: relative;
+      border-radius: 30px;
+      overflow: hidden;
+
+
+      img {
+        position: relative;
+        z-index: 1;
+        border-radius: 30px;
+        width: 100%;
+        object-fit: cover;
+       // max-height: 540px;
+      }
+    }
+
+    .whoTitle {
+      font-family: "Merriweather-Bold" !important;
+      font-size: clamp(28px, 4vw, 50px);
+      color: $cafe-green;
+      margin-bottom: 0.25rem;
+    }
+
+    .whoLine {
+      width: clamp(200px, 40%, 370px);
+      border: 3px solid $cafe-green;
+      opacity: 1;
+      margin: 0 0 1.5rem;
+      transform: rotate(-0.3deg);
+    }
+
+    p {
+      font-family: "Merriweather-Regular" !important;
+      font-size: clamp(15px, 1.8vw, 25px);
+      line-height: 1.5;
+      color: $cafe-brown;
+      margin-bottom: 1rem;
+    }
+
+    .minLabel {
+      font-family: "Merriweather-Bold" !important;
+      color: $cafe-green !important;
+    }
+
+    .signUpBtn {
+      display: block;
+     // width: clamp(260px, 40%, 571px);
+      background: $cafe-green;
+      border-radius: 40px;
+      padding: 14px 0;
+      text-align: center;
+      font-family: "Merriweather-Regular" !important;
+      font-size: clamp(16px, 1.8vw, 24px);
+      margin-top: 1.5rem;
+      transition: background 0.3s ease, color 0.3s ease;
+
+      &:hover {
+        background: $cafe-green;
+      }
+
+      @media (max-width: 576px) {
+        width: 100%;
+      }
+    }
+  }
+}
