@@ -33,6 +33,7 @@ import Careers from "./pages/careers/careers.tsx";
 import InternshipForm from "./pages/internship/internshipform.tsx";
 import Newsletter from "./pages/newsletter/newsletter.tsx";
 import ArabiCafe from "./pages/arabicafe/arabicafe.tsx";
+import ArabicJournalism from "./pages/arabicjournalism/arabicjournalism.tsx";
 // ✅ Create a separate component that uses useLocation
 function AppContent() {
   const location = useLocation();
@@ -110,8 +111,14 @@ function AppContent() {
         <Route path="/podcasts" element={<Podcasts />} />
         {/*Bildungsurlaub*/}
         <Route path="/bildungsurlaub" element={<BildungsurlaubPage />} />
-        <Route path="/bildungsurlaub-courses/" element={<BildungsurlaubPage />} />
-        <Route path="/bildungsurlaub-courses" element={<BildungsurlaubPage />} />
+        <Route
+          path="/bildungsurlaub-courses/"
+          element={<BildungsurlaubPage />}
+        />
+        <Route
+          path="/bildungsurlaub-courses"
+          element={<BildungsurlaubPage />}
+        />
 
         {/*Careers*/}
         <Route path="/careers" element={<Careers />} />
@@ -122,6 +129,9 @@ function AppContent() {
 
         {/* online Arabi Cafe */}
         <Route path="/arabicafe" element={<ArabiCafe />} />
+
+        {/* Arabic Journalism */}
+        <Route path="/arabic-journalism" element={<ArabicJournalism />} />
         {/* 404 Route - must be last */}
         <Route path="/404" element={<NotFound />} />
         <Route path="*" element={<NotFound />} />

@@ -1,0 +1,86 @@
+@use "../../style/variables.scss" as *;
+@use "../../style/fonts.scss" as *;
+
+$journalism-gold: #bb8939;
+$journalism-brown: #472211;
+
+.arabicJournalism {
+
+  // ─── Calligraphy watermark background ─────────────────────────
+  background-image: url("/assets/images/background/journalism-background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+
+  // ─── Hero Title ───────────────────────────────────────────────
+  .hero {
+    text-align: center;
+    padding: 3rem 16% 1.5rem;
+
+    @media (max-width: 991px) {
+      padding: 3rem 6% 1.5rem;
+    }
+
+    .subtitle {
+      font-family: "Merriweather-Light" !important;
+      font-size: clamp(16px, 2vw, 25px);
+      color: $journalism-gold;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-family: "Merriweather-Bold" !important;
+      font-size: clamp(28px, 5vw, 64px);
+      line-height: 1.4;
+      color: $journalism-gold;
+      margin-bottom: 1.5rem;
+    }
+
+    .divider {
+      width: clamp(200px, 88%, 1280px);
+      margin: 0 auto;
+      border: 2px solid $journalism-gold;
+      opacity: 1;
+    }
+  }
+
+  // ─── Full-width image ─────────────────────────────────────────
+  .imageSection {
+    padding: 0 clamp(1rem, 7%, 101px);
+
+    .fullImage {
+      width: 100%;
+      max-height: 534px;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  // ─── What We Offer ────────────────────────────────────────────
+  .offer {
+    padding: 3rem clamp(1rem, 7%, 101px) 4rem;
+
+    h2 {
+      font-family: "Merriweather-Bold" !important;
+      font-size: clamp(28px, 5vw, 64px);
+      color: $journalism-gold;
+      margin-bottom: 0.5rem;
+    }
+
+    .offerDivider {
+      width: clamp(200px, 38%, 475px);
+      border: 2px solid $journalism-gold;
+      opacity: 1;
+      margin: 0 0 1.8rem;
+    }
+
+    p {
+      font-family: "Merriweather-Regular" !important;
+      font-size: clamp(14px, 1.5vw, 20px);
+      line-height: 1.5;
+      color: $journalism-brown;
+      margin-bottom: 1.2rem;
+    //   max-width: 1219px;
+    }
+  }
+}

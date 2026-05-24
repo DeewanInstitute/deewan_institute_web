@@ -127,8 +127,8 @@ export const courseData: arabicCourse = {
       title: "ARABIC JOURNALISM",
       description:
         "Immerses students in the principles of journalistic writing, reporting, and editing in the Arabic language. Covering news gathering, feature writing, and ethical considerations, this course is ideal for those pursuing a career in Arabic journalism or seeking a deeper understanding of media in the Arab world. Join us to enhance your language proficiency and journalistic skills with experienced instructors and practical exercises.",
-      buttonText: "Sign Up",
-      buttonLink: "https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform",
+      learnMoreButton: "Learn More",
+      buttonLink: "https://deewaninstitute.com/arabicjournalism",
     },
     // DEEWAN INTENSIVE SUMMER PROGRAM
     {

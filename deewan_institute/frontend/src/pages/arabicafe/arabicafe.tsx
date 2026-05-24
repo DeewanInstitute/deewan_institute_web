@@ -45,7 +45,7 @@ function ArabiCafe() {
           {/* About Section */}
           <section className={`${style.about} scroll-section`}>
             <div className="row justify-content-center mx-auto">
-              <div className="col-12 col-lg-6 d-flex flex-column justify-content-center">
+              <div className="col-12 col-lg-5 d-flex flex-column justify-content-center">
                 <p>
                   Online ArabiCafe is an interactive online conversation program
                   designed for learners who want to improve their Levantine
@@ -138,7 +138,7 @@ function ArabiCafe() {
                   />
                 </div>
               </div>
-              <div className="col-12 col-lg-6 d-flex flex-column justify-content-center">
+              <div className="col-12 col-lg-5 d-flex flex-column justify-content-center">
                 <h2 className={style.whoTitle}>Who Can Join?</h2>
                 <hr className={style.whoLine} />
                 <p>

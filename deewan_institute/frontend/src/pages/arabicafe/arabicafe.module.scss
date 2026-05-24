@@ -46,6 +46,11 @@ $cafe-brown: #472211;
       line-height: 1.5;
       color: $cafe-dark-blue;
       margin-bottom: 1.2rem;
+      margin-right:100px;
+
+      @media (max-width: 991px) {
+        margin-right: 0;
+      }
     }
 
     .imageWrapper {
@@ -184,7 +189,7 @@ $cafe-brown: #472211;
     }
 
     .whoLine {
-      width: clamp(200px, 40%, 370px);
+      width: clamp(200px, 50%, 370px);
       border: 3px solid $cafe-green;
       opacity: 1;
       margin: 0 0 1.5rem;
@@ -198,6 +203,9 @@ $cafe-brown: #472211;
       color: $cafe-brown;
       margin-bottom: 1rem;
     }
+    strong {
+  font-family: "Merriweather-Bold" !important;
+}
 
     .minLabel {
       font-family: "Merriweather-Bold" !important;
