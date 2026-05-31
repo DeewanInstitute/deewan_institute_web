@@ -109,8 +109,8 @@ export const courseData: arabicCourse = {
       title: "MIDDLE EASTERN STUDIES",
       description:
         "Mixed Arabic, also known as 'Arabic Diglossia,' involves using both Modern Standard Arabic (MSA) and colloquial Arabic in the same conversation or text. This practice is common in Arabic-speaking countries, where people switch between MSA and their local dialect depending on the context and audience. This skill is essential for effective communication in Arabic-speaking countries.",
-      buttonText: "Sign Up",
-      buttonLink: "https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform",
+      learnMoreButton: "Learn More",
+      buttonLink: "https://deewaninstitute.com/arabic-courses/middle-eastern-studies",
     },
     // DIPLOMACY ARABIC
     {
@@ -118,8 +118,8 @@ export const courseData: arabicCourse = {
       title: "DIPLOMACY ARABIC",
       description:
         "This is a specialized form of Arabic used in diplomatic communication between Arabic- speaking countries and international organizations.It is a variant of Modern Standard Arabic(MSA) and is used to communicate official and formal messages between governments, diplomats, and international organizations.Diplomacy Arabic uses a specific set of vocabulary, grammar, and expressions that are unique to diplomatic communication.It requires a high level of proficiency in MSA, as well as knowledge of political and cultural issues relevant to the region.",
-      buttonText: "Sign Up",
-      buttonLink: "https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform",
+      learnMoreButton: "Learn More",
+      buttonLink: "https://deewaninstitute.com/arabic-courses/diplomacy-arabic",
     },
     // ARABIC JOURNALISM
     {
@@ -128,7 +128,7 @@ export const courseData: arabicCourse = {
       description:
         "Immerses students in the principles of journalistic writing, reporting, and editing in the Arabic language. Covering news gathering, feature writing, and ethical considerations, this course is ideal for those pursuing a career in Arabic journalism or seeking a deeper understanding of media in the Arab world. Join us to enhance your language proficiency and journalistic skills with experienced instructors and practical exercises.",
       learnMoreButton: "Learn More",
-      buttonLink: "https://deewaninstitute.com/arabicjournalism",
+      buttonLink: "https://deewaninstitute.com/arabic-courses/arabic-journalism",
     },
     // DEEWAN INTENSIVE SUMMER PROGRAM
     {
@@ -163,7 +163,7 @@ export const courseData: arabicCourse = {
       title: "Online ArabiCafe",
       description:"An interactive online conversation space where B1+ learners practice Levantine Arabic through discussions, cultural topics, and social interaction in a relaxed café-style environment.",
       buttonText: "Learn More",
-      buttonLink: "https://deewaninstitute.com/arabicafe",
+      buttonLink: "https://deewaninstitute.com/arabic-courses/arabicafe",
     },
   ],
 };

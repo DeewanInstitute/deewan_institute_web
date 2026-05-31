@@ -1,8 +1,6 @@
-@use "../../style/variables.scss" as *;
-@use "../../style/fonts.scss" as *;
+@use "../../../style/variables.scss" as *;
+@use "../../../style/fonts.scss" as *;
 
-$journalism-gold: #bb8939;
-$journalism-brown: #472211;
 
 .arabicJournalism {
 
@@ -11,38 +9,6 @@ $journalism-brown: #472211;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top;
-
-  // ─── Hero Title ───────────────────────────────────────────────
-  .hero {
-    text-align: center;
-    padding: 3rem 16% 1.5rem;
-
-    @media (max-width: 991px) {
-      padding: 3rem 6% 1.5rem;
-    }
-
-    .subtitle {
-      font-family: "Merriweather-Light" !important;
-      font-size: clamp(16px, 2vw, 25px);
-      color: $journalism-gold;
-      margin-bottom: 0.5rem;
-    }
-
-    h1 {
-      font-family: "Merriweather-Bold" !important;
-      font-size: clamp(28px, 5vw, 64px);
-      line-height: 1.4;
-      color: $journalism-gold;
-      margin-bottom: 1.5rem;
-    }
-
-    .divider {
-      width: clamp(200px, 88%, 1280px);
-      margin: 0 auto;
-      border: 2px solid $journalism-gold;
-      opacity: 1;
-    }
-  }
 
   // ─── Full-width image ─────────────────────────────────────────
   .imageSection {

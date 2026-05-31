@@ -1,13 +1,14 @@
 import { Fragment, useEffect } from "react";
-import NavBar from "../../components/navbar/navbar";
-import Footer from "../../components/footer/footer";
-import ShadowBanner from "../../components/shadowbanner/shadowbanner";
-import { useScrollAnimation } from "../../../hooks/scrollAnimations";
+import NavBar from "../../../components/navbar/navbar";
+import Footer from "../../../components/footer/footer";
+import ShadowBanner from "../../../components/shadowbanner/shadowbanner";
+import { useScrollAnimation } from "../../../../hooks/scrollAnimations";
 import style from "./arabicafe.module.scss";
-import "../../style/animation.scss";
+import "../../../style/animation.scss";
 import "bootstrap";
-import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
-import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
+import FloatingActionButton from "../../../components/floatingbutton/floatingactionbutton";
+import FloatingActionButtonInstitute from "../../../components/floatingbutton/floatingactionbuttoninstitute";
+import HeroTitle from "../../../components/herotitle/herotitle";
 
 function ArabiCafe() {
   useEffect(() => {
@@ -36,11 +37,11 @@ function ArabiCafe() {
       <div className={style.arabiCafe}>
         <main>
           {/* Hero Title */}
-          <section className={`${style.hero} scroll-section`}>
-            <p className={style.subtitle}>Online ArabiCafe</p>
-            <h1>Practice Levantine Arabic Through Real Conversation</h1>
-            <hr className={style.divider} />
-          </section>
+<HeroTitle
+  subtitle="Online ArabiCafe"
+  title="Practice Levantine Arabic Through Real Conversation"
+  color= "#0d5071"
+/>
 
           {/* About Section */}
           <section className={`${style.about} scroll-section`}>

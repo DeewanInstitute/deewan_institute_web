@@ -1,0 +1,394 @@
+@use "../../../style/variables.scss" as *;
+@use "../../../style/fonts.scss" as *;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Page wrapper
+// ─────────────────────────────────────────────────────────────────────────────
+.middleEasternStudies {
+background-image: url("/assets/images/background/mes-background.png");
+
+  // ─── Full-width image ───────────────────────────────────────────────────
+  .imageSection {
+    padding: 0 clamp(1rem, 7%, 101px);
+    margin-bottom: 0;
+
+    .fullImage {
+      width: 100%;
+      max-height: 534px;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 50px;
+    }
+  }
+
+  // ─── What Is It? ────────────────────────────────────────────────────────
+  .offer {
+    padding: 3rem clamp(1rem, 7%, 101px) 4rem;
+
+    h2 {
+      font-family: "Merriweather-Bold" !important;
+      font-size: clamp(28px, 5vw, 64px);
+      color: #B85C38;
+      margin-bottom: 0.5rem;
+    }
+
+    .offerDivider {
+      width: clamp(150px, 28%, 311px);
+      border: 2px solid #B85C38;
+      opacity: 1;
+      margin: 0 0 1.8rem;
+    }
+
+    p {
+      font-family: "Merriweather-Regular" !important;
+      font-size: clamp(14px, 1.5vw, 20px);
+      line-height: 1.5;
+      color: #472211;
+      margin-bottom: 1.2rem;
+    }
+  }
+
+  // ─── Articles Section ───────────────────────────────────────────────────
+  .articles {
+    padding: 4rem clamp(1rem, 7%, 101px) 5rem;
+
+    h2 {
+      font-family: "Merriweather-Bold" !important;
+      font-size: clamp(28px, 5vw, 64px);
+      color: #d53e0f;
+      margin-bottom: 0.4rem;
+    }
+
+    .articlesDivider {
+      width: clamp(200px, 75%, 1024px);
+      border: 2px solid #d53e0f;
+      opacity: 1;
+      margin: 0 0 1.2rem;
+    }
+
+    .articlesSubtitle {
+      font-family: "Merriweather-Regular" !important;
+      font-size: clamp(14px, 1.5vw, 20px);
+      color: #472211;
+      line-height: 1.4;
+      margin-bottom: 3rem;
+    }
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Course Highlights (full-bleed brown section)
+// ─────────────────────────────────────────────────────────────────────────────
+.highlights {
+  background: #B85C38;
+  padding: 2.5rem 6% 3.5rem;
+
+  .highlightsInner {
+    margin: 0 auto;
+
+    h2 {
+      font-family: "Merriweather-Bold" !important;
+      font-size: clamp(40px, 4.45vw, 64px);
+      line-height: 1.5;
+      color: #ffffff;
+      margin: 0;
+      text-align: left;
+    }
+
+    .highlightsDivider {
+      width: clamp(200px, 40vw, 541px);
+      border: 2px solid #ffffff;
+      opacity: 1;
+      margin: 0 0 clamp(3.5rem, 4vw, 4rem);
+    }
+  }
+
+  .highlightCards {
+    row-gap: 2.5rem;
+
+    > div {
+      padding-inline: 1rem;
+    }
+
+    .highlightIcon {
+      width: clamp(150px, 12.5vw, 196px);
+      height: clamp(150px, 12.5vw, 196px);
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .highlightImg {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    p {
+      font-family: "Merriweather-Regular" !important;
+      font-size: clamp(16px, 1.5vw, 20px);
+      line-height: 1.3;
+      color: #ffffff;
+      text-align: center;
+      max-width: 260px;
+      margin: 0;
+    }
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Timeline (Articles)
+// ─────────────────────────────────────────────────────────────────────────────
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+  padding-top: 1rem;
+  padding-inline: 6%;
+
+  .timelineTrack {
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    bottom: 165px;
+    width: 2px;
+    background: #d53e0f;
+    transform: translateX(-50%);
+  }
+}
+
+.timelineRow {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 180px;
+
+  .timelineDot {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #d53e0f;
+    z-index: 3;
+  }
+}
+
+.timelineLeft {
+  justify-content: flex-start;
+
+  .articleCard {
+    margin-left: 0;
+    margin-right: calc(50% + 210px);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -28px;
+      right: -300px;
+      width: 532px;
+      height: 2px;
+      background: #d53e0f;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -28px;
+      right: 50%;
+      width: 2px;
+      height: 48px;
+      background: #d53e0f;
+    }
+  }
+}
+
+.timelineRight {
+  justify-content: flex-end;
+
+  .articleCard {
+    margin-right: 0;
+    margin-left: calc(50% + 210px);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -28px;
+      left: -300px;
+      width: 532px;
+      height: 2px;
+      background: #d53e0f;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -28px;
+      left: 50%;
+      width: 2px;
+      height: 48px;
+      background: #d53e0f;
+    }
+  }
+}
+
+.articleCard {
+  position: relative;
+  margin-top: 48px;
+  background: #d53e0f;
+  border-radius: 20px;
+  padding: 1.1rem 1.5rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  width: clamp(280px, 32vw, 460px);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover,
+  &:focus {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(213, 62, 15, 0.35);
+    outline: none;
+  }
+
+  .articleTitle {
+    font-family: "Merriweather-Bold" !important;
+    font-size: clamp(20px, 2vw, 32px);
+    color: #ffffff;
+    text-align: center;
+    line-height: 1.35;
+  }
+
+  .readMore {
+    font-family: "Merriweather-Regular" !important;
+    font-size: clamp(14px, 1.3vw, 18px);
+    color: #d53e0f;
+    background: #ffffff;
+    border: none;
+    border-radius: 50px;
+    padding: 0.15rem 1.4rem;
+    cursor: pointer;
+    white-space: nowrap;
+
+    &:hover {
+      background: #f0e8e0;
+    }
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Responsive
+// ─────────────────────────────────────────────────────────────────────────────
+@media (max-width: 767px) {
+    
+  .highlights {
+    padding: 2.5rem 1.25rem 3rem;
+
+    .highlightsInner {
+      h2 {
+        text-align: center;
+        font-size: clamp(32px, 10vw, 44px);
+        line-height: 1.3;
+      }
+
+      .highlightsDivider {
+        width: min(100%, 360px);
+        margin: 0 auto 2.5rem;
+      }
+    }
+
+    .highlightCards {
+      row-gap: 2.5rem;
+
+      .highlightIcon {
+        width: 130px;
+        height: 130px;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: 18px;
+        max-width: 280px;
+      }
+    }
+  }
+
+  // On mobile collapse timeline to single column, no branching
+  .timeline {
+    gap: 2rem;
+
+    .timelineTrack {
+      left: 24px;
+      top:105px;
+      bottom: 66px;
+    }
+  }
+
+  .timelineRow {
+    .timelineDot {
+      left: 24px;
+      width: 36px;
+      height: 36px;
+      top:85px;
+    }
+  }
+
+  .timelineLeft,
+  .timelineRight {
+    justify-content: flex-start;
+
+    .articleCard {
+      margin-left: 76px;
+      margin-right: 0;
+      width: calc(100% - 76px);
+
+       &::before,
+     &::after {
+      display: none;
+    }
+  }
+}
+
+  .articleCard {
+    width: 100%;
+    align-items: flex-start;
+
+    .articleTitle {
+      text-align: left;
+    }
+  }
+
+  .middleEasternStudies {
+    .articles {
+      padding: 3rem 1.25rem 4rem;
+
+      h2 {
+        font-size: clamp(26px, 8vw, 40px);
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .timelineLeft .articleCard {
+    margin-right: calc(50% + 28px);
+  }
+
+  .timelineRight .articleCard {
+    margin-left: calc(50% + 28px);
+  }
+
+  .articleCard {
+    width: clamp(200px, 38%, 340px);
+  }
+}

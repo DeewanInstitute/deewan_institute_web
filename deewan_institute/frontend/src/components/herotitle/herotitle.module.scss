@@ -1,0 +1,28 @@
+@use "../../style/variables.scss" as *;
+@use "../../style/fonts.scss" as *;
+.hero {
+  text-align: center;
+  padding: 3rem 6% 1rem;
+
+  .subtitle {
+    font-family: "Merriweather-Light" !important;
+    font-size: clamp(16px, 2vw, 25px);
+    color: var(--hero-color, $black);
+    margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    font-family: "Merriweather-Bold" !important;
+    font-size: clamp(28px, 5vw, 60px);
+    line-height: 1.4;
+    color: var(--hero-color, $black);
+    margin-bottom: 1.5rem;
+  }
+
+  .divider {
+    width: clamp(200px, 70%, 1280px);
+    margin: 0 auto;
+    border: 2px solid var(--hero-color, $black);
+    opacity: 1;
+  }
+}

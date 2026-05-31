@@ -32,8 +32,10 @@ import NotFound from "./pages/404_page/error.tsx";
 import Careers from "./pages/careers/careers.tsx";
 import InternshipForm from "./pages/internship/internshipform.tsx";
 import Newsletter from "./pages/newsletter/newsletter.tsx";
-import ArabiCafe from "./pages/arabicafe/arabicafe.tsx";
-import ArabicJournalism from "./pages/arabicjournalism/arabicjournalism.tsx";
+import ArabiCafe from "./pages/arabiccourses/arabicafe/arabicafe.tsx";
+import ArabicJournalism from "./pages/arabiccourses/arabicjournalism/arabicjournalism.tsx";
+import DiplomacyArabic from "./pages/arabiccourses/diplomacy/diplomacyarabic.tsx";
+import MiddleEasternStudies from "./pages/arabiccourses/middleeastern/middleeasternstudies.tsx";
 // ✅ Create a separate component that uses useLocation
 function AppContent() {
   const location = useLocation();
@@ -53,16 +55,7 @@ function AppContent() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         {/* Arabic Courses */}
-        <Route path="/arabic-courses" element={<ArabicCourses />} />
-        <Route path="/arabic-courses/arabi-talk" element={<ArabiTalk />} />
-        <Route
-          path="/arabic-courses/arabic-for-kids"
-          element={<ArabicKids />}
-        />
-        <Route
-          path="/arabic-courses/intensive-program"
-          element={<IntensiveProgram />}
-        />
+
         {/* History Pages */}
         <Route
           path="/middle-eastern-studies/modern-history-of-the-middle-east"
@@ -126,12 +119,30 @@ function AppContent() {
         <Route path="/internship" element={<InternshipForm />} />
         {/* Newsletter */}
         <Route path="/newsletter" element={<Newsletter />} />
-
+        {/* ______________________________________________________Arabic Courses______________________________________________ */}
+        <Route path="/arabic-courses" element={<ArabicCourses />} />
+        <Route path="/arabic-courses/arabi-talk" element={<ArabiTalk />} />
+        <Route
+          path="/arabic-courses/arabic-for-kids"
+          element={<ArabicKids />}
+        />
+        <Route
+          path="/arabic-courses/intensive-program"
+          element={<IntensiveProgram />}
+        />
         {/* online Arabi Cafe */}
-        <Route path="/arabicafe" element={<ArabiCafe />} />
-
+        <Route path="/arabic-courses/arabicafe" element={<ArabiCafe />} />
         {/* Arabic Journalism */}
-        <Route path="/arabic-journalism" element={<ArabicJournalism />} />
+        <Route path="/arabic-courses/arabic-journalism" element={<ArabicJournalism />} />
+        {/* Diplomacy Arabic */}
+        <Route path="/arabic-courses/diplomacy-arabic" element={<DiplomacyArabic />} />
+        {/* Middle Eastern Studies */}
+        <Route
+          path="/arabic-courses/middle-eastern-studies"
+          element={<MiddleEasternStudies />}
+        />
+        {/* ______________________________________________________Arabic Courses END______________________________________________ */}
+
         {/* 404 Route - must be last */}
         <Route path="/404" element={<NotFound />} />
         <Route path="*" element={<NotFound />} />
