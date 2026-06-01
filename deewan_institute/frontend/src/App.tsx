@@ -36,7 +36,9 @@ import ArabiCafe from "./pages/arabiccourses/arabicafe/arabicafe.tsx";
 import ArabicJournalism from "./pages/arabiccourses/arabicjournalism/arabicjournalism.tsx";
 import DiplomacyArabic from "./pages/arabiccourses/diplomacy/diplomacyarabic.tsx";
 import MiddleEasternStudies from "./pages/arabiccourses/middleeastern/middleeasternstudies.tsx";
-// ✅ Create a separate component that uses useLocation
+import MSA from "./pages/arabiccourses/msa/msa.tsx";
+import Colloquial from "./pages/arabiccourses/colloquial/colloquial.tsx";
+import Mixed from "./pages/arabiccourses/mixed/mixed.tsx";
 function AppContent() {
   const location = useLocation();
 
@@ -141,6 +143,12 @@ function AppContent() {
           path="/arabic-courses/middle-eastern-studies"
           element={<MiddleEasternStudies />}
         />
+        {/*MSA*/}
+        <Route path="/arabic-courses/modern-standard-arabic" element={<MSA />} />
+        {/* Colloquial Arabic */}
+        <Route path="/arabic-courses/colloquial-arabic" element={<Colloquial />} />
+          {/* Mixed Arabic */}
+        <Route path="/arabic-courses/mixed-arabic" element={<Mixed />} />
         {/* ______________________________________________________Arabic Courses END______________________________________________ */}
 
         {/* 404 Route - must be last */}
