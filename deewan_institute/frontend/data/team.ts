@@ -35,17 +35,17 @@ export const teamData: TeamMember = {
     },
     {
       name: "Nusaiba",
-      title: "Arabic Teacher",
+      title: "Educational Activities and Learning Games Coordinator",
       img: "../assets/images/teams/nusaiba.JPG",
     },
     {
       name: "Huda",
-      title: "Arabic Teacher",
+      title: "Quality Assurance Coordinator and Head of Arabic Teachers",
       img: "../assets/images/teams/4.jpg",
     },
     {
       name: "Malak",
-      title: "Arabic Teacher",
+      title: "Training and Capacity Building Supervisor",
       img: "../assets/images/teams/2.jpg",
     },
     {
@@ -55,12 +55,12 @@ export const teamData: TeamMember = {
     },
     {
       name: "Tasneem",
-      title: "Arabic Teacher",
+      title: "Arabic Children's Programs Coordinator",
       img: "../assets/images/teams/tasneem.JPG",
     },
     {
       name: "Noora",
-      title: "Arabic Teacher",
+      title: "Modern Standard Arabic (MSA) Program Coordinator",
       img: "../assets/images/teams/noura.JPG",
     },
     {

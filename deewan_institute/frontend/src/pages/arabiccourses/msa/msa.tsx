@@ -46,7 +46,9 @@ function MSA() {
           />
 
           {/* Full-width image */}
-          <section className={`${style.imageSection} scroll-section`}>
+          <section
+            className={`${style.imageSection} scroll-section slide-in-right`}
+          >
             <img
               src="/assets/images/others/msa-pic1.JPG"
               alt="student studying Arabic"
@@ -55,7 +57,7 @@ function MSA() {
           </section>
 
           {/* What Is It? */}
-          <section className={`${style.offer} scroll-section`}>
+          <section className={`${style.offer} scroll-section slide-in-left`}>
             <h2>What Is It?</h2>
             <hr className={style.offerDivider} />
             <p>
@@ -80,16 +82,20 @@ function MSA() {
       {/* Skills You'll Develop */}
       <section className={style.skills}>
         <div className={style.skillsInner}>
-          <h2 className="scroll-section">Skills You'll Develop</h2>
+          <h2 className="scroll-section slide-in-left">
+            Skills You'll Develop
+          </h2>
           <hr className={style.skillsDivider} />
-          <p className={`${style.skillsSubtitle} scroll-section`}>
+          <p
+            className={`${style.skillsSubtitle} scroll-section slide-in-right`}
+          >
             This course develops the core language skills of reading, writing,
             listening, and speaking while building proficiency in Arabic
             grammar, vocabulary, and comprehension.
           </p>
 
           <div className={`row justify-content-center ${style.skillsCards}`}>
-            <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section">
+            <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section slide-in-left">
               <div className={style.skillsIcon}>
                 <img
                   src="/assets/images/icons/msa-icon.png"
@@ -100,7 +106,7 @@ function MSA() {
               <p>Reading</p>
             </div>
 
-            <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section">
+            <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section slide-in-left">
               <div className={style.skillsIcon}>
                 <img
                   src="/assets/images/icons/msa-icon2.png"
@@ -111,7 +117,7 @@ function MSA() {
               <p>Writing</p>
             </div>
 
-            <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section">
+            <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section slide-in-right">
               <div className={style.skillsIcon}>
                 <img
                   src="/assets/images/icons/msa-icon3.png"
@@ -122,7 +128,7 @@ function MSA() {
               <p>Speaking</p>
             </div>
 
-            <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section">
+            <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section slide-in-right">
               <div className={style.skillsIcon}>
                 <img
                   src="/assets/images/icons/msa-icon4.png"
@@ -138,13 +144,13 @@ function MSA() {
 
       {/* Course Fees */}
       <div className={style.msa}>
-        <section className={`${style.fees} scroll-section`}>
+        <section className={`${style.fees} scroll-section slide-in-left`}>
           <h2>Course Fees</h2>
           <hr className={style.feesDivider} />
 
           <div className={`row align-items-center ${style.feesContent}`}>
             {/* Left: image */}
-            <div className="col-12 col-md-6 scroll-section">
+            <div className="col-12 col-md-6 scroll-section slide-in-left">
               <img
                 src="/assets/images/others/msa-pic.png"
                 alt="students at class"
@@ -153,7 +159,9 @@ function MSA() {
             </div>
 
             {/* Right: description + CTA */}
-            <div className={`col-12 col-md-6 scroll-section ${style.feesText}`}>
+            <div
+              className={`col-12 col-md-6 scroll-section slide-in-right ${style.feesText}`}
+            >
               <p className={style.feesLead}>
                 Find the cost of your Arabic program in just a few clicks.
               </p>

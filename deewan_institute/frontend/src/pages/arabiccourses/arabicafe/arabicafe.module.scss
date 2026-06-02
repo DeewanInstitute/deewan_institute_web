@@ -106,20 +106,32 @@ $cafe-brown: #472211;
     }
 
     .scheduleIcon {
-      width: clamp(72px, 11vw, 130px);
-      height: clamp(72px, 11vw, 130px);
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+  width: clamp(72px, 11vw, 130px);
+  height: clamp(72px, 11vw, 130px);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.28s ease, filter 0.28s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-8px) scale(1.12);
+    filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.25));
+  }
+}
 
     .scheduleImg {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.28s ease;
+
+  .scheduleIcon:hover & {
+    transform: scale(1.1);
+  }
+}
 
     p {
       font-family: "Merriweather-Bold" !important;
@@ -225,7 +237,7 @@ $cafe-brown: #472211;
       transition: background 0.3s ease, color 0.3s ease;
 
       &:hover {
-        background: $cafe-green;
+        background: #053f1a;
       }
 
       @media (max-width: 576px) {

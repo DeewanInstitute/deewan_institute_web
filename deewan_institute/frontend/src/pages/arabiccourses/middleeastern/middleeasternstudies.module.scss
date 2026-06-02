@@ -5,7 +5,7 @@
 // Page wrapper
 // ─────────────────────────────────────────────────────────────────────────────
 .middleEasternStudies {
-background-image: url("/assets/images/background/mes-background.png");
+  background-image: url("/assets/images/background/mes-background.png");
 
   // ─── Full-width image ───────────────────────────────────────────────────
   .imageSection {
@@ -28,13 +28,13 @@ background-image: url("/assets/images/background/mes-background.png");
     h2 {
       font-family: "Merriweather-Bold" !important;
       font-size: clamp(28px, 5vw, 64px);
-      color: #B85C38;
+      color: #b85c38;
       margin-bottom: 0.5rem;
     }
 
     .offerDivider {
       width: clamp(150px, 28%, 311px);
-      border: 2px solid #B85C38;
+      border: 2px solid #b85c38;
       opacity: 1;
       margin: 0 0 1.8rem;
     }
@@ -80,7 +80,7 @@ background-image: url("/assets/images/background/mes-background.png");
 // Course Highlights (full-bleed brown section)
 // ─────────────────────────────────────────────────────────────────────────────
 .highlights {
-  background: #B85C38;
+  background: #b85c38;
   padding: 2.5rem 6% 3.5rem;
 
   .highlightsInner {
@@ -126,6 +126,11 @@ background-image: url("/assets/images/background/mes-background.png");
       height: 100%;
       object-fit: contain;
       display: block;
+      transition: transform 0.28s ease;
+
+      .highlightIcon:hover & {
+        transform: scale(1.1);
+      }
     }
 
     p {
@@ -188,6 +193,14 @@ background-image: url("/assets/images/background/mes-background.png");
   .articleCard {
     margin-left: 0;
     margin-right: calc(50% + 210px);
+    transition:
+      transform 0.28s ease,
+      box-shadow 0.28s ease;
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+    }
 
     &::before {
       content: "";
@@ -252,7 +265,9 @@ background-image: url("/assets/images/background/mes-background.png");
   gap: 0.6rem;
   width: clamp(280px, 32vw, 460px);
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 
   &:hover,
   &:focus {
@@ -290,7 +305,6 @@ background-image: url("/assets/images/background/mes-background.png");
 // Responsive
 // ─────────────────────────────────────────────────────────────────────────────
 @media (max-width: 767px) {
-    
   .highlights {
     padding: 2.5rem 1.25rem 3rem;
 
@@ -314,6 +328,15 @@ background-image: url("/assets/images/background/mes-background.png");
         width: 130px;
         height: 130px;
         margin-bottom: 1rem;
+        transition:
+          transform 0.28s ease,
+          filter 0.28s ease;
+        cursor: pointer;
+
+        &:hover {
+          transform: translateY(-8px) scale(1.12);
+          filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.25));
+        }
       }
 
       p {
@@ -329,7 +352,7 @@ background-image: url("/assets/images/background/mes-background.png");
 
     .timelineTrack {
       left: 24px;
-      top:105px;
+      top: 105px;
       bottom: 66px;
     }
   }
@@ -339,7 +362,7 @@ background-image: url("/assets/images/background/mes-background.png");
       left: 24px;
       width: 36px;
       height: 36px;
-      top:85px;
+      top: 85px;
     }
   }
 
@@ -352,12 +375,12 @@ background-image: url("/assets/images/background/mes-background.png");
       margin-right: 0;
       width: calc(100% - 76px);
 
-       &::before,
-     &::after {
-      display: none;
+      &::before,
+      &::after {
+        display: none;
+      }
     }
   }
-}
 
   .articleCard {
     width: 100%;

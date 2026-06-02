@@ -46,7 +46,7 @@ function ArabiCafe() {
           {/* About Section */}
           <section className={`${style.about} scroll-section`}>
             <div className="row justify-content-center mx-auto">
-              <div className="col-12 col-lg-5 d-flex flex-column justify-content-center">
+              <div className="col-12 col-lg-5 d-flex flex-column justify-content-center scroll-section slide-in-left">
                 <p>
                   Online ArabiCafe is an interactive online conversation program
                   designed for learners who want to improve their Levantine
@@ -68,7 +68,7 @@ function ArabiCafe() {
                   exposure to everyday Levantine Arabic.
                 </p>
               </div>
-              <div className="col-12 col-lg-5 d-flex align-items-center justify-content-center mt-4 mt-lg-0">
+              <div className="col-12 col-lg-5 d-flex align-items-center justify-content-center mt-4 mt-lg-0 scroll-section slide-in-right">
                 <div className={style.imageWrapper}>
                   <img
                     className="img-fluid"
@@ -83,13 +83,13 @@ function ArabiCafe() {
           {/* Program Schedule */}
           <section className={style.schedule}>
             <div className={style.scheduleInner}>
-              <h2 className="scroll-section">Program Schedule</h2>
+              <h2 className="scroll-section slide-in-left">Program Schedule</h2>
               <hr className={style.scheduleDivider} />
               <div
                 className={`row justify-content-center ${style.scheduleCards}`}
               >
                 {/* Days */}
-                <div className="col-12 col-md-4 d-flex flex-column align-items-center scroll-section">
+      <div className="col-12 col-md-4 d-flex flex-column align-items-center scroll-section slide-in-left">
                   <div className={style.scheduleIcon}>
                     <img
                       src="../assets/images/icons/clock.png"
@@ -101,7 +101,7 @@ function ArabiCafe() {
                 </div>
 
                 {/* Time */}
-                <div className="col-12 col-md-4 d-flex flex-column align-items-center scroll-section">
+      <div className="col-12 col-md-4 d-flex flex-column align-items-center scroll-section">
                   <div className={style.scheduleIcon}>
                     <img
                       src="../assets/images/icons/calendar.png"
@@ -113,7 +113,7 @@ function ArabiCafe() {
                 </div>
 
                 {/* Format */}
-                <div className="col-12 col-md-4 d-flex flex-column align-items-center scroll-section">
+      <div className="col-12 col-md-4 d-flex flex-column align-items-center scroll-section slide-in-right">
                   <div className={style.scheduleIcon}>
                     <img
                       src="/assets/images/icons/bigworld.png"
@@ -130,7 +130,7 @@ function ArabiCafe() {
           {/* Who Can Join */}
           <section className={`${style.whoCanJoin} scroll-section`}>
             <div className="row justify-content-center mx-auto align-items-center">
-              <div className="col-12 col-lg-5 mb-4 mb-lg-0">
+    <div className="col-12 col-lg-5 mb-4 mb-lg-0 scroll-section slide-in-left">
                 <div className={style.imageWrapper}>
                   <img
                     className="img-fluid"
@@ -139,7 +139,7 @@ function ArabiCafe() {
                   />
                 </div>
               </div>
-              <div className="col-12 col-lg-5 d-flex flex-column justify-content-center">
+    <div className="col-12 col-lg-5 d-flex flex-column justify-content-center scroll-section slide-in-right">
                 <h2 className={style.whoTitle}>Who Can Join?</h2>
                 <hr className={style.whoLine} />
                 <p>

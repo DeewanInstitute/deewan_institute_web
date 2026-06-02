@@ -46,8 +46,8 @@ function Mixed() {
             color="rgb(143 110 67)"
           />
 
-          {/* What Is It? — two-column: text left, image right */}
-          <section className={`${style.whatIsIt} scroll-section`}>
+          {/* What Is It*/}
+          <section className={`${style.whatIsIt} scroll-sections slide-in-left`}>
             <div className={style.whatIsItText}>
               <h2>What Is It?</h2>
               <hr className={style.offerDivider} />
@@ -74,7 +74,7 @@ function Mixed() {
               </p>
             </div>
 
-            <div className={`${style.whatIsItImage} scroll-section`}>
+            <div className={`${style.whatIsItImage} scroll-section slide-in-right`}>
               <img
                 src="/assets/images/others/mixed-pic.png"
                 alt="student in Arabic class"
@@ -85,7 +85,7 @@ function Mixed() {
         </main>
       </div>
 
-      {/* Course Fees — full-bleed brown section */}
+      {/* Course Fees*/}
       <section className={style.fees}>
         <div className={style.feesInner}>
           <h2 className="scroll-section">Course Fees</h2>

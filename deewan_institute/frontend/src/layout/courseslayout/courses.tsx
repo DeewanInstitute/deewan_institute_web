@@ -16,6 +16,7 @@ interface arabicCourse {
     learnMoreButton?: string;
     buttonLink?: string;
     listDescription?: string;
+    learnMoreLink?: string;
     list?: Array<{
       type: string;
     }>;
@@ -25,24 +26,37 @@ interface arabicCourse {
 function Courses({ data }: { data: arabicCourse }) {
   useScrollAnimation();
 
-  const renderCourseButton = (course: arabicCourse["courses"][number]) => {
-    const courseButtonText = course.buttonText || course.learnMoreButton;
+  // const renderCourseButton = (course: arabicCourse["courses"][number]) => {
+    const renderCourseButtons = (course: arabicCourse["courses"][number]) => {
+  const buttons = [
+    {
+      text: course.buttonText,
+      link: course.buttonLink,
+    },
+    {
+      text: course.learnMoreButton,
+      link: course.learnMoreLink,
+    },
+  ].filter((button) => button.text && button.link);
 
-    if (!courseButtonText || !course.buttonLink) return null;
+  if (!buttons.length) return null;
 
-    return (
-      <div className="text-center mt-3">
+  return (
+    <div className={styles.courseActions}>
+      {buttons.map((button, index) => (
         <a
-          href={course.buttonLink}
+          key={index}
+          href={button.link}
           className={`btn ${styles.courseButton}`}
-          target="_blank"
-          rel="noopener noreferrer"
+          target={button.link?.startsWith("http") ? "_blank" : undefined}
+          rel={button.link?.startsWith("http") ? "noopener noreferrer" : undefined}
         >
-          {courseButtonText}
+          {button.text}
         </a>
-      </div>
-    );
-  };
+      ))}
+    </div>
+  );
+};
 
   return (
     <Fragment>
@@ -107,7 +121,7 @@ function Courses({ data }: { data: arabicCourse }) {
                   </ul>
                 ))}
 
-                {renderCourseButton(course)}
+                {renderCourseButtons(course)}
               </div>
             </div>
           ))}
@@ -139,7 +153,7 @@ function Courses({ data }: { data: arabicCourse }) {
                 className={`${styles.back} d-flex flex-column justify-content-center`}
               >
                 <p className="mx-5 my-3 text-black">{course.description}</p>
-                {renderCourseButton(course)}
+                {renderCourseButtons(course)}
               </div>
             </div>
           ))}
@@ -171,7 +185,7 @@ function Courses({ data }: { data: arabicCourse }) {
                 className={`${styles.back} d-flex flex-column justify-content-center`}
               >
                 <p className="mx-5 my-3">{course.description}</p>
-                {renderCourseButton(course)}
+                {renderCourseButtons(course)}
               </div>
             </div>
           ))}
@@ -203,7 +217,7 @@ function Courses({ data }: { data: arabicCourse }) {
                 className={`${styles.back} d-flex flex-column justify-content-center`}
               >
                 <p className="mx-5 my-3">{course.description}</p>
-                {renderCourseButton(course)}
+                {renderCourseButtons(course)}
               </div>
             </div>
           ))}

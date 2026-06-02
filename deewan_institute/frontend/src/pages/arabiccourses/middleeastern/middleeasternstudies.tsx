@@ -18,8 +18,14 @@ interface Article {
 
 const articles: Article[] = [
   { title: "History of the Middle East", slug: "history-of-the-middle-east" },
-  { title: "Modern History of the Middle East", slug: "modern-history-of-the-middle-east" },
-  { title: "The Zionist Project in Palestine", slug: "the-zionist-project-in-palestine" },
+  {
+    title: "Modern History of the Middle East",
+    slug: "modern-history-of-the-middle-east",
+  },
+  {
+    title: "The Zionist Project in Palestine",
+    slug: "the-zionist-project-in-palestine",
+  },
   { title: "The People of the Middle East", slug: "people-of-the-middle-east" },
 ];
 
@@ -58,7 +64,7 @@ function MiddleEasternStudies() {
           />
 
           {/* What Is It? */}
-          <section className={`${style.offer} scroll-section`}>
+          <section className={`${style.offer} scroll-section slide-in-left`}>
             <h2>What Is It?</h2>
             <hr className={style.offerDivider} />
             <p>
@@ -79,7 +85,9 @@ function MiddleEasternStudies() {
           </section>
 
           {/* Full-width image */}
-          <section className={`${style.imageSection} scroll-section`}>
+          <section
+            className={`${style.imageSection} scroll-section slide-in-right`}
+          >
             <img
               src="/assets/images/others/mes-pic.png"
               alt="Middle Eastern landmark"
@@ -92,11 +100,11 @@ function MiddleEasternStudies() {
       {/* Course Highlights */}
       <section className={style.highlights}>
         <div className={style.highlightsInner}>
-          <h2 className="scroll-section">Course Highlights</h2>
+          <h2 className="scroll-section slide-in-left">Course Highlights</h2>
           <hr className={style.highlightsDivider} />
 
           <div className={`row justify-content-center ${style.highlightCards}`}>
-            <div className="col-12 col-md-4 d-flex flex-column align-items-center scroll-section">
+            <div className="col-12 col-md-4 d-flex flex-column align-items-center scroll-section slide-in-left">
               <div className={style.highlightIcon}>
                 <img
                   src="/assets/images/icons/mes-icon1.png"
@@ -126,7 +134,7 @@ function MiddleEasternStudies() {
               </p>
             </div>
 
-            <div className="col-12 col-md-4 d-flex flex-column align-items-center scroll-section">
+            <div className="col-12 col-md-4 d-flex flex-column align-items-center scroll-section slide-in-right">
               <div className={style.highlightIcon}>
                 <img
                   src="/assets/images/icons/mes-icon3.png"
@@ -146,10 +154,12 @@ function MiddleEasternStudies() {
 
       {/* Articles Section */}
       <div className={style.middleEasternStudies}>
-        <section className={`${style.articles} scroll-section`}>
+        <section className={`${style.articles} scroll-section slide-in-left`}>
           <h2>Middle Eastern Studies Articles</h2>
           <hr className={style.articlesDivider} />
-          <p className={style.articlesSubtitle}>
+          <p
+            className={`${style.articlesSubtitle} scroll-section slide-in-right`}
+          >
             Browse the articles below for additional insights into the history,
             cultures, and developments that have shaped the Middle East.
           </p>
@@ -162,17 +172,18 @@ function MiddleEasternStudies() {
               return (
                 <div
                   key={article.slug}
-                  className={`${style.timelineRow} ${isLeft ? style.timelineLeft : style.timelineRight} scroll-section`}
-                >
-                    
+className={`${style.timelineRow} ${
+  isLeft ? style.timelineLeft : style.timelineRight
+} scroll-section ${isLeft ? "slide-in-left" : "slide-in-right"}`}                >
                   {/* Dot */}
                   <div className={style.timelineDot} />
-                  
 
                   {/* Card */}
                   <div
                     className={style.articleCard}
-                    onClick={() => navigate(`/middle-eastern-studies/${article.slug}`)}
+                    onClick={() =>
+                      navigate(`/middle-eastern-studies/${article.slug}`)
+                    }
                     role="button"
                     tabIndex={0}
                     onKeyDown={(e) => {

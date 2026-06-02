@@ -8,6 +8,7 @@ interface arabicCourse {
     listDescription?: string;
     buttonLink?: string;
     learnMoreButton?: string;
+    learnMoreLink?: string;
     list?: Array<{
       type: string;
     }>;
@@ -22,10 +23,10 @@ export const courseData: arabicCourse = {
       arabicTitle: "العربية العامية",
       title: "COLLOQUIAL LEVANTINE ARABIC",
       description:
-        "Colloquial Levantine Arabic is a group of Arabic dialects spoken in the Levant region, which includes countries including Syria, Lebanon, Jordan, and Palestine. This dialect group is characterized by several features that distinguish it from Modern Standard Arabic, including pronunciation, grammar, and vocabulary.",
+        "is the everyday spoken Arabic used across Jordan, Palestine, Lebanon, and Syria. Learning this dialect helps learners communicate naturally in daily life and better understand the culture of the Levant.",
       
       listDescription:
-        "This course can be offered in various formats, Including:",
+        "This course is available in:",
       list: [
         {
           type: "One-to-One Classes",
@@ -40,15 +41,17 @@ export const courseData: arabicCourse = {
       ],
       buttonText: "Sign Up",
       buttonLink: "https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform",
+      learnMoreButton: "Learn More",
+      learnMoreLink: "/arabic-courses/colloquial-arabic",
     },
     // FUSHA (MSA, MEDIA AND CLASSICAL ARABIC)
     {
       arabicTitle: "العربية الفصحى",
       title: "FUSHA (MSA, MEDIA AND CLASSICAL ARABIC)",
       description:
-        "FusHa, also known as Modern Standard Arabic (MSA), is the standardized literary form of the Arabic language, used in formal communication, academic settings, media, and literature across the Arab world, and is the language of instruction in schools and universities.",
+        "is the formal, standardized form of Arabic used in education, media, literature, and professional communication throughout the Arab world. It provides a strong foundation for reading, writing, and formal communication.",
       listDescription:
-        "This course can be offered in various formats, Including:",
+        "This course is available in:",
       list: [
         {
           type: "One-to-One Classes",
@@ -62,15 +65,17 @@ export const courseData: arabicCourse = {
       ],
       buttonText: "Sign Up",
       buttonLink: "https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform",
+      learnMoreButton: "Learn More",
+      learnMoreLink: "/arabic-courses/modern-standard-arabic",
     },
     // MIXED ARABIC (COLLOQUIAL & FUSHA)
     {
       arabicTitle: "العربية المختلطة (العامية والفصحى)",
       title: "MIXED ARABIC (COLLOQUIAL & FUSHA)",
       description:
-        "Mixed Arabic, or “Arabic Diglossia,” blends Modern Standard Arabic (MSA) with colloquial Arabic in the same conversation or text. Speakers across the Arab world switch between the two depending on the context and audience, making this skill essential for natural and effective communication.",
+        "combines Modern Standard Arabic (MSA) with colloquial Arabic, reflecting how Arabic is naturally used in everyday life. This course helps learners switch confidently between formal and spoken Arabic in different contexts.",
       listDescription:
-        "This course can be offered in various formats, including:",
+        "This course is available in:",
       list: [
         {
           type: "One-to-One Classes",
@@ -84,6 +89,8 @@ export const courseData: arabicCourse = {
       ],
       buttonText: "Sign Up",
       buttonLink: "https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform",
+      learnMoreButton: "Learn More",
+      learnMoreLink: "/arabic-courses/mixed-arabic",
     },
     // ArabiTalk
     {
@@ -91,8 +98,10 @@ export const courseData: arabicCourse = {
       title: "ArabiTalk",
       description:
         "Whether you’re a beginner aiming to build confidence, or an advanced speaker looking to refine your fluency, ArabiTalk offers one–on–one sessions with experienced native–speaking coaches. Conversations are tailored to your level and interests — from everyday topics to academic or professional themes — offering the right balance between structure and spontaneity.",
+      buttonText: "Sign Up",
+      buttonLink: "https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform",
       learnMoreButton: "Learn More",
-      buttonLink: "https://deewaninstitute.com/arabic-courses/arabi-talk",
+      learnMoreLink: "/arabic-courses/arabi-talk",
     },
     //Arabic Program for Kids
     {
@@ -102,6 +111,8 @@ export const courseData: arabicCourse = {
         "The Deewan Institute offers a fun, interactive Kids' Arabic Program for young learners, teaching Modern Standard Arabic (MSA) and Colloquial Arabic. The program focuses on building essential skills like Reading, Writing, Speaking, and Listening, providing a natural, exciting, and rewarding way to learn Arabic.",
       buttonText: "Sign Up",
       buttonLink: "https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform",
+      learnMoreButton: "Learn More",
+      learnMoreLink: "/arabic-courses/arabic-for-kids",
     },
     // MIDDLE EASTERN STUDIES
     {
@@ -109,35 +120,44 @@ export const courseData: arabicCourse = {
       title: "MIDDLE EASTERN STUDIES",
       description:
         "Mixed Arabic, also known as 'Arabic Diglossia,' involves using both Modern Standard Arabic (MSA) and colloquial Arabic in the same conversation or text. This practice is common in Arabic-speaking countries, where people switch between MSA and their local dialect depending on the context and audience. This skill is essential for effective communication in Arabic-speaking countries.",
+      buttonText: "Sign Up",
+      buttonLink: "https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform",
       learnMoreButton: "Learn More",
-      buttonLink: "https://deewaninstitute.com/arabic-courses/middle-eastern-studies",
+      learnMoreLink: "/arabic-courses/middle-eastern-studies",
+      
     },
     // DIPLOMACY ARABIC
     {
       arabicTitle: "العربية الدبلوماسية",
       title: "DIPLOMACY ARABIC",
       description:
-        "This is a specialized form of Arabic used in diplomatic communication between Arabic- speaking countries and international organizations.It is a variant of Modern Standard Arabic(MSA) and is used to communicate official and formal messages between governments, diplomats, and international organizations.Diplomacy Arabic uses a specific set of vocabulary, grammar, and expressions that are unique to diplomatic communication.It requires a high level of proficiency in MSA, as well as knowledge of political and cultural issues relevant to the region.",
+        "is a specialized form of Modern Standard Arabic (MSA) used in diplomacy, international relations, and official communication. This course focuses on the language, terminology, and communication skills needed for professional interactions between governments, diplomats, and international organizations.",
+      buttonText: "Sign Up",
+      buttonLink: "https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform",
       learnMoreButton: "Learn More",
-      buttonLink: "https://deewaninstitute.com/arabic-courses/diplomacy-arabic",
+      learnMoreLink: "/arabic-courses/diplomacy-arabic",
     },
     // ARABIC JOURNALISM
     {
       arabicTitle: "العربية في الاعلام",
       title: "ARABIC JOURNALISM",
       description:
-        "Immerses students in the principles of journalistic writing, reporting, and editing in the Arabic language. Covering news gathering, feature writing, and ethical considerations, this course is ideal for those pursuing a career in Arabic journalism or seeking a deeper understanding of media in the Arab world. Join us to enhance your language proficiency and journalistic skills with experienced instructors and practical exercises.",
+        "introduces students to journalistic writing, reporting, and editing in Arabic. The course covers news writing, feature articles, media analysis, and journalistic ethics, helping learners strengthen both their Arabic language proficiency and practical media skills through hands-on exercises and real-world applications.",
+      buttonText: "Sign Up",
+      buttonLink: "https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform",
       learnMoreButton: "Learn More",
-      buttonLink: "https://deewaninstitute.com/arabic-courses/arabic-journalism",
+      learnMoreLink: "/arabic-courses/arabic-journalism",
     },
     // DEEWAN INTENSIVE SUMMER PROGRAM
     {
       arabicTitle: "برنامج ديوان الصيفي والخريفي المكثف",
       title: "DEEWAN INTENSIVE SUMMER AND FALL PROGRAM",
       description:
-        "Deewan's Intensive Summer and Fall Program is a rigorous language learning program that helps students improve their Arabic skills noticably. With focus on all aspects of the language, including grammar, vocabulary, reading, writing, and conversation, this program is taught by experienced instructors using interactive teaching methods. Different study plans are available, and students of all levels can benefit from the program to accelerate their Arabic learning and deepen their cultural understanding.",
+        "helps students make rapid progress in Arabic through intensive training in reading, writing, grammar, and conversation, while gaining valuable cultural insight",
+      buttonText: "Sign Up",
+      buttonLink: "https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform",
       learnMoreButton: "Learn More",
-      buttonLink: "https://deewaninstitute.com/arabic-courses/intensive-program",
+      learnMoreLink: "/arabic-courses/intensive-program",
       
     },
     // OPI
@@ -146,8 +166,11 @@ export const courseData: arabicCourse = {
       title: "ACTFL Oral Proficiency Interview (OPI)",
       description:
         "The OPI at is a structured oral proficiency assessment designed to evaluate students’ spoken Arabic skills through interactive conversation. It measures fluency, comprehension, pronunciation, and communication ability, helping learners identify their level, track progress, and build confidence in using Arabic effectively.",
+        
       buttonText: "Sign Up",
       buttonLink: "https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform",
+      // learnMoreButton: "Learn More",
+      // learnMoreLink: "https://deewaninstitute.com/arabic-courses/opi",
     },
     //ArabiFlex
     {
@@ -156,15 +179,20 @@ export const courseData: arabicCourse = {
       description:"A flexible Levantine Arabic conversation program focused on speaking, fluency, and real-life communication for B1+ learners.",
       buttonText: "Sign Up",
       buttonLink: "https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform",
+      // learnMoreButton: "Learn More",
+      // learnMoreLink: "/arabic-courses/arabi-flex",
     },
     //Online ArabiCafe
     {
       arabicTitle: "عربي كافيه أونلاين",
       title: "Online ArabiCafe",
       description:"An interactive online conversation space where B1+ learners practice Levantine Arabic through discussions, cultural topics, and social interaction in a relaxed café-style environment.",
-      buttonText: "Learn More",
-      buttonLink: "https://deewaninstitute.com/arabic-courses/arabicafe",
-    },
+        buttonText: "Sign Up",
+      buttonLink: "https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform",
+      learnMoreButton: "Learn More",
+      learnMoreLink: "/arabic-courses/arabicafe",
+      
+    }
   ],
 };
 

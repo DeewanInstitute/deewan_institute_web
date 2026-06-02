@@ -190,6 +190,13 @@
       align-items: center;
       justify-content: center;
       padding: 0.8rem;
+        transition: transform 0.28s ease, filter 0.28s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-8px) scale(1.12);
+    filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.25));
+  }
     }
 
     .skillsImg {
@@ -197,6 +204,12 @@
       height: 100%;
       object-fit: contain;
       display: block;
+        transition: transform 0.28s ease;
+
+  .skillsIcon:hover & {
+    transform: scale(1.1);
+  }
+      
     }
 
     p {
