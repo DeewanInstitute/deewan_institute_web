@@ -39,6 +39,7 @@ import MiddleEasternStudies from "./pages/arabiccourses/middleeastern/middleeast
 import MSA from "./pages/arabiccourses/msa/msa.tsx";
 import Colloquial from "./pages/arabiccourses/colloquial/colloquial.tsx";
 import Mixed from "./pages/arabiccourses/mixed/mixed.tsx";
+import ArabiFlex from "./pages/arabiccourses/arabiflex/arabiflex.tsx";
 function AppContent() {
   const location = useLocation();
 
@@ -149,6 +150,8 @@ function AppContent() {
         <Route path="/arabic-courses/colloquial-arabic" element={<Colloquial />} />
           {/* Mixed Arabic */}
         <Route path="/arabic-courses/mixed-arabic" element={<Mixed />} />
+        {/* ArabiFlex Conversation Group Class */}
+        <Route path="/arabic-courses/arabiflex" element={<ArabiFlex />} />
         {/* ______________________________________________________Arabic Courses END______________________________________________ */}
 
         {/* 404 Route - must be last */}

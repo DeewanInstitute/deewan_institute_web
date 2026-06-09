@@ -179,8 +179,8 @@ export const courseData: arabicCourse = {
       description:"A flexible Levantine Arabic conversation program focused on speaking, fluency, and real-life communication for B1+ learners.",
       buttonText: "Sign Up",
       buttonLink: "https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform",
-      // learnMoreButton: "Learn More",
-      // learnMoreLink: "/arabic-courses/arabi-flex",
+      learnMoreButton: "Learn More",
+      learnMoreLink: "/arabic-courses/arabiflex",
     },
     //Online ArabiCafe
     {

@@ -41,7 +41,7 @@
       border: 1px solid rgba(255, 255, 255, 0.12) !important;
       border-radius: 50px !important;
       padding: 6px 20px !important;
-      max-width: 860px !important;
+      max-width: 700px !important;
       margin: 10px auto !important;
       box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.35),
@@ -137,7 +137,7 @@
 
 
 .logoScrolled {
-  width: 110px !important;
+  width: 80px !important;
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
@@ -165,7 +165,7 @@
 
 .progressLineVisible {
   opacity: 1;
-  width: 60%;
+  width: 30%;
 }
 
 
@@ -291,6 +291,7 @@
   width: 160px;
   margin-inline: 24px;
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-right: -14px;
 
   @media (min-width: 768px) and (max-width: 1279px) {
     width: 220px;
