@@ -19,7 +19,7 @@ const FloatingActionButtonInstitute = () => {
       
 
       <span className={styles.label}>
-        Deewan Cultural & Experience
+        Deewan Cultural Experiences
       </span>
     </a>
   );
