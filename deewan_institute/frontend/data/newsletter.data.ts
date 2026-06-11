@@ -11,6 +11,18 @@ export type NewsletterEdition = {
 };
 
 export const EDITIONS: NewsletterEdition[] = [
+   {
+    id: "June",
+    label: "June 2026",
+    tag: "Latest Issue",
+    title: "June Deewan Newsletter",
+    format: "rectangular",
+    aspectRatio: 56.25,
+    src: "https://www.canva.com/design/DAHLOMdwkGE/U1TXbgkcx_a5hQMFTo4_AA/view?embed",
+    href: "https://www.canva.com/design/DAHLOMdwkGE/U1TXbgkcx_a5hQMFTo4_AA/view",
+    description:
+      "Dive into Arabic language milestones, cultural highlights from Al-Weibdeh, and upcoming events at Deewan Institute.",
+  },
   {
     id: "may",
     label: "May 2026",
@@ -71,4 +83,5 @@ export const EDITIONS: NewsletterEdition[] = [
     description:
       "A visual journey through Deewan's January programming — language, culture, and community in every frame.",
   },
+  
 ];
