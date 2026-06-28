@@ -25,7 +25,7 @@ const overlayColumns = [
         to: "/arabic-courses/intensive-program",
       },
       { label: "Bildungsurlaub Courses", to: "/bildungsurlaub" },
-      { label: "Culture Events", to: "/cultureEvents" },
+      { label: "Culture Events", to: "https://deewantourism.com/cultureevents" },
     ],
   },
   {

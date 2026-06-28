@@ -18,11 +18,9 @@ import PalestineHistory from "./pages/history/palestineHistory.tsx";
 import PeopleOfME from "./pages/history/peopleME";
 import IntensiveProgram from "./pages/arabiccourses/intensiveProgram.tsx";
 import Calculator from "./pages/calculator/calculator.tsx";
-import Visa from "./pages/accommodations/visa.tsx";
-import Trips from "./pages/accommodations/trips.tsx";
 import Publications from "./pages/books/publications.tsx";
 import PublicationInfo from "./pages/books/publicationinfo.tsx";
-import CultureEvents from "./pages/cultureevents/cultureEvents.tsx";
+// import CultureEvents from "./pages/cultureevents/cultureEvents.tsx";
 import WishList from "./context/wishlist.tsx";
 import Cart from "./context/cart.tsx";
 import Checkout from "./context/checkout.tsx";
@@ -81,15 +79,7 @@ function AppContent() {
         <Route path="/publications/book/:id" element={<PublicationInfo />} />
         <Route path="/publications/podcast/:id" element={<PublicationInfo />} />
 
-        {/* Accommodation Pages */}
-        <Route
-          path="/accommodation-and-student-services/visa"
-          element={<Visa />}
-        />
-        <Route
-          path="/accommodation-and-student-services/trips"
-          element={<Trips />}
-        />
+
         {/* Foreign Courses */}
         <Route path="/foreign-languages/english-course" element={<English />} />
         <Route path="/foreign-languages/spanish-course" element={<Spanish />} />
@@ -98,7 +88,7 @@ function AppContent() {
         {/* Calculator */}
         <Route path="/calculator" element={<Calculator />} />
         {/* Culture Events */}
-        <Route path="/cultureEvents" element={<CultureEvents />} />
+        {/* <Route path="/cultureEvents" element={<CultureEvents />} /> */}
         {/* ShopContext */}
         <Route path="/wishlist" element={<WishList />} />
         <Route path="/cart" element={<Cart />} />

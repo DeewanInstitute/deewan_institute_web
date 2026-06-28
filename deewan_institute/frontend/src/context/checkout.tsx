@@ -68,8 +68,10 @@ function Checkout() {
             firstName: formData.get("firstName"),
             lastName: formData.get("lastName"),
             email: formData.get("email"),
+            phone: formData.get("phone"), 
             address: formData.get("address"),
             region: formData.get("region"),
+            notes: formData.get("notes"),
             paymentMethod,
             cart,
             totalPrice,
@@ -274,21 +276,21 @@ function Checkout() {
             {/* ── LEFT COLUMN ── */}
             <div className="col-12 col-lg-5 d-flex flex-column gap-4">
               {/* Checkout As Guest */}
-              <div className={styles.card}>
+              {/* <div className={styles.card}>
                 <div
                   className={`d-flex justify-content-between align-items-start ${styles.cardHeader}`}
                 >
-                  <h2 className={styles.cardTitle}>Checkout As Guest:</h2>
+                  <h2 className={styles.cardTitle}>Checkout As Guest:</h2> */}
                   {/* <button className={styles.signInBtn} type="button">
                     Sign In
                   </button> */}
-                </div>
+                {/* </div>
                 <hr className={styles.cardDivider} />
                 <p className={styles.cardHint}>
                   Sign in to track your order and save your information for
                   faster delivery.
                 </p>
-              </div>
+              </div> */}
 
               {/* Shipping Details — now a real <form> */}
               <div className={styles.card}>
@@ -350,6 +352,24 @@ function Checkout() {
                       Please provide a valid email address.
                     </div>
                   </div>
+                  {/* Phone Number */}
+                    <div className="mb-3">
+                      <label htmlFor="phone" className={styles.fieldLabel}>
+                        Phone Number:
+                      </label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        className={`${styles.fieldInput} form-control`}
+                        required
+                        autoComplete="tel"
+                        placeholder="+962 7X XXX XXXX"
+                      />
+                      <div className="invalid-feedback">
+                        Please enter your phone number.
+                      </div>
+                    </div>
 
                   {/* Address */}
                   <div className="mb-3">
@@ -415,8 +435,22 @@ function Checkout() {
                       autoComplete="country-name"
                     />
                   </div>
+                  {/* Order Notes */}
+                    <div className="mb-3">
+                      <label htmlFor="notes" className={styles.fieldLabel}>
+                        Order Notes: <span style={{ fontWeight: 400, opacity: 0.6 }}>(optional)</span>
+                      </label>
+                      <textarea
+                        id="notes"
+                        name="notes"
+                        className={`${styles.fieldInput} form-control`}
+                        rows={3}
+                        placeholder="Any special instructions or delivery notes..."
+                      />
+                    </div>
                 </form>
               </div>
+              
 
               {/* Payment Method */}
               <div className={styles.card}>
