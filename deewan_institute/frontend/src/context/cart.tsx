@@ -98,7 +98,14 @@ function Cart() {
                         </div>
                     </>
                 )}
+                <button
+                className={styles.backBtn}
+                onClick={() => navigate('/publications')}
+            >
+                Back to Publications
+            </button>
             </section>
+            
             <Footer />
         </Fragment>
     );

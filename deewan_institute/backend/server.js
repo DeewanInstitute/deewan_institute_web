@@ -207,7 +207,7 @@ app.post("/api/checkout", async (req, res) => {
       const pageWidth = doc.page.width - 100; 
 
       // Header bar
-      doc.rect(50, 40, pageWidth, 60).fill("#1a1a2e");
+      doc.rect(50, 40, pageWidth, 60).fill("#8f6e43");
       doc.fillColor("#ffffff").fontSize(22).font("Helvetica-Bold")
         .text("DEEWAN INSTITUTE", 60, 55);
       doc.fontSize(10).font("Helvetica")
@@ -240,7 +240,7 @@ app.post("/api/checkout", async (req, res) => {
       // Section: Order Items
       doc.moveDown(notes ? 6 : 5);
       const tableHeaderY = doc.y;
-      doc.rect(50, tableHeaderY, pageWidth, 18).fill("#1a1a2e");
+      doc.rect(50, tableHeaderY, pageWidth, 18).fill("#472211");
       doc.fillColor("#ffffff").fontSize(9).font("Helvetica-Bold");
       doc.text("ITEM", 55, tableHeaderY + 4);
       doc.text("QTY", 370, tableHeaderY + 4, { width: 40, align: "center" });
@@ -264,7 +264,7 @@ app.post("/api/checkout", async (req, res) => {
       doc.moveTo(50, rowY).lineTo(50 + pageWidth, rowY).strokeColor("#dddddd").stroke();
       rowY += 10;
 
-      doc.fillColor("#333333").fontSize(10).font("Helvetica");
+      doc.fillColor("#472211").fontSize(10).font("Helvetica");
       doc.text("Subtotal:", 380, rowY).text(`${totalPrice} JOD`, 430, rowY, { width: 65, align: "right" });
       rowY += 18;
       doc.text("Delivery:", 380, rowY).text(`${DELIVERY_FEE} JOD`, 430, rowY, { width: 65, align: "right" });

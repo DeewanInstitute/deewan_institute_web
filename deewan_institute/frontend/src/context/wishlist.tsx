@@ -103,6 +103,13 @@ function Wishlist() {
                   </div>
                 </div>
               ))}
+              <button
+                className={styles.browseBtn}
+                onClick={() => navigate("/publications")}
+              >
+                Back to Publications
+              </button>
+
             </div>
           </div>
         )}

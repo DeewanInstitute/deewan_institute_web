@@ -164,10 +164,28 @@
     }
   }
 }
+ .backBtn{
+    font-family: "Merriweather-SemiBold" !important;
+    font-size: 19px;
+    width: 100%;
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 0;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+      background-color: white;
+      border: #ffa200 2px solid;
+      color: #ffa200;
+    }
+  }
 
 @media (max-width: 767.98px) {
   .cart {
-    margin-top: 18% !important;
+    padding-top: 30% !important;
     .title {
       margin-block: 7%;
       h2 {
