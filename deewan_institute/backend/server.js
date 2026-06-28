@@ -273,7 +273,7 @@ app.post("/api/checkout", async (req, res) => {
       doc.moveTo(380, rowY).lineTo(50 + pageWidth, rowY).strokeColor("#dddddd").stroke();
       rowY += 10;
 
-      doc.rect(380, rowY, pageWidth - 330, 24).fill("#1a1a2e");
+      doc.rect(380, rowY, pageWidth - 330, 24).fill("#472211");
       doc.fillColor("#ffffff").fontSize(11).font("Helvetica-Bold");
       doc.text("TOTAL:", 385, rowY + 6);
       doc.text(`${grandTotal} JOD`, 430, rowY + 6, { width: 65, align: "right" });
