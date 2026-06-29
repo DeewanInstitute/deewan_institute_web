@@ -103,14 +103,23 @@ function Wishlist() {
                   </div>
                 </div>
               ))}
-              <button
-                className={styles.browseBtn}
-                onClick={() => navigate("/publications")}
-              >
-                Back to Publications
-              </button>
+
 
             </div>
+<div className="row justify-content-center">
+  <div className="col-11 col-sm-8 col-md-6 col-lg-4"> 
+    <button 
+      className={`${styles.browseBtn} w-100`} 
+      onClick={() => navigate("/publications")}
+    >
+      Back to Publications
+    </button>
+  </div>
+</div>
+
+
+
+
           </div>
         )}
       </section>

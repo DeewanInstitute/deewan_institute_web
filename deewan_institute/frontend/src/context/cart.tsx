@@ -98,12 +98,14 @@ function Cart() {
                         </div>
                     </>
                 )}
+                <div className="row justify-content-center">
                 <button
                 className={styles.backBtn}
                 onClick={() => navigate('/publications')}
             >
                 Back to Publications
             </button>
+            </div>
             </section>
             
             <Footer />
