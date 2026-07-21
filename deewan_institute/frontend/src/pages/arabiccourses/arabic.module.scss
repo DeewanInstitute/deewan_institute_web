@@ -271,3 +271,28 @@
     }
   }
 }
+.signup {
+  display: block;
+  margin: 2.5rem auto 0;
+  font-family: "Merriweather-Regular" !important;
+  font-size: clamp(14px, 1.3vw, 18px);
+  color: #ffffff;
+  background: #d53e0f;
+  border: none;
+  border-radius: 50px;
+  padding: 0.6rem 2.2rem;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(213, 62, 15, 0.25);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    background: #b8340c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(213, 62, 15, 0.35);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}

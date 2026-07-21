@@ -208,6 +208,12 @@ className={`${style.timelineRow} ${
             })}
           </div>
         </section>
+                    <button
+                      className={style.signup}
+                      onClick={() => window.open("https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform")}
+                    >
+                      Sign Up
+                    </button>
       </div>
 
       {/* Footer */}

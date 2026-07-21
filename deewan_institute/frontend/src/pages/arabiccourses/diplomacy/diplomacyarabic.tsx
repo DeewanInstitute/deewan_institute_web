@@ -136,6 +136,14 @@ function DiplomacyArabic() {
             </div>
           </section>
         </main>
+        <button
+          className={style.signup}
+          onClick={() => {
+            window.open("https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform");
+          }}
+        >
+          Sign Up <i className="fas fa-arrow-right"></i>  
+        </button>
       </div>
 
       {/* Footer */}
