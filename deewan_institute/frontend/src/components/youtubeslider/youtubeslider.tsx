@@ -2,6 +2,7 @@ import { Fragment, useState, useCallback } from "react";
 import "bootstrap";
 import style from "./youtubeslider.module.scss";
 import { youTubeData } from "../../../data/youTube";
+import { useTranslation } from "react-i18next";
 
 interface YouTubeVideo {
   id: string;
@@ -10,6 +11,7 @@ interface YouTubeVideo {
 }
 
 function YouTubeSlider() {
+    const { t } = useTranslation();
   // State for active video ID
   const [activeVideoId, setActiveVideoId] = useState<string>("Uvr60pk-Q3c"); // Default to first video
 
@@ -32,18 +34,11 @@ function YouTubeSlider() {
         <div
           className={`${style.title} title mt-5 mx-auto align-items-center scroll-section`}
         >
-          <span>Our Testimonials</span>
+          <span>{t("components.youtubeslider.youtubeslider.text_our_testimonials")}</span>
         </div>
         {/* Paragraph */}
         <p className="text-center my-5 scroll-section" id={style.para}>
-          Deewan Institute has students from all over the world, from many
-          different cultures and backgrounds. They all love learning with us! We
-          have had students from the United States, Australia, United Kingdom,
-          the Netherlands, Italy, Germany, Denmark, Belgium, Austria, France,
-          Canada, Pakistan, Switzerland, Iceland, Ireland, Norway, Sweden,
-          Greece, India, Japan, South Korea, Hong Kong, Singapore and South
-          Africa, among many others.
-        </p>
+          {t("components.youtubeslider.youtubeslider.text_deewan_institute_has_students_from_all_over_the_wo")}</p>
         <div className="video-player text-center mt-3 scroll-section">
           <iframe
             id={style.main_video}

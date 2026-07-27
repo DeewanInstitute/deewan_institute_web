@@ -22,7 +22,7 @@ function PalestineHistory() {
             {/* NavBar */}
             <NavBar />
             {/* Main Layout */}
-            <HistoryLayout data={palestineHistory} />
+            <HistoryLayout data={palestineHistory} translationRoot="content.history.palestine" />
             {/* Footer */}
             <Footer />
         </Fragment>

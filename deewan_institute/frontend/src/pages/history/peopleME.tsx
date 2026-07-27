@@ -22,7 +22,7 @@ function PeopleOfME() {
             {/* NavBar */}
             <NavBar />
             {/* Main Layout */}
-            <HistoryLayout data={peopleHistory} />
+            <HistoryLayout data={peopleHistory} translationRoot="content.history.people" />
             {/* Footer */}
             <Footer />
         </Fragment>

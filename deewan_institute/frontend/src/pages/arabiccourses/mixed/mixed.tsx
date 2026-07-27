@@ -10,8 +10,10 @@ import "bootstrap";
 import FloatingActionButton from "../../../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../../../components/floatingbutton/floatingactionbuttoninstitute";
 import HeroTitle from "../../../components/herotitle/herotitle";
+import { useTranslation } from "react-i18next";
 
 function Mixed() {
+    const { t } = useTranslation();
   useEffect(() => {
     document.title = "Mixed Arabic (Colloquial & Fusha)";
   }, []);
@@ -42,36 +44,21 @@ function Mixed() {
           {/* Hero Title */}
           <HeroTitle
             subtitle="Mixed Arabic (Colloquial & Fusha)"
-            title="Your Journey into Arabic Language and Culture Starts Here"
+            title={t("pages.arabiccourses.mixed.mixed.title_your_journey_into_arabic_language_and_culture_sta")}
             color="rgb(143 110 67)"
           />
 
           {/* What Is It*/}
           <section className={`${style.whatIsIt} scroll-sections slide-in-left`}>
             <div className={style.whatIsItText}>
-              <h2>What Is It?</h2>
+              <h2>{t("pages.arabiccourses.msa.msa.text_what_is_it")}</h2>
               <hr className={style.offerDivider} />
               <p>
-                Develop the ability to communicate naturally and effectively
-                through our Mixed Arabic course. This course focuses on Arabic
-                diglossia—the practice of combining Modern Standard Arabic (MSA)
-                with colloquial Arabic, a common feature of everyday
-                communication across the Arab world.
-              </p>
+                {t("pages.arabiccourses.mixed.mixed.text_develop_the_ability_to_communicate_naturally_and_e")}</p>
               <p>
-                Students will learn when and how to switch between formal and
-                informal Arabic depending on the situation, audience, and
-                context. Through practical conversations, interactive
-                activities, and real-life examples, participants will build
-                confidence in understanding and using the Arabic spoken in both
-                professional and social settings.
-              </p>
+                {t("pages.arabiccourses.mixed.mixed.text_students_will_learn_when_and_how_to_switch_between")}</p>
               <p>
-                Ideal for students who want to bridge the gap between classroom
-                Arabic and everyday communication, this course provides valuable
-                linguistic and cultural skills for living, studying, working, or
-                traveling in the Arab world.
-              </p>
+                {t("pages.arabiccourses.mixed.mixed.text_ideal_for_students_who_want_to_bridge_the_gap_betw")}</p>
             </div>
 
             <div className={`${style.whatIsItImage} scroll-section slide-in-right`}>
@@ -88,7 +75,7 @@ function Mixed() {
       {/* Course Fees*/}
       <section className={style.fees}>
         <div className={style.feesInner}>
-          <h2 className="scroll-section">Course Fees</h2>
+          <h2 className="scroll-section">{t("pages.arabiccourses.msa.msa.text_course_fees")}</h2>
           <hr className={style.feesDivider} />
 
           <div className={`row align-items-center ${style.feesContent}`}>
@@ -104,25 +91,22 @@ function Mixed() {
             {/* Right: description + CTA */}
             <div className={`col-12 col-md-6 scroll-section ${style.feesText}`}>
               <p className={style.feesLead}>
-                Find the cost of your Arabic program in just a few clicks.
-              </p>
+                {t("pages.arabiccourses.msa.msa.text_find_the_cost_of_your_arabic_program_in_just_a_few")}</p>
               <ul className={style.feesList}>
-                <li>Select your course.</li>
-                <li>Choose your study duration.</li>
-                <li>View your estimated fees instantly.</li>
+                <li>{t("pages.arabiccourses.mixed.mixed.text_select_your_course")}</li>
+                <li>{t("pages.arabiccourses.msa.msa.text_choose_your_study_duration")}</li>
+                <li>{t("pages.arabiccourses.msa.msa.text_view_your_estimated_fees_instantly")}</li>
               </ul>
               <button
                 className={style.feesBtn}
                 onClick={() => navigate("/calculator")}
               >
-                Arabic Calculator Price
-              </button>
+                {t("pages.arabiccourses.msa.msa.text_arabic_calculator_price")}</button>
               <button
                 className={style.feesBtn}
                 onClick={() => window.open("https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform")}
               >
-                Sign Up
-              </button>              
+                {t("pages.cultureevents.cultureEvents.text_sign_up")}</button>              
             </div>
           </div>
         </div>

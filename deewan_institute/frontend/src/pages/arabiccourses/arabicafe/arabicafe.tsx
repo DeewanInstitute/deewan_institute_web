@@ -9,8 +9,10 @@ import "bootstrap";
 import FloatingActionButton from "../../../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../../../components/floatingbutton/floatingactionbuttoninstitute";
 import HeroTitle from "../../../components/herotitle/herotitle";
+import { useTranslation } from "react-i18next";
 
 function ArabiCafe() {
+    const { t } = useTranslation();
   useEffect(() => {
     document.title = "Online ArabiCafe";
   }, []);
@@ -39,7 +41,7 @@ function ArabiCafe() {
           {/* Hero Title */}
 <HeroTitle
   subtitle="Online ArabiCafe"
-  title="Practice Levantine Arabic Through Real Conversation"
+  title={t("pages.arabiccourses.arabicafe.arabicafe.title_practice_levantine_arabic_through_real_conversati")}
   color= "#0d5071"
 />
 
@@ -48,25 +50,11 @@ function ArabiCafe() {
             <div className="row justify-content-center mx-auto">
               <div className="col-12 col-lg-5 d-flex flex-column justify-content-center scroll-section slide-in-left">
                 <p>
-                  Online ArabiCafe is an interactive online conversation program
-                  designed for learners who want to improve their Levantine
-                  colloquial Arabic through natural communication and meaningful
-                  social interaction in a relaxed café-style environment.
-                </p>
+                  {t("pages.arabiccourses.arabicafe.arabicafe.text_online_arabicafe_is_an_interactive_online_conversa")}</p>
                 <p>
-                  Rather than focusing on traditional classroom structure,
-                  ArabiCafe Online encourages students to actively use Arabic
-                  through guided discussions, cultural topics, storytelling,
-                  games, and interactive group activities. The sessions create a
-                  supportive space where learners can build confidence, improve
-                  fluency, and engage in authentic spoken Arabic with
-                  participants from around the world.
-                </p>
+                  {t("pages.arabiccourses.arabicafe.arabicafe.text_rather_than_focusing_on_traditional_classroom_stru")}</p>
                 <p>
-                  The program is ideal for students who already study Arabic and
-                  are looking for additional conversational practice and greater
-                  exposure to everyday Levantine Arabic.
-                </p>
+                  {t("pages.arabiccourses.arabicafe.arabicafe.text_the_program_is_ideal_for_students_who_already_stud")}</p>
               </div>
               <div className="col-12 col-lg-5 d-flex align-items-center justify-content-center mt-4 mt-lg-0 scroll-section slide-in-right">
                 <div className={style.imageWrapper}>
@@ -83,7 +71,7 @@ function ArabiCafe() {
           {/* Program Schedule */}
           <section className={style.schedule}>
             <div className={style.scheduleInner}>
-              <h2 className="scroll-section slide-in-left">Program Schedule</h2>
+              <h2 className="scroll-section slide-in-left">{t("pages.arabiccourses.arabicafe.arabicafe.text_program_schedule")}</h2>
               <hr className={style.scheduleDivider} />
               <div
                 className={`row justify-content-center ${style.scheduleCards}`}
@@ -97,7 +85,7 @@ function ArabiCafe() {
                       className={style.scheduleImg}
                     />
                   </div>
-                  <p>Days: Monday &amp; Wednesday</p>
+                  <p>{t("pages.arabiccourses.arabicafe.arabicafe.text_days_monday_andamp_wednesday")}</p>
                 </div>
 
                 {/* Time */}
@@ -109,7 +97,7 @@ function ArabiCafe() {
                       className={style.scheduleImg}
                     />
                   </div>
-                  <p>Time: 6:20 PM – 8:00 PM (Jordan Time)</p>
+                  <p>{t("pages.arabiccourses.arabicafe.arabicafe.text_time_6_20_pm_8_00_pm_jordan_time")}</p>
                 </div>
 
                 {/* Format */}
@@ -121,7 +109,7 @@ function ArabiCafe() {
                       className={style.scheduleImg}
                     />
                   </div>
-                  <p>Format: Online Interactive Sessions</p>
+                  <p>{t("pages.arabiccourses.arabicafe.arabicafe.text_format_online_interactive_sessions")}</p>
                 </div>
               </div>
             </div>
@@ -140,27 +128,20 @@ function ArabiCafe() {
                 </div>
               </div>
     <div className="col-12 col-lg-5 d-flex flex-column justify-content-center scroll-section slide-in-right">
-                <h2 className={style.whoTitle}>Who Can Join?</h2>
+                <h2 className={style.whoTitle}>{t("pages.arabiccourses.arabicafe.arabicafe.text_who_can_join")}</h2>
                 <hr className={style.whoLine} />
                 <p>
-                  Online ArabiCafe is best suited for learners who already have
-                  a foundation in Arabic and want consistent speaking practice
-                  in an engaging and interactive environment.
-                </p>
-                <p className={style.minLabel}>Minimum requirement:</p>
+                  {t("pages.arabiccourses.arabicafe.arabicafe.text_online_arabicafe_is_best_suited_for_learners_who_a")}</p>
+                <p className={style.minLabel}>{t("pages.arabiccourses.arabicafe.arabicafe.text_minimum_requirement")}</p>
                 <p>
-                  Students should have <strong>at least a B1 level</strong> in
-                  Arabic or an equivalent conversational ability in order to
-                  participate effectively in the sessions.
-                </p>
+                  {t("pages.arabiccourses.arabicafe.arabicafe.text_students_should_have")}<strong>{t("pages.arabiccourses.arabicafe.arabicafe.text_at_least_a_b1_level")}</strong> {t("pages.arabiccourses.arabicafe.arabicafe.text_in_arabic_or_an_equivalent_conversational_ability_")}</p>
                 <a
                   className={`text-decoration-none text-white ${style.signUpBtn}`}
                   href="https://docs.google.com/forms/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Sign Up
-                </a>
+                  {t("pages.cultureevents.cultureEvents.text_sign_up")}</a>
               </div>
             </div>
           </section>

@@ -1,11 +1,13 @@
 import 'bootstrap';
 import styles from "./curriculum.module.scss";
+import { useTranslation } from "react-i18next";
 
 function CurriculumSlider() {
+    const { t } = useTranslation();
     return (
         <section id={styles.curriculum}>
             <div className={`${styles.title} my-4 my-md-5`}>
-                <h1 className="py-2 scroll-section slide-in-right">Curriculum</h1>
+                <h1 className="py-2 scroll-section slide-in-right">{t("components.curriculumslider.curriculumslider.text_curriculum")}</h1>
             </div>
 
             {/* Carousel */}
@@ -14,28 +16,26 @@ function CurriculumSlider() {
                 <div className="carousel-inner">
                     {/* First Slide */}
                     <div className="carousel-item active my-3 my-md-5" data-bs-interval="5000">
-                        <p className="lead text-center px-3">The curriculum used in this program is developed by Deewan team and other additional curricula. Based on the students' levels, the curricula used could be:</p>
+                        <p className="lead text-center px-3">{t("components.curriculumslider.curriculumslider.text_the_curriculum_used_in_this_program_is_developed_b")}</p>
                         <div className="container-fluid d-flex align-items-center justify-content-center mt-4 mt-md-5">
                             <div className="row w-100 h-auto g-4">
                                 <div className="col-12 col-md-6 text-center d-flex flex-column align-items-center gap-2">
                                     <img src={"../assets/images/books/poster/msa.png"} alt="MSA Book" className="img-fluid" />
                                     <div className="my-3 px-2">
-                                        <p className={`lead ${styles.dark}`}>The Comprehensive Guide to <br className="d-none d-md-block" /> Modern Standard Arabic</p>
-                                        <p className={`${styles.light} mb-3`}>Beginner Level</p>
+                                        <p className={`lead ${styles.dark}`}>{t("components.curriculumslider.curriculumslider.text_the_comprehensive_guide_to")}<br className="d-none d-md-block" /> {t("pages.arabiccourses.msa.msa.title_modern_standard_arabic")}</p>
+                                        <p className={`${styles.light} mb-3`}>{t("components.curriculumslider.curriculumslider.text_beginner_level")}</p>
                                         <a className={`btn text-decoration-none rounded-pill ${styles.viewMoreBtn}`} href="https://a.co/d/aOpWC9s" target="_blank" rel="noopener noreferrer">
-                                            Buy Online
-                                        </a>
+                                            {t("components.curriculumslider.curriculumslider.text_buy_online")}</a>
                                     </div>
                                 </div>
                                 <div className="col-12 col-md-6 text-center d-flex flex-column align-items-center gap-2">
                                     <img src={"../assets/images/books/poster/ammiyeh.png"} alt="Levantine Book" className="img-fluid" />
                                     <div className="my-3 px-2">
-                                        <p className={`lead ${styles.dark}`}>The Comprehensive Guide to <br className="d-none d-md-block" /> Levantine Arabic</p>
-                                        <p className={`${styles.light} mb-3`}>Beginner, Intermediate, and Advanced Levels</p>
+                                        <p className={`lead ${styles.dark}`}>{t("components.curriculumslider.curriculumslider.text_the_comprehensive_guide_to")}<br className="d-none d-md-block" /> {t("components.curriculumslider.curriculumslider.text_levantine_arabic")}</p>
+                                        <p className={`${styles.light} mb-3`}>{t("components.curriculumslider.curriculumslider.text_beginner_intermediate_and_advanced_levels")}</p>
                                         <a className={`btn text-decoration-none rounded-pill ${styles.viewMoreBtn}`}
                                             href="https://a.co/d/2EtcWVi" target="_blank" rel="noopener noreferrer">
-                                            Buy Online
-                                        </a>
+                                            {t("components.curriculumslider.curriculumslider.text_buy_online")}</a>
                                     </div>
                                 </div>
                             </div>
@@ -44,17 +44,16 @@ function CurriculumSlider() {
 
                     {/* Second Slide */}
                     <div className="carousel-item my-3 my-md-5" data-bs-interval="5000">
-                        <p className="lead text-center px-3">Additionally, other Deewan resources will be used to improve and enrich students' skills. The resources include the following:</p>
+                        <p className="lead text-center px-3">{t("components.curriculumslider.curriculumslider.text_additionally_other_deewan_resources_will_be_used_t")}</p>
                         <div className="container-fluid d-flex align-items-center justify-content-center mt-4 mt-md-5">
                             <div className="row w-100 h-auto justify-content-center g-4">
                                 <div className="col-12 col-md-6 text-center d-flex flex-column align-items-center justify-content-center gap-2 order-2 order-md-1">
-                                    <h2 className={styles.dark}>Guide To Deewan Arabic Podcast</h2>
-                                    <h4 className={styles.dark}>Season 1, 2, 3, 5</h4>
-                                    <p className={`${styles.light} mb-3`}>Beginner, Intermediate, and Advanced levels</p>
+                                    <h2 className={styles.dark}>{t("components.curriculumslider.curriculumslider.text_guide_to_deewan_arabic_podcast")}</h2>
+                                    <h4 className={styles.dark}>{t("components.curriculumslider.curriculumslider.text_season_1_2_3_5")}</h4>
+                                    <p className={`${styles.light} mb-3`}>{t("components.curriculumslider.curriculumslider.text_beginner_intermediate_and_advanced_levels_2")}</p>
                                     <a className={`btn text-decoration-none rounded-pill ${styles.viewMoreBtn}`}
                                         href="https://deewanarabic.com/podcast" target="_blank" rel="noopener noreferrer">
-                                        View More
-                                    </a>
+                                        {t("pages.books.publications.text_view_more")}</a>
                                 </div>
                                 <div className="col-12 col-md-6 text-center d-flex flex-column align-items-center justify-content-center gap-2 order-1 order-md-2">
                                     <div className="row h-auto justify-content-center g-3">
@@ -78,19 +77,18 @@ function CurriculumSlider() {
 
                     {/* Third Slide */}
                     <div className="carousel-item my-3 my-md-5" data-bs-interval="5000">
-                        <p className="lead text-center px-3">Additionally, other Deewan resources will be used to improve and enrich students' skills. The resources include the following:</p>
+                        <p className="lead text-center px-3">{t("components.curriculumslider.curriculumslider.text_additionally_other_deewan_resources_will_be_used_t")}</p>
                         <div className="container-fluid d-flex align-items-center justify-content-center mt-4 mt-md-5">
                             <div className="row w-100 h-auto justify-content-center g-4">
                                 <div className="col-12 col-md-6 text-center d-flex flex-column align-items-center justify-content-center gap-2 order-2 order-md-1">
                                     <img src={"../assets/images/books/poster/idioms.png"} alt="Idioms Book" className="img-fluid"  />
                                 </div>
                                 <div className="col-12 col-md-6 text-center d-flex flex-column align-items-center justify-content-center gap-2 order-1 order-md-2">
-                                    <h2 className={styles.dark}>Everyday Arabic Idioms</h2>
-                                    <p className={`${styles.light} mb-3`}>Beginner, Intermediate, and Advanced levels</p>
+                                    <h2 className={styles.dark}>{t("components.curriculumslider.curriculumslider.text_everyday_arabic_idioms")}</h2>
+                                    <p className={`${styles.light} mb-3`}>{t("components.curriculumslider.curriculumslider.text_beginner_intermediate_and_advanced_levels_2")}</p>
                                     <a className={`btn text-decoration-none rounded-pill ${styles.viewMoreBtn}`}
                                         href="https://a.co/d/dF58vxT" target="_blank" rel="noopener noreferrer">
-                                        View More
-                                    </a>
+                                        {t("pages.books.publications.text_view_more")}</a>
                                 </div>
                             </div>
                         </div>
@@ -100,11 +98,11 @@ function CurriculumSlider() {
                 {/* Controls */}
                 <button className="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Previous</span>
+                    <span className="visually-hidden">{t("components.curriculumslider.curriculumslider.text_previous")}</span>
                 </button> 
                 <button className="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
                     <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Next</span>
+                    <span className="visually-hidden">{t("components.curriculumslider.curriculumslider.text_next")}</span>
                 </button>
             </div>
         </section>

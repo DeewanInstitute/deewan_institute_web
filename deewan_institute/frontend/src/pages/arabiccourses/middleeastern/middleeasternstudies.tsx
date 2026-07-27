@@ -10,6 +10,7 @@ import "bootstrap";
 import FloatingActionButton from "../../../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../../../components/floatingbutton/floatingactionbuttoninstitute";
 import HeroTitle from "../../../components/herotitle/herotitle";
+import { useTranslation } from "react-i18next";
 
 interface Article {
   title: string;
@@ -30,6 +31,7 @@ const articles: Article[] = [
 ];
 
 function MiddleEasternStudies() {
+    const { t } = useTranslation();
   useEffect(() => {
     document.title = "Middle Eastern Studies";
   }, []);
@@ -59,29 +61,18 @@ function MiddleEasternStudies() {
           {/* Hero Title */}
           <HeroTitle
             subtitle="Middle Eastern Studies"
-            title="Explore the History, Cultures, Societies, and Contemporary Realities of the Middle East."
+            title={t("pages.arabiccourses.middleeastern.middleeasternstudies.title_explore_the_history_cultures_societies_and_contem")}
             color="#B85C38"
           />
 
           {/* What Is It? */}
           <section className={`${style.offer} scroll-section slide-in-left`}>
-            <h2>What Is It?</h2>
+            <h2>{t("pages.arabiccourses.msa.msa.text_what_is_it")}</h2>
             <hr className={style.offerDivider} />
             <p>
-              Gain a deeper understanding of the Middle East through an
-              exploration of its history, cultures, societies, and contemporary
-              developments. This interdisciplinary course examines the region's
-              rich heritage, major historical events, cultural traditions, and
-              its role in today's global landscape.
-            </p>
+              {t("pages.arabiccourses.middleeastern.middleeasternstudies.text_gain_a_deeper_understanding_of_the_middle_east_thr")}</p>
             <p>
-              With a strong focus on Middle Eastern history, students will
-              explore influential civilizations, key historical periods, and
-              modern regional issues. The course is ideal for students,
-              researchers, professionals, and anyone interested in developing a
-              broader understanding of one of the world's most dynamic and
-              influential regions.
-            </p>
+              {t("pages.arabiccourses.middleeastern.middleeasternstudies.text_with_a_strong_focus_on_middle_eastern_history_stud")}</p>
           </section>
 
           {/* Full-width image */}
@@ -100,7 +91,7 @@ function MiddleEasternStudies() {
       {/* Course Highlights */}
       <section className={style.highlights}>
         <div className={style.highlightsInner}>
-          <h2 className="scroll-section slide-in-left">Course Highlights</h2>
+          <h2 className="scroll-section slide-in-left">{t("pages.arabiccourses.middleeastern.middleeasternstudies.text_course_highlights")}</h2>
           <hr className={style.highlightsDivider} />
 
           <div className={`row justify-content-center ${style.highlightCards}`}>
@@ -113,8 +104,7 @@ function MiddleEasternStudies() {
                 />
               </div>
               <p>
-                Middle Eastern
-                <br />
+                {t("pages.arabiccourses.middleeastern.middleeasternstudies.text_middle_eastern")}<br />
                 History &amp; Civilizations
               </p>
             </div>
@@ -128,8 +118,7 @@ function MiddleEasternStudies() {
                 />
               </div>
               <p>
-                Culture, Society,
-                <br />
+                {t("pages.arabiccourses.middleeastern.middleeasternstudies.text_culture_society")}<br />
                 &amp; Traditions
               </p>
             </div>
@@ -145,8 +134,7 @@ function MiddleEasternStudies() {
               <p>
                 Historical &amp; Contemporary
                 <br />
-                perspectives
-              </p>
+                {t("pages.arabiccourses.middleeastern.middleeasternstudies.text_perspectives")}</p>
             </div>
           </div>
         </div>
@@ -155,14 +143,12 @@ function MiddleEasternStudies() {
       {/* Articles Section */}
       <div className={style.middleEasternStudies}>
         <section className={`${style.articles} scroll-section slide-in-left`}>
-          <h2>Middle Eastern Studies Articles</h2>
+          <h2>{t("pages.arabiccourses.middleeastern.middleeasternstudies.text_middle_eastern_studies_articles")}</h2>
           <hr className={style.articlesDivider} />
           <p
             className={`${style.articlesSubtitle} scroll-section slide-in-right`}
           >
-            Browse the articles below for additional insights into the history,
-            cultures, and developments that have shaped the Middle East.
-          </p>
+            {t("pages.arabiccourses.middleeastern.middleeasternstudies.text_browse_the_articles_below_for_additional_insights_")}</p>
 
           <div className={style.timeline}>
             <div className={style.timelineTrack} />
@@ -200,8 +186,7 @@ className={`${style.timelineRow} ${
                         navigate(`/middle-eastern-studies/${article.slug}`);
                       }}
                     >
-                      Read More
-                    </button>
+                      {t("pages.arabiccourses.middleeastern.middleeasternstudies.text_read_more")}</button>
                   </div>
                 </div>
               );
@@ -212,8 +197,7 @@ className={`${style.timelineRow} ${
                       className={style.signup}
                       onClick={() => window.open("https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform")}
                     >
-                      Sign Up
-                    </button>
+                      {t("pages.cultureevents.cultureEvents.text_sign_up")}</button>
       </div>
 
       {/* Footer */}

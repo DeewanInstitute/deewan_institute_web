@@ -12,8 +12,10 @@ import style from "./arabic.module.scss";
 import "../../style/animation.scss";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
+import { useTranslation } from "react-i18next";
 
 function IntensiveProgram() {
+    const { t } = useTranslation();
   useEffect(() => {
     document.title = "Intensive Summer & Fall Program";
   }, []);
@@ -27,9 +29,8 @@ function IntensiveProgram() {
       <FloatingActionButtonInstitute />
       <Banner
         data={{
-          title: "Intensive Summer & Fall Program",
-          description:
-            "The Deewan Institute for Languages and Cultural Studies offers an Intensive and Summer Fall Study Abroad Program designed for students eager to deeply immerse themselves in Arabic language and culture.",
+          title: t("pages.arabiccourses.intensiveProgram.title_intensive_summer_and_fall_program"),
+          description: t("pages.arabiccourses.intensiveProgram.description_the_deewan_institute_for_languages_and_cult"),
           backgroundImg: "../assets/images/banner/intensiveBG.png",
         }}
       />
@@ -42,23 +43,15 @@ function IntensiveProgram() {
               <h1
                 className={`${style.featuretteHeading} my-5 lh-base scroll-section slide-in-left`}
               >
-                About the Program
-              </h1>
+                {t("pages.arabiccourses.intensiveProgram.text_about_the_program")}</h1>
               <p className="lead lh-base scroll-section slide-in-left">
-                The Deewan Institute for Languages and Cultural Studies offers
-                an Intensive Summer & Fall Study Abroad Program for immersive
-                Arabic language and cultural learning. Designed for a supportive
-                environment, it provides intensive instruction from
-                native-speaking teachers, focusing on conversational practice
-                and cultural activities to build real-world skills.
-              </p>
+                {t("pages.arabiccourses.intensiveProgram.text_the_deewan_institute_for_languages_and_cultural_st")}</p>
               <a
                 id={style.checkBtn}
                 className="text-decoration-none rounded-pill scroll-section slide-in-left mt-4"
                 href="#programFee"
               >
-                Check Out the Program Fees
-              </a>
+                {t("pages.arabiccourses.intensiveProgram.text_check_out_the_program_fees")}</a>
             </div>
             {/* Image Column*/}
             <div className="col-12 col-md-5 d-flex flex-column align-items-center justify-content-center scroll-section slide-in-right order-2 order-md-2">
@@ -89,21 +82,17 @@ function IntensiveProgram() {
             {/* Text Column */}
             <div className="col-12 col-md-4 d-flex flex-column align-items-start justify-content-center order-2 order-md-2">
               <h5 className="featurette-heading mb-2 scroll-section slide-in-right">
-                Why Us?
-              </h5>
+                {t("pages.arabiccourses.intensiveProgram.text_why_us")}</h5>
               <h1 className="featurette-heading my-3 scroll-section slide-in-right">
-                What Makes Deewan So Special?
-              </h1>
+                {t("pages.arabiccourses.intensiveProgram.text_what_makes_deewan_so_special")}</h1>
               <p className="lead">
-                Deewan's Intensive Fall Program focuses on building students'
-                proficiency in all language skills.
-              </p>
+                {t("pages.arabiccourses.intensiveProgram.text_deewan_s_intensive_fall_program_focuses_on_buildin")}</p>
               <ul className="lead scroll-section slide-in-right">
-                <li>Price competitive</li>
-                <li>Covers all levels</li>
-                <li>Rich content & resources</li>
-                <li>Native language partners</li>
-                <li>Professional staff support</li>
+                <li>{t("pages.arabiccourses.intensiveProgram.text_price_competitive")}</li>
+                <li>{t("pages.arabiccourses.intensiveProgram.text_covers_all_levels")}</li>
+                <li>{t("pages.arabiccourses.intensiveProgram.text_rich_content_and_resources")}</li>
+                <li>{t("pages.arabiccourses.intensiveProgram.text_native_language_partners")}</li>
+                <li>{t("pages.arabiccourses.intensiveProgram.text_professional_staff_support")}</li>
               </ul>
             </div>
           </div>
@@ -114,11 +103,11 @@ function IntensiveProgram() {
         {/* Program Fees Section */}
         <section id="programFee" className={`${style.programFee} py-4 mt-4`}>
           <div className={style.title}>
-            <h1 className="py-2 scroll-section slide-in-left">Program Fees</h1>
+            <h1 className="py-2 scroll-section slide-in-left">{t("pages.arabiccourses.intensiveProgram.text_program_fees")}</h1>
           </div>
           <Schedule
             data={{
-              subtitle: "4 Weeks Course",
+              subtitle: t("pages.arabiccourses.intensiveProgram.subtitle_4_weeks_course"),
               iconImage: "../assets/images/icons/one.png",
               oneTotalPrice: "840 JD",
               groupTotalPrice: "880 JD",
@@ -128,7 +117,7 @@ function IntensiveProgram() {
           />
           <Schedule
             data={{
-              subtitle: "8 Weeks Course",
+              subtitle: t("pages.arabiccourses.intensiveProgram.subtitle_8_weeks_course"),
               iconImage: "../assets/images/icons/two.png",
               oneTotalPrice: "1680 JD",
               groupTotalPrice: "1760 JD",
@@ -141,8 +130,7 @@ function IntensiveProgram() {
                       className={style.signup}
                       onClick={() => window.open("https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform")}
                     >
-                      Sign Up
-                    </button>
+                      {t("pages.cultureevents.cultureEvents.text_sign_up")}</button>
       </main>
       <Footer />
     </Fragment>

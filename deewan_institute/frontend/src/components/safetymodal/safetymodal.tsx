@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import styles from "./SafetyModal.module.scss";
+import { useTranslation } from "react-i18next";
 
 export default function SafetyModal() {
+    const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -24,19 +26,19 @@ export default function SafetyModal() {
             <img src="/assets/images/icons/shield.svg" alt="Safety Icon" className={styles.shieldIcon} />
           </div>
           <div>
-            <p className={styles.eyebrow}>Safety Notice</p>
+            <p className={styles.eyebrow}>{t("components.safetymodal.safetymodal.text_safety_notice")}</p>
             <h2 id="safety-modal-title" className={styles.title}>Travel &amp; Study in Jordan</h2>
           </div>
         </div>
         <div className={styles.body}>
           <div className={styles.rule} />
-          <p>Jordan remains an exceptionally safe, peaceful, and stable country.</p>
-          <p>While regional events make global news headlines, Jordan maintains strict domestic tranquility and secure borders. Daily life across the country is completely unaffected by neighbouring conflicts.</p>
-          <p>Our universities, historic sites, and cities operate normally with robust security. International students continue to live and study here comfortably every day. You will experience a welcoming, safe, and undisturbed environment throughout your educational journey.</p>
+          <p>{t("components.safetymodal.safetymodal.text_jordan_remains_an_exceptionally_safe_peaceful_and_")}</p>
+          <p>{t("components.safetymodal.safetymodal.text_while_regional_events_make_global_news_headlines_j")}</p>
+          <p>{t("components.safetymodal.safetymodal.text_our_universities_historic_sites_and_cities_operate")}</p>
         </div>
         <div className={styles.footer}>
-          <span className={styles.wordmark}>Deewan Institute for Languages &amp; Culture Studies.</span>
-          <button className={styles.btn} onClick={dismiss}>I understand</button>
+          <span className={styles.wordmark}>{t("components.safetymodal.safetymodal.text_deewan_institute_for_languages_andamp_culture_stud")}</span>
+          <button className={styles.btn} onClick={dismiss}>{t("components.safetymodal.safetymodal.text_i_understand")}</button>
         </div>
       </div>
     </div>

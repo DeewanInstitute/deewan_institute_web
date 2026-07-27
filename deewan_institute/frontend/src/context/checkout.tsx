@@ -8,10 +8,12 @@ import NavBar from "../components/navbar/navbar";
 import Footer from "../components/footer/footer";
 import FloatingActionButton from "../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../components/floatingbutton/floatingactionbuttoninstitute";
+import { useTranslation } from "react-i18next";
 
 type PaymentMethod = "cash" | "cliq" | "paypal" | "";
 
 function Checkout() {
+    const { t } = useTranslation();
   const modalRef = useRef<HTMLDivElement>(null);
   const errorModalRef = useRef<HTMLDivElement>(null);
   const paymentModalRef = useRef<HTMLDivElement>(null);
@@ -138,13 +140,11 @@ function Checkout() {
                   <path d="M14 27 l8 8 l16-16" className={styles.checkMark} />
                 </svg>
               </div>
-              <h3 className={`${styles.successTitle} mt-4`}>Order Placed!</h3>
+              <h3 className={`${styles.successTitle} mt-4`}>{t("context.checkout.text_order_placed")}</h3>
               <p className={styles.successText}>
-                Your order has been checked out successfully!
-                <br />
-                Please check your email for confirmation.
-              </p>
-              <p className={styles.successRedirect}>Redirecting you shortly…</p>
+                {t("context.checkout.text_your_order_has_been_checked_out_successfully")}<br />
+                {t("context.checkout.text_please_check_your_email_for_confirmation")}</p>
+              <p className={styles.successRedirect}>{t("context.checkout.text_redirecting_you_shortly")}</p>
             </div>
           </div>
         </div>
@@ -167,7 +167,7 @@ function Checkout() {
                 type="button"
                 className="btn-close"
                 data-bs-dismiss="modal"
-                aria-label="Close"
+                aria-label={t("pages.contact.contact.text_close")}
               />
             </div>
             <div className="modal-body text-center py-3 px-4">
@@ -180,8 +180,7 @@ function Checkout() {
                 className={styles.errorCloseBtn}
                 data-bs-dismiss="modal"
               >
-                Try Again
-              </button>
+                {t("context.checkout.text_try_again")}</button>
             </div>
           </div>
         </div>
@@ -204,13 +203,12 @@ function Checkout() {
                 type="button"
                 className="btn-close"
                 data-bs-dismiss="modal"
-                aria-label="Close"
+                aria-label={t("pages.contact.contact.text_close")}
               />
             </div>
             <div className="modal-body text-center py-3 px-4">
               <p className={styles.warningMessage}>
-                Please select a payment method before placing your order.
-              </p>
+                {t("context.checkout.text_please_select_a_payment_method_before_placing_your")}</p>
             </div>
             <div className="modal-footer border-0 justify-content-center">
               <button
@@ -218,8 +216,7 @@ function Checkout() {
                 className={styles.warningCloseBtn}
                 data-bs-dismiss="modal"
               >
-                OK, Got It
-              </button>
+                {t("context.checkout.text_ok_got_it")}</button>
             </div>
           </div>
         </div>
@@ -242,13 +239,12 @@ function Checkout() {
                 type="button"
                 className="btn-close"
                 data-bs-dismiss="modal"
-                aria-label="Close"
+                aria-label={t("pages.contact.contact.text_close")}
               />
             </div>
             <div className="modal-body text-center py-3 px-4">
               <p className={styles.warningMessage}>
-                Please fill in all required fields before placing your order.
-              </p>
+                {t("context.checkout.text_please_fill_in_all_required_fields_before_placing_")}</p>
             </div>
             <div className="modal-footer border-0 justify-content-center">
               <button
@@ -256,8 +252,7 @@ function Checkout() {
                 className={styles.warningCloseBtn}
                 data-bs-dismiss="modal"
               >
-                OK, Got It
-              </button>
+                {t("context.checkout.text_ok_got_it")}</button>
             </div>
           </div>
         </div>
@@ -265,7 +260,7 @@ function Checkout() {
 
       {/* ── Page Title ── */}
       <section className={`${styles.pageTitle} text-center`}>
-        <h1>Checkout Page</h1>
+        <h1>{t("context.checkout.text_checkout_page")}</h1>
         <hr className={styles.titleDivider} />
       </section>
 
@@ -294,7 +289,7 @@ function Checkout() {
 
               {/* Shipping Details — now a real <form> */}
               <div className={styles.card}>
-                <h2 className={styles.cardTitle}>Shipping Details:</h2>
+                <h2 className={styles.cardTitle}>{t("context.checkout.text_shipping_details")}</h2>
                 <hr className={styles.cardDivider} />
 
                 <form
@@ -307,8 +302,7 @@ function Checkout() {
                   <div className="row g-3 mb-3">
                     <div className="col-6">
                       <label htmlFor="firstName" className={styles.fieldLabel}>
-                        First Name:
-                      </label>
+                        {t("context.checkout.text_first_name")}</label>
                       <input
                         type="text"
                         id="firstName"
@@ -317,12 +311,11 @@ function Checkout() {
                         required
                         autoComplete="given-name"
                       />
-                      <div className="invalid-feedback">Required.</div>
+                      <div className="invalid-feedback">{t("context.checkout.text_required")}</div>
                     </div>
                     <div className="col-6">
                       <label htmlFor="lastName" className={styles.fieldLabel}>
-                        Last Name:
-                      </label>
+                        {t("context.checkout.text_last_name")}</label>
                       <input
                         type="text"
                         id="lastName"
@@ -331,15 +324,14 @@ function Checkout() {
                         required
                         autoComplete="family-name"
                       />
-                      <div className="invalid-feedback">Required.</div>
+                      <div className="invalid-feedback">{t("context.checkout.text_required")}</div>
                     </div>
                   </div>
 
                   {/* Email */}
                   <div className="mb-3">
                     <label htmlFor="email" className={styles.fieldLabel}>
-                      Email:
-                    </label>
+                      {t("pages.contact.contact.text_email")}</label>
                     <input
                       type="email"
                       id="email"
@@ -349,14 +341,12 @@ function Checkout() {
                       autoComplete="email"
                     />
                     <div className="invalid-feedback">
-                      Please provide a valid email address.
-                    </div>
+                      {t("context.checkout.text_please_provide_a_valid_email_address")}</div>
                   </div>
                   {/* Phone Number */}
                     <div className="mb-3">
                       <label htmlFor="phone" className={styles.fieldLabel}>
-                        Phone Number:
-                      </label>
+                        {t("pages.contact.contact.text_phone_number")}</label>
                       <input
                         type="tel"
                         id="phone"
@@ -364,18 +354,16 @@ function Checkout() {
                         className={`${styles.fieldInput} form-control`}
                         required
                         autoComplete="tel"
-                        placeholder="+962 7X XXX XXXX"
+                        placeholder={t("context.checkout.placeholder_962_7x_xxx_xxxx")}
                       />
                       <div className="invalid-feedback">
-                        Please enter your phone number.
-                      </div>
+                        {t("context.checkout.text_please_enter_your_phone_number")}</div>
                     </div>
 
                   {/* Address */}
                   <div className="mb-3">
                     <label htmlFor="address" className={styles.fieldLabel}>
-                      Address:
-                    </label>
+                      {t("context.checkout.text_address")}</label>
                     <input
                       type="text"
                       id="address"
@@ -385,15 +373,13 @@ function Checkout() {
                       autoComplete="street-address"
                     />
                     <div className="invalid-feedback">
-                      Please enter your address.
-                    </div>
+                      {t("context.checkout.text_please_enter_your_address")}</div>
                   </div>
 
                   {/* Region */}
                   <div className="mb-3">
                     <label htmlFor="region" className={styles.fieldLabel}>
-                      Region:
-                    </label>
+                      {t("context.checkout.text_region")}</label>
                     <select
                       id="region"
                       name="region"
@@ -401,29 +387,27 @@ function Checkout() {
                       required
                       autoComplete="address-level1"
                     >
-                      <option value="">Select Region</option>
-                      <option>Amman</option>
-                      <option>Irbid</option>
-                      <option>Zarqa</option>
-                      <option>Aqaba</option>
-                      <option>Mafraq</option>
-                      <option>Balqa</option>
-                      <option>Karak</option>
-                      <option>Tafilah</option>
-                      <option>Maan</option>
-                      <option>Ajloun</option>
-                      <option>Madaba</option>
+                      <option value="">{t("context.checkout.text_select_region")}</option>
+                      <option>{t("context.checkout.text_amman")}</option>
+                      <option>{t("context.checkout.text_irbid")}</option>
+                      <option>{t("context.checkout.text_zarqa")}</option>
+                      <option>{t("context.checkout.text_aqaba")}</option>
+                      <option>{t("context.checkout.text_mafraq")}</option>
+                      <option>{t("context.checkout.text_balqa")}</option>
+                      <option>{t("context.checkout.text_karak")}</option>
+                      <option>{t("context.checkout.text_tafilah")}</option>
+                      <option>{t("context.checkout.text_maan")}</option>
+                      <option>{t("context.checkout.text_ajloun")}</option>
+                      <option>{t("context.checkout.text_madaba")}</option>
                     </select>
                     <div className="invalid-feedback">
-                      Please select a region.
-                    </div>
+                      {t("context.checkout.text_please_select_a_region")}</div>
                   </div>
 
                   {/* Country */}
                   <div className="mb-3">
                     <label htmlFor="country" className={styles.fieldLabel}>
-                      Country:
-                    </label>
+                      {t("context.checkout.text_country")}</label>
                     <input
                       type="text"
                       id="country"
@@ -438,14 +422,14 @@ function Checkout() {
                   {/* Order Notes */}
                     <div className="mb-3">
                       <label htmlFor="notes" className={styles.fieldLabel}>
-                        Order Notes: <span style={{ fontWeight: 400, opacity: 0.6 }}>(optional)</span>
+                        {t("context.checkout.text_order_notes")}<span style={{ fontWeight: 400, opacity: 0.6 }}>{t("context.checkout.text_optional")}</span>
                       </label>
                       <textarea
                         id="notes"
                         name="notes"
                         className={`${styles.fieldInput} form-control`}
                         rows={3}
-                        placeholder="Any special instructions or delivery notes..."
+                        placeholder={t("context.checkout.placeholder_any_special_instructions_or_delivery_notes")}
                       />
                     </div>
                 </form>
@@ -454,7 +438,7 @@ function Checkout() {
 
               {/* Payment Method */}
               <div className={styles.card}>
-                <h2 className={styles.cardTitle}>Payment Method:</h2>
+                <h2 className={styles.cardTitle}>{t("context.checkout.text_payment_method")}</h2>
                 <hr className={styles.cardDivider} />
 
                 <div className={`${styles.paymentOptions} mt-3`}>
@@ -490,12 +474,12 @@ function Checkout() {
             <div className="col-12 col-lg-5 d-flex flex-column gap-4">
               {/* Order Summary */}
               <div className={styles.card}>
-                <h2 className={styles.cardTitle}>Order Summary:</h2>
+                <h2 className={styles.cardTitle}>{t("context.checkout.text_order_summary")}</h2>
                 <hr className={styles.cardDivider} />
 
                 <div className={`${styles.orderItems} mt-3`}>
                   {cart.length === 0 ? (
-                    <p className={styles.emptyCart}>Your cart is empty.</p>
+                    <p className={styles.emptyCart}>{t("context.checkout.text_your_cart_is_empty")}</p>
                   ) : (
                     cart.map((item) => (
                       <div
@@ -535,15 +519,14 @@ function Checkout() {
               {/* Order Subtotal */}
               <div className={styles.card}>
                 <h2 className={`${styles.cardTitle} ${styles.cardTitleSm}`}>
-                  Order Subtotal:
-                </h2>
+                  {t("context.checkout.text_order_subtotal")}</h2>
                 <hr className={styles.cardDivider} />
 
                 <div className={`${styles.subtotalRows} mt-3`}>
                   <div
                     className={`d-flex justify-content-between ${styles.subtotalRow}`}
                   >
-                    <span className={styles.subtotalLabel}>Subtotal:</span>
+                    <span className={styles.subtotalLabel}>{t("context.checkout.text_subtotal")}</span>
                     <span className={styles.subtotalValue}>
                       {totalPrice} JD
                     </span>
@@ -551,7 +534,7 @@ function Checkout() {
                   <div
                     className={`d-flex justify-content-between ${styles.subtotalRow}`}
                   >
-                    <span className={styles.subtotalLabel}>Delivery:</span>
+                    <span className={styles.subtotalLabel}>{t("context.checkout.text_delivery")}</span>
                     <span className={styles.subtotalValue}>
                       {DELIVERY_FEE} JD
                     </span>
@@ -565,8 +548,7 @@ function Checkout() {
                     <span
                       className={`${styles.subtotalLabel} ${styles.totalLabel}`}
                     >
-                      Total:
-                    </span>
+                      {t("context.checkout.text_total")}</span>
                     <span
                       className={`${styles.subtotalValue} ${styles.totalValue}`}
                     >

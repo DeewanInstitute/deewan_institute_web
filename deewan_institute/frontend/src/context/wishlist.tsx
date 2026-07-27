@@ -7,8 +7,10 @@ import NavBar from "../components/navbar/navbar";
 import Footer from "../components/footer/footer";
 import FloatingActionButton from "../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../components/floatingbutton/floatingactionbuttoninstitute";
+import { useTranslation } from "react-i18next";
 
 function Wishlist() {
+    const { t } = useTranslation();
   useScrollAnimation();
 
   const { wishlist, removeFromWishlist, addToCart } = useShop();
@@ -30,20 +32,19 @@ function Wishlist() {
       <section className={`${styles.wishlist} py-3 mt-2 mb-5`}>
         {/* ── Title ── */}
         <div className={styles.titleWrapper}>
-          <h2>Wishlist</h2>
+          <h2>{t("context.wishlist.text_wishlist")}</h2>
         </div>
 
         {/* ── Empty state ── */}
         {wishlist.length === 0 ? (
           <div className={styles.emptyState}>
             <span className={styles.emptyIcon}>♡</span>
-            <p>Your wishlist is empty.</p>
+            <p>{t("context.wishlist.text_your_wishlist_is_empty")}</p>
             <button
               className={styles.browseBtn}
               onClick={() => navigate("/publications")}
             >
-              Browse Publications
-            </button>
+              {t("context.wishlist.text_browse_publications")}</button>
           </div>
         ) : (
           <div className={`${styles.list} scroll-section`}>
@@ -83,7 +84,7 @@ function Wishlist() {
                         <button
                           onClick={() => addToCart(item)}
                           className={`${styles.iconBtn} ${styles.cart}`}
-                          aria-label="Add to cart"
+                          aria-label={t("context.wishlist.aria_label_add_to_cart")}
                           style={{ border: 'none', cursor: 'pointer', background: 'none' }}
                         >
                           <img src="/assets/images/icons/cart_brown.png" alt="cart" />
@@ -93,8 +94,8 @@ function Wishlist() {
                         <button
                           className={styles.removeBtn}
                           onClick={() => removeFromWishlist(item.id)}
-                          aria-label="Remove from wishlist"
-                          title="Remove"
+                          aria-label={t("context.wishlist.aria_label_remove_from_wishlist")}
+                          title={t("context.wishlist.title_remove")}
                         >
                           ✕
                         </button>
@@ -112,8 +113,7 @@ function Wishlist() {
       className={`${styles.browseBtn} w-100`} 
       onClick={() => navigate("/publications")}
     >
-      Back to Publications
-    </button>
+      {t("context.wishlist.text_back_to_publications")}</button>
   </div>
 </div>
 

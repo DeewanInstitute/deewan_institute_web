@@ -8,8 +8,10 @@ import styles from "./bildungsurlaub.module.scss";
 import { FaCircleInfo } from "react-icons/fa6";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
+import { useTranslation } from "react-i18next";
 
 const BildungsurlaubPage = () => {
+    const { t } = useTranslation();
     useEffect(() => {
       document.title = "Bildungsurlaub";
     }, []);
@@ -47,13 +49,13 @@ const BildungsurlaubPage = () => {
           <div className={styles.hero}>
             <img
               src="/assets/images/banner/b_banner.png"
-              alt="Bildungsurlaub Courses"
+              alt={t("pages.bildungsurlaub.bildungsurlaub.text_bildungsurlaub_courses")}
               className={styles.heroimage}
               
             />
             <div className={styles.herooverlay}>
               <div className={styles.herobadge}>
-                <h1>Bildungsurlaub Courses</h1>
+                <h1>{t("pages.bildungsurlaub.bildungsurlaub.text_bildungsurlaub_courses")}</h1>
               </div>
             </div>
           </div>
@@ -66,11 +68,9 @@ const BildungsurlaubPage = () => {
           <div className="container">
             <div className={`${styles.sectionHeader} mb-4`}>
               <span className={styles.sectionHeadersub}>
-                Bildungsurlaub Courses
-              </span>
+                {t("pages.bildungsurlaub.bildungsurlaub.text_bildungsurlaub_courses")}</span>
               <h2 className={styles.sectionHeadertitle}>
-                Take Your Bildungsurlaub in Amman
-              </h2>
+                {t("pages.bildungsurlaub.bildungsurlaub.text_take_your_bildungsurlaub_in_amman")}</h2>
             </div>
 
             <div className={styles.contentBlock}>
@@ -81,15 +81,13 @@ const BildungsurlaubPage = () => {
                     onClick={() => setActiveLang("en")}
                     aria-pressed={activeLang === "en"}
                   >
-                    English
-                  </button>
+                    {t("pages.bildungsurlaub.bildungsurlaub.text_english")}</button>
                   <button
                     className={`${styles.tabsbtn} ${activeLang === "de" ? styles["tabsbtn--active"] : styles["tabsbtn--inactive"]}`}
                     onClick={() => setActiveLang("de")}
                     aria-pressed={activeLang === "de"}
                   >
-                    German
-                  </button>
+                    {t("pages.bildungsurlaub.bildungsurlaub.text_german")}</button>
                 </div>
 
                 <div className={styles.whatIs}>
@@ -121,8 +119,7 @@ const BildungsurlaubPage = () => {
         <section className={`scroll-section ${styles.section} ${styles["section--states"]}`}>
           <div className="container">
             <h2 className={styles.statesSectiontitle}>
-              Recognized German States
-            </h2>
+              {t("pages.bildungsurlaub.bildungsurlaub.text_recognized_german_states")}</h2>
             <hr className={styles.statesSectiondivider} />
 
             <div className={styles.statesSectioncards}>
@@ -156,7 +153,7 @@ const BildungsurlaubPage = () => {
                         className={styles.stateCardbtn}
                       >
                         <FaCircleInfo className={styles.stateCardbtnIcon} aria-hidden="true" />
-                        <span className={styles.stateCardbtnText}>View More</span>
+                        <span className={styles.stateCardbtnText}>{t("pages.books.publications.text_view_more")}</span>
                       </a>
                     </div>
                   </div>

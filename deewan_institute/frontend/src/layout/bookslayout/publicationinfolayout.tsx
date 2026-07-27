@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import styles from "./publicationinfo.module.scss";
 import "../../style/animation.scss";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations";
+import { useTranslation } from "react-i18next";
 
 declare const Swiper: any;
 
@@ -14,6 +15,7 @@ interface Review {
 
 export interface BookDetail {
   id: string;
+  translationRoot: string;
   image: string;
   imageAlt: string;
   title: string;
@@ -62,6 +64,7 @@ function PublicationInfoLayout({
   onWishlistToggle,
   onAddToCart,
 }: PublicationInfoLayoutProps) {
+    const { t } = useTranslation();
   useScrollAnimation();
 
   const navigate = useNavigate();
@@ -118,12 +121,12 @@ function PublicationInfoLayout({
 
   return (
     <>
-      <nav className={styles.breadcrumb} aria-label="breadcrumb">
+      <nav className={styles.breadcrumb} aria-label={t("layout.bookslayout.publicationinfolayout.aria_label_breadcrumb")}>
         <ol>
           <li>
-            <Link to="/publications">Deewan Institute Resources</Link>
+            <Link to="/publications">{t("layout.bookslayout.publicationinfolayout.text_deewan_institute_resources")}</Link>
           </li>
-          <li aria-current="page">{book.title}</li>
+          <li aria-current="page">{t(`${book.translationRoot}.title`)}</li>
         </ol>
       </nav>
 
@@ -146,7 +149,7 @@ function PublicationInfoLayout({
                     style={{ cursor: "pointer" }}
                   >
                     <img src={book.frontCover} alt={`${book.title} front cover`} />
-                    <span>Front Cover</span>
+                    <span>{t("layout.bookslayout.publicationinfolayout.text_front_cover")}</span>
                   </div>
                 )}
                 {book.backCover && (
@@ -156,7 +159,7 @@ function PublicationInfoLayout({
                     style={{ cursor: "pointer" }}
                   >
                     <img src={book.backCover} alt={`${book.title} back cover`} />
-                    <span>Back Cover</span>
+                    <span>{t("layout.bookslayout.publicationinfolayout.text_back_cover")}</span>
                   </div>
                 )}
               </div>
@@ -164,8 +167,8 @@ function PublicationInfoLayout({
           </div>
 
           <div className="col-md-4 d-flex flex-column align-items-start justify-content-center">
-            <h1 className="lh-base">{book.title}</h1>
-            {book.subtitle && <h4 className="lh-base">{book.subtitle}</h4>}
+            <h1 className="lh-base">{t(`${book.translationRoot}.title`)}</h1>
+            {book.subtitle && <h4 className="lh-base">{t(`${book.translationRoot}.subtitle`)}</h4>}
             {book.author && <h5 className="lh-base">By: {book.author}</h5>}
 
             {book.reviews && book.reviews.length > 0 && (
@@ -174,8 +177,8 @@ function PublicationInfoLayout({
 
             {book.description && (
               <>
-                <p className={`lead ${styles.descriptionLabel}`}>Description:</p>
-                <p className="lead">{book.description}</p>
+                <p className={`lead ${styles.descriptionLabel}`}>{t("layout.bookslayout.publicationinfolayout.text_description")}</p>
+                <p className="lead" style={{ whiteSpace: "pre-line" }}>{t(`${book.translationRoot}.description`)}</p>
               </>
             )}
 
@@ -194,8 +197,7 @@ function PublicationInfoLayout({
 
               <button onClick={onAddToCart} className={`${styles.actionBtn} ${styles.cartBtn}`}>
                 <img className="px-3" src="/assets/images/icons/cart.png" alt="cart icon" />
-                Add To Cart
-              </button>
+                {t("layout.bookslayout.publicationinfolayout.text_add_to_cart")}</button>
 
               {book.samplePdf && (
                 <a
@@ -205,8 +207,7 @@ function PublicationInfoLayout({
                   className={`${styles.actionBtn} ${styles.sampleBtn}`}
                 >
                   <img className="px-3" src="/assets/images/icons/pdf.svg" alt="sample icon" />
-                  Read Sample
-                </a>
+                  {t("layout.bookslayout.publicationinfolayout.text_read_sample")}</a>
               )}
             </div>
           </div>
@@ -219,7 +220,7 @@ function PublicationInfoLayout({
       {book.reviews && book.reviews.length > 0 && (
         <section className={`${styles.testimonials} py-3 scroll-section`}>
           <div className={styles.sectionTitle}>
-            <span>Reviews:</span>
+            <span>{t("layout.bookslayout.publicationinfolayout.text_reviews")}</span>
           </div>
           <div className="container d-flex align-content-center">
             <div ref={testimonialSwiperRef} className="swiper testimonialsSwiper w-100">
@@ -228,7 +229,7 @@ function PublicationInfoLayout({
                   <div key={i} className="swiper-slide my-5">
                     <div className={styles.testimonialCard}>
                       <StarRating rating={review.rating} />
-                      <p className={styles.testimonialQuote}>"{review.comment}"</p>
+                      <p className={styles.testimonialQuote}>"{t(`${book.translationRoot}.reviews.${i}.comment`)}"</p>
                       <hr className={styles.testimonialDivider} />
                       <h5 className={styles.testimonialName}>{review.reviewer}</h5>
                     </div>

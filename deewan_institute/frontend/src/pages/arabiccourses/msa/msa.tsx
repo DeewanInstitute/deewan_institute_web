@@ -10,8 +10,10 @@ import "bootstrap";
 import FloatingActionButton from "../../../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../../../components/floatingbutton/floatingactionbuttoninstitute";
 import HeroTitle from "../../../components/herotitle/herotitle";
+import { useTranslation } from "react-i18next";
 
 function MSA() {
+    const { t } = useTranslation();
   useEffect(() => {
     document.title = "Modern Standard Arabic (MSA)";
   }, []);
@@ -41,7 +43,7 @@ function MSA() {
           {/* Hero Title */}
           <HeroTitle
             subtitle="Modern Standard Arabic (MSA)"
-            title="Connect with the Arab World Through Language"
+            title={t("pages.arabiccourses.msa.msa.title_connect_with_the_arab_world_through_language")}
             color="rgb(36, 105, 32)"
           />
 
@@ -58,23 +60,12 @@ function MSA() {
 
           {/* What Is It? */}
           <section className={`${style.offer} scroll-section slide-in-left`}>
-            <h2>What Is It?</h2>
+            <h2>{t("pages.arabiccourses.msa.msa.text_what_is_it")}</h2>
             <hr className={style.offerDivider} />
             <p>
-              Modern Standard Arabic (MSA) is the formal form of Arabic used
-              throughout the Arab world in education, literature, media,
-              business, and official communication. As the standard written and
-              spoken language shared across Arabic-speaking countries, MSA
-              provides learners with a strong foundation for understanding and
-              communicating in a wide range of academic, professional, and
-              cultural contexts.
-            </p>
+              {t("pages.arabiccourses.msa.msa.text_modern_standard_arabic_msa_is_the_formal_form_of_a")}</p>
             <p>
-              Suitable for learners of all levels, the course provides a
-              structured path toward fluency and serves as an essential
-              foundation for those interested in further studies of Arabic
-              language, culture, media, business, or regional affairs.
-            </p>
+              {t("pages.arabiccourses.msa.msa.text_suitable_for_learners_of_all_levels_the_course_pro")}</p>
           </section>
         </main>
       </div>
@@ -83,60 +74,56 @@ function MSA() {
       <section className={style.skills}>
         <div className={style.skillsInner}>
           <h2 className="scroll-section slide-in-left">
-            Skills You'll Develop
-          </h2>
+            {t("pages.arabiccourses.msa.msa.text_skills_you_ll_develop")}</h2>
           <hr className={style.skillsDivider} />
           <p
             className={`${style.skillsSubtitle} scroll-section slide-in-right`}
           >
-            This course develops the core language skills of reading, writing,
-            listening, and speaking while building proficiency in Arabic
-            grammar, vocabulary, and comprehension.
-          </p>
+            {t("pages.arabiccourses.msa.msa.text_this_course_develops_the_core_language_skills_of_r")}</p>
 
           <div className={`row justify-content-center ${style.skillsCards}`}>
             <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section slide-in-left">
               <div className={style.skillsIcon}>
                 <img
                   src="/assets/images/icons/msa-icon.png"
-                  alt="Reading"
+                  alt={t("pages.arabiccourses.arabicKids.text_reading")}
                   className={style.skillsImg}
                 />
               </div>
-              <p>Reading</p>
+              <p>{t("pages.arabiccourses.arabicKids.text_reading")}</p>
             </div>
 
             <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section slide-in-left">
               <div className={style.skillsIcon}>
                 <img
                   src="/assets/images/icons/msa-icon2.png"
-                  alt="Writing"
+                  alt={t("pages.arabiccourses.arabicKids.text_writing")}
                   className={style.skillsImg}
                 />
               </div>
-              <p>Writing</p>
+              <p>{t("pages.arabiccourses.arabicKids.text_writing")}</p>
             </div>
 
             <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section slide-in-right">
               <div className={style.skillsIcon}>
                 <img
                   src="/assets/images/icons/msa-icon3.png"
-                  alt="Speaking"
+                  alt={t("pages.arabiccourses.arabicKids.text_speaking")}
                   className={style.skillsImg}
                 />
               </div>
-              <p>Speaking</p>
+              <p>{t("pages.arabiccourses.arabicKids.text_speaking")}</p>
             </div>
 
             <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section slide-in-right">
               <div className={style.skillsIcon}>
                 <img
                   src="/assets/images/icons/msa-icon4.png"
-                  alt="Listening"
+                  alt={t("pages.arabiccourses.arabicKids.text_listening")}
                   className={style.skillsImg}
                 />
               </div>
-              <p>Listening</p>
+              <p>{t("pages.arabiccourses.arabicKids.text_listening")}</p>
             </div>
           </div>
         </div>
@@ -145,7 +132,7 @@ function MSA() {
       {/* Course Fees */}
       <div className={style.msa}>
         <section className={`${style.fees} scroll-section slide-in-left`}>
-          <h2>Course Fees</h2>
+          <h2>{t("pages.arabiccourses.msa.msa.text_course_fees")}</h2>
           <hr className={style.feesDivider} />
 
           <div className={`row align-items-center ${style.feesContent}`}>
@@ -163,26 +150,23 @@ function MSA() {
               className={`col-12 col-md-6 scroll-section slide-in-right ${style.feesText}`}
             >
               <p className={style.feesLead}>
-                Find the cost of your Arabic program in just a few clicks.
-              </p>
+                {t("pages.arabiccourses.msa.msa.text_find_the_cost_of_your_arabic_program_in_just_a_few")}</p>
               <ul className={style.feesList}>
-                <li>Select the course type.</li>
-                <li>Select morning or evening time.</li>
-                <li>Choose your study duration.</li>
-                <li>View your estimated fees instantly.</li>
+                <li>{t("pages.arabiccourses.msa.msa.text_select_the_course_type")}</li>
+                <li>{t("pages.arabiccourses.msa.msa.text_select_morning_or_evening_time")}</li>
+                <li>{t("pages.arabiccourses.msa.msa.text_choose_your_study_duration")}</li>
+                <li>{t("pages.arabiccourses.msa.msa.text_view_your_estimated_fees_instantly")}</li>
               </ul>
               <button
                 className={style.feesBtn}
                 onClick={() => navigate("/calculator")}
               >
-                Arabic Calculator Price
-              </button>
+                {t("pages.arabiccourses.msa.msa.text_arabic_calculator_price")}</button>
               <button
                 className={style.feesBtn}
                 onClick={() => window.open("https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform")}
               >
-                Sign Up
-              </button>              
+                {t("pages.cultureevents.cultureEvents.text_sign_up")}</button>              
             </div>
           </div>
         </section>

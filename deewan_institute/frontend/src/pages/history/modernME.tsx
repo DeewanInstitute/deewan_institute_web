@@ -21,7 +21,7 @@ function ModernME() {
             {/* NavBar */}
             <NavBar />
             {/* Main Layout */}
-            <HistoryLayout data={modernHistory} />
+            <HistoryLayout data={modernHistory} translationRoot="content.history.modern" />
             {/* Footer */}
             <Footer />
         </Fragment>

@@ -1,6 +1,7 @@
 import { Fragment, useState, useEffect, useRef } from "react";
 import styles from "./history.module.scss";
 import "bootstrap";
+import { useTranslation } from "react-i18next";
 
 interface HistoryInfo {
     subTitle: string,
@@ -19,7 +20,8 @@ interface HistoryInfo {
     }>
 }
 
-function HistoryLayout({ data }: { data: HistoryInfo }) {
+function HistoryLayout({ data, translationRoot }: { data: HistoryInfo; translationRoot: string }) {
+    const { t } = useTranslation();
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [activeId, setActiveId] = useState<string>("");
     const observerRef = useRef<IntersectionObserver | null>(null);
@@ -64,7 +66,7 @@ function HistoryLayout({ data }: { data: HistoryInfo }) {
                                 href={`#${dataInfo.id}`}
                                 onClick={(e) => handleNavClick(e, dataInfo.id)}
                             >
-                                {dataInfo.title}
+                                {t(`${translationRoot}.items.${dataInfo.id}.title`)}
                             </a>
                         )}
                         {dataInfo.caption_one && (
@@ -73,7 +75,7 @@ function HistoryLayout({ data }: { data: HistoryInfo }) {
                                 href={`#${dataInfo.id}`}
                                 onClick={(e) => handleNavClick(e, dataInfo.id)}
                             >
-                                {dataInfo.caption_one}
+                                {t(`${translationRoot}.items.${dataInfo.id}.captionOne`)}
                             </a>
                         )}
                         {dataInfo.caption_two && (
@@ -82,7 +84,7 @@ function HistoryLayout({ data }: { data: HistoryInfo }) {
                                 href={`#${dataInfo.id}`}
                                 onClick={(e) => handleNavClick(e, dataInfo.id)}
                             >
-                                {dataInfo.caption_two}
+                                {t(`${translationRoot}.items.${dataInfo.id}.captionTwo`)}
                             </a>
                         )}
                     </li>
@@ -96,23 +98,23 @@ function HistoryLayout({ data }: { data: HistoryInfo }) {
             {/* Mobile drawer */}
             <aside className={`${styles.drawer} ${drawerOpen ? styles.drawerOpen : ""}`}>
                 <div className={styles.drawerInner}>
-                    <h5>Table of Contents</h5>
+                    <h5>{t("layout.historylayout.historyLayout.text_table_of_contents")}</h5>
                     {tocLinks}
                 </div>
                 <button
                     className={styles.drawerTab}
                     onClick={() => setDrawerOpen(!drawerOpen)}
-                    aria-label="Toggle Table of Contents"
+                    aria-label={t("layout.historylayout.historyLayout.aria_label_toggle_table_of_contents")}
                 >
                     <span className={styles.drawerTabIcon}>{drawerOpen ? "✕" : "☰"}</span>
-                    <span className={styles.drawerTabText}>Contents</span>
+                    <span className={styles.drawerTabText}>{t("layout.historylayout.historyLayout.text_contents")}</span>
                 </button>
             </aside>
 
             {/* Banner */}
             <section className={`${styles.banner} d-flex flex-column py-5 align-items-center justify-content-center`}>
-                <h5>Middle Eastern Studies</h5>
-                <h1 className="py-2">{data.subTitle}</h1>
+                <h5>{t("pages.arabiccourses.middleeastern.middleeasternstudies.title_middle_eastern_studies")}</h5>
+                <h1 className="py-2">{t(`${translationRoot}.subtitle`)}</h1>
                 <div className={styles.bannerImgWrapper}>
                     <img src={data.bannerImg} alt={data.subTitle} className={styles.bannerImg} />
                 </div>
@@ -126,7 +128,7 @@ function HistoryLayout({ data }: { data: HistoryInfo }) {
                         {/* DESKTOP sidebar */}
                         <div className="col-md-3 d-none d-md-block">
                             <nav className={`${styles.sidebar} p-3`} style={{ position: 'sticky', top: 0, height: '100vh', overflowY: 'auto' }}>
-                                <h5>Table of Contents</h5>
+                                <h5>{t("layout.historylayout.historyLayout.text_table_of_contents")}</h5>
                                 {tocLinks}
                             </nav>
                         </div>
@@ -136,42 +138,46 @@ function HistoryLayout({ data }: { data: HistoryInfo }) {
                             {data.info.map((articleInfo) => (
                                 <div className={`${styles.content} p-3`} key={articleInfo.id}>
                                     <p className={`${styles.title} mb-4 pt-3`} id={articleInfo.id}>
-                                        {articleInfo.title}
+                                        {articleInfo.title && t(`${translationRoot}.items.${articleInfo.id}.title`)}
                                     </p>
                                     <p className={`${styles.subTitle} text-center`}>
-                                        {articleInfo.subtitle}
+                                        {articleInfo.subtitle && t(`${translationRoot}.items.${articleInfo.id}.subtitle`)}
                                     </p>
                                     {articleInfo.flag_one && (
                                         <div className="d-flex flex-column justify-content-center align-items-center">
                                             <img className={styles.flagImg} src={articleInfo.flag_one} alt={articleInfo.caption_one} />
-                                            <span className={styles.subheading}>{articleInfo.caption_one}</span>
+                                            <span className={styles.subheading}>{t(`${translationRoot}.items.${articleInfo.id}.captionOne`)}</span>
                                         </div>
                                     )}
                                     {articleInfo.id === "modernNations" && (
                                         <p className={`${styles.para} text-center`}>
-                                            Click for a{' '}
+                                            {t("ui.click_for_a")}{' '}
                                             <a
                                                 className="text-decoration-none"
                                                 href="./the-zionist-project-in-palestine"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                             >
-                                                detailed history.
-                                            </a>
+                                                {t("layout.historylayout.historyLayout.text_detailed_history")}</a>
                                         </p>
                                     )}
                                     {articleInfo.flag_two && articleInfo.caption_two && (
                                         <div className="d-flex flex-column justify-content-center align-items-center py-5">
                                             <img className={styles.flagImg} src={articleInfo.flag_two} alt={articleInfo.caption_two} />
-                                            <span className={styles.subheading}>{articleInfo.caption_two}</span>
+                                            <span className={styles.subheading}>{t(`${translationRoot}.items.${articleInfo.id}.captionTwo`)}</span>
                                         </div>
                                     )}
-                                    <p className={styles.para} dangerouslySetInnerHTML={{ __html: articleInfo.description }} />
+                                    <p
+                                        className={styles.para}
+                                        dangerouslySetInnerHTML={{
+                                            __html: t(`${translationRoot}.items.${articleInfo.id}.description`).replace(/\n/g, "<br />"),
+                                        }}
+                                    />
                                     <div id={styles.images}>
                                         {articleInfo.image && (
                                             <>
                                                 <img className="my-2" src={articleInfo.image} alt={articleInfo.title} />
-                                                <span>{articleInfo.label}</span>
+                                                <span>{articleInfo.label && t(`${translationRoot}.items.${articleInfo.id}.label`)}</span>
                                             </>
                                         )}
                                     </div>

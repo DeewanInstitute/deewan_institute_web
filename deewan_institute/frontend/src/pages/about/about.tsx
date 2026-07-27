@@ -11,8 +11,10 @@ import style from "./about.module.scss";
 import YouTubeSlider from "../../components/youtubeslider/youtubeslider";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
+import { useTranslation } from "react-i18next";
 
 function About() {
+    const { t } = useTranslation();
   useEffect(() => {
     document.title = "About Us";
   }, []);
@@ -31,20 +33,10 @@ function About() {
         >
           <div className="px-4 text-center d-flex flex-column align-items-center justify-content-center">
             <h1 className="display-5 fw-bold text-white my-4">
-              About Deewan Institute
-            </h1>
+              {t("pages.about.about.text_about_deewan_institute")}</h1>
             <div className="col-lg-10 mx-auto">
               <p className={`lead mb-4 text-center text-white ${style.para}`}>
-                Deewan Institute: Your premier gateway to mastering Arabic
-                through immersive, interactive online courses designed to cater
-                to learners of all proficiency levels—from complete beginners to
-                advanced speakers—regardless of their location worldwide. Our
-                expertly crafted curriculum blends modern pedagogy with cultural
-                insights, featuring live virtual classrooms, personalized
-                feedback from native instructors, multimedia resources like
-                videos and audio lessons, and flexible scheduling to fit busy
-                lifestyles.
-              </p>
+                {t("pages.about.about.text_deewan_institute_your_premier_gateway_to_mastering")}</p>
             </div>
           </div>
         </section>
@@ -54,22 +46,11 @@ function About() {
           <div className="row justify-content-center" id={style.row}>
             <div className="col-md-4 d-flex flex-column align-items-start justify-content-center">
               <h5 className={`${style.h5} featurette-heading mb-2`}>
-                Who Are We?
-              </h5>
+                {t("pages.about.about.text_who_are_we")}</h5>
               <h1 className={`${style.h1} featurette-heading my-3`}>
-                Deewan Institute for Languages & Cultural Studies
-              </h1>
+                {t("pages.about.about.text_deewan_institute_for_languages_and_cultural_studie")}</h1>
               <p className={`${style.para} lead`}>
-                At Deewan Institute, we believe that language is the bridge to
-                understanding cultures and connecting people across borders. Our
-                immersive approach goes beyond traditional classrooms,
-                integrating real-life scenarios into every lesson to help
-                students not only master Arabic but also gain confidence in
-                practical communication. Whether you're a beginner exploring the
-                nuances of FusHa or an advanced learner refining conversational
-                skills in Ammiyeh, our expert instructors tailor experiences to
-                your goals.
-              </p>
+                {t("pages.about.about.text_at_deewan_institute_we_believe_that_language_is_th")}</p>
             </div>
             <div className="col-md-5 d-flex flex-column align-items-start justify-content-center">
               <img
@@ -90,15 +71,11 @@ function About() {
           <div
             className={`${style.title} title mt-5 d-flex flex-column align-items-center scroll-section`}
           >
-            <span>Partnerships</span>
+            <span>{t("pages.about.about.text_partnerships")}</span>
             <hr className={`${style.featuretteDivider}`} />
           </div>
           <p className={`${style.para} lead text-center my-4 scroll-section`}>
-            Deewan Institute proudly collaborates with leading educational
-            platforms, cultural organizations, and local businesses to enhance
-            our offerings. Working together to provide innovative learning
-            experiences and vibrant community events.
-          </p>
+            {t("pages.about.about.text_deewan_institute_proudly_collaborates_with_leading")}</p>
           <PartnershipSlider />
         </section>
 
@@ -108,7 +85,7 @@ function About() {
         {/* Values Section */}
         <section className={`${style.values} scroll-section`}>
           <div className={`${style.title} mt-5 mx-auto align-items-center`}>
-            <span>Our Values</span>
+            <span>{t("pages.about.about.text_our_values")}</span>
           </div>
           <div id={style.row} className="row my-5 py-5">
             <div
@@ -121,8 +98,7 @@ function About() {
                 alt="Community and Inclusivity"
               />
               <h4 className={`${style.heading} text-center lh-base`}>
-                Community and <br /> Inclusivity
-              </h4>
+                {t("pages.about.about.text_community_and")}<br /> {t("pages.about.about.text_inclusivity")}</h4>
             </div>
             <div
               className="col-lg-4 col-md-4 d-flex flex-column align-items-center gap-4"
@@ -134,8 +110,7 @@ function About() {
                 alt="Excellence in Education"
               />
               <h4 className={`${style.heading} text-center lh-base`}>
-                Excellence in <br /> Education
-              </h4>
+                {t("pages.about.about.text_excellence_in")}<br /> {t("pages.about.about.text_education")}</h4>
             </div>
             <div
               className="col-lg-4 col-md-4 d-flex flex-column align-items-center gap-4"
@@ -147,8 +122,7 @@ function About() {
                 alt="Innovation and Creativity"
               />
               <h4 className={`${style.heading} text-center lh-base`}>
-                Innovation and <br /> Creativity
-              </h4>
+                {t("pages.about.about.text_innovation_and")}<br /> {t("pages.about.about.text_creativity")}</h4>
             </div>
           </div>
         </section>
@@ -159,7 +133,7 @@ function About() {
         {/* Team Section */}
         <section className={`${style.team} scroll-section`}>
           <div className={`${style.title} mt-5 mx-auto align-items-center`}>
-            <span>Meet Our Team</span>
+            <span>{t("pages.about.about.text_meet_our_team")}</span>
           </div>
           <TeamSlider />
         </section>
@@ -179,22 +153,9 @@ function About() {
               <h1
                 className={`${style.featuretteHeading} featurette-heading my-3`}
               >
-                Our Teaching Approach
-              </h1>
+                {t("pages.about.about.text_our_teaching_approach")}</h1>
               <p className={`${style.para} lead`}>
-                At Deewan Institute, we specialize in teaching Arabic to
-                non-native speakers, covering both FusHa (Classical Arabic) and
-                Ammiyeh (Levantine Colloquial Arabic). Our philosophy focuses on
-                identifying each student's unique learning style to create
-                personalized study plans, emphasizing conversational proficiency
-                while developing all skills—reading, writing, and listening.
-                Rooted in integrating classical, GPA (Growing Participator
-                Approach), and immersive cultural methods (like music, cooking,
-                and real-life scenarios), our vision is supported by our custom
-                curriculum, textbooks, digital platform, Arabic podcast with
-                transcripts, and YouTube channel for a comprehensive learning
-                experience.
-              </p>
+                {t("pages.about.about.text_at_deewan_institute_we_specialize_in_teaching_arab")}</p>
             </div>
           </div>
         </section>
@@ -209,14 +170,11 @@ function About() {
           <div
             className={`${style.title} mt-5 d-flex flex-column align-items-center scroll-section`}
           >
-            <span>Our Social Medias</span>
+            <span>{t("pages.about.about.text_our_social_medias")}</span>
             <hr className={`${style.featuretteDivider}`} />
           </div>
           <p className={`${style.para} lead text-center my-4 scroll-section`}>
-            Follow Deewan Institute on social media to stay updated on Arabic
-            programs, student life, cultural activities, events, and learning
-            opportunities.
-          </p>
+            {t("pages.about.about.text_follow_deewan_institute_on_social_media_to_stay_up")}</p>
           <div className={`${style.cardsRow} row scroll-section`}>
   {[
   {
@@ -245,22 +203,22 @@ function About() {
         allow="encrypted-media"
       />
         <div className={style.cardIcons}>
-                    <a href="https://www.facebook.com/profile.php?id=61579964781468" aria-label="Facebook">
+                    <a href="https://www.facebook.com/profile.php?id=61579964781468" aria-label={t("pages.about.about.aria_label_facebook")}>
                       <img
                         src="/assets/images/icons/facebook.png"
-                        alt="Facebook"
+                        alt={t("pages.about.about.aria_label_facebook")}
                       />
                     </a>
-                    <a href="https://www.linkedin.com/company/deewaninstitute/posts/?feedView=all" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/company/deewaninstitute/posts/?feedView=all" aria-label={t("pages.about.about.aria_label_linkedin")}>
                       <img
                         src="/assets/images/icons/linkedin.png"
-                        alt="LinkedIn"
+                        alt={t("pages.about.about.aria_label_linkedin")}
                       />
                     </a>
-                    <a href="https://www.instagram.com/deewan_arabic_institute/" aria-label="Instagram">
+                    <a href="https://www.instagram.com/deewan_arabic_institute/" aria-label={t("pages.about.about.aria_label_instagram")}>
                       <img
                         src="/assets/images/icons/instagram.png"
-                        alt="Instagram"
+                        alt={t("pages.about.about.aria_label_instagram")}
                       />
                     </a>
                   </div>

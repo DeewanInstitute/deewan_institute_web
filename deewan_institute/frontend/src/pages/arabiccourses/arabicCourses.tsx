@@ -9,8 +9,10 @@ import '../../style/animation.scss';
 import "bootstrap"
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
+import { useTranslation } from "react-i18next";
 
 function ArabicCourses() {
+    const { t } = useTranslation();
 
     useEffect(() => {
         document.title = 'Arabic Courses';
@@ -27,8 +29,8 @@ function ArabicCourses() {
             <FloatingActionButtonInstitute />
             {/* Banner */}
             <Banner data={{
-                title: "Arabic Courses",
-                description: "Check out all our Arabic courses at Deewan Institute, tailored for every learner's needs in the vibrant city of Amman. From the foundational courses to building essential vocabulary and grammar, to honing conversation and cultural nuances. Explore these options today and find the one that sparks your language journey!",
+                title: t("pages.arabiccourses.arabicCourses.title_arabic_courses"),
+                description: t("pages.arabiccourses.arabicCourses.description_check_out_all_our_arabic_courses_at_deewan_"),
                 backgroundImg: "../assets/images/banner/arabicCbanner.jpg",
             }} />
             {/* Main Layout */}

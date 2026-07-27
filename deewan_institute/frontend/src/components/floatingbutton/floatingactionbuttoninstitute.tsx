@@ -1,13 +1,15 @@
 import styles from "./FloatingActionButtonInstitute.module.scss";
+import { useTranslation } from "react-i18next";
 
 const FloatingActionButtonInstitute = () => {
+    const { t } = useTranslation();
   return (
     <a
       href="https://www.deewantourism.com"
       target="_blank"
       rel="noopener noreferrer"
       className={styles.fab}
-      aria-label="Visit Deewan Tourism"
+      aria-label={t("components.floatingbutton.floatingactionbuttoninstitute.aria_label_visit_deewan_tourism")}
     >
       <span className={styles.iconWrap}>
         <img
@@ -19,8 +21,7 @@ const FloatingActionButtonInstitute = () => {
       
 
       <span className={styles.label}>
-        Deewan Cultural Experiences
-      </span>
+        {t("components.floatingbutton.floatingactionbuttoninstitute.text_deewan_cultural_experiences")}</span>
     </a>
   );
 };

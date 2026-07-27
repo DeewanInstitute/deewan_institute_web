@@ -5,37 +5,38 @@ import { useShop } from "../../context/shopcontext";
 import { useState, useEffect, useRef } from "react";
 import { RiMenu3Line } from "react-icons/ri";
 import { RiArrowDownSLine } from "react-icons/ri";
+import { useTranslation } from "react-i18next";
+import { LanguageSwitcher } from "../languageswitcher/languageswitcher";
 
 const SHOP_ROUTES = ["/publications", "/wishlist", "/cart"];
 
-const overlayColumns = [
+const createOverlayColumns = (t: ReturnType<typeof useTranslation>["t"]) => [
   {
     id: "arabic",
-    title: "Arabic Language & Culture",
+    title: t("components.navbar.navbar.title_arabic_language_and_culture"),
     links: [
-      { label: "Arabic Courses", to: "/arabic-courses" },
-      { label: "Arabic Calculator Price", to: "/calculator" },
+      { label: t("pages.arabiccourses.arabicCourses.title_arabic_courses"), to: "/arabic-courses" },
+      { label: t("components.navbar.navbar.label_arabic_calculator_price"), to: "/calculator" },
       {
         label: (
           <>
-            Intensive Summer <br />
-            and Fall Program
-          </>
+            {t("components.navbar.navbar.text_intensive_summer")}<br />
+            {t("components.navbar.navbar.text_and_fall_program")}</>
         ),
         to: "/arabic-courses/intensive-program",
       },
-      { label: "Bildungsurlaub Courses", to: "/bildungsurlaub" },
-      { label: "Culture Events", to: "https://deewantourism.com/cultureevents" },
+      { label: t("pages.bildungsurlaub.bildungsurlaub.text_bildungsurlaub_courses"), to: "/bildungsurlaub" },
+      { label: t("components.navbar.navbar.label_culture_events"), to: "https://deewantourism.com/cultureevents" },
     ],
   },
   {
     id: "middle-east",
-    title: "Middle Eastern Studies",
+    title: t("pages.arabiccourses.middleeastern.middleeasternstudies.title_middle_eastern_studies"),
     links: [
       {
         label: (
           <>
-            History of the <br />
+            {t("components.navbar.navbar.text_history_of_the")}<br />
             Middle East{" "}
           </>
         ),
@@ -44,65 +45,64 @@ const overlayColumns = [
       {
         label: (
           <>
-            Modern History of <br />
-            the Middle East
-          </>
+            {t("components.navbar.navbar.text_modern_history_of")}<br />
+            {t("components.navbar.navbar.text_the_middle_east")}</>
         ),
         to: "/middle-eastern-studies/modern-history-of-the-middle-east",
       },
       {
         label: (
           <>
-            The Zionist Project
-            <br /> in Palestine
-          </>
+            {t("components.navbar.navbar.text_the_zionist_project")}<br /> {t("components.navbar.navbar.text_in_palestine")}</>
         ),
         to: "/middle-eastern-studies/the-zionist-project-in-palestine",
       },
       {
-        label: "People of the Middle East",
+        label: t("pages.history.peopleME.title_people_of_the_middle_east"),
         to: "/middle-eastern-studies/people-of-the-middle-east",
       },
     ],
   },
   {
     id: "learning-resources",
-    title: "Learning Resources",
+    title: t("components.navbar.navbar.title_learning_resources"),
     links: [
-      { label: "Publications", to: "/publications" },
-      { label: "Podcasts", to: "/podcasts" },
+      { label: t("pages.books.publications.title_publications"), to: "/publications" },
+      { label: t("pages.podcasts.podcasts.title_podcasts"), to: "/podcasts" },
     ],
   },
   {
     id: "Student Services",
-    title: "Student Services",
+    title: t("components.navbar.navbar.title_student_services"),
     links: [
-      { label: "Accommodation", to: "https://deewantourism.com/accommodation" },
-      { label: "Trips", to: "https://deewantourism.com/trips" },
-      { label: "Visa", to: "https://deewantourism.com/visa" },
+      { label: t("components.navbar.navbar.label_accommodation"), to: "https://deewantourism.com/accommodation" },
+      { label: t("components.navbar.navbar.label_trips"), to: "https://deewantourism.com/trips" },
+      { label: t("components.navbar.navbar.label_visa"), to: "https://deewantourism.com/visa" },
     ],
   },
   {
     id: "languages",
-    title: "Foreign Languages",
+    title: t("components.navbar.navbar.title_foreign_languages"),
     links: [
-      { label: "French", to: "/foreign-languages/french-course" },
-      { label: "German", to: "/foreign-languages/german-course" },
-      { label: "Spanish", to: "/foreign-languages/spanish-course" },
-      { label: "English", to: "/foreign-languages/english-course" },
+      { label: t("components.navbar.navbar.label_french"), to: "/foreign-languages/french-course" },
+      { label: t("pages.bildungsurlaub.bildungsurlaub.text_german"), to: "/foreign-languages/german-course" },
+      { label: t("components.navbar.navbar.label_spanish"), to: "/foreign-languages/spanish-course" },
+      { label: t("pages.bildungsurlaub.bildungsurlaub.text_english"), to: "/foreign-languages/english-course" },
     ],
   },
   {
     id: "team",
-    title: "Join Our Team",
+    title: t("components.navbar.navbar.title_join_our_team"),
     links: [
-      { label: "Careers", to: "/careers" },
-      { label: "Internships", to: "/internship" },
+      { label: t("pages.careers.careers.title_careers"), to: "/careers" },
+      { label: t("components.navbar.navbar.label_internships"), to: "/internship" },
     ],
   },
 ];
 
 function HomeNavBar() {
+  const { t } = useTranslation();
+  const overlayColumns = createOverlayColumns(t);
   const { wishlistCount, cartCount } = useShop();
   const { pathname } = useLocation();
 
@@ -160,11 +160,11 @@ function HomeNavBar() {
                   <NavLink
                     className="position-relative"
                     to="/wishlist"
-                    aria-label="Wishlist"
+                    aria-label={t("context.wishlist.text_wishlist")}
                   >
                     <img
                       src="/assets/images/icons/heart_brown.png"
-                      alt="Wishlist"
+                      alt={t("context.wishlist.text_wishlist")}
                       id={styles.wishlistIcon}
                     />
                     {wishlistCount > 0 && (
@@ -174,11 +174,11 @@ function HomeNavBar() {
                   <NavLink
                     className="position-relative"
                     to="/cart"
-                    aria-label="Cart"
+                    aria-label={t("components.homenavbar.homenavbar.aria_label_cart")}
                   >
                     <img
                       src="/assets/images/icons/cart_brown.png"
-                      alt="Cart"
+                      alt={t("components.homenavbar.homenavbar.aria_label_cart")}
                       id={styles.cartIcon}
                     />
                     {cartCount > 0 && (
@@ -187,10 +187,11 @@ function HomeNavBar() {
                   </NavLink>
                 </div>
               )}
+              <LanguageSwitcher compact appearance="light" />
               <button
                 className={styles.toggler}
                 onClick={() => setIsOverlayOpen(true)}
-                aria-label="Open menu"
+                aria-label={t("components.navbar.navbar.aria_label_open_menu")}
               >
                 <RiMenu3Line className={styles.togglerIcon} />
               </button>
@@ -219,11 +220,11 @@ function HomeNavBar() {
                   <NavLink
                     className="position-relative"
                     to="/wishlist"
-                    aria-label="Wishlist"
+                    aria-label={t("context.wishlist.text_wishlist")}
                   >
                     <img
                       src="/assets/images/icons/heart_brown.png"
-                      alt="Wishlist"
+                      alt={t("context.wishlist.text_wishlist")}
                       id={styles.wishlistIcon}
                     />
                     {wishlistCount > 0 && (
@@ -233,11 +234,11 @@ function HomeNavBar() {
                   <NavLink
                     className="position-relative"
                     to="/cart"
-                    aria-label="Cart"
+                    aria-label={t("components.homenavbar.homenavbar.aria_label_cart")}
                   >
                     <img
                       src="/assets/images/icons/cart_brown.png"
-                      alt="Cart"
+                      alt={t("components.homenavbar.homenavbar.aria_label_cart")}
                       id={styles.cartIcon}
                     />
                     {cartCount > 0 && (
@@ -246,10 +247,11 @@ function HomeNavBar() {
                   </NavLink>
                 </div>
               )}
+              <LanguageSwitcher compact appearance="light" />
               <button
                 className={styles.toggler}
                 onClick={() => setIsOverlayOpen(true)}
-                aria-label="Open menu"
+                aria-label={t("components.navbar.navbar.aria_label_open_menu")}
               >
                 <RiMenu3Line className={styles.togglerIcon} />
               </button>
@@ -263,13 +265,11 @@ function HomeNavBar() {
               <ul className="navbar-nav" id={styles.navbarNav}>
                 <li className="nav-item" id={styles.navitem}>
                   <NavLink className="nav-link" to="/">
-                    Home
-                  </NavLink>
+                    {t("components.navbar.navbar.text_home")}</NavLink>
                 </li>
                 <li className="nav-item" id={styles.navitem}>
                   <NavLink className="nav-link" to="/about">
-                    About Us
-                  </NavLink>
+                    {t("pages.home.home.text_about_us")}</NavLink>
                 </li>
               </ul>
             </div>
@@ -292,13 +292,11 @@ function HomeNavBar() {
                     className={`nav-link btn btn-link ${styles.navitem}`}
                     onClick={() => setIsOverlayOpen(true)}
                   >
-                    What We Offer
-                  </button>
+                    {t("pages.arabiccourses.arabicjournalism.arabicjournalism.text_what_we_offer")}</button>
                 </li>
                 <li className="nav-item" id={styles.navitem}>
                   <NavLink className="nav-link" to="/contact">
-                    Contact Us
-                  </NavLink>
+                    {t("pages.contact.contact.text_contact_us")}</NavLink>
                 </li>
               </ul>
             </div>
@@ -311,11 +309,11 @@ function HomeNavBar() {
                 <NavLink
                   className="position-relative"
                   to="/wishlist"
-                  aria-label="Wishlist"
+                  aria-label={t("context.wishlist.text_wishlist")}
                 >
                   <img
                     src="/assets/images/icons/heart_brown.png"
-                    alt="Wishlist"
+                    alt={t("context.wishlist.text_wishlist")}
                     id={styles.wishlistIcon}
                   />
                   {wishlistCount > 0 && (
@@ -325,11 +323,11 @@ function HomeNavBar() {
                 <NavLink
                   className="position-relative"
                   to="/cart"
-                  aria-label="Cart"
+                  aria-label={t("components.homenavbar.homenavbar.aria_label_cart")}
                 >
                   <img
                     src="/assets/images/icons/cart_brown.png"
-                    alt="Cart"
+                    alt={t("components.homenavbar.homenavbar.aria_label_cart")}
                     id={styles.cartIcon}
                   />
                   {cartCount > 0 && (
@@ -338,6 +336,7 @@ function HomeNavBar() {
                 </NavLink>
               </div>
             )}
+            <LanguageSwitcher appearance="light" />
           </div>
         </div>
 
@@ -375,29 +374,25 @@ function HomeNavBar() {
             {/* ── Mobile + Tablet: flat links ── */}
             <div className={`d-xl-none ${styles.mobileLinks}`}>
               <NavLink to="/" className={styles.overlayLink} onClick={closeAll}>
-                Home
-              </NavLink>
+                {t("components.navbar.navbar.text_home")}</NavLink>
               <NavLink
                 to="/about"
                 className={styles.overlayLink}
                 onClick={closeAll}
               >
-                About Us
-              </NavLink>
+                {t("pages.home.home.text_about_us")}</NavLink>
               <NavLink
                 to="/contact"
                 className={styles.overlayLink}
                 onClick={closeAll}
               >
-                Contact Us
-              </NavLink>
+                {t("pages.contact.contact.text_contact_us")}</NavLink>
               <NavLink
                 to="/newsletter"
                 className={styles.overlayLink}
                 onClick={closeAll}
               >
-                Newsletter
-              </NavLink>
+                {t("pages.newsletter.newsletter.title_newsletter")}</NavLink>
 
               <div className={styles.divider} />
             </div>
@@ -460,7 +455,7 @@ function HomeNavBar() {
               to="/newsletter"
               className={`d-none d-xl-flex ${styles.newsletterCard}`}
               onClick={closeAll}
-              aria-label="newsletter"
+              aria-label={t("components.navbar.navbar.aria_label_newsletter")}
             >
               <div className={styles.newsletterCardInner}>
                 <img
@@ -472,12 +467,11 @@ function HomeNavBar() {
                   }}
                 />
                 <div className={styles.newsletterCardOverlay}>
-                  <div className={styles.newsletterCardBadge}>Newsletter</div>
-                  <p className={styles.newsletterCardTitle}>Stay in the know</p>
+                  <div className={styles.newsletterCardBadge}>{t("pages.newsletter.newsletter.title_newsletter")}</div>
+                  <p className={styles.newsletterCardTitle}>{t("components.navbar.navbar.text_stay_in_the_know")}</p>
                   <p className={styles.newsletterCardSub}>
-                    Arabic culture, events & stories and more.
-                  </p>
-                  <span className={styles.newsletterCardCta}>See More →</span>
+                    {t("components.navbar.navbar.text_arabic_culture_events_and_stories_and_more")}</p>
+                  <span className={styles.newsletterCardCta}>{t("components.navbar.navbar.text_see_more")}</span>
                 </div>
               </div>
             </NavLink>

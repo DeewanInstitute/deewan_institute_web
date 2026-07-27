@@ -25,7 +25,7 @@ function English() {
             {/* Navbar */}
             <NavBar />
             {/* Main Layout */}
-            <ForeignLayout data={englishData} />
+            <ForeignLayout data={englishData} translationRoot="content.foreign.english" />
             {/* Footer */}
             <Footer />
         </Fragment>

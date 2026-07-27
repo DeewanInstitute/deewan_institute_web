@@ -1,8 +1,10 @@
 import { useEffect, Fragment } from "react";
 import styles from "../testimonials/testimonials.module.scss";
 import "bootstrap";
+import { useTranslation } from "react-i18next";
 
 function Testimonials() {
+    const { t } = useTranslation();
   useEffect(() => {
     // Access global Swiper variable provided by the CDN script
     const swiper = new (window as any).Swiper(`.${styles.testimonialsSwiper}`, {
@@ -34,18 +36,11 @@ function Testimonials() {
         <div
           className={`${styles.title} mx-auto my-1  px-5 scroll-section slide-in-left`}
         >
-          <h1 className={styles.h1}>Testimonials</h1>
+          <h1 className={styles.h1}>{t("components.testimonials.testimonials.text_testimonials")}</h1>
         </div>
         <div className="mx-auto text-center my-4 scroll-section">
           <p className={styles.p}>
-            Deewan Institute has students from all over the world, from many
-            different cultures and backgrounds. They all love learning with us!
-            We have had students from the United States, Australia, United
-            Kingdom, the Netherlands, Italy, Germany, Denmark, Belgium, Austria,
-            France, Canada, Pakistan, Switzerland, Iceland, Ireland, Norway,
-            Sweden, Greece, India, Japan, South Korea, Hong Kong, Singapore and
-            South Africa, among many others.
-          </p>
+            {t("components.youtubeslider.youtubeslider.text_deewan_institute_has_students_from_all_over_the_wo")}</p>
         </div>
         <div className="container d-flex align-content-center" style={{ height: "100%" }}>
           <div className={`swiper ${styles.testimonialsSwiper}`}>

@@ -9,8 +9,10 @@ import "bootstrap";
 import FloatingActionButton from "../../../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../../../components/floatingbutton/floatingactionbuttoninstitute";
 import HeroTitle from "../../../components/herotitle/herotitle";
+import { useTranslation } from "react-i18next";
 
 function DiplomacyArabic() {
+    const { t } = useTranslation();
   useEffect(() => {
     document.title = "Diplomacy in Arabic";
   }, []);
@@ -39,7 +41,7 @@ function DiplomacyArabic() {
           {/* Hero Title */}
           <HeroTitle
             subtitle="Diplomacy in Arabic"
-            title="Master the Language of International Relations and Official Communication"
+            title={t("pages.arabiccourses.diplomacy.diplomacyarabic.title_master_the_language_of_international_relations_an")}
           />
 
           {/* Full-width image */}
@@ -53,29 +55,17 @@ function DiplomacyArabic() {
 
           {/* What We Offer */}
           <section className={`${style.offer} scroll-section`}>
-            <h2>What Is It?</h2>
+            <h2>{t("pages.arabiccourses.msa.msa.text_what_is_it")}</h2>
             <hr className={style.offerDivider} />
             <p>
-              Develop the language skills needed for international relations,
-              diplomacy, and official communication through our Diplomacy Arabic
-              course. Designed for advanced Arabic learners, diplomats,
-              researchers, and international professionals, the course focuses
-              on the specialized Arabic used in governmental, diplomatic, and
-              international settings across the Arab world.
-            </p>
+              {t("pages.arabiccourses.diplomacy.diplomacyarabic.text_develop_the_language_skills_needed_for_internation")}</p>
             <p>
-              Through authentic speeches, official statements, policy documents,
-              and diplomatic texts, students will build a strong command of
-              diplomatic vocabulary, formal communication styles, and political
-              discourse. The course also provides valuable cultural and regional
-              insights, helping participants communicate confidently and
-              effectively in professional international environments.
-            </p>
+              {t("pages.arabiccourses.diplomacy.diplomacyarabic.text_through_authentic_speeches_official_statements_pol")}</p>
           </section>
           {/* Skills You'll Develop */}
           <section className={style.skills}>
             <div className={style.skillsInner}>
-              <h2 className="scroll-section">Skills You’ll Develop</h2>
+              <h2 className="scroll-section">{t("pages.arabiccourses.diplomacy.diplomacyarabic.text_skills_you_ll_develop")}</h2>
               <hr className={style.skillsDivider} />
 
               <div
@@ -90,32 +80,30 @@ function DiplomacyArabic() {
                     />
                   </div>
                   <p>
-                    Diplomatic
-                    <br />
-                    Communication
-                  </p>
+                    {t("pages.arabiccourses.diplomacy.diplomacyarabic.text_diplomatic")}<br />
+                    {t("pages.arabiccourses.diplomacy.diplomacyarabic.text_communication")}</p>
                 </div>
 
                 <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section">
                   <div className={style.skillsIcon}>
                     <img
                       src="/assets/images/icons/dipicon2.png"
-                      alt="Negotiation"
+                      alt={t("pages.arabiccourses.diplomacy.diplomacyarabic.text_negotiation")}
                       className={style.skillsImg}
                     />
                   </div>
-                  <p>Negotiation</p>
+                  <p>{t("pages.arabiccourses.diplomacy.diplomacyarabic.text_negotiation")}</p>
                 </div>
 
                 <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section">
                   <div className={style.skillsIcon}>
                     <img
                       src="/assets/images/icons/dipicon3.png"
-                      alt="Political Analysis"
+                      alt={t("pages.arabiccourses.diplomacy.diplomacyarabic.text_political_analysis")}
                       className={style.skillsImg}
                     />
                   </div>
-                  <p>Political Analysis</p>
+                  <p>{t("pages.arabiccourses.diplomacy.diplomacyarabic.text_political_analysis")}</p>
                 </div>
 
                 <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section">
@@ -127,10 +115,8 @@ function DiplomacyArabic() {
                     />
                   </div>
                   <p>
-                    International
-                    <br />
-                    Relations
-                  </p>
+                    {t("pages.arabiccourses.diplomacy.diplomacyarabic.text_international")}<br />
+                    {t("pages.arabiccourses.diplomacy.diplomacyarabic.text_relations")}</p>
                 </div>
               </div>
             </div>
@@ -142,7 +128,7 @@ function DiplomacyArabic() {
             window.open("https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform");
           }}
         >
-          Sign Up <i className="fas fa-arrow-right"></i>  
+          {t("pages.cultureevents.cultureEvents.text_sign_up")}<i className="fas fa-arrow-right"></i>  
         </button>
       </div>
 

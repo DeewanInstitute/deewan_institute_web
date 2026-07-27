@@ -1,8 +1,10 @@
 import 'bootstrap';
 import styles from "./footer.module.scss";
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
 
 function Footer() {
+    const { t } = useTranslation();
     return (
         //  <!-- Footer -->
         <footer className={`${styles.footer} py-3`}>
@@ -12,7 +14,7 @@ function Footer() {
                         src={"/assets/images/logos/LogoDeewan.svg"} alt="Deewan Institute Logo" width="150" />
                 </NavLink>
             </div>
-            <p className="text-center text-body-secondary pt-2" id={styles.para}>Copyrights © 2026 Deewan Institute. All rights reserved.</p>
+            <p className="text-center text-body-secondary pt-2" id={styles.para}>{t("components.footer.footer.text_copyrights_2026_deewan_institute_all_rights_reserv")}</p>
             <ul className="nav justify-content-center align-items-center" id={styles.icons}>
                 <li className="nav-item">
                     <a href="https://www.facebook.com/profile.php?id=61579964781468" target="_blank"

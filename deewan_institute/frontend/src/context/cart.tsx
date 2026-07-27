@@ -6,9 +6,10 @@ import NavBar from '../components/navbar/navbar';
 import Footer from '../components/footer/footer';
 import FloatingActionButton from '../components/floatingbutton/floatingactionbutton';
 import FloatingActionButtonInstitute from '../components/floatingbutton/floatingactionbuttoninstitute';
-
+import { useTranslation } from "react-i18next";
 
 function Cart() {
+    const { t } = useTranslation();
     const { cart, updateQuantity, removeFromCart, totalPrice } = useShop();
     const navigate = useNavigate();
     const DELEVERY_FEE = 3;
@@ -21,15 +22,14 @@ function Cart() {
             <FloatingActionButtonInstitute />
             <section className={`${styles.cart} py-3 mt-2 mb-5`}>
                 <div className={styles.title}>
-                    <h2>Your Cart</h2>
+                    <h2>{t("context.cart.text_your_cart")}</h2>
                 </div>
 
                 {cart.length === 0 ? (
                     <div className={styles.emptyState}>
-                        <p>Your cart is currently empty.</p>
+                        <p>{t("context.cart.text_your_cart_is_currently_empty")}</p>
                         <button className={styles.browseBtn} onClick={() => navigate('/publications')}>
-                            Browse Publications
-                        </button>
+                            {t("context.wishlist.text_browse_publications")}</button>
                     </div>
                 ) : (
                     <>
@@ -75,24 +75,23 @@ function Cart() {
                             <div className={`col-12 col-md-6 col-lg-4 ${styles.cartTotal}`}>
                                 <div className={styles.totalInfo}>
                                     <div className="d-flex flex-row justify-content-between">
-                                        <span className={styles.bold}>Subtotal:</span>
+                                        <span className={styles.bold}>{t("context.checkout.text_subtotal")}</span>
                                         <p className={styles.leadText}>{totalPrice.toFixed(2)} JD</p>
                                     </div>
                                     <div className="d-flex flex-row justify-content-between w-100">
-                                        <span className={styles.bold}>Delivery:</span>
+                                        <span className={styles.bold}>{t("context.checkout.text_delivery")}</span>
                                         <p className={styles.leadText}>{DELEVERY_FEE} JD</p>
                                     </div>
                                     <hr className={styles.divider} />
                                     <div className="d-flex flex-row justify-content-between w-100">
-                                        <span className={styles.bold}>Total Cost:</span>
+                                        <span className={styles.bold}>{t("pages.calculator.calculator.text_total_cost")}</span>
                                         <p className={styles.leadText}>{(totalPrice + DELEVERY_FEE).toFixed(2)} JD</p>
                                     </div>
                                     <button
                                         className={styles.checkoutBtn}
                                         onClick={() => navigate('/checkout')}
                                     >
-                                        Checkout
-                                    </button>
+                                        {t("context.cart.text_checkout")}</button>
                                 </div>
                             </div>
                         </div>
@@ -103,8 +102,7 @@ function Cart() {
                 className={styles.backBtn}
                 onClick={() => navigate('/publications')}
             >
-                Back to Publications
-            </button>
+                {t("context.wishlist.text_back_to_publications")}</button>
             </div>
             </section>
             

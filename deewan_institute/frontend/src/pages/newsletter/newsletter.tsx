@@ -5,8 +5,7 @@ import Footer from "../../components/footer/footer";
 import styles from "./newsletter.module.scss";
 import { EDITIONS } from "../../../data/newsletter.data";
 import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
-
-
+import { useTranslation } from "react-i18next";
 
 function CanvaEmbed({
   src,
@@ -60,6 +59,7 @@ function CanvaEmbed({
 
 // ── Page ──────────────────────────────────────────────────────────────────────
 export default function NewsletterPage() {
+    const { t } = useTranslation();
   const [activeEdition, setActiveEdition] = useState(EDITIONS[0].id);
   const current = EDITIONS.find((e) => e.id === activeEdition)!;
   const editionRef = useRef<HTMLElement>(null);
@@ -78,8 +78,8 @@ export default function NewsletterPage() {
 
       <Banner
         data={{
-          title: "Newsletter",
-          description: "Our latest news, insights, and exclusive content",
+          title: t("pages.newsletter.newsletter.title_newsletter"),
+          description: t("pages.newsletter.newsletter.description_our_latest_news_insights_and_exclusive_cont"),
           backgroundImg: "../../assets/images/banner/news.JPG",
         }}
       />
@@ -107,7 +107,7 @@ export default function NewsletterPage() {
 
       {/* ── Archive ── */}
       <div className={styles.archiveDivider}>
-        <span>All Issues</span>
+        <span>{t("pages.newsletter.newsletter.text_all_issues")}</span>
       </div>
 
       <section className={styles.archiveGrid}>

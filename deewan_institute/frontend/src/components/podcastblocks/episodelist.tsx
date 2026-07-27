@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './episodelist.module.scss';
+import { useTranslation } from "react-i18next";
 
 export interface Episode {
     id: number;
@@ -14,6 +15,7 @@ interface EpisodeListProps {
 }
 
 function EpisodeList({ seasonNumber, hostedBy, episodes }: EpisodeListProps) {
+    const { t } = useTranslation();
     const [openId, setOpenId] = useState<number | null>(null);
 
     const toggle = (id: number) => {
@@ -49,7 +51,7 @@ function EpisodeList({ seasonNumber, hostedBy, episodes }: EpisodeListProps) {
                                         preload="none"
                                     />
                                 ) : (
-                                    <p className={styles.comingSoon}>Coming soon</p>
+                                    <p className={styles.comingSoon}>{t("components.podcastblocks.episodelist.text_coming_soon")}</p>
                                 )}
                             </div>
                         </div>

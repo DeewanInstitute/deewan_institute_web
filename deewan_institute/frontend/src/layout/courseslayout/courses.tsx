@@ -5,6 +5,7 @@ import { useScrollAnimation } from "../../../hooks/scrollAnimations";
 import "bootstrap";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
+import { useTranslation } from "react-i18next";
 
 interface arabicCourse {
   title: string;
@@ -24,18 +25,21 @@ interface arabicCourse {
 }
 
 function Courses({ data }: { data: arabicCourse }) {
+    const { t } = useTranslation();
   useScrollAnimation();
 
   // const renderCourseButton = (course: arabicCourse["courses"][number]) => {
-    const renderCourseButtons = (course: arabicCourse["courses"][number]) => {
+    const renderCourseButtons = (course: arabicCourse["courses"][number], courseIndex: number) => {
   const buttons = [
     {
       text: course.buttonText,
       link: course.buttonLink,
+      key: "buttonText",
     },
     {
       text: course.learnMoreButton,
       link: course.learnMoreLink,
+      key: "learnMoreButton",
     },
   ].filter((button) => button.text && button.link);
 
@@ -43,15 +47,15 @@ function Courses({ data }: { data: arabicCourse }) {
 
   return (
     <div className={styles.courseActions}>
-      {buttons.map((button, index) => (
+      {buttons.map((button) => (
         <a
-          key={index}
+          key={button.key}
           href={button.link}
           className={`btn ${styles.courseButton}`}
           target={button.link?.startsWith("http") ? "_blank" : undefined}
           rel={button.link?.startsWith("http") ? "noopener noreferrer" : undefined}
         >
-          {button.text}
+          {t(`content.arabicCourses.courses.${courseIndex}.${button.key}`)}
         </a>
       ))}
     </div>
@@ -65,21 +69,19 @@ function Courses({ data }: { data: arabicCourse }) {
 
       <section className={`${styles.courses} pb-5`}>
         <div className={`${styles.title} mt-5 scroll-section`}>
-          <h1>Arabic Courses</h1>
+          <h1>{t("pages.arabiccourses.arabicCourses.title_arabic_courses")}</h1>
         </div>
 
         <h5 className="text-black my-5 lh-base scroll-section">
-          Ensure to schedule{" "}
+          {t("ui.course_evaluation_prefix")}{" "}
           <a
             className="text-decoration-none"
             href="https://docs.google.com/forms/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Initial Skills Evaluation or Course Placement Consultation
-          </a>{" "}
-          for a fee of 10 JDs before purchasing any of our Course Packages.
-          Explore Deewan’s Arabic Courses!
+            {t("layout.courseslayout.courses.text_initial_skills_evaluation_or_course_placement_cons")}</a>{" "}
+          {t("ui.course_evaluation_suffix")}
         </h5>
 
         {/* First Row */}
@@ -99,29 +101,29 @@ function Courses({ data }: { data: arabicCourse }) {
                   className="pt-5 mb-0 pb-0 text-center"
                   id={styles.arabCalligraphy}
                 >
-                  {course.arabicTitle}
+                  {t(`content.arabicCourses.courses.${index}.arabicTitle`)}
                 </h2>
-                <h2 className="pt-5 mb-0 pb-0 text-center">{course.title}</h2>
+                <h2 className="pt-5 mb-0 pb-0 text-center">{t(`content.arabicCourses.courses.${index}.title`)}</h2>
               </div>
 
               <div
                 className={`${styles.back} d-flex flex-column justify-content-center`}
               >
-                <p className="mx-5 my-3">{course.description}</p>
+                <p className="mx-5 my-3" style={{ whiteSpace: "pre-line" }}>{t(`content.arabicCourses.courses.${index}.description`)}</p>
 
                 {course.listDescription && (
-                  <p className="mx-5 fw-bold">{course.listDescription}</p>
+                  <p className="mx-5 fw-bold">{t(`content.arabicCourses.courses.${index}.listDescription`)}</p>
                 )}
 
-                {course.list?.map((listData, listIndex) => (
+                {course.list?.map((_, listIndex) => (
                   <ul key={listIndex} className="mx-5">
                     <li>
-                      <span>{listData.type}</span>
+                      <span>{t(`content.arabicCourses.courses.${index}.list.${listIndex}`)}</span>
                     </li>
                   </ul>
                 ))}
 
-                {renderCourseButtons(course)}
+                {renderCourseButtons(course, index)}
               </div>
             </div>
           ))}
@@ -144,16 +146,16 @@ function Courses({ data }: { data: arabicCourse }) {
                   className="pt-5 mb-0 pb-0 text-center"
                   id={styles.arabCalligraphy}
                 >
-                  {course.arabicTitle}
+                  {t(`content.arabicCourses.courses.${index + 3}.arabicTitle`)}
                 </h2>
-                <h2 className="pt-5 mb-0 pb-0 text-center">{course.title}</h2>
+                <h2 className="pt-5 mb-0 pb-0 text-center">{t(`content.arabicCourses.courses.${index + 3}.title`)}</h2>
               </div>
 
               <div
                 className={`${styles.back} d-flex flex-column justify-content-center`}
               >
-                <p className="mx-5 my-3 text-black">{course.description}</p>
-                {renderCourseButtons(course)}
+                <p className="mx-5 my-3 text-black" style={{ whiteSpace: "pre-line" }}>{t(`content.arabicCourses.courses.${index + 3}.description`)}</p>
+                {renderCourseButtons(course, index + 3)}
               </div>
             </div>
           ))}
@@ -176,16 +178,16 @@ function Courses({ data }: { data: arabicCourse }) {
                   className="pt-5 mb-0 pb-0 text-center"
                   id={styles.arabCalligraphy}
                 >
-                  {course.arabicTitle}
+                  {t(`content.arabicCourses.courses.${index + 6}.arabicTitle`)}
                 </h2>
-                <h2 className="pt-5 mb-0 pb-0 text-center">{course.title}</h2>
+                <h2 className="pt-5 mb-0 pb-0 text-center">{t(`content.arabicCourses.courses.${index + 6}.title`)}</h2>
               </div>
 
               <div
                 className={`${styles.back} d-flex flex-column justify-content-center`}
               >
-                <p className="mx-5 my-3">{course.description}</p>
-                {renderCourseButtons(course)}
+                <p className="mx-5 my-3" style={{ whiteSpace: "pre-line" }}>{t(`content.arabicCourses.courses.${index + 6}.description`)}</p>
+                {renderCourseButtons(course, index + 6)}
               </div>
             </div>
           ))}
@@ -208,16 +210,16 @@ function Courses({ data }: { data: arabicCourse }) {
                   className="pt-5 mb-0 pb-0 text-center"
                   id={styles.arabCalligraphy}
                 >
-                  {course.arabicTitle}
+                  {t(`content.arabicCourses.courses.${index + 9}.arabicTitle`)}
                 </h2>
-                <h2 className="pt-5 mb-0 pb-0 text-center">{course.title}</h2>
+                <h2 className="pt-5 mb-0 pb-0 text-center">{t(`content.arabicCourses.courses.${index + 9}.title`)}</h2>
               </div>
 
               <div
                 className={`${styles.back} d-flex flex-column justify-content-center`}
               >
-                <p className="mx-5 my-3">{course.description}</p>
-                {renderCourseButtons(course)}
+                <p className="mx-5 my-3" style={{ whiteSpace: "pre-line" }}>{t(`content.arabicCourses.courses.${index + 9}.description`)}</p>
+                {renderCourseButtons(course, index + 9)}
               </div>
             </div>
           ))}

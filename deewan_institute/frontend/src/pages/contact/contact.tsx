@@ -6,6 +6,7 @@ import Footer from "../../components/footer/footer";
 import styles from "./contact.module.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
+import { useTranslation } from "react-i18next";
 
 interface ContactFormData {
   fullName: string;
@@ -15,6 +16,7 @@ interface ContactFormData {
 }
 
 function Contact() {
+    const { t } = useTranslation();
   const [formData, setFormData] = useState<ContactFormData>({
     fullName: "",
     email: "",
@@ -123,13 +125,10 @@ function Contact() {
                     </svg>
                   </div>
                   <h3 className={`${styles.successTitle} mt-4`}>
-                    Message Sent!
-                  </h3>
+                    {t("pages.contact.contact.text_message_sent")}</h3>
                   <p className={styles.successText}>
-                    Thank you for reaching out.
-                    <br />
-                    Our team will get back to you shortly.
-                  </p>
+                    {t("pages.contact.contact.text_thank_you_for_reaching_out")}<br />
+                    {t("pages.contact.contact.text_our_team_will_get_back_to_you_shortly")}</p>
                 </>
               )}
 
@@ -151,13 +150,10 @@ function Contact() {
                     </svg>
                   </div>
                   <h3 className={`${styles.errorTitle} mt-4`}>
-                    Something Went Wrong!
-                  </h3>
+                    {t("pages.contact.contact.text_something_went_wrong")}</h3>
                   <p className={styles.successText}>
-                    Failed to send your message.
-                    <br />
-                    Please try again or contact us directly.
-                  </p>
+                    {t("pages.contact.contact.text_failed_to_send_your_message")}<br />
+                    {t("pages.contact.contact.text_please_try_again_or_contact_us_directly")}</p>
                 </>
               )}
 
@@ -166,8 +162,7 @@ function Contact() {
                 className={`btn mt-3 ${styles.modalCloseBtn}`}
                 data-bs-dismiss="modal"
               >
-                Close
-              </button>
+                {t("pages.contact.contact.text_close")}</button>
             </div>
           </div>
         </div>
@@ -179,15 +174,10 @@ function Contact() {
           className={`banner d-flex align-items-center ${styles.banner}`}
         >
           <div className="px-4 text-center d-flex flex-column align-items-center">
-            <h1 className="display-5 fw-bold text-white my-4">Contact Us</h1>
+            <h1 className="display-5 fw-bold text-white my-4">{t("pages.contact.contact.text_contact_us")}</h1>
             <div className="col-lg-10 mx-auto">
               <p className="lead mb-4 text-center text-white">
-                Have questions, need clarification, or ready to book an
-                appointment? At Deewan Institute, our team is here to help you
-                start your language journey in vibrant Amman. Reach out today
-                via email, phone, or our online form—we look forward to
-                connecting and tailoring the perfect program for you!
-              </p>
+                {t("pages.contact.contact.text_have_questions_need_clarification_or_ready_to_book")}</p>
             </div>
           </div>
         </section>
@@ -195,7 +185,7 @@ function Contact() {
         {/* Form Section */}
         <section className={`form scroll-section ${styles.form}`}>
           <div className="title my-5">
-            <h2 className={styles.sectionTitle}>Fill Out the Form</h2>
+            <h2 className={styles.sectionTitle}>{t("pages.contact.contact.text_fill_out_the_form")}</h2>
           </div>
           <div
             className={`border border-black p-5 ${styles.messageForm}`}
@@ -208,14 +198,13 @@ function Contact() {
                     htmlFor="FullNameText"
                     className="form-label text-white"
                   >
-                    Full Name:
-                  </label>
+                    {t("pages.contact.contact.text_full_name")}</label>
                   <input
                     type="text"
                     id="FullNameText"
                     name="fullName"
                     className="form-control"
-                    placeholder="Enter Your Full Name"
+                    placeholder={t("pages.contact.contact.placeholder_enter_your_full_name")}
                     value={formData.fullName}
                     onChange={handleInputChange}
                     required
@@ -223,14 +212,13 @@ function Contact() {
                 </div>
                 <div className="mb-3 d-flex flex-column">
                   <label htmlFor="Email" className="form-label text-white">
-                    Email:
-                  </label>
+                    {t("pages.contact.contact.text_email")}</label>
                   <input
                     type="email"
                     id="Email"
                     name="email"
                     className="form-control"
-                    placeholder="Enter Your Email"
+                    placeholder={t("pages.contact.contact.placeholder_enter_your_email")}
                     value={formData.email}
                     onChange={handleInputChange}
                     required
@@ -238,14 +226,13 @@ function Contact() {
                 </div>
                 <div className="mb-3 d-flex flex-column">
                   <label htmlFor="PhoneNum" className="form-label text-white">
-                    Phone Number:
-                  </label>
+                    {t("pages.contact.contact.text_phone_number")}</label>
                   <input
                     type="tel"
                     id="PhoneNum"
                     name="phone"
                     className="form-control"
-                    placeholder="Enter Your Phone Number"
+                    placeholder={t("pages.contact.contact.placeholder_enter_your_phone_number")}
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
@@ -258,13 +245,12 @@ function Contact() {
                     htmlFor="FullMessageText"
                     className="form-label text-white"
                   >
-                    Message:
-                  </label>
+                    {t("pages.contact.contact.text_message")}</label>
                   <textarea
                     id="FullMessageText"
                     name="message"
                     className="form-control"
-                    placeholder="Enter Your Message"
+                    placeholder={t("pages.contact.contact.placeholder_enter_your_message")}
                     rows={6}
                     value={formData.message}
                     onChange={handleInputChange}
@@ -288,23 +274,19 @@ function Contact() {
         {/* Information Section */}
         <section className={`information scroll-section ${styles.information}`}>
           <div className="title my-5">
-            <h2 className={styles.sectionTitle}>Contact Information</h2>
+            <h2 className={styles.sectionTitle}>{t("pages.contact.contact.text_contact_information")}</h2>
           </div>
 
           <div className="d-flex flex-column col-lg-10 mx-auto">
             <p className={`lead text-start ${styles.para}`}>
-              Please contact Deewan Institute using the email below for
-              inquiries regarding Arabic classes, cultural activities, student
-              accommodation, internships, or business opportunities. Our team in
-              Amman is available to assist you promptly.
-            </p>
+              {t("pages.contact.contact.text_please_contact_deewan_institute_using_the_email_be")}</p>
 
             <div className="d-flex justify-content-center my-5">
               <div
                 className={styles.contactBox}
                 style={{ justifyContent: "center", textAlign: "center" }}
               >
-                <img src="/assets/images/icons/mail.svg" alt="Email" />
+                <img src="/assets/images/icons/mail.svg" alt={t("components.careers.careerform.text_email")} />
                 <a href="mailto:arabic@deewaninstitute.com">
                   arabic@deewaninstitute.com
                 </a>
@@ -312,21 +294,18 @@ function Contact() {
             </div>
 
             <p className={`lead text-start ${styles.para}`}>
-              For detailed consultations or to schedule your program, please
-              reach out to our Coordinator at Deewan Institute via the emails
-              and phone number below.
-            </p>
+              {t("pages.contact.contact.text_for_detailed_consultations_or_to_schedule_your_pro")}</p>
 
             <div className="row justify-content-center mt-4">
               <div className="col-md-6 d-flex flex-column">
                 <div className={styles.contactBox}>
-                  <img src="/assets/images/icons/mail.svg" alt="Email" />
+                  <img src="/assets/images/icons/mail.svg" alt={t("components.careers.careerform.text_email")} />
                   <a href="mailto:management@deewaninstitute.com">
                     management@deewaninstitute.com
                   </a>
                 </div>
                 <div className={styles.contactBox}>
-                  <img src="/assets/images/icons/mail.svg" alt="Email" />
+                  <img src="/assets/images/icons/mail.svg" alt={t("components.careers.careerform.text_email")} />
                   <a href="mailto:publicrelations.deewan@gmail.com">
                     publicrelations.deewan@gmail.com
                   </a>
@@ -358,40 +337,37 @@ function Contact() {
           className={`openingHours scroll-section ${styles.openingHours}`}
         >
           <div className="title my-5">
-            <h2 className={styles.sectionTitle}>Opening Hours</h2>
+            <h2 className={styles.sectionTitle}>{t("pages.contact.contact.text_opening_hours")}</h2>
           </div>
           <div className="row flex-wrap justify-content-center align-items-start g-3 mt-2">
             <div className="col-12 col-md-6 col-lg-4">
               <div className={styles.borderRight}>
-                <h3 className="fw-bold">Office Hours</h3>
+                <h3 className="fw-bold">{t("pages.contact.contact.text_office_hours")}</h3>
                 <ul>
-                  <li>Sun - Thurs: 9:00 AM - 20:00 PM</li>
+                  <li>{t("pages.contact.contact.text_sun_thurs_9_00_am_20_00_pm")}</li>
                 </ul>
                 <span className={styles.italic}>
-                  Come visit us—we’d love to see you!
-                </span>
+                  {t("pages.contact.contact.text_come_visit_us_we_d_love_to_see_you")}</span>
               </div>
             </div>
             <div className="col-12 col-md-6 col-lg-4">
               <div className={styles.borderRight}>
-                <h3 className="fw-bold">Class Hours</h3>
+                <h3 className="fw-bold">{t("pages.contact.contact.text_class_hours")}</h3>
                 <ul>
-                  <li>Sun - Thurs: 9:00 AM - 20:00 PM</li>
+                  <li>{t("pages.contact.contact.text_sun_thurs_9_00_am_20_00_pm")}</li>
                 </ul>
                 <span className={styles.italic}>
-                  For Saturday, please contact us.
-                </span>
+                  {t("pages.contact.contact.text_for_saturday_please_contact_us")}</span>
               </div>
             </div>
             <div className="col-12 col-md-6 col-lg-4">
               <div className={styles.borderRight}>
-                <h3 className="fw-bold">Workspace</h3>
+                <h3 className="fw-bold">{t("pages.contact.contact.text_workspace")}</h3>
                 <ul>
-                  <li>Sun - Thurs: 9:00 AM - 20:00 PM</li>
+                  <li>{t("pages.contact.contact.text_sun_thurs_9_00_am_20_00_pm")}</li>
                 </ul>
                 <span className={styles.italic}>
-                  It is provided free of charge to Deewan students.
-                </span>
+                  {t("pages.contact.contact.text_it_is_provided_free_of_charge_to_deewan_students")}</span>
               </div>
             </div>
           </div>
@@ -400,13 +376,11 @@ function Contact() {
         {/* Location */}
         <section className={`location scroll-section ${styles.location}`}>
           <div className="title my-5">
-            <h2 className={styles.sectionTitle}>Our Location</h2>
+            <h2 className={styles.sectionTitle}>{t("pages.contact.contact.text_our_location")}</h2>
           </div>
           <div className="d-flex flex-column col-lg-10 mx-auto">
             <p className={`lead text-start ${styles.para}`}>
-              Deewan Institute is a 3-minute walk from Paris Circle in Weibdeh.
-              Al - Baouneyah St. 14, Amman 11191. 2nd floor.
-            </p>
+              {t("pages.contact.contact.text_deewan_institute_is_a_3_minute_walk_from_paris_cir")}</p>
             <div className={styles.locationMaps}>
               <div className="ratio ratio-16x9">
                 <iframe

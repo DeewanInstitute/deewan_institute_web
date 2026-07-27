@@ -4,6 +4,7 @@ import App from "./App";
 import "./index.css";
 import { ShopProvider } from "./context/shopcontext";
 import SafetyModal from "./components/safetymodal/safetymodal";
+import "./i18n";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

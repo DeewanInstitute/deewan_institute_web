@@ -14,11 +14,13 @@ import PublicationInfoLayout, { type BookDetail } from "../../layout/bookslayout
 import styles from "./publicationinfo.module.scss";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
+import { useTranslation } from "react-i18next";
 
 function getAllBooks(): BookDetail[] {
   const books: BookDetail[] = [
     ...mainBooks.map((b: MainBook) => ({
       id: b.id,
+      translationRoot: `content.books.main.${b.id}`,
       image: b.image,
       imageAlt: b.imageAlt,
       title: b.title,
@@ -36,6 +38,7 @@ function getAllBooks(): BookDetail[] {
     })),
     ...ammiyehCollection.map((b: CollectionBook) => ({
       id: b.id,
+      translationRoot: `content.books.ammiyeh.${b.id}`,
       image: b.image,
       imageAlt: b.imageAlt,
       title: b.title,
@@ -53,6 +56,7 @@ function getAllBooks(): BookDetail[] {
     })),
     {
       id: fushaBook.id,
+      translationRoot: `content.books.fusha.${fushaBook.id}`,
       image: fushaBook.image,
       imageAlt: fushaBook.imageAlt,
       title: fushaBook.title,
@@ -72,6 +76,7 @@ function getAllBooks(): BookDetail[] {
 
   const podcasts: BookDetail[] = podcastSeasons.map((p: PodcastSeason) => ({
     id: p.id,
+    translationRoot: `content.books.podcast.${p.id}`,
     image: p.image,
     imageAlt: p.imageAlt,
     title: p.title,
@@ -92,6 +97,7 @@ function getAllBooks(): BookDetail[] {
 }
 
 function PublicationInfo() {
+    const { t } = useTranslation();
     useEffect(() => {
     document.title = "Deewan Institute | Publication Information";
   }, []);
@@ -112,10 +118,9 @@ function PublicationInfo() {
   if (!book) {
     return (
       <div className={styles.notFound}>
-        <h2>Publication not found.</h2>
+        <h2>{t("pages.books.publicationinfo.text_publication_not_found")}</h2>
         <Link to="/publications" className={styles.backLink}>
-          ← Back to Publications
-        </Link>
+          {t("pages.books.publicationinfo.text_back_to_publications")}</Link>
       </div>
     );
   }

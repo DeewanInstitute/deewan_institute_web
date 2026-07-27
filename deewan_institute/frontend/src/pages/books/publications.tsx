@@ -14,6 +14,7 @@ import Footer from "../../components/footer/footer";
 import { useNavigate } from "react-router-dom";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
+import { useTranslation } from "react-i18next";
 
 declare const Swiper: any;
 
@@ -35,6 +36,7 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 function Publications() {
+    const { t } = useTranslation();
     useEffect(() => {
     document.title = "Publications";
   }, []);
@@ -147,13 +149,10 @@ function Publications() {
       <section
         className={`${styles.banner} d-flex flex-column py-5 align-items-center justify-content-center scroll-section`}
       >
-        <h3>Dive into Arabic Mastery with</h3>
-        <h3>Deewan's Expert Collection</h3>
+        <h3>{t("pages.books.publications.text_dive_into_arabic_mastery_with")}</h3>
+        <h3>{t("pages.books.publications.text_deewan_s_expert_collection")}</h3>
         <p className="my-3 text-center lh-base">
-          Drawing from years of teaching MSA and Levantine Arabic to students
-          worldwide, our books deliver essential basics for a rock-solid
-          language foundation.
-        </p>
+          {t("pages.books.publications.text_drawing_from_years_of_teaching_msa_and_levantine_a")}</p>
       </section>
 
       {/* ── Main Books Swiper ── */}
@@ -174,17 +173,17 @@ function Publications() {
                   />
 
                   <div className={`d-flex flex-column ${styles.bookInfo}`}>
-                    <h1>{book.title}</h1>
+                    <h1>{t(`content.books.main.${book.id}.title`)}</h1>
                     {book.subtitle && (
                       <span className={styles.subtitleBadge}>
-                        {book.subtitle}
+                        {t(`content.books.main.${book.id}.subtitle`)}
                       </span>
                     )}
                     <h4>By: {book.author}</h4>
 
                     {book.hosted && (
                       <p className={styles.hosted}>
-                        <span className={styles.hostedLabel}>Available on</span>
+                        <span className={styles.hostedLabel}>{t("pages.books.publications.text_available_on")}</span>
                         &nbsp;{book.hosted}
                       </p>
                     )}
@@ -193,7 +192,7 @@ function Publications() {
                       <div className={styles.reviewBlock}>
                         <StarRating rating={book.reviews[0].rating} />
                         <p className={styles.reviewComment}>
-                          "{book.reviews[0].comment}"
+                          "{t(`content.books.main.${book.id}.reviews.0.comment`)}"
                         </p>
                         <span className={styles.reviewerName}>
                           — {book.reviews[0].reviewer}
@@ -201,7 +200,7 @@ function Publications() {
                       </div>
                     )}
 
-                    <p className={styles.bookDescription}>{book.description}</p>
+                    <p className={styles.bookDescription} style={{ whiteSpace: "pre-line" }}>{t(`content.books.main.${book.id}.description`)}</p>
 
                     <div
                       className={`d-flex flex-row align-items-center ${styles.bookActions}`}
@@ -212,13 +211,12 @@ function Publications() {
                         className={styles.viewMoreBtn}
                         rel="noreferrer"
                       >
-                        View More
-                      </a>
+                        {t("pages.books.publications.text_view_more")}</a>
 
                       <button
                         onClick={(e) => handleWishlistClick(e, book)}
                         className={`${styles.iconBtn} ${styles.heart} ${isInWishlist(book.id) ? styles.heartActive : ""}`}
-                        aria-label="Add to wishlist"
+                        aria-label={t("pages.books.publications.aria_label_add_to_wishlist")}
                         style={{ border: "none", cursor: "pointer" }}
                       >
                         <img
@@ -256,7 +254,7 @@ function Publications() {
       {/* ── Ammiyeh Collection ── */}
       <section className={`${styles.ammiyeh} scroll-section`}>
         <div className={styles.sectionTitle}>
-          <span>Ammiyeh Collection</span>
+          <span>{t("pages.books.publications.text_ammiyeh_collection")}</span>
         </div>
         <div className="row mx-auto">
           <div ref={ammiyehSwiperRef} className="swiper booksSwiper">
@@ -271,11 +269,11 @@ function Publications() {
                   >
                     <img src={book.image} alt={book.imageAlt} />
                     <h3 className={`${styles.heading} text-center mt-4`}>
-                      {book.title}
+                      {t(`content.books.ammiyeh.${book.id}.title`)}
                     </h3>
                     {book.subtitle && (
                       <p className={`${styles.subtitle} text-center`}>
-                        {book.subtitle}
+                        {t(`content.books.ammiyeh.${book.id}.subtitle`)}
                       </p>
                     )}
                   </div>
@@ -307,15 +305,15 @@ function Publications() {
             />
           </div>
           <div className="col-11 col-md-8 col-xl-4 d-flex flex-column align-items-start justify-content-center px-4 px-md-3">
-            <h4 className="lh-base">{fushaBook.collectionLabel}</h4>
-            <h1 className="lh-base">{fushaBook.title}</h1>
+            <h4 className="lh-base">{t(`content.books.fusha.${fushaBook.id}.collectionLabel`)}</h4>
+            <h1 className="lh-base">{t(`content.books.fusha.${fushaBook.id}.title`)}</h1>
             {fushaBook.subtitle && (
-              <h2 className={styles.subtitle}>{fushaBook.subtitle}</h2>
+              <h2 className={styles.subtitle}>{t(`content.books.fusha.${fushaBook.id}.subtitle`)}</h2>
             )}
             <h5 className="lh-base">By: {fushaBook.author}</h5>
             {fushaBook.hosted && (
               <p className={styles.hosted}>
-                <span className={styles.hostedLabel}>Available on</span>&nbsp;
+                <span className={styles.hostedLabel}>{t("pages.books.publications.text_available_on")}</span>&nbsp;
                 {fushaBook.hosted}
               </p>
             )}
@@ -323,14 +321,14 @@ function Publications() {
               <div className={styles.reviewBlock}>
                 <StarRating rating={fushaBook.reviews[0].rating} />
                 <p className={styles.reviewComment}>
-                  "{fushaBook.reviews[0].comment}"
+                  "{t(`content.books.fusha.${fushaBook.id}.reviews.0.comment`)}"
                 </p>
                 <span className={styles.reviewerName}>
                   — {fushaBook.reviews[0].reviewer}
                 </span>
               </div>
             )}
-            <p className="lead">{fushaBook.description}</p>
+            <p className="lead" style={{ whiteSpace: "pre-line" }}>{t(`content.books.fusha.${fushaBook.id}.description`)}</p>
             <div className="d-flex flex-row w-100 justify-content-start align-items-center my-1">
               <a
                 href={fushaBook.viewMoreLink}
@@ -338,13 +336,12 @@ function Publications() {
                 className={styles.fushaViewMoreBtn}
                 rel="noreferrer"
               >
-                View More
-              </a>
+                {t("pages.books.publications.text_view_more")}</a>
 
               <button
                 onClick={(e) => handleWishlistClick(e, fushaBook)}
                 className={`${styles.fushaIconBtn} ${styles.heart} ${isInWishlist(fushaBook.id) ? styles.heartActive : ""}`}
-                aria-label="Add to wishlist"
+                aria-label={t("pages.books.publications.aria_label_add_to_wishlist")}
                 style={{ border: "none", cursor: "pointer" }}
               >
                 <img
@@ -376,7 +373,7 @@ function Publications() {
       {/* ── Podcasts ── */}
 <section className={`${styles.podcasts} scroll-section`}>
   <div className={styles.sectionTitle}>
-    <span>Guide to Deewan Arabic Podcast Collection</span>
+    <span>{t("pages.books.publications.text_guide_to_deewan_arabic_podcast_collection")}</span>
   </div>
   <div className="row py-5 mx-auto">
     <div ref={podcastSwiperRef} className="swiper booksSwiper">
@@ -391,16 +388,16 @@ function Publications() {
             >
               <img src={season.image} alt={season.imageAlt} />
               <h3 className={`${styles.heading} text-center mt-4`}>
-                {season.title}           {/* ← was season.label */}
+                {t(`content.books.podcast.${season.id}.title`)}
               </h3>
               {season.subtitle && (
                 <p className={`${styles.subtitle} text-center`}>
-                  {season.subtitle}
+                  {t(`content.books.podcast.${season.id}.subtitle`)}
                 </p>
               )}
               {season.hosted && (
                 <p className={`${styles.hosted} text-center`}>
-                  {season.hosted}
+                  {t(`content.books.podcast.${season.id}.hosted`)}
                 </p>
               )}
             </div>

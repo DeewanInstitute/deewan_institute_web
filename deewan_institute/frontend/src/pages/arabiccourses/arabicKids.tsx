@@ -11,8 +11,10 @@ import 'bootstrap';
 import BottomBanner from "../../components/bottombanner/bottombanner";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
+import { useTranslation } from "react-i18next";
 
 function ArabicKids() {
+    const { t } = useTranslation();
     useEffect(() => {
         document.title = 'Arabic For Kids';
     }, []);
@@ -54,29 +56,24 @@ function ArabicKids() {
                                 <div className="col-12 col-md-5 d-flex flex-column align-items-center justify-content-center order-1 order-md-1">
                                     <img 
                                         className="img-fluid" 
-                                        alt="Arabic For Kids"
+                                        alt={t("pages.arabiccourses.arabicKids.text_arabic_for_kids")}
                                         src={"../assets/images/others/arabicForKids.png"} 
                                         style={{ maxWidth: '400px', width: '100%', height: 'auto' }} 
                                     />
                                 </div>
                                 {/* Text - Order 2 on mobile, Order 2 on desktop */}
                                 <div className="col-12 col-md-4 d-flex flex-column align-items-start justify-content-center order-2 order-md-2">
-                                    <h5 className="featurette-heading mb-2">Arabic For Kids</h5>
-                                    <h1 className="featurette-heading my-3">What is it?</h1>
+                                    <h5 className="featurette-heading mb-2">{t("pages.arabiccourses.arabicKids.text_arabic_for_kids")}</h5>
+                                    <h1 className="featurette-heading my-3">{t("pages.arabiccourses.arabiTalk.text_what_is_it")}</h1>
                                     <p className="lead">
-                                        Whether your child is just starting or wants to improve, this program builds a strong
-                                        foundation in Arabic in a way that feels natural, exciting, and rewarding. The Arabic for Kids
-                                        offers private classes (one-to-one or small groups) designed especially for young learners.
-                                    </p>
+                                        {t("pages.arabiccourses.arabicKids.text_whether_your_child_is_just_starting_or_wants_to_im")}</p>
                                     <p className="lead">
-                                        We teach both Modern Standard Arabic (MSA) or Colloquial Arabic with a focus on building the four
-                                        essential skills:
-                                    </p>
+                                        {t("pages.arabiccourses.arabicKids.text_we_teach_both_modern_standard_arabic_msa_or_colloq")}</p>
                                     <ul className="lead">
-                                        <li>Reading</li>
-                                        <li>Writing</li>
-                                        <li>Speaking</li>
-                                        <li>Listening</li>
+                                        <li>{t("pages.arabiccourses.arabicKids.text_reading")}</li>
+                                        <li>{t("pages.arabiccourses.arabicKids.text_writing")}</li>
+                                        <li>{t("pages.arabiccourses.arabicKids.text_speaking")}</li>
+                                        <li>{t("pages.arabiccourses.arabicKids.text_listening")}</li>
                                     </ul>
                                 </div>
                             </div>
@@ -86,7 +83,7 @@ function ArabicKids() {
                     {/* Approach Section */}
                     <section className={style.approach}>
                         <div className={`${style.subTitle} my-4 my-md-5`}>
-                            <h1 className="py-2 scroll-section slide-in-right">Seamless Platforms for Every Format</h1>
+                            <h1 className="py-2 scroll-section slide-in-right">{t("pages.arabiccourses.arabicKids.text_seamless_platforms_for_every_format")}</h1>
                         </div>
                         <div className="container">
                             <div className="row justify-content-center text-center mx-auto my-4 my-md-5 py-4 py-md-5 scroll-section slide-in-left g-4">
@@ -95,11 +92,11 @@ function ArabicKids() {
                                     <div id={style.itemBox}>
                                         <img 
                                             src={"../assets/images/others/approach1.png"} 
-                                            alt="Play & Learn" 
+                                            alt={t("pages.arabiccourses.arabicKids.text_play_and_learn")} 
                                             className="img-fluid"
                                             style={{ maxWidth: '200px', width: '100%', height: 'auto' }}
                                         />
-                                        <h2 className="py-3 py-md-4">Play & Learn</h2>
+                                        <h2 className="py-3 py-md-4">{t("pages.arabiccourses.arabicKids.text_play_and_learn")}</h2>
                                     </div>
                                 </div>
                                 {/* Item 2 */}
@@ -107,11 +104,11 @@ function ArabicKids() {
                                     <div id={style.itemBox}>
                                         <img 
                                             src={"../assets/images/others/approach2.png"} 
-                                            alt="Stories That Inspire Imagination" 
+                                            alt={t("pages.arabiccourses.arabicKids.text_stories_that_inspire_imagination")} 
                                             className="img-fluid"
                                             style={{ maxWidth: '200px', width: '100%', height: 'auto' }}
                                         />
-                                        <h2 className="py-3 py-md-4">Stories That Inspire Imagination</h2>
+                                        <h2 className="py-3 py-md-4">{t("pages.arabiccourses.arabicKids.text_stories_that_inspire_imagination")}</h2>
                                     </div>
                                 </div>
                                 {/* Item 3 */}
@@ -119,11 +116,11 @@ function ArabicKids() {
                                     <div id={style.itemBox}>
                                         <img 
                                             src={"../assets/images/others/approach3.png"} 
-                                            alt="Interactive Visual Learning" 
+                                            alt={t("pages.arabiccourses.arabicKids.text_interactive_visual_learning")} 
                                             className="img-fluid"
                                             style={{ maxWidth: '200px', width: '100%', height: 'auto' }}
                                         />
-                                        <h2 className="py-3 py-md-4">Interactive Visual Learning</h2>
+                                        <h2 className="py-3 py-md-4">{t("pages.arabiccourses.arabicKids.text_interactive_visual_learning")}</h2>
                                     </div>
                                 </div>
                             </div>

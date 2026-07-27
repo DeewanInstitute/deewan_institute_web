@@ -2,8 +2,10 @@ import "bootstrap";
 import styles from "./jobaccordin.module.scss";
 import { useState } from "react";
 import { jobData } from "../../../data/jobData";
+import { useTranslation } from "react-i18next";
 
 function JobAccordin() {
+    const { t } = useTranslation();
   const [openItem, setOpenItem] = useState<number | null>(null);
 
   const handleAccordionToggle = (id: number) => {
@@ -14,17 +16,9 @@ function JobAccordin() {
     <div className="col-12 col-lg-6 d-flex align-items-center justify-content-center scroll-section slide-in-left">
       <div className={`w-100 ${styles.jobVacancies}`}>
         <h1 className={`text-center mb-4 ${styles.heading}`}>
-          Join Our Team <br /> at Deewan
-        </h1>
+          {t("components.navbar.navbar.title_join_our_team")}<br /> {t("components.careers.jobaccordin.text_at_deewan")}</h1>
         <p className={`mb-5 lead ${styles.intro}`}>
-          Discover exciting opportunities at Deewan. Situated in the heart of
-          Jabal Al-Weibdeh, Amman's cultural district, we host dynamic
-          multi-cultural events and teach Arabic studies to students from around
-          the world. Founded by teachers from diverse backgrounds, we seek
-          passionate professionals to join our mission of celebrating Arabic
-          language and culture. Explore our current openings below and submit
-          your application!
-        </p>
+          {t("components.careers.jobaccordin.text_discover_exciting_opportunities_at_deewan_situated")}</p>
 
         <div className="accordion">
           {jobData.map((job) => (
@@ -44,19 +38,19 @@ function JobAccordin() {
                 <div className="accordion-collapse collapse show">
                   <div className="accordion-body">
                     <div className={`${styles.description} mb-3`}>
-                      <span className={styles.bold}>Job Description:</span>
+                      <span className={styles.bold}>{t("components.careers.jobaccordin.text_job_description")}</span>
                       <p className={styles.textBlock}>{job.description}</p>
                     </div>
 
                     <div className={`${styles.requirements} mb-3`}>
-                      <span className={styles.bold}>Requirements:</span>
+                      <span className={styles.bold}>{t("components.careers.jobaccordin.text_requirements")}</span>
                       <p className={styles.textBlock}>{job.requirements}</p>
                     </div>
 
                     <div className={styles.details}>
-                      <span className={styles.bold}>Location:</span> {job.location}
+                      <span className={styles.bold}>{t("pages.calculator.calculator.text_location")}</span> {job.location}
                       <br />
-                      <span className={styles.bold}>Type:</span> {job.type}
+                      <span className={styles.bold}>{t("components.careers.jobaccordin.text_type")}</span> {job.type}
                     </div>
                   </div>
                 </div>

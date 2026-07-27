@@ -1,5 +1,6 @@
 import { useState, useRef, useCallback } from "react";
 import styles from "./careerform.module.scss";
+import { useTranslation } from "react-i18next";
 
 interface FormData {
   firstName: string;
@@ -22,6 +23,7 @@ interface FormErrors {
 type Status = "idle" | "submitting" | "success" | "error";
 
 function CareerForm() {
+    const { t } = useTranslation();
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
@@ -160,29 +162,25 @@ function CareerForm() {
       <div className={styles.card}>
 
         <div className={styles.card_header}>
-          <h2 className={styles.card_title}>Apply Now</h2>
+          <h2 className={styles.card_title}>{t("components.careers.careerform.text_apply_now")}</h2>
           <p className={styles.card_subtitle}>
-            Fill out the form and we'll be in touch.
-          </p>
+            {t("components.careers.careerform.text_fill_out_the_form_and_we_ll_be_in_touch")}</p>
         </div>
 
         {status === "submitting" && (
           <div className={`${styles.banner} ${styles.banner_info}`}>
             <span className={styles.spinner} />
-            Sending your application…
-          </div>
+            {t("components.careers.careerform.text_sending_your_application")}</div>
         )}
         {status === "success" && (
           <div className={`${styles.banner} ${styles.banner_success}`}>
             <span className={styles.banner_icon}>✓</span>
-            Application sent! We'll get back to you soon.
-          </div>
+            {t("components.careers.careerform.text_application_sent_we_ll_get_back_to_you_soon")}</div>
         )}
         {status === "error" && (
           <div className={`${styles.banner} ${styles.banner_error}`}>
             <span className={styles.banner_icon}>!</span>
-            Something went wrong. Please try again.
-          </div>
+            {t("components.careers.careerform.text_something_went_wrong_please_try_again")}</div>
         )}
 
         <form noValidate onSubmit={handleSubmit} className={styles.form}>
@@ -190,7 +188,7 @@ function CareerForm() {
           <div className={styles.row_two}>
             <div className={styles.field}>
               <label className={styles.label} htmlFor="firstName">
-                First Name <span className={styles.required}>*</span>
+                {t("components.careers.careerform.text_first_name")}<span className={styles.required}>*</span>
               </label>
               <input
                 className={fieldClass("firstName")}
@@ -200,7 +198,7 @@ function CareerForm() {
                 value={formData.firstName}
                 onChange={handleInputChange}
                 autoComplete="given-name"
-                placeholder="Mohammad"
+                placeholder={t("data.team.name_mohammad")}
               />
               {submitted && formErrors.firstName && (
                 <span className={styles.error_msg}>{formErrors.firstName}</span>
@@ -209,7 +207,7 @@ function CareerForm() {
 
             <div className={styles.field}>
               <label className={styles.label} htmlFor="lastName">
-                Last Name <span className={styles.required}>*</span>
+                {t("components.careers.careerform.text_last_name")}<span className={styles.required}>*</span>
               </label>
               <input
                 className={fieldClass("lastName")}
@@ -229,7 +227,7 @@ function CareerForm() {
 
           <div className={styles.field}>
             <label className={styles.label} htmlFor="email">
-              Email <span className={styles.required}>*</span>
+              {t("components.careers.careerform.text_email")}<span className={styles.required}>*</span>
             </label>
             <input
               className={fieldClass("email")}
@@ -248,7 +246,7 @@ function CareerForm() {
 
           <div className={styles.field}>
             <label className={styles.label} htmlFor="phoneNumber">
-              Phone Number <span className={styles.required}>*</span>
+              {t("components.careers.careerform.text_phone_number")}<span className={styles.required}>*</span>
             </label>
             <input
               className={fieldClass("phoneNumber")}
@@ -267,7 +265,7 @@ function CareerForm() {
 
           <div className={styles.field}>
             <label className={styles.label} htmlFor="position">
-              Position <span className={styles.required}>*</span>
+              {t("components.careers.careerform.text_position")}<span className={styles.required}>*</span>
             </label>
             <input
               className={fieldClass("position")}
@@ -286,8 +284,8 @@ function CareerForm() {
 
           <div className={styles.field}>
             <label className={styles.label}>
-              CV / Resume <span className={styles.required}>*</span>
-              <span className={styles.label_hint}> — PDF only</span>
+              {t("pages.internship.internshipform.label_cv_resume")}<span className={styles.required}>*</span>
+              <span className={styles.label_hint}> {t("components.careers.careerform.text_pdf_only")}</span>
             </label>
 
             {formData.cv ? (
@@ -301,7 +299,7 @@ function CareerForm() {
                   type="button"
                   className={styles.file_remove}
                   onClick={removeFile}
-                  aria-label="Remove file"
+                  aria-label={t("pages.internship.internshipform.aria_label_remove_file")}
                 >
                   ✕
                 </button>
@@ -316,14 +314,14 @@ function CareerForm() {
                 role="button"
                 tabIndex={0}
                 onKeyDown={(e) => e.key === "Enter" && fileInputRef.current?.click()}
-                aria-label="Upload CV"
+                aria-label={t("components.careers.careerform.aria_label_upload_cv")}
               >
                 <span className={styles.dropzone_icon}>⬆</span>
                 <p className={styles.dropzone_text}>
                   Drag & drop your PDF here, or{" "}
-                  <span className={styles.dropzone_link}>browse</span>
+                  <span className={styles.dropzone_link}>{t("pages.internship.internshipform.text_browse")}</span>
                 </p>
-                <p className={styles.dropzone_hint}>PDF up to 10 MB</p>
+                <p className={styles.dropzone_hint}>{t("pages.internship.internshipform.text_pdf_up_to_10_mb")}</p>
               </div>
             )}
 
@@ -350,8 +348,7 @@ function CareerForm() {
             {status === "submitting" ? (
               <>
                 <span className={styles.spinner} />
-                Submitting…
-              </>
+                {t("pages.internship.internshipform.text_submitting")}</>
             ) : (
               "Submit Application"
             )}

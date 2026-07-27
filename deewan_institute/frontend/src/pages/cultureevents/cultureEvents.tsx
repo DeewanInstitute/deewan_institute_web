@@ -10,26 +10,28 @@ import { events, SIGNUP_LINK } from "../../../data/cultureEvents.data";
 import type { EventMeta } from "../../../data/cultureEvents.data";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
+import { useTranslation } from "react-i18next";
 
 function EventMetaBlock({ meta }: { meta: EventMeta }) {
+    const { t } = useTranslation();
   return (
     <div className={styles.eventMeta}>
       <p>
-        <strong>Time:</strong> {meta.time}
+        <strong>{t("pages.cultureevents.cultureEvents.text_time")}</strong> {meta.time}
       </p>
       {meta.oneToOne && (
         <p>
-          <strong>One-to-One:</strong> {meta.oneToOne}
+          <strong>{t("pages.cultureevents.cultureEvents.text_one_to_one")}</strong> {meta.oneToOne}
         </p>
       )}
       {meta.group && (
         <p>
-          <strong>Group Session:</strong> {meta.group}
+          <strong>{t("pages.cultureevents.cultureEvents.text_group_session")}</strong> {meta.group}
         </p>
       )}
       {meta.cost && (
         <p>
-          <strong>Cost:</strong> {meta.cost}
+          <strong>{t("pages.cultureevents.cultureEvents.text_cost")}</strong> {meta.cost}
         </p>
       )}
     </div>
@@ -37,6 +39,7 @@ function EventMetaBlock({ meta }: { meta: EventMeta }) {
 }
 
 function CultureEvents() {
+    const { t } = useTranslation();
     useEffect(() => {
       document.title = "Cultural Events";
     }, []);
@@ -51,14 +54,11 @@ function CultureEvents() {
       {/* ── Banner ── */}
       <section className={`${styles.banner} scroll-section`}>
         <div className={styles.bannerContent}>
-          <span className={styles.bannerEyebrow}>Deewan Institute</span>
+          <span className={styles.bannerEyebrow}>{t("pages.cultureevents.cultureEvents.text_deewan_institute")}</span>
           <h1>
-            Experience Culture.
-            <br />
-            Connect Through Language.
-            <br />
-            Learn Together.
-          </h1>
+            {t("pages.cultureevents.cultureEvents.text_experience_culture")}<br />
+            {t("pages.cultureevents.cultureEvents.text_connect_through_language")}<br />
+            {t("pages.cultureevents.cultureEvents.text_learn_together")}</h1>
           <div className={styles.bannerRule} />
         </div>
       </section>
@@ -67,14 +67,9 @@ function CultureEvents() {
       <section className={`${styles.intro} scroll-section`}>
        <div className="row justify-content-center align-items-center g-5 flex-column flex-md-row">
          <div className="col-12 col-sm-10 col-xl-6 d-flex flex-column">
-            <span className={styles.introLabel}>Cultural Events</span>
+            <span className={styles.introLabel}>{t("pages.cultureevents.cultureEvents.text_cultural_events")}</span>
             <p className="lead">
-              At Deewan Institute, we invite students and guests to experience
-              the richness of Palestinian and Arab culture through engaging
-              daily events in our spacious workspace. Each activity offers a
-              relaxed and welcoming way to learn, connect, and celebrate culture
-              together.
-            </p>
+              {t("pages.cultureevents.cultureEvents.text_at_deewan_institute_we_invite_students_and_guests_")}</p>
           </div>
          <div className="col-12 col-sm-10 col-xl-6 d-flex justify-content-center">
             <img
@@ -93,21 +88,14 @@ function CultureEvents() {
             <img
               className={styles.livingImg}
               src="/assets/images/others/culture9.svg"
-              alt="A Living Cultural Space"
+              alt={t("pages.cultureevents.cultureEvents.text_a_living_cultural_space")}
             />
           </div>
           <div className="col-12 col-sm-10 col-xl-6 order-md-2 order-1">
-            <span className={styles.livingLabel}>Our Philosophy</span>
-            <h2>A Living Cultural Space</h2>
+            <span className={styles.livingLabel}>{t("pages.cultureevents.cultureEvents.text_our_philosophy")}</span>
+            <h2>{t("pages.cultureevents.cultureEvents.text_a_living_cultural_space")}</h2>
             <p className={`${styles.livingText} mt-4`}>
-              Our cultural events are designed to go beyond the classroom.
-              Through hands-on activities, creative workshops, and social
-              gatherings, participants explore language, traditions, and
-              contemporary culture in an interactive and friendly environment.
-              From artistic expression to shared meals and meaningful
-              conversations, every event encourages cultural exchange and
-              community building.
-            </p>
+              {t("pages.cultureevents.cultureEvents.text_our_cultural_events_are_designed_to_go_beyond_the_")}</p>
           </div>
         </div>
       </section>
@@ -147,8 +135,7 @@ function CultureEvents() {
                     rel="noreferrer"
                     className={`${styles.signUpBtn} ${styles[event.btnKey]} ${styles[event.accentKey]}`}
                   >
-                    Sign Up
-                  </a>
+                    {t("pages.cultureevents.cultureEvents.text_sign_up")}</a>
                 </div>
               </div>
 

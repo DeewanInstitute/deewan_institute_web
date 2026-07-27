@@ -10,8 +10,10 @@ import "bootstrap";
 import FloatingActionButton from "../../../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../../../components/floatingbutton/floatingactionbuttoninstitute";
 import HeroTitle from "../../../components/herotitle/herotitle";
+import { useTranslation } from "react-i18next";
 
 function Colloquial() {
+    const { t } = useTranslation();
   useEffect(() => {
     document.title = "Colloquial Levantine Arabic";
   }, []);
@@ -41,28 +43,18 @@ function Colloquial() {
           {/* Hero Title */}
           <HeroTitle
             subtitle="Colloquial Levantine Arabic"
-            title="Your Journey into Arabic Language and Culture Starts Here"
+            title={t("pages.arabiccourses.mixed.mixed.title_your_journey_into_arabic_language_and_culture_sta")}
             color="rgb(97 91 91)"
           />
 
           {/* What Is It? */}
           <section className={`${style.offer} scroll-section slide-in-left`}>
-            <h2>What Is It?</h2>
+            <h2>{t("pages.arabiccourses.msa.msa.text_what_is_it")}</h2>
             <hr className={style.offerDivider} />
             <p>
-              Learn the Arabic spoken in everyday life across Jordan, Palestine,
-              Lebanon, and Syria through our Colloquial Levantine Arabic course.
-              Designed for students who want to communicate naturally with
-              native speakers, this course focuses on the language used in daily
-              conversations, social interactions, and real-life situations
-              throughout the Levant region
-            </p>
+              {t("pages.arabiccourses.colloquial.colloquial.text_learn_the_arabic_spoken_in_everyday_life_across_jo")}</p>
             <p>
-              Whether you are living, working, studying, or traveling in the
-              region, this course provides the linguistic and cultural tools
-              needed to communicate effectively and understand the rich
-              diversity of Levantine culture.
-            </p>
+              {t("pages.arabiccourses.colloquial.colloquial.text_whether_you_are_living_working_studying_or_traveli")}</p>
           </section>
         </main>
 
@@ -82,63 +74,56 @@ function Colloquial() {
       <section className={style.skills}>
         <div className={style.skillsInner}>
           <h2 className="scroll-section slide-in-left">
-            Skills You'll Develop
-          </h2>
+            {t("pages.arabiccourses.msa.msa.text_skills_you_ll_develop")}</h2>
           <hr className={style.skillsDivider} />
           <p
             className={`${style.skillsSubtitle} scroll-section slide-in-right`}
           >
-            Students will improve their speaking and listening skills while
-            learning everyday vocabulary, common expressions, and pronunciation
-            used throughout the Levant. The course focuses on practical
-            communication through conversations and interactive activities,
-            helping students build confidence in real-life situations and
-            communicate naturally with Arabic speakers.
-          </p>
+            {t("pages.arabiccourses.colloquial.colloquial.text_students_will_improve_their_speaking_and_listening")}</p>
 
           <div className={`row justify-content-center ${style.skillsCards}`}>
 <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section slide-in-left">
               <div className={style.skillsIcon}>
                 <img
                   src="/assets/images/icons/msa-icon.png"
-                  alt="Reading"
+                  alt={t("pages.arabiccourses.arabicKids.text_reading")}
                   className={style.skillsImg}
                 />
               </div>
-              <p>Reading</p>
+              <p>{t("pages.arabiccourses.arabicKids.text_reading")}</p>
             </div>
 
 <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section slide-in-left">
               <div className={style.skillsIcon}>
                 <img
                   src="/assets/images/icons/msa-icon2.png"
-                  alt="Writing"
+                  alt={t("pages.arabiccourses.arabicKids.text_writing")}
                   className={style.skillsImg}
                 />
               </div>
-              <p>Writing</p>
+              <p>{t("pages.arabiccourses.arabicKids.text_writing")}</p>
             </div>
 
 <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section slide-in-right">
               <div className={style.skillsIcon}>
                 <img
                   src="/assets/images/icons/msa-icon3.png"
-                  alt="Speaking"
+                  alt={t("pages.arabiccourses.arabicKids.text_speaking")}
                   className={style.skillsImg}
                 />
               </div>
-              <p>Speaking</p>
+              <p>{t("pages.arabiccourses.arabicKids.text_speaking")}</p>
             </div>
 
 <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section slide-in-right">
               <div className={style.skillsIcon}>
                 <img
                   src="/assets/images/icons/msa-icon4.png"
-                  alt="Listening"
+                  alt={t("pages.arabiccourses.arabicKids.text_listening")}
                   className={style.skillsImg}
                 />
               </div>
-              <p>Listening</p>
+              <p>{t("pages.arabiccourses.arabicKids.text_listening")}</p>
             </div>
           </div>
         </div>
@@ -147,7 +132,7 @@ function Colloquial() {
       {/* Course Fees */}
       <div className={style.colloquial}>
 <section className={`${style.fees} scroll-section slide-in-left`}>
-          <h2>Course Fees</h2>
+          <h2>{t("pages.arabiccourses.msa.msa.text_course_fees")}</h2>
           <hr className={style.feesDivider} />
 
           <div className={`row align-items-center ${style.feesContent}`}>
@@ -163,25 +148,22 @@ function Colloquial() {
             {/* Right: description + CTA */}
 <div className={`col-12 col-md-6 scroll-section slide-in-right ${style.feesText}`}>
               <p className={style.feesLead}>
-                Find the cost of your Arabic program in just a few clicks.
-              </p>
+                {t("pages.arabiccourses.msa.msa.text_find_the_cost_of_your_arabic_program_in_just_a_few")}</p>
               <ul className={style.feesList}>
-                <li>Select your course.</li>
-                <li>Choose your study duration.</li>
-                <li>View your estimated fees instantly.</li>
+                <li>{t("pages.arabiccourses.mixed.mixed.text_select_your_course")}</li>
+                <li>{t("pages.arabiccourses.msa.msa.text_choose_your_study_duration")}</li>
+                <li>{t("pages.arabiccourses.msa.msa.text_view_your_estimated_fees_instantly")}</li>
               </ul>
               <button
                 className={style.feesBtn}
                 onClick={() => navigate("/calculator")}
               >
-                Arabic Calculator Price
-              </button>
+                {t("pages.arabiccourses.msa.msa.text_arabic_calculator_price")}</button>
               <button
                 className={style.feesBtn}
                 onClick={() => window.open("https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform")}
               >
-                Sign Up
-              </button>
+                {t("pages.cultureevents.cultureEvents.text_sign_up")}</button>
             </div>
           </div>
         </section>

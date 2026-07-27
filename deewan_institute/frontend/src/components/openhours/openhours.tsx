@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import style from "./openhours.module.scss";
 import "bootstrap";
+import { useTranslation } from "react-i18next";
 
 interface OpenHoursProps {
   backgroundColor: string;
@@ -8,6 +9,7 @@ interface OpenHoursProps {
 }
 
 function OpenHours({ data }: { data: OpenHoursProps }) {
+    const { t } = useTranslation();
   return (
     <Fragment>
       <section
@@ -21,46 +23,43 @@ function OpenHours({ data }: { data: OpenHoursProps }) {
       >
         <div className="container">
           <div className={`${style.title} my-5`}>
-            <h2 className={style.sectionTitle}>Opening Hours</h2>
+            <h2 className={style.sectionTitle}>{t("pages.contact.contact.text_opening_hours")}</h2>
           </div>
 
           <div className="row flex-wrap justify-content-center align-items-start g-3 mt-2">
             {/* Office Hours */}
             <div className="col-12 col-md-6 col-lg-4">
               <div className={style.borderRight}>
-                <h3 className="fw-bold">Office Hours</h3>
+                <h3 className="fw-bold">{t("pages.contact.contact.text_office_hours")}</h3>
                 <ul>
-                  <li>Sun - Thurs: 9:00 AM - 20:00 PM</li>
+                  <li>{t("pages.contact.contact.text_sun_thurs_9_00_am_20_00_pm")}</li>
                 </ul>
                 <span className={style.italic}>
-                  Come visit us—we’d love to see you!
-                </span>
+                  {t("pages.contact.contact.text_come_visit_us_we_d_love_to_see_you")}</span>
               </div>
             </div>
 
             {/* Class Hours */}
             <div className="col-12 col-md-6 col-lg-4">
               <div className={style.borderRight}>
-                <h3 className="fw-bold">Class Hours</h3>
+                <h3 className="fw-bold">{t("pages.contact.contact.text_class_hours")}</h3>
                 <ul>
-                  <li>Sun - Thurs: 9:00 AM - 20:00 PM</li>
+                  <li>{t("pages.contact.contact.text_sun_thurs_9_00_am_20_00_pm")}</li>
                 </ul>
                 <span className={style.italic}>
-                  For Saturday, please contact us.
-                </span>
+                  {t("pages.contact.contact.text_for_saturday_please_contact_us")}</span>
               </div>
             </div>
 
             {/* Workspace */}
             <div className="col-12 col-md-6 col-lg-4">
               <div className={style.borderRight}>
-                <h3 className="fw-bold">Workspace</h3>
+                <h3 className="fw-bold">{t("pages.contact.contact.text_workspace")}</h3>
                 <ul>
-                  <li>Sun - Thurs: 9:00 AM - 20:00 PM</li>
+                  <li>{t("pages.contact.contact.text_sun_thurs_9_00_am_20_00_pm")}</li>
                 </ul>
                 <span className={style.italic}>
-                  It is provided free of charge to Deewan students.
-                </span>
+                  {t("pages.contact.contact.text_it_is_provided_free_of_charge_to_deewan_students")}</span>
               </div>
             </div>
           </div>

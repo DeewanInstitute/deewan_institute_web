@@ -1,22 +1,20 @@
 import {Link} from "react-router"; 
 import "bootstrap"; 
 import style from "./courses.module.scss"
+import { useTranslation } from "react-i18next";
+
 function Courses() {
+    const { t } = useTranslation();
   return (
     <section className="scroll-section" id={style.courses}>
       <div
         className={`${style.title} mx-auto px-5 scroll-section slide-in-left`}
       >
-        <h1>Arabic Programs</h1>
+        <h1>{t("components.courses.courses.text_arabic_programs")}</h1>
       </div>
       <div className="mx-auto text-center my-5 scroll-section" id={style.para}>
         <p>
-          At Deewan Institute, we proudly offer immersive programs in Arabic
-          (Ammiyeh and FusHa), led by native speakers in vibrant Amman. Check
-          out our diverse course offerings today and discover how our flexible,
-          culturally enriched programs make Arabic mastery accessible and
-          engaging for learners worldwide.
-        </p>
+          {t("components.courses.courses.text_at_deewan_institute_we_proudly_offer_immersive_pro")}</p>
       </div>
       <div className="d-flex flex-row flex-wrap gap-4 justify-content-center scroll-section slide-in-right" id={style.coursesContainer}>
         {/* <!-- First Course --> */}
@@ -26,7 +24,7 @@ function Courses() {
               id={style.image}
               src={"../assets/images/background/levantine.svg"}
             />
-            <span>Colloquial Levantine Arabic</span>
+            <span>{t("pages.arabiccourses.colloquial.colloquial.title_colloquial_levantine_arabic")}</span>
           </div>
           <div
             className={`${style.back} d-flex flex-column justify-content-center`}
@@ -36,23 +34,20 @@ function Courses() {
               src={"../assets/images/background/levantine.svg"}
             />
             <p className="my-3" id={style.para}>
-              Colloquial Levantine Arabic
-            </p>
+              {t("pages.arabiccourses.colloquial.colloquial.title_colloquial_levantine_arabic")}</p>
             <Link
               id={style.btn}
               className="btn rounded-pill text-decoration-none text-center text-white"
               to="/arabic-courses"
             >
-              View Course
-            </Link>
+              {t("components.courses.courses.text_view_course")}</Link>
             <a
               id={style.btn}
               className="btn rounded-pill text-decoration-none text-center text-white"
               href="https://docs.google.com/forms/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform"
               target="_blank"
             >
-              Join Us!
-            </a>
+              {t("components.courses.courses.text_join_us")}</a>
           </div>
         </div>
         {/* <!-- Second Course --> */}
@@ -62,7 +57,7 @@ function Courses() {
               id={style.image}
               src={"../assets/images/background/modern.svg"}
             />
-            <span>Modern Standard Arabic (MSA)</span>
+            <span>{t("pages.arabiccourses.msa.msa.title_modern_standard_arabic_msa")}</span>
           </div>
           <div
             className={`${style.back} d-flex flex-column justify-content-center`}
@@ -72,23 +67,20 @@ function Courses() {
               src={"../assets/images/background/modern.svg"}
             />
             <p className="my-3" id={style.para}>
-              Modern Standard Arabic (MSA)
-            </p>
+              {t("pages.arabiccourses.msa.msa.title_modern_standard_arabic_msa")}</p>
             <Link
               id={style.btn}
               className="btn rounded-pill text-decoration-none text-center text-white"
               to="/arabic-courses"
             >
-              View Course
-            </Link>
+              {t("components.courses.courses.text_view_course")}</Link>
             <a
               id={style.btn}
               className="btn rounded-pill text-decoration-none text-center text-white"
               href="https://docs.google.com/forms/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform"
               target="_blank"
             >
-              Join Us!
-            </a>
+              {t("components.courses.courses.text_join_us")}</a>
           </div>
         </div>
         {/* <!-- Third Course  --> */}
@@ -98,7 +90,7 @@ function Courses() {
               id={style.image}
               src={"../assets/images/background/hopOnHopOff.svg"}
             />
-            <span>Hop On Hop Off Arabic</span>
+            <span>{t("components.courses.courses.text_hop_on_hop_off_arabic")}</span>
           </div>
           <div
             className={`${style.back} d-flex flex-column justify-content-center`}
@@ -108,23 +100,20 @@ function Courses() {
               src={"../assets/images/background/hopOnHopOff.svg"}
             />
             <p className="my-3" id={style.para}>
-              Hop On Hop Off Arabic
-            </p>
+              {t("components.courses.courses.text_hop_on_hop_off_arabic")}</p>
             <Link
               id={style.btn}
               className="btn rounded-pill text-decoration-none text-center text-white"
               to="/arabic-courses"
             >
-              View Course
-            </Link>
+              {t("components.courses.courses.text_view_course")}</Link>
             <a
               id={style.btn}
               className="btn rounded-pill text-decoration-none text-center text-white"
               href="https://docs.google.com/forms/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform"
               target="_blank"
             >
-              Join Us!
-            </a>
+              {t("components.courses.courses.text_join_us")}</a>
           </div>
         </div>
       </div>

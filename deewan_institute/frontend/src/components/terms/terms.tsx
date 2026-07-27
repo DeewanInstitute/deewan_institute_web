@@ -1,5 +1,6 @@
 import { useState, type JSX } from "react";
 import styles from "./terms.module.scss";
+import { useTranslation } from "react-i18next";
 
 interface Term {
   heading: string;
@@ -30,6 +31,7 @@ const defaultTerms: Term[] = [
 ];
 
 function TermsModal({ onAccept, onDecline }: TermsModalProps): JSX.Element {
+    const { t } = useTranslation();
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
   return (
@@ -37,10 +39,9 @@ function TermsModal({ onAccept, onDecline }: TermsModalProps): JSX.Element {
       <div className={styles.card}>
         {/* Header */}
         <div className={styles.header}>
-          <h2 className={styles.title}>Terms & Conditions</h2>
+          <h2 className={styles.title}>{t("components.terms.terms.text_terms_and_conditions")}</h2>
           <p className={styles.description}>
-            Please read carefully before proceeding.
-          </p>
+            {t("components.terms.terms.text_please_read_carefully_before_proceeding")}</p>
         </div>
 
         {/* Terms Box */}
@@ -64,8 +65,7 @@ function TermsModal({ onAccept, onDecline }: TermsModalProps): JSX.Element {
             className={styles.checkbox}
           />
           <span className={styles.checkboxText}>
-            I have read and understood the terms and conditions.
-          </span>
+            {t("components.terms.terms.text_i_have_read_and_understood_the_terms_and_condition")}</span>
         </label>
 
         {/* Helper Text */}
@@ -78,15 +78,13 @@ function TermsModal({ onAccept, onDecline }: TermsModalProps): JSX.Element {
         {/* Buttons */}
         <div className={styles.buttonGroup}>
           <button className={styles.btnDecline} onClick={onDecline}>
-            I Decline
-          </button>
+            {t("components.terms.terms.text_i_decline")}</button>
           <button
             className={styles.btnAccept}
             onClick={onAccept}
             disabled={!isChecked}
           >
-            I Accept
-          </button>
+            {t("components.terms.terms.text_i_accept")}</button>
         </div>
       </div>
     </div>

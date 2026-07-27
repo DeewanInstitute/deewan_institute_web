@@ -9,8 +9,10 @@ import "bootstrap";
 import FloatingActionButton from "../../../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../../../components/floatingbutton/floatingactionbuttoninstitute";
 import HeroTitle from "../../../components/herotitle/herotitle";
+import { useTranslation } from "react-i18next";
 
 function ArabicJournalism() {
+    const { t } = useTranslation();
   useEffect(() => {
     document.title = "Arabic Journalism";
   }, []);
@@ -40,7 +42,7 @@ function ArabicJournalism() {
           {/* Hero Title */}
 <HeroTitle
   subtitle="Arabic Journalism"
-  title="Explore Media, Reporting, and Storytelling in Arabic"
+  title={t("pages.arabiccourses.arabicjournalism.arabicjournalism.title_explore_media_reporting_and_storytelling_in_arabi")}
   color= "#BB8939"
 />
 
@@ -55,31 +57,14 @@ function ArabicJournalism() {
 
           {/* What We Offer */}
           <section className={`${style.offer} scroll-section`}>
-            <h2>What We Offer</h2>
+            <h2>{t("pages.arabiccourses.arabicjournalism.arabicjournalism.text_what_we_offer")}</h2>
             <hr className={style.offerDivider} />
             <p>
-              Develop your Arabic language skills through the world of media,
-              reporting, and storytelling. Our Arabic Journalism course introduces
-              students to the foundations of journalistic writing, news reporting,
-              and media communication in Arabic.
-            </p>
+              {t("pages.arabiccourses.arabicjournalism.arabicjournalism.text_develop_your_arabic_language_skills_through_the_wo")}</p>
             <p>
-              Designed for advanced learners and aspiring media professionals, the
-              course explores key aspects of journalism including news gathering,
-              interviewing, feature writing, editing, and ethical reporting
-              practices within the Arab media landscape. Students will engage with
-              authentic Arabic media sources while building confidence in reading,
-              writing, and discussing current events in Arabic.
-            </p>
+              {t("pages.arabiccourses.arabicjournalism.arabicjournalism.text_designed_for_advanced_learners_and_aspiring_media_")}</p>
             <p>
-              Through practical exercises, writing assignments, and guided
-              instruction from experienced teachers, participants will strengthen
-              both their linguistic abilities and analytical thinking skills.
-              Whether you are pursuing a career in journalism, media studies,
-              international relations, or simply seeking a deeper understanding of
-              Arab media and society, this course offers an immersive and engaging
-              learning experience.
-            </p>
+              {t("pages.arabiccourses.arabicjournalism.arabicjournalism.text_through_practical_exercises_writing_assignments_an")}</p>
           </section>
 
         </main>
@@ -89,7 +74,7 @@ function ArabicJournalism() {
             window.open("https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform");
           }}
         >
-          Sign Up <i className="fas fa-arrow-right"></i>  
+          {t("pages.cultureevents.cultureEvents.text_sign_up")}<i className="fas fa-arrow-right"></i>  
         </button>
       </div>
 

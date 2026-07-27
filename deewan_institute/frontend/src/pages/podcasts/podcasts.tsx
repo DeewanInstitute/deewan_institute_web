@@ -7,8 +7,10 @@ import styles from "./podcasts.module.scss";
 import { seasons, seasonCards } from "../../../data/podcasts.data";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
+import { useTranslation } from "react-i18next";
 
 function Podcasts() {
+    const { t } = useTranslation();
     useEffect(() => {
       document.title = "Podcasts";
     }, []);
@@ -61,8 +63,7 @@ function Podcasts() {
                         Season {card.season}
                       </p>
                       <p className={styles.seasonCardHost}>
-                        Hosted by:
-                        <br />
+                        {t("pages.podcasts.podcasts.text_hosted_by")}<br />
                         {card.host}
                       </p>
                     </div>
@@ -82,31 +83,15 @@ function Podcasts() {
             <div className="col-md-6">
               <div className={styles.textContent}>
                 <h3 className={styles.contentSubtitle}>
-                  Deewan Arabic Podcasts
-                </h3>
+                  {t("pages.podcasts.podcasts.text_deewan_arabic_podcasts")}</h3>
                 <h1 className={styles.contentTitle}>
-                  Learn Levantine Arabic Through Real Conversations
-                </h1>
+                  {t("pages.podcasts.podcasts.text_learn_levantine_arabic_through_real_conversations")}</h1>
                 <p>
-                  This podcast is intended for Levantine colloquial Arabic
-                  learners at all levels who wish to increase their vocabulary
-                  and Arabic understanding while also honing their speaking and
-                  listening abilities.
-                </p>
+                  {t("pages.podcasts.podcasts.text_this_podcast_is_intended_for_levantine_colloquial_")}</p>
                 <p>
-                  The Deewan team conducts interviews with Arabic students and
-                  residents of Amman and the Levant region for these podcast
-                  episodes in order to discuss various subjects that are
-                  relevant to Arabic language learners as well as the individual
-                  experiences of those they speak with.
-                </p>
+                  {t("pages.podcasts.podcasts.text_the_deewan_team_conducts_interviews_with_arabic_st")}</p>
                 <p>
-                  Every season of our podcast is accompanied by a book, which we
-                  consider to be an essential component of our approach to
-                  teaching languages. The podcast book, the first of its kind,
-                  includes written assignments related to each episode's audio
-                  content as well as a glossary of words from each episode.
-                </p>
+                  {t("pages.podcasts.podcasts.text_every_season_of_our_podcast_is_accompanied_by_a_bo")}</p>
               </div>
             </div>
 

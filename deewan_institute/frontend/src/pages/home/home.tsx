@@ -13,8 +13,10 @@ import "../../style/animation.scss";
 import style from "./home.module.scss";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
+import { useTranslation } from "react-i18next";
 
 function Home() {
+    const { t } = useTranslation();
   const [showTerms, setShowTerms] = useState<boolean>(false);
 
   useEffect(() => {
@@ -116,21 +118,15 @@ function Home() {
                     id={style.firstContainer}
                   >
                     <h2 className={`text-white ${style.h2}`}>
-                      Native Arabic, Global Echoes: Ignite Cultures in Amman's
-                      Heart.
-                    </h2>
+                      {t("pages.home.home.text_native_arabic_global_echoes_ignite_cultures_in_amm")}</h2>
                     <p className={style.para}>
-                      Experience the authentic rhythm of Arabic language and
-                      culture through immersive lessons with native speakers in
-                      the vibrant heart of Amman.
-                    </p>
+                      {t("pages.home.home.text_experience_the_authentic_rhythm_of_arabic_language")}</p>
                     <Link
                       className="btn rounded-pill text-center"
                       id={style.a}
                       to="/about"
                     >
-                      Learn More
-                    </Link>
+                      {t("pages.home.home.text_learn_more")}</Link>
                   </div>
                 </div>
               </div>
@@ -209,26 +205,15 @@ function Home() {
             <h2
               className={`${style.featuretteHeading} scroll-section slide-in-left`}
             >
-              About Us
-            </h2>
+              {t("pages.home.home.text_about_us")}</h2>
             <p className="lead scroll-section slide-in-left" id={style.para}>
-              Deewan Institute, inspired by the Arabic word "Deewan"—a gathering
-              place for families, royal courts, poetry like Mahmoud Darwish's,
-              thinkers, and travelers—opened in Amman in 2017 to teach global
-              students. Today, it's a vibrant language center, co-working space,
-              and event hub for freelancers and students, hosting cultural
-              evenings and weekends while offering rentable rooms for
-              conferences. Dive into authentic Arabic (Ammiyeh and FusHa) and
-              English with native-speaker classes—one-to-one, two-to-one, or
-              groups—and join our community by checking out our courses!
-            </p>
+              {t("pages.home.home.text_deewan_institute_inspired_by_the_arabic_word_deewa")}</p>
             <Link
               className="button rounded-pill text-decoration-none scroll-section slide-in-left"
               id={style.button}
               to="/arabic-courses"
             >
-              Explore Our Courses
-            </Link>
+              {t("pages.home.home.text_explore_our_courses")}</Link>
           </div>
           <div className="col-lg-5 col-lg-8 col-xl-6 col-xl-4  order-md-1 d-flex mt-2">
             <img
@@ -250,24 +235,20 @@ function Home() {
             <h2
               className={`${style.featuretteHeading} text-white scroll-section slide-in-right`}
             >
-              The "Habibi" Challenge Is Live 👀
-            </h2>
+              {t("pages.home.home.text_the_habibi_challenge_is_live")}</h2>
             <p
               className="lead scroll-section slide-in-right text-white"
               id={style.para}
             >
-              Find "Habibi is Cool" in your city and get rewarded!<br></br>•
-              Take a selfie with the sticker → 10% discount <br></br>• Place 10
-              stickers in your city → 10% discount<br></br>
-              Join the movement and help spread Arabic world wide.<br></br>
+              {t("pages.home.home.text_find_habibi_is_cool_in_your_city_and_get_rewarded")}<br></br>{t("pages.home.home.text_take_a_selfie_with_the_sticker_10_discount")}<br></br>{t("pages.home.home.text_place_10_stickers_in_your_city_10_discount")}<br></br>
+              {t("pages.home.home.text_join_the_movement_and_help_spread_arabic_world_wid")}<br></br>
             </p>
             <a
               className="button rounded-pill text-decoration-none scroll-section slide-in-right"
               id={style.whiteButton}
               href="mailto:arabic@deewaninstitute.com?subject=Habibi%20Selfie"
             >
-              Email Us Your Selfie!
-            </a>
+              {t("pages.home.home.text_email_us_your_selfie")}</a>
           </div>
 
           {/* Image slider column — order-md-2 so it sits RIGHT on desktop */}
@@ -354,7 +335,7 @@ function Home() {
       <section className={`scroll-section py-3 ${style.contact}`}>
         <div className="row mx-5 justify-content-center">
           <div className="col-8 d-flex flex-column flex-end">
-            <h1>Join Us Today and Start Your Language Journey!</h1>
+            <h1>{t("pages.home.home.text_join_us_today_and_start_your_language_journey")}</h1>
           </div>
           <div className="col-2 d-flex flex-column justify-items-center justify-content-center">
             <a
@@ -362,8 +343,7 @@ function Home() {
               className="bg-white text-black text-center"
               target="_blank"
             >
-              Book With Us!
-            </a>
+              {t("pages.home.home.text_book_with_us")}</a>
           </div>
         </div>
       </section>

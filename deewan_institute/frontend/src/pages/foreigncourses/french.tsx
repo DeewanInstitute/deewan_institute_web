@@ -25,7 +25,7 @@ function French() {
             {/* Navbar */}
             <NavBar />
             {/* Main Layout */}
-            <ForeignLayout data={frenchData} />
+            <ForeignLayout data={frenchData} translationRoot="content.foreign.french" />
             {/* Footer */}
             <Footer />
         </Fragment>

@@ -1,7 +1,9 @@
 import { useState } from "react";
 import styles from "./FloatingActionButton.module.scss";
+import { useTranslation } from "react-i18next";
 
 const FloatingActionButton = () => {
+    const { t } = useTranslation();
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -10,14 +12,13 @@ const FloatingActionButton = () => {
       className={styles.fab}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      aria-label="Email us at arabic@deewaninstitute.com"
+      aria-label={t("components.floatingbutton.floatingactionbutton.aria_label_email_us_at_arabic_deewaninstitute_com")}
     >
       {/* <span className={`${styles.label} ${hovered ? styles.labelVisible : ""}`}>
         راسلنا
       </span> */}
       <span className={`${styles.label} ${hovered ? styles.labelVisible : ""}`}>
-        Contact Us!
-      </span>
+        {t("components.floatingbutton.floatingactionbutton.text_contact_us")}</span>
 
       <span className={styles.iconWrap}>
         <svg

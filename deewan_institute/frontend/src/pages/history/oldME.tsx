@@ -22,7 +22,7 @@ function OldME() {
             {/* NavBar */}
             <NavBar />
             {/* Main Layout */}
-            <HistoryLayout data={oldHistory} />
+            <HistoryLayout data={oldHistory} translationRoot="content.history.ancient" />
             {/* Footer */}
             <Footer />
         </Fragment>

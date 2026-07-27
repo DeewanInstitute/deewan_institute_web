@@ -25,6 +25,7 @@ import {
 import Banner from "../../components/banner/banner";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
+import { useTranslation } from "react-i18next";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -143,6 +144,7 @@ function FileUpload({
   onFile: (f: File | null) => void;
   accept?: string;
 }) {
+    const { t } = useTranslation();
   const ref = useRef<HTMLInputElement>(null);
   const [dragging, setDragging] = useState(false);
 
@@ -165,7 +167,7 @@ function FileUpload({
           <button
             type="button"
             className={styles.file_remove}
-            aria-label="Remove file"
+            aria-label={t("pages.internship.internshipform.aria_label_remove_file")}
             onClick={() => {
               onFile(null);
               if (ref.current) ref.current.value = "";
@@ -195,9 +197,9 @@ function FileUpload({
         >
           <span className={styles.dropzone_icon}>↑</span>
           <p className={styles.dropzone_text}>
-            Drag & drop or <span className={styles.dropzone_link}>browse</span>
+            {t("pages.internship.internshipform.text_drag_and_drop_or")}<span className={styles.dropzone_link}>{t("pages.internship.internshipform.text_browse")}</span>
           </p>
-          <p className={styles.dropzone_hint}>PDF up to 10 MB</p>
+          <p className={styles.dropzone_hint}>{t("pages.internship.internshipform.text_pdf_up_to_10_mb")}</p>
         </div>
       )}
       <input
@@ -230,6 +232,7 @@ function AccordionSection({
   onToggle: () => void;
   children: React.ReactNode;
 }) {
+    const { t } = useTranslation();
   const { title, arabicNumeral, description } = SECTIONS[index];
 
   return (
@@ -255,7 +258,7 @@ function AccordionSection({
         <div className={styles.section_right}>
           {complete && !open && <span className={styles.done_badge}>✓</span>}
           {locked && (
-            <span className={styles.lock_icon} aria-label="Locked">
+            <span className={styles.lock_icon} aria-label={t("pages.internship.internshipform.aria_label_locked")}>
               🔒
             </span>
           )}
@@ -279,6 +282,7 @@ function ContinueBtn({
   disabled: boolean;
   onClick: () => void;
 }) {
+    const { t } = useTranslation();
   return (
     <div className={styles.continue_row}>
       <button
@@ -287,7 +291,7 @@ function ContinueBtn({
         disabled={disabled}
         onClick={onClick}
       >
-        Continue <span className={styles.arrow}>→</span>
+        {t("pages.internship.internshipform.text_continue")}<span className={styles.arrow}>→</span>
       </button>
     </div>
   );
@@ -295,6 +299,7 @@ function ContinueBtn({
 //Success Modal
 
 function SuccessModal() {
+    const { t } = useTranslation();
   const [secondsLeft, setSecondsLeft] = useState(8);
 
   useEffect(() => {
@@ -340,13 +345,10 @@ function SuccessModal() {
             />
           </svg>
         </div>
-        <p className={styles.success_eyebrow}>Application Received</p>
-        <h2 className={styles.success_title}>شكراً لاهتمامك</h2>
+        <p className={styles.success_eyebrow}>{t("pages.internship.internshipform.text_application_received")}</p>
+        <h2 className={styles.success_title}>{t("pages.internship.internshipform.text_3")}</h2>
         <p className={styles.success_text}>
-          Thank you for applying to the Deewan Institute Internship Program. We
-          appreciate your interest and will review your application carefully.
-          If shortlisted, we will contact you by email or WhatsApp.
-        </p>
+          {t("pages.internship.internshipform.text_thank_you_for_applying_to_the_deewan_institute_int")}</p>
         <div className={styles.countdown_wrap}>
           <svg className={styles.countdown_ring} viewBox="0 0 48 48">
             <circle cx="24" cy="24" r="20" className={styles.countdown_track} />
@@ -369,6 +371,7 @@ function SuccessModal() {
 // Main form
 
 function InternshipForm() {
+    const { t } = useTranslation();
   const [openSection, setOpenSection] = useState<number>(0);
   const [status, setStatus] = useState<Status>("idle");
   const [form, setForm] = useState<InternshipFormState>(DEFAULT_FORM_STATE);
@@ -445,9 +448,8 @@ function InternshipForm() {
 
       <Banner
         data={{
-          title: "Internship Application",
-          description:
-            "Complete each section to unlock the next. We read every application carefully!.",
+          title: t("pages.internship.internshipform.title_internship_application"),
+          description: t("pages.internship.internshipform.description_complete_each_section_to_unlock_the_next_we"),
           backgroundImg: "../../assets/images/banner/intern_banner.JPG",
         }}
       />
@@ -463,9 +465,7 @@ function InternshipForm() {
           </div>
           <div>
             <p>
-              Please complete the internship form carefully and make sure all
-              required information is accurate before submitting.
-            </p>
+              {t("pages.internship.internshipform.text_please_complete_the_internship_form_carefully_and_")}</p>
 
             <p>
               If you have any questions, please contact us at{" "}
@@ -484,8 +484,7 @@ function InternshipForm() {
 
         {status === "error" && (
           <div className={styles.error_banner}>
-            Something went wrong — please try again.
-          </div>
+            {t("pages.internship.internshipform.text_something_went_wrong_please_try_again")}</div>
         )}
 
         <div className={styles.accordion}>
@@ -498,17 +497,17 @@ function InternshipForm() {
             onToggle={() => handleToggle(0)}
           >
             <div className={styles.grid_2}>
-              <Field label="Full Name" required>
+              <Field label={t("pages.internship.internshipform.label_full_name")} required>
                 <input
                   className={styles.input}
                   type="text"
                   value={p.fullName}
                   autoComplete="name"
-                  placeholder="Your full name here"
+                  placeholder={t("pages.internship.internshipform.placeholder_your_full_name_here")}
                   onChange={(e) => setPersonal({ fullName: e.target.value })}
                 />
               </Field>
-              <Field label="Gender">
+              <Field label={t("pages.internship.internshipform.label_gender")}>
                 <RadioGroup
                   name="gender"
                   options={GENDER_OPTIONS}
@@ -518,7 +517,7 @@ function InternshipForm() {
               </Field>
             </div>
             <div className={styles.grid_2}>
-              <Field label="Date of Birth" required>
+              <Field label={t("pages.internship.internshipform.label_date_of_birth")} required>
                 <input
                   className={styles.input}
                   type="date"
@@ -526,28 +525,28 @@ function InternshipForm() {
                   onChange={(e) => setPersonal({ dateOfBirth: e.target.value })}
                 />
               </Field>
-              <Field label="Nationality" required>
+              <Field label={t("pages.internship.internshipform.label_nationality")} required>
                 <input
                   className={styles.input}
                   type="text"
                   value={p.nationality}
-                  placeholder="e.g. German"
+                  placeholder={t("pages.internship.internshipform.placeholder_e_g_german")}
                   onChange={(e) => setPersonal({ nationality: e.target.value })}
                 />
               </Field>
             </div>
-            <Field label="Current City & Country of Residence" required>
+            <Field label={t("pages.internship.internshipform.label_current_city_and_country_of_residence")} required>
               <input
                 className={styles.input}
                 type="text"
                 value={p.residence}
-                placeholder="e.g. Berlin, Germany"
+                placeholder={t("pages.internship.internshipform.placeholder_e_g_berlin_germany")}
                 onChange={(e) => setPersonal({ residence: e.target.value })}
               />
             </Field>
             <div className={styles.grid_2}>
               <Field
-                label="Email Address"
+                label={t("pages.internship.internshipform.label_email_address")}
                 required
                 error={
                   p.email && !isValidEmail(p.email)
@@ -565,7 +564,7 @@ function InternshipForm() {
                 />
               </Field>
               <Field
-                label="Phone / WhatsApp"
+                label={t("pages.internship.internshipform.label_phone_whatsapp")}
                 required
                 error={
                   p.phone && !isValidPhone(p.phone)
@@ -578,34 +577,34 @@ function InternshipForm() {
                   type="tel"
                   value={p.phone}
                   autoComplete="tel"
-                  placeholder="+962 790 0000000"
+                  placeholder={t("pages.internship.internshipform.placeholder_962_790_0000000")}
                   onChange={(e) => setPersonal({ phone: e.target.value })}
                 />
               </Field>
             </div>
             <div className={styles.grid_2}>
-              <Field label="University / Institution" required>
+              <Field label={t("pages.internship.internshipform.label_university_institution")} required>
                 <input
                   className={styles.input}
                   type="text"
                   value={p.university}
-                  placeholder="Humboldt University"
+                  placeholder={t("pages.internship.internshipform.placeholder_humboldt_university")}
                   onChange={(e) => setPersonal({ university: e.target.value })}
                 />
               </Field>
-              <Field label="Field of Study / Major" required>
+              <Field label={t("pages.internship.internshipform.label_field_of_study_major")} required>
                 <input
                   className={styles.input}
                   type="text"
                   value={p.fieldOfStudy}
-                  placeholder="Middle Eastern Studies"
+                  placeholder={t("pages.arabiccourses.middleeastern.middleeasternstudies.title_middle_eastern_studies")}
                   onChange={(e) =>
                     setPersonal({ fieldOfStudy: e.target.value })
                   }
                 />
               </Field>
             </div>
-            <Field label="Current Academic Level" required>
+            <Field label={t("pages.internship.internshipform.label_current_academic_level")} required>
               <RadioGroup
                 name="academicLevel"
                 options={ACADEMIC_LEVELS}
@@ -625,7 +624,7 @@ function InternshipForm() {
             onToggle={() => handleToggle(1)}
           >
             <Field
-              label="Which internship option are you applying for?"
+              label={t("pages.internship.internshipform.label_which_internship_option_are_you_applying_for")}
               required
             >
               <RadioGroup
@@ -635,7 +634,7 @@ function InternshipForm() {
                 onChange={(v) => setPrefs({ option: v })}
               />
             </Field>
-            <Field label="Preferred internship duration" required>
+            <Field label={t("pages.internship.internshipform.label_preferred_internship_duration")} required>
               <RadioGroup
                 name="duration"
                 options={INTERNSHIP_DURATIONS}
@@ -644,7 +643,7 @@ function InternshipForm() {
               />
             </Field>
             <div className={styles.grid_2}>
-              <Field label="Preferred start date" required>
+              <Field label={t("pages.internship.internshipform.label_preferred_start_date")} required>
                 <input
                   className={styles.input}
                   type="date"
@@ -652,7 +651,7 @@ function InternshipForm() {
                   onChange={(e) => setPrefs({ startDate: e.target.value })}
                 />
               </Field>
-              <Field label="Preferred end date" required>
+              <Field label={t("pages.internship.internshipform.label_preferred_end_date")} required>
                 <input
                   className={styles.input}
                   type="date"
@@ -661,7 +660,7 @@ function InternshipForm() {
                 />
               </Field>
             </div>
-            <Field label="Are your dates flexible?" required>
+            <Field label={t("pages.internship.internshipform.label_are_your_dates_flexible")} required>
               <RadioGroup
                 name="flex"
                 options={YES_NO}
@@ -681,7 +680,7 @@ function InternshipForm() {
             onToggle={() => handleToggle(2)}
           >
             <Field
-              label="Which internship area(s) are you interested in?"
+              label={t("pages.internship.internshipform.label_which_internship_area_s_are_you_interested_in")}
               required
             >
               <CheckGroup
@@ -690,7 +689,7 @@ function InternshipForm() {
                 onChange={(v) => setAreas({ areas: v })}
               />
             </Field>
-            <Field label="Which area is your first preference?" required>
+            <Field label={t("pages.internship.internshipform.label_which_area_is_your_first_preference")} required>
               <RadioGroup
                 name="first_pref"
                 options={INTERNSHIP_AREAS}
@@ -698,13 +697,13 @@ function InternshipForm() {
                 onChange={(v) => setAreas({ firstPreference: v })}
               />
             </Field>
-            <Field label="Which area is your second preference?">
+            <Field label={t("pages.internship.internshipform.label_which_area_is_your_second_preference")}>
               <select
                 className={styles.select}
                 value={areas.secondPreference}
                 onChange={(e) => setAreas({ secondPreference: e.target.value })}
               >
-                <option value="">None</option>
+                <option value="">{t("pages.internship.internshipform.text_none")}</option>
                 {INTERNSHIP_AREAS.map((a) => (
                   <option key={a} value={a}>
                     {a}
@@ -724,7 +723,7 @@ function InternshipForm() {
             onToggle={() => handleToggle(3)}
           >
             <Field
-              label="Describe your academic or professional background"
+              label={t("pages.internship.internshipform.label_describe_your_academic_or_professional_background")}
               required
             >
               <textarea
@@ -736,7 +735,7 @@ function InternshipForm() {
               />
             </Field>
             <Field
-              label="Do you have previous internship or work experience?"
+              label={t("pages.internship.internshipform.label_do_you_have_previous_internship_or_work_experienc")}
               required
             >
               <RadioGroup
@@ -747,7 +746,7 @@ function InternshipForm() {
               />
             </Field>
             {skills.hasPreviousExperience === "Yes" && (
-              <Field label="Please describe your previous experience">
+              <Field label={t("pages.internship.internshipform.label_please_describe_your_previous_experience")}>
                 <textarea
                   className={styles.textarea}
                   rows={3}
@@ -759,7 +758,7 @@ function InternshipForm() {
                 />
               </Field>
             )}
-            <Field label="Which of the following skills do you have?">
+            <Field label={t("pages.internship.internshipform.label_which_of_the_following_skills_do_you_have")}>
               <CheckGroup
                 options={SKILLS_LIST}
                 selected={skills.skills}
@@ -767,7 +766,7 @@ function InternshipForm() {
               />
             </Field>
             <Field
-              label="Software, design tools, or technical tools you know"
+              label={t("pages.internship.internshipform.label_software_design_tools_or_technical_tools_you_know")}
               hint="e.g. Canva, Figma, WordPress, Excel"
             >
               <textarea
@@ -788,7 +787,7 @@ function InternshipForm() {
             complete={completions[4]}
             onToggle={() => handleToggle(4)}
           >
-            <Field label="English level" required>
+            <Field label={t("pages.internship.internshipform.label_english_level")} required>
               <RadioGroup
                 name="english"
                 options={ENGLISH_LEVELS}
@@ -796,7 +795,7 @@ function InternshipForm() {
                 onChange={(v) => setLanguages({ english: v })}
               />
             </Field>
-            <Field label="Arabic level" required>
+            <Field label={t("pages.internship.internshipform.label_arabic_level")} required>
               <RadioGroup
                 name="arabic"
                 options={ARABIC_LEVELS}
@@ -804,7 +803,7 @@ function InternshipForm() {
                 onChange={(v) => setLanguages({ arabic: v })}
               />
             </Field>
-            <Field label="Do you speak any other languages?">
+            <Field label={t("pages.internship.internshipform.label_do_you_speak_any_other_languages")}>
               <input
                 className={styles.input}
                 type="text"
@@ -827,7 +826,7 @@ function InternshipForm() {
             onToggle={() => handleToggle(5)}
           >
             <Field
-              label="Why do you want to do an internship with Deewan Institute?"
+              label={t("pages.internship.internshipform.label_why_do_you_want_to_do_an_internship_with_deewan_i")}
               required
             >
               <textarea
@@ -839,7 +838,7 @@ function InternshipForm() {
               />
             </Field>
             <Field
-              label="What do you hope to learn from this internship?"
+              label={t("pages.internship.internshipform.label_what_do_you_hope_to_learn_from_this_internship")}
               required
             >
               <textarea
@@ -850,7 +849,7 @@ function InternshipForm() {
                 onChange={(e) => setMotivation({ learn: e.target.value })}
               />
             </Field>
-            <Field label="Why are you interested in Jordan and Arabic language/culture?">
+            <Field label={t("pages.internship.internshipform.label_why_are_you_interested_in_jordan_and_arabic_langu")}>
               <textarea
                 className={styles.textarea}
                 rows={3}
@@ -869,7 +868,7 @@ function InternshipForm() {
             complete={completions[6]}
             onToggle={() => handleToggle(6)}
           >
-            <Field label="Will you need accommodation through Deewan?" required>
+            <Field label={t("pages.internship.internshipform.label_will_you_need_accommodation_through_deewan")} required>
               <RadioGroup
                 name="accom"
                 options={YES_NO_MAYBE}
@@ -878,7 +877,7 @@ function InternshipForm() {
               />
             </Field>
             <Field
-              label="Are you interested in taking Arabic classes during your internship?"
+              label={t("pages.internship.internshipform.label_are_you_interested_in_taking_arabic_classes_durin")}
               required
             >
               <RadioGroup
@@ -888,7 +887,7 @@ function InternshipForm() {
                 onChange={(v) => setAccomm({ arabicClasses: v })}
               />
             </Field>
-            <Field label="Are you interested in joining cultural activities during your internship?">
+            <Field label={t("pages.internship.internshipform.label_are_you_interested_in_joining_cultural_activities")}>
               <RadioGroup
                 name="cultural"
                 options={YES_NO_MAYBE}
@@ -908,7 +907,7 @@ function InternshipForm() {
             onToggle={() => handleToggle(7)}
           >
             <Field
-              label="Are you able to commit to the selected internship hours every week?"
+              label={t("pages.internship.internshipform.label_are_you_able_to_commit_to_the_selected_internship")}
               required
             >
               <RadioGroup
@@ -918,7 +917,7 @@ function InternshipForm() {
                 onChange={(v) => setAvail({ canCommit: v })}
               />
             </Field>
-            <Field label="Do you have any special scheduling limitations?">
+            <Field label={t("pages.internship.internshipform.label_do_you_have_any_special_scheduling_limitations")}>
               <textarea
                 className={styles.textarea}
                 rows={2}
@@ -929,7 +928,7 @@ function InternshipForm() {
               />
             </Field>
             <Field
-              label="Are you applying through a university program or independently?"
+              label={t("pages.internship.internshipform.label_are_you_applying_through_a_university_program_or_")}
               required
             >
               <RadioGroup
@@ -965,19 +964,19 @@ function InternshipForm() {
             onToggle={() => handleToggle(8)}
           >
             <FileUpload
-              label="CV / Resume"
+              label={t("pages.internship.internshipform.label_cv_resume")}
               required
               file={documents.cv}
               onFile={(f) => setDocs({ cv: f })}
             />
             <FileUpload
-              label="Motivation Letter"
+              label={t("pages.internship.internshipform.label_motivation_letter")}
               hint="optional but recommended"
               file={documents.motivationLetter}
               onFile={(f) => setDocs({ motivationLetter: f })}
             />
             <FileUpload
-              label="Portfolio or Work Samples"
+              label={t("pages.internship.internshipform.label_portfolio_or_work_samples")}
               hint="for Design, Media, IT, or Marketing applicants"
               file={documents.portfolio}
               onFile={(f) => setDocs({ portfolio: f })}
@@ -994,7 +993,7 @@ function InternshipForm() {
             complete={completions[9]}
             onToggle={() => handleToggle(9)}
           >
-            <Field label="How did you hear about Deewan Institute?" required>
+            <Field label={t("pages.internship.internshipform.label_how_did_you_hear_about_deewan_institute")} required>
               <RadioGroup
                 name="heard"
                 options={HEARD_ABOUT_OPTIONS}
@@ -1002,7 +1001,7 @@ function InternshipForm() {
                 onChange={(v) => setDecl({ heardAbout: v })}
               />
             </Field>
-            <Field label="Is there anything else you would like us to know?">
+            <Field label={t("pages.internship.internshipform.label_is_there_anything_else_you_would_like_us_to_know")}>
               <textarea
                 className={styles.textarea}
                 rows={3}
@@ -1021,9 +1020,7 @@ function InternshipForm() {
                 className={`${styles.check_box} ${declaration.confirmed ? styles.check_box_active : ""}`}
               />
               <span>
-                I confirm that the information I provided is accurate and
-                complete.
-              </span>
+                {t("pages.internship.internshipform.text_i_confirm_that_the_information_i_provided_is_accur")}</span>
             </label>
             <button
               type="button"
@@ -1033,8 +1030,7 @@ function InternshipForm() {
             >
               {status === "submitting" ? (
                 <>
-                  <span className={styles.spinner} /> Submitting…
-                </>
+                  <span className={styles.spinner} /> {t("pages.internship.internshipform.text_submitting")}</>
               ) : (
                 "Submit Application"
               )}

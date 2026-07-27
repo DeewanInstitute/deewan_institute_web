@@ -7,6 +7,7 @@ import Footer from "../../components/footer/footer";
 import html2pdf from "html2pdf.js";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
+import { useTranslation } from "react-i18next";
 
 // Types
 interface Selections {
@@ -163,6 +164,7 @@ interface GroupClassModalProps {
 }
 
 function GroupClassInfoModal({ onClose }: GroupClassModalProps) {
+    const { t } = useTranslation();
   return (
     <div
       className="modal fade show d-block"
@@ -197,13 +199,12 @@ function GroupClassInfoModal({ onClose }: GroupClassModalProps) {
               className="modal-title text-white fw-bold mb-0"
               style={{ fontFamily: "Merriweather, serif" }}
             >
-              Group Class Information
-            </h5>
+              {t("pages.calculator.calculator.text_group_class_information")}</h5>
             <button
               type="button"
               className="btn-close btn-close-white"
               onClick={onClose}
-              aria-label="Close"
+              aria-label={t("pages.contact.contact.text_close")}
             />
           </div>
           <div className="modal-body" style={{ padding: "1.5rem" }}>
@@ -216,10 +217,7 @@ function GroupClassInfoModal({ onClose }: GroupClassModalProps) {
                 margin: 0,
               }}
             >
-              Please note: Group classes are held for 4 hours per week on
-              Mondays and Wednesdays only. The minimum enrollment is 4 weeks,
-              and all classes take place at 6:20 PM - 8:00 PM.
-            </p>
+              {t("pages.calculator.calculator.text_please_note_group_classes_are_held_for_4_hours_per")}</p>
           </div>
           <div
             className="modal-footer"
@@ -231,8 +229,7 @@ function GroupClassInfoModal({ onClose }: GroupClassModalProps) {
               style={{ background: "#8F6E43", border: "none" }}
               onClick={onClose}
             >
-              Got it
-            </button>
+              {t("pages.calculator.calculator.text_got_it")}</button>
           </div>
         </div>
       </div>
@@ -240,6 +237,7 @@ function GroupClassInfoModal({ onClose }: GroupClassModalProps) {
   );
 }
 function HopClassInfoModal({ onClose }: GroupClassModalProps) {
+    const { t } = useTranslation();
   return (
     <div
       className="modal fade show d-block"
@@ -274,13 +272,12 @@ function HopClassInfoModal({ onClose }: GroupClassModalProps) {
               className="modal-title text-white fw-bold mb-0"
               style={{ fontFamily: "Merriweather, serif" }}
             >
-              Hop On Hop Off Group Class Information
-            </h5>
+              {t("pages.calculator.calculator.text_hop_on_hop_off_group_class_information")}</h5>
             <button
               type="button"
               className="btn-close btn-close-white"
               onClick={onClose}
-              aria-label="Close"
+              aria-label={t("pages.contact.contact.text_close")}
             />
           </div>
           <div className="modal-body" style={{ padding: "1.5rem" }}>
@@ -293,10 +290,7 @@ function HopClassInfoModal({ onClose }: GroupClassModalProps) {
                 margin: 0,
               }}
             >
-              Please note: Hop On Hop Off group classes are flexible drop-in
-              sessions held for up to 6 hours per week. All classes take place
-              at 6:20 PM - 8:00 PM at Sundays,Tuesdays and Thursdays.
-            </p>
+              {t("pages.calculator.calculator.text_please_note_hop_on_hop_off_group_classes_are_flexi")}</p>
           </div>
           <div
             className="modal-footer"
@@ -308,8 +302,7 @@ function HopClassInfoModal({ onClose }: GroupClassModalProps) {
               style={{ background: "#8F6E43", border: "none" }}
               onClick={onClose}
             >
-              Got it
-            </button>
+              {t("pages.calculator.calculator.text_got_it")}</button>
           </div>
         </div>
       </div>
@@ -444,6 +437,7 @@ function DiscountDropdown({
   onChange,
   onReset,
 }: DiscountDropdownProps) {
+    const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [flipLeft, setFlipLeft] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -498,7 +492,7 @@ function DiscountDropdown({
   return (
     <div className="row my-5 align-items-center scroll-section">
       <div className="col-12 col-md-2 text-start mb-2 mb-md-0">
-        <label className={styles.heading}>Discount:</label>
+        <label className={styles.heading}>{t("pages.calculator.calculator.text_discount")}</label>
       </div>
       <div className="col-12 col-md-4">
         <div className={styles.dropWrap} ref={ref}>
@@ -665,6 +659,7 @@ interface ModalProps {
 }
 
 function PriceModal({ display, total, hideTime, onClose }: ModalProps) {
+    const { t } = useTranslation();
   const rows = [
     {
       label: "Type of Arabic Language:",
@@ -783,7 +778,7 @@ function PriceModal({ display, total, hideTime, onClose }: ModalProps) {
           <div className="modal-body">
             <div className="row align-items-center">
               <div className={`${styles.title} my-4`}>
-                <h3>Arabic Courses Price</h3>
+                <h3>{t("pages.calculator.calculator.text_arabic_courses_price")}</h3>
               </div>
               <div
                 className={`${styles.print} d-flex justify-content-evenly gap-3`}
@@ -793,9 +788,9 @@ function PriceModal({ display, total, hideTime, onClose }: ModalProps) {
                   className="text-decoration-none"
                   onClick={handlePrint}
                   style={{ cursor: "pointer" }}
-                  title="Print"
+                  title={t("pages.calculator.calculator.title_print")}
                 >
-                  <img src="../assets/images/icons/print.png" alt="Print" />
+                  <img src="../assets/images/icons/print.png" alt={t("pages.calculator.calculator.title_print")} />
                 </a>
 
                 {/* DOWNLOAD BUTTON */}
@@ -803,11 +798,11 @@ function PriceModal({ display, total, hideTime, onClose }: ModalProps) {
                   className="text-decoration-none"
                   onClick={handleDownloadPDF}
                   style={{ cursor: "pointer" }}
-                  title="Download PDF"
+                  title={t("pages.calculator.calculator.title_download_pdf")}
                 >
                   <img
                     src="../assets/images/icons/download.png"
-                    alt="Download PDF"
+                    alt={t("pages.calculator.calculator.title_download_pdf")}
                   />
                 </a>
               </div>
@@ -829,7 +824,7 @@ function PriceModal({ display, total, hideTime, onClose }: ModalProps) {
             <div className="row my-3 align-items-center">
               <div className="col-md-4 text-start">
                 <label className={styles.heading}>
-                  <strong>Total Cost:</strong>
+                  <strong>{t("pages.calculator.calculator.text_total_cost")}</strong>
                 </label>
               </div>
               <div className="col-md-8">
@@ -893,6 +888,7 @@ const HOP_ON_HOP_OFF_MAX_HOURS = 6;
 
 // Main Component
 function Calculator() {
+    const { t } = useTranslation();
   useEffect(() => {
     document.title = "Calculator";
   }, []);
@@ -1023,16 +1019,10 @@ function Calculator() {
       >
         <div className="px-4 text-center d-flex flex-column align-items-center">
           <h1 className="display-5 fw-bold text-white my-4">
-            Arabic Course Price Calculator
-          </h1>
+            {t("pages.calculator.calculator.text_arabic_course_price_calculator")}</h1>
           <div className="col-lg-8 mx-auto">
             <p className="lead mb-4 text-center text-white">
-              Here you'll find a complete breakdown of our course fees to guide
-              you in selecting the right learning experience. Whether you thrive
-              with individualized one-to-one course or enjoy growing alongside
-              others in a group class, our pricing page gives you all the
-              information you need with clarity and confidence.
-            </p>
+              {t("pages.calculator.calculator.text_here_you_ll_find_a_complete_breakdown_of_our_cours")}</p>
           </div>
         </div>
       </section>
@@ -1040,13 +1030,12 @@ function Calculator() {
       {/* Calculator */}
       <section id="calculator" className={styles.calculator}>
         <div className={`${styles.title} my-5`}>
-          <h2>Arabic Course Price Calculator</h2>
+          <h2>{t("pages.calculator.calculator.text_arabic_course_price_calculator")}</h2>
         </div>
 
         <div id="instructions" className="scroll-section">
           <p className="col-lg-6 lead text-start">
-            To learn more about our pricing:
-          </p>
+            {t("pages.calculator.calculator.text_to_learn_more_about_our_pricing")}</p>
           <ol className="lead text-start">
             <li className="py-2">
               <a
@@ -1059,31 +1048,23 @@ function Calculator() {
                   (e.currentTarget.style.textDecoration = "underline")
                 }
               >
-                Take the Initial Skills Evaluation or Course Placement
-                Consultation:
-              </a>
+                {t("pages.calculator.calculator.text_take_the_initial_skills_evaluation_or_course_place")}</a>
               <span className="px-2 fw-normal">
-                This helps determine the most suitable course level and learning
-                plan for you.
-              </span>
+                {t("pages.calculator.calculator.text_this_helps_determine_the_most_suitable_course_leve")}</span>
             </li>
             <li className="py-2">
               <span className="fw-bold" style={{ color: "#8F6E43" }}>
                 Select Your Course Options Below:{" "}
               </span>
               <span className="px-2 fw-normal">
-                Choose the type of class (one-to-one or group), type of arabic,
-                duration, and discount.
-              </span>
+                {t("pages.calculator.calculator.text_choose_the_type_of_class_one_to_one_or_group_type_")}</span>
             </li>
             <li className="py-2">
               <span className="fw-bold" style={{ color: "#8F6E43" }}>
                 View Your Total Cost:{" "}
               </span>
               <span className="px-2 fw-normal">
-                Once your options are selected, the calculator will
-                automatically display the full price.
-              </span>
+                {t("pages.calculator.calculator.text_once_your_options_are_selected_the_calculator_will")}</span>
             </li>
             <li className="py-2">
               <a
@@ -1096,18 +1077,13 @@ function Calculator() {
                   (e.currentTarget.style.textDecoration = "underline")
                 }
               >
-                Click this link
-              </a>
+                {t("pages.calculator.calculator.text_click_this_link")}</a>
               <span className="px-2 fw-normal">
-                To learn more about each course and what it covers.
-              </span>
+                {t("pages.calculator.calculator.text_to_learn_more_about_each_course_and_what_it_covers")}</span>
             </li>
             <li className="py-2">
               <span className="fw-bold">
-                Please note that this is a standardized calculator used for our
-                curriculum. If you need any assistance or have any questions,
-                feel free to contact us at
-                <a
+                {t("pages.calculator.calculator.text_please_note_that_this_is_a_standardized_calculator")}<a
                   className="fw-bold"
                   href="mailto:arabic@deewaninstitute.com"
                   target="_blank"
@@ -1144,8 +1120,8 @@ function Calculator() {
         </div>
 
         <Dropdown
-          label="Type of Arabic Language :"
-          placeholder="Please Choose a Level"
+          label={t("pages.calculator.calculator.label_type_of_arabic_language")}
+          placeholder={t("pages.calculator.calculator.placeholder_please_choose_a_level")}
           options={ARABIC_TYPES}
           value={selections.arabicType}
           onChange={(v) => {
@@ -1155,16 +1131,16 @@ function Calculator() {
         />
 
         <Dropdown
-          label="Type of Classes:"
-          placeholder="Please Choose a Class Type"
+          label={t("pages.calculator.calculator.label_type_of_classes")}
+          placeholder={t("pages.calculator.calculator.placeholder_please_choose_a_class_type")}
           options={CLASS_TYPES}
           value={selections.classType}
           onChange={handleClassTypeChange}
         />
 
         <Dropdown
-          label="Time in The Day:"
-          placeholder="Please Choose the Time of the Day"
+          label={t("pages.calculator.calculator.label_time_in_the_day")}
+          placeholder={t("pages.calculator.calculator.placeholder_please_choose_the_time_of_the_day")}
           options={timeOptions}
           value={selections.time}
           disabled={isGroupClass || isHopOnHopOff || isTrialClass}
@@ -1176,7 +1152,7 @@ function Calculator() {
 
         <Counter
           id="counterHours"
-          label="No. of Hours per Week:"
+          label={t("pages.calculator.calculator.label_no_of_hours_per_week")}
           value={selections.hours}
           step={2}
           min={isGroupClass ? GROUP_CLASS_HOURS : 0}
@@ -1199,7 +1175,7 @@ function Calculator() {
 
         <Counter
           id="counterWeeks"
-          label="No. of Week:"
+          label={t("pages.calculator.calculator.label_no_of_week")}
           value={selections.weeks}
           step={1}
           min={isGroupClass ? GROUP_CLASS_MIN_WEEKS : 0}
@@ -1235,8 +1211,7 @@ function Calculator() {
             type="button"
             onClick={() => setShowModal(true)}
           >
-            Calculate Price
-          </button>
+            {t("pages.calculator.calculator.text_calculate_price")}</button>
         </div>
 
         {/* Disclaimer */}
@@ -1266,8 +1241,7 @@ function Calculator() {
               rel="noreferrer"
               style={{ color: "#8F6E43", fontWeight: "bold" }}
             >
-              this link
-            </a>
+              {t("pages.calculator.calculator.text_this_link")}</a>
             .
           </p>
         </div>
@@ -1286,34 +1260,26 @@ function Calculator() {
       {/* Schedule Grid */}
       <section className={`scroll-section ${styles.schedule}`} id="schedule">
         <div className={`${styles.title} my-5`}>
-          <h2>Schedule Grid</h2>
+          <h2>{t("pages.calculator.calculator.text_schedule_grid")}</h2>
         </div>
         <p className="lead text-start scroll-section" id={styles.para}>
-          We recommend that students book a package for at least 4 weeks of
-          lessons at a time. If you are unsure of your future availability,
-          there is the possibility of more flexible scheduling. However, we can
-          not guarantee the same time slots will stay open.
-        </p>
+          {t("pages.calculator.calculator.text_we_recommend_that_students_book_a_package_for_at_l")}</p>
         <div className="table-responsive my-5 scroll-section">
           <table className="table">
             <thead>
               <tr>
                 <th className="text-center" colSpan={3} id={styles.tableHeader}>
-                  Available Times
-                </th>
+                  {t("pages.calculator.calculator.text_available_times")}</th>
               </tr>
             </thead>
             <tbody className="align-middle">
               <tr className="border">
                 <th className="text-center border border-1 fw-bold" scope="col">
-                  Time in the Day
-                </th>
+                  {t("pages.calculator.calculator.text_time_in_the_day")}</th>
                 <th className="text-center border-1 fw-bold" scope="col">
-                  Weekdays (In-Person/Online)
-                </th>
+                  {t("pages.calculator.calculator.text_weekdays_in_person_online")}</th>
                 <th className="text-center border-1 fw-bold" scope="col">
-                  Weekend (Online)
-                </th>
+                  {t("pages.calculator.calculator.text_weekend_online")}</th>
               </tr>
               <tr className="border justify-content-center">
                 <td
@@ -1321,21 +1287,18 @@ function Calculator() {
                   scope="row"
                   style={{ paddingBlock: "4%" }}
                 >
-                  Between 9:00 AM - 2:40 PM
-                </td>
+                  {t("pages.calculator.calculator.text_between_9_00_am_2_40_pm")}</td>
                 <td
                   className="text-center border-1"
                   style={{ paddingBlock: "4%" }}
                 >
-                  Sunday-Thursday
-                </td>
+                  {t("pages.calculator.calculator.text_sunday_thursday")}</td>
                 <td
                   className="text-center border-1"
                   rowSpan={3}
                   style={{ paddingBlock: "4%", verticalAlign: "middle" }}
                 >
-                  Saturday <br /> (11:00 AM - 2:40 PM)
-                </td>
+                  {t("pages.calculator.calculator.text_saturday")}<br /> {t("pages.calculator.calculator.text_11_00_am_2_40_pm")}</td>
               </tr>
               <tr className="border">
                 <td
@@ -1351,14 +1314,12 @@ function Calculator() {
                   scope="row"
                   style={{ paddingBlock: "4%" }}
                 >
-                  Between 4:20 PM - 8:00 PM
-                </td>
+                  {t("pages.calculator.calculator.text_between_4_20_pm_8_00_pm")}</td>
                 <td
                   className="text-center border-1"
                   style={{ paddingBlock: "4%" }}
                 >
-                  Sunday-Thursday
-                </td>
+                  {t("pages.calculator.calculator.text_sunday_thursday")}</td>
               </tr>
             </tbody>
           </table>
@@ -1368,14 +1329,10 @@ function Calculator() {
       {/* Booking */}
       <section id="booking" className={`scroll-section ${styles.booking}`}>
         <div className={`${styles.title} my-3`}>
-          <h3>Booking Class</h3>
+          <h3>{t("pages.calculator.calculator.text_booking_class")}</h3>
         </div>
         <p className="lead text-start scroll-section" id={styles.para}>
-          Booking classes can be done at your convenience through our Arabic
-          Program Coordinator. Our Admin will be very happy to assist you with
-          scheduling, rescheduling, or cancelling your classes at your
-          preference and convenience.
-        </p>
+          {t("pages.calculator.calculator.text_booking_classes_can_be_done_at_your_convenience_th")}</p>
       </section>
 
       {/* Course Policy */}
@@ -1384,12 +1341,10 @@ function Calculator() {
         className={`mt-2 scroll-section ${styles.coursePolicy}`}
       >
         <div className={`${styles.title} my-3 scroll-section`}>
-          <h3>Course Policy Agreement</h3>
+          <h3>{t("pages.calculator.calculator.text_course_policy_agreement")}</h3>
         </div>
         <p className="lead text-start lh-base scroll-section" id={styles.para}>
-          Prior to booking your classes with Deewan, it is crucial to thoroughly
-          review this document.
-        </p>
+          {t("pages.calculator.calculator.text_prior_to_booking_your_classes_with_deewan_it_is_cr")}</p>
         <div className="d-flex flex-row justify-content-center my-3 scroll-section">
           <a
             className={`btn rounded-pill text-white fw-bold ${styles.coursePolicyBtn}`}
@@ -1397,8 +1352,7 @@ function Calculator() {
             target="_blank"
             rel="noreferrer"
           >
-            Course Policy
-          </a>
+            {t("pages.calculator.calculator.text_course_policy")}</a>
         </div>
       </section>
 
@@ -1408,16 +1362,14 @@ function Calculator() {
         className={`scroll-section ${styles.paymentOptions}`}
       >
         <div className={`${styles.title} my-3`}>
-          <h2>Payment Options</h2>
+          <h2>{t("pages.calculator.calculator.text_payment_options")}</h2>
         </div>
         <p className="lead text-start lh-base" id={styles.para}>
           You have the convenience of making payments instantly using credit
           cards. However, in case you encounter any issues with your payment or
           prefer an alternative method,{" "}
           <span className="fst-italic fw-bolder" style={{ color: "black" }}>
-            please see the payment options below, complete the transaction, and
-            kindly send us the proof of payment at:
-          </span>
+            {t("pages.calculator.calculator.text_please_see_the_payment_options_below_complete_the_")}</span>
         </p>
 
         <div
@@ -1439,11 +1391,7 @@ function Calculator() {
         </div>
 
         <p className="lead text-start lh-base" id={styles.para}>
-          All balances are due 2 days before the start date of a lesson package.
-          Payment instalment plans are available upon request for any packages
-          of 3 months or longer, subject to a signed PAF (Payment Agreement
-          Form).
-        </p>
+          {t("pages.calculator.calculator.text_all_balances_are_due_2_days_before_the_start_date_")}</p>
         <div className="d-flex flex-row justify-content-center my-4">
           <a
             className={`btn rounded-pill text-white fw-bold ${styles.paymentAgreementFormBtn}`}
@@ -1451,8 +1399,7 @@ function Calculator() {
             target="_blank"
             rel="noreferrer"
           >
-            Payment Agreement Form
-          </a>
+            {t("pages.calculator.calculator.text_payment_agreement_form")}</a>
         </div>
 
         <div
@@ -1462,7 +1409,7 @@ function Calculator() {
           <AccordionItem
             id="one"
             parentId="accordionFlushExample"
-            title="1. PayPal"
+            title={t("pages.calculator.calculator.title_1_paypal")}
             isOpen={openAccordion === "one"}
             onToggle={() => toggleAccordion("one")}
             content={
@@ -1473,8 +1420,7 @@ function Calculator() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  here
-                </a>{" "}
+                  {t("pages.calculator.calculator.text_here")}</a>{" "}
                 to make the payment.
               </p>
             }
@@ -1482,38 +1428,36 @@ function Calculator() {
           <AccordionItem
             id="two"
             parentId="accordionFlushExample"
-            title="2. Bank Transfer or Deposit To:"
+            title={t("pages.calculator.calculator.title_2_bank_transfer_or_deposit_to")}
             isOpen={openAccordion === "two"}
             onToggle={() => toggleAccordion("two")}
             content={
               <div className={styles.bankContent}>
                 <div className={styles.bankHeader}>
-                  <span className={styles.bankName}>Arab Bank</span>
+                  <span className={styles.bankName}>{t("pages.calculator.calculator.text_arab_bank")}</span>
                   <span className={styles.bankEntity}>
-                    DEEWAN FOR LANGUAGES
-                  </span>
+                    {t("pages.calculator.calculator.text_deewan_for_languages")}</span>
                 </div>
                 <div className={styles.currencyBlock}>
-                  <p className={styles.currencyTitle}>Jordanian Dinars (JOD)</p>
+                  <p className={styles.currencyTitle}>{t("pages.calculator.calculator.text_jordanian_dinars_jod")}</p>
                   <div className={styles.bankRow}>
-                    <span className={styles.bankLabel}>Account Number</span>
+                    <span className={styles.bankLabel}>{t("pages.calculator.calculator.text_account_number")}</span>
                     <span className={styles.bankValue}>0116 634396 1 500</span>
                   </div>
                   <div className={styles.bankRow}>
                     <span className={styles.bankLabel}>IBAN</span>
                     <span className={styles.bankValue}>
-                      JO82 ARAB 1160 0000 0011 6634 3965 00
-                    </span>
+                      {t("pages.calculator.calculator.text_jo82_arab_1160_0000_0011_6634_3965_00")}</span>
                   </div>
                   <div className={styles.bankRow}>
-                    <span className={styles.bankLabel}>SWIFT Code</span>
-                    <span className={styles.bankValue}>ARABJOAX100</span>
+                    <span className={styles.bankLabel}>{t("pages.calculator.calculator.text_swift_code")}</span>
+                    <span className={styles.bankValue}>{t("pages.calculator.calculator.text_arabjoax100")}</span>
                   </div>
                 </div>
                 <div className={styles.currencyBlock}>
-                  <p className={styles.currencyTitle}>US Dollars (USD)</p>
+                  <p className={styles.currencyTitle}>{t("pages.calculator.calculator.text_us_dollars_usd")}</p>
                   <div className={styles.bankRow}>
-                    <span className={styles.bankLabel}>Account Number</span>
+                    <span className={styles.bankLabel}>{t("pages.calculator.calculator.text_account_number")}</span>
                     <span className={styles.bankValue}>0116-634396-510</span>
                   </div>
                   <div className={styles.bankRow}>
@@ -1524,8 +1468,8 @@ function Calculator() {
                     </span>
                   </div>
                   <div className={styles.bankRow}>
-                    <span className={styles.bankLabel}>SWIFT Code</span>
-                    <span className={styles.bankValue}>ARABJOAX100</span>
+                    <span className={styles.bankLabel}>{t("pages.calculator.calculator.text_swift_code")}</span>
+                    <span className={styles.bankValue}>{t("pages.calculator.calculator.text_arabjoax100")}</span>
                   </div>
                 </div>
               </div>
@@ -1534,40 +1478,37 @@ function Calculator() {
           <AccordionItem
             id="three"
             parentId="accordionFlushExample"
-            title="3. Western Union"
+            title={t("pages.calculator.calculator.title_3_western_union")}
             isOpen={openAccordion === "three"}
             onToggle={() => toggleAccordion("three")}
             content={
               <p className={styles.accordionSimple}>
-                <span className={styles.accordionLabel}>Recipient Name: </span>
-                MOHAMMAD KAMAL AYASEH
-              </p>
+                <span className={styles.accordionLabel}>{t("pages.calculator.calculator.text_recipient_name")}</span>
+                {t("pages.calculator.calculator.text_mohammad_kamal_ayaseh")}</p>
             }
           />
           <AccordionItem
             id="four"
             parentId="accordionFlushExample"
-            title="4. Cash"
+            title={t("pages.calculator.calculator.title_4_cash")}
             isOpen={openAccordion === "four"}
             onToggle={() => toggleAccordion("four")}
             content={
               <p className={styles.accordionSimple}>
-                <span className={styles.accordionLabel}>Location: </span>
-                Deewan Institute physical location
-              </p>
+                <span className={styles.accordionLabel}>{t("pages.calculator.calculator.text_location")}</span>
+                {t("pages.calculator.calculator.text_deewan_institute_physical_location")}</p>
             }
           />
           <AccordionItem
             id="five"
             parentId="accordionFlushExample"
-            title="5. Cliq Alias"
+            title={t("pages.calculator.calculator.title_5_cliq_alias")}
             isOpen={openAccordion === "five"}
             onToggle={() => toggleAccordion("five")}
             content={
               <p className={styles.accordionSimple}>
-                <span className={styles.accordionLabel}>Alias Name: </span>
-                DEEWAN
-              </p>
+                <span className={styles.accordionLabel}>{t("pages.calculator.calculator.text_alias_name")}</span>
+                {t("pages.calculator.calculator.text_deewan")}</p>
             }
           />
         </div>

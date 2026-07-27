@@ -9,6 +9,7 @@ import "bootstrap";
 import FloatingActionButton from "../../../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../../../components/floatingbutton/floatingactionbuttoninstitute";
 import HeroTitle from "../../../components/herotitle/herotitle";
+import { useTranslation } from "react-i18next";
 
 // Data
 
@@ -80,6 +81,7 @@ const programDetails = [
 // ─────────────────────────────────────────────────────────────────────────────
 
 function ArabiFlex() {
+    const { t } = useTranslation();
   useEffect(() => {
     document.title = "ArabiFlex Conversation Group Class";
   }, []);
@@ -107,7 +109,7 @@ function ArabiFlex() {
           {/* Hero Title */}
           <HeroTitle
             subtitle="ArabiFlex Conversation Group Class"
-            title="Interactive, Conversation-Based Course."
+            title={t("pages.arabiccourses.arabiflex.arabiflex.title_interactive_conversation_based_course")}
             color="#2e0f28"
           />
 
@@ -123,20 +125,9 @@ function ArabiFlex() {
           {/* Intro paragraph */}
           <section className={`${style.intro} scroll-section`}>
             <p>
-              ArabiFlex Conversation Group Class is a flexible group program
-              designed for students who want to improve their Levantine
-              colloquial Arabic through regular conversation practice. The
-              program meets three times per week, allowing students to choose
-              the schedule that best fits their availability.
-            </p>
+              {t("pages.arabiccourses.arabiflex.arabiflex.text_arabiflex_conversation_group_class_is_a_flexible_g")}</p>
             <p>
-              Through interactive discussions and real-life communication
-              activities, students develop speaking confidence, listening
-              skills, and everyday vocabulary in a supportive learning
-              environment. ArabiFlex Conversation Group Class is ideal for
-              learners who want consistent Arabic practice while maintaining
-              flexibility in their weekly schedule.
-            </p>
+              {t("pages.arabiccourses.arabiflex.arabiflex.text_through_interactive_discussions_and_real_life_comm")}</p>
           </section>
         </main>
       </div>
@@ -144,7 +135,7 @@ function ArabiFlex() {
       {/*Program Objectives*/}
       <section className={style.objectives}>
         <div className={style.objectivesInner}>
-          <h2 className="scroll-section">Program Objectives</h2>
+          <h2 className="scroll-section">{t("pages.arabiccourses.arabiflex.arabiflex.text_program_objectives")}</h2>
           <hr className={style.objDivider} />
 
           <div className={`row justify-content-center ${style.objCards}`}>
@@ -170,15 +161,10 @@ function ArabiFlex() {
       <div className={style.arabiflex}>
         {/* ── Class Structure ── */}
         <section className={`${style.classStructure} scroll-section`}>
-          <h2>Class Structure</h2>
+          <h2>{t("pages.arabiccourses.arabiflex.arabiflex.text_class_structure")}</h2>
           <hr className={style.sectionDivider} />
           <p className={style.structureSubtitle}>
-            Each session combines conversation practice, listening activities,
-            vocabulary development, and fluency-building exercises. Students
-            participate in discussions, role-plays, storytelling, and real-life
-            communication tasks that encourage active language use and
-            meaningful interaction.
-          </p>
+            {t("pages.arabiccourses.arabiflex.arabiflex.text_each_session_combines_conversation_practice_listen")}</p>
 
           <div className={style.tableWrapper}>
             <table className={style.structureTable}>
@@ -189,9 +175,9 @@ function ArabiFlex() {
               </colgroup>
               <thead>
                 <tr>
-                  <th>Class Stage</th>
-                  <th>Approximate Time</th>
-                  <th>Technique</th>
+                  <th>{t("pages.arabiccourses.arabiflex.arabiflex.text_class_stage")}</th>
+                  <th>{t("pages.arabiccourses.arabiflex.arabiflex.text_approximate_time")}</th>
+                  <th>{t("pages.arabiccourses.arabiflex.arabiflex.text_technique")}</th>
                 </tr>
               </thead>
               <tbody>
@@ -212,7 +198,7 @@ function ArabiFlex() {
                     </tr>
                     {row.isBreakAfter && (
                       <tr className={style.breakRow}>
-                        <td colSpan={3}>Break</td>
+                        <td colSpan={3}>{t("pages.arabiccourses.arabiflex.arabiflex.text_break")}</td>
                       </tr>
                     )}
                   </Fragment>
@@ -226,7 +212,7 @@ function ArabiFlex() {
       {/*Program Details*/}
       <section className={style.programDetails}>
         <div className={style.detailsInner}>
-          <h2 className="scroll-section">Program Details</h2>
+          <h2 className="scroll-section">{t("pages.arabiccourses.arabiflex.arabiflex.text_program_details")}</h2>
           <hr className={style.detailsDivider} />
 
           <div className={`row justify-content-center ${style.detailCards}`}>
@@ -259,21 +245,16 @@ function ArabiFlex() {
       <div className={style.arabiflex}>
         {/* ── Entry Requirements ── */}
         <section className={`${style.entryReqs} scroll-section`}>
-          <h2>Entry Requirements</h2>
+          <h2>{t("pages.arabiccourses.arabiflex.arabiflex.text_entry_requirements")}</h2>
           <hr className={style.sectionDivider} />
           <p>
-            ArabiFlex is intended for learners with an existing foundation in
-            Arabic. Students must have a minimum B1 level of Arabic or
-            equivalent conversational ability to participate effectively in the
-            program.
-          </p>
+            {t("pages.arabiccourses.arabiflex.arabiflex.text_arabiflex_is_intended_for_learners_with_an_existin")}</p>
         </section>
                             <button
                       className={style.signup}
                       onClick={() => window.open("https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform")}
                     >
-                      Sign Up
-                    </button>
+                      {t("pages.cultureevents.cultureEvents.text_sign_up")}</button>
       </div>
 
       <Footer />
