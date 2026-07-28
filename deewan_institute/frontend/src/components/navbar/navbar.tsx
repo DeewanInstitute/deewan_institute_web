@@ -336,7 +336,13 @@ function HomeNavBar() {
                 </NavLink>
               </div>
             )}
-            <LanguageSwitcher appearance="light" />
+            <div
+              className={`${styles.desktopLanguageSwitcher} ${
+                scrolled ? styles.desktopLanguageSwitcherHidden : ""
+              }`}
+            >
+              <LanguageSwitcher appearance="light" />
+            </div>
           </div>
         </div>
 

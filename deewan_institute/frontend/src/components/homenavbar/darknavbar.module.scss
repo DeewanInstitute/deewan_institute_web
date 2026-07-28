@@ -239,6 +239,31 @@
   }
 }
 
+.desktopLanguageSwitcher {
+  position: fixed;
+  top: 24px;
+  right: 32px;
+  z-index: 101;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition:
+    opacity 220ms ease,
+    visibility 220ms ease,
+    transform 220ms ease;
+
+  @media (max-width: 1279px) {
+    display: none;
+  }
+}
+
+.desktopLanguageSwitcherHidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  pointer-events: none;
+}
+
 
 .border {
   border-radius: 20px;
@@ -746,7 +771,7 @@
   font-size: 13.5px;
   line-height: 1.4;
   text-decoration: none;
-  padding: 9px 20px;
+  padding: 6px 20px;
   border-left: 2px solid transparent;
   transition: all 0.18s ease;
   white-space: pre-line;
