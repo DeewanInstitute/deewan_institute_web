@@ -11,11 +11,24 @@ export type NewsletterEdition = {
 };
 
 export const EDITIONS: NewsletterEdition[] = [
+  {
+    id: "August",
+    label: "August 2026",
+    tag: "Latest Issue",
+    title: "August Deewan Newsletter",
+    format: "rectangular",
+    aspectRatio: 56.25,
+    src: "https://www.canva.com/design/DAHRIE5MaXs/V8KcV7LfRiS1NFl9xg7XRw/view?embed",
+    href: "https://www.canva.com/design/DAHRIE5MaXs/V8KcV7LfRiS1NFl9xg7XRw/view",
+    description:
+      "Dive into Arabic language milestones, cultural highlights from Al-Weibdeh, and upcoming events at Deewan Institute.",
+
+  },
 
   {
     id: "july",
     label: "July 2026",
-    tag: "Latest Issue",
+    tag: "Previous Issue",
     title: "July Deewan Newsletter",
     format: "rectangular",
     aspectRatio: 56.25,
@@ -28,7 +41,7 @@ export const EDITIONS: NewsletterEdition[] = [
    {
     id: "June",
     label: "June 2026",
-    tag: "Latest Issue",
+    tag: "Previous Issue",
     title: "June Deewan Newsletter",
     format: "rectangular",
     aspectRatio: 56.25,

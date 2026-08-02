@@ -12,14 +12,21 @@ main {
 }
 
 .myCarousel {
-  height: 100vh; // Makes the entire carousel full viewport height (adjust if you don't want full-screen)
+  height: 100vh;
+  height: 100dvh;
+  min-height: 32rem;
+
+  :global(.carousel-inner),
+  :global(.carousel-item) {
+    height: 100%;
+  }
 
   #carouselItem1 {
     background-image: url("/assets/images/hero/HeroImage.png") !important;
     background-repeat: no-repeat;
     background-size: cover; // Scales the image to cover the entire area
     background-position: center; // Centers the image
-    height: 100vh; // Ensures the item takes full height (matches carousel)
+    height: 100%;
 
     #firstContainer {
       background-color: rgba(
@@ -75,71 +82,18 @@ main {
   }
 
   #carouselItem2 {
-    background-image: url("/assets/images/hero/HeroImage2.png");
-    background-repeat: no-repeat;
-    background-size: cover; // Scales the image to cover the entire area
-    background-position: center; // Centers the image
-    height: 100vh; // Ensures the item takes full height (matches carousel)
+    position: relative;
+    height: 100%;
+    overflow: hidden;
 
-    #secondContainer {
-      background-color: rgba(143, 110, 67, 0.7);
-      /* border-radius: 20px; */
-      display: flex;
-      padding: 30px 30px;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      /* gap: 2%; */
+    .heroVideo {
+      position: absolute;
+      inset: 0;
       width: 100%;
-      height: 100vh;
-
-      h2 {
-        color: $white;
-        font-family: "Merriweather-Regular" !important;
-        font-size: 40px;
-        line-height: 150%;
-      }
-
-      h1 {
-        color: #ffa200;
-        font-family: "Merriweather-Bold" !important;
-        font-size: 100px;
-      }
-
-      span,
-      ul {
-        color: $white;
-        font-family: "Merriweather-Regular" !important;
-        font-size: large;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 190%;
-
-        li {
-          text-indent: 5% !important;
-        }
-      }
-
-      a {
-        font-size: medium;
-        color: $white;
-        background-color: $navy_blue;
-        font-family: "Merriweather-Light" !important;
-        padding-inline: 11%;
-        padding-block: 1%;
-        margin-block: 1%;
-      }
-
-      a:hover {
-        font-size: medium;
-        color: $navy_blue;
-        border: $navy_blue 2px solid;
-        background-color: $white;
-        font-family: "Merriweather-Light" !important;
-        padding-inline: 11%;
-        padding-block: 1%;
-        margin-block: 1%;
-      }
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
     }
   }
 }
@@ -258,7 +212,9 @@ main {
 
 @media (max-width: 767.98px) {
   .myCarousel {
-    height: 100%; // Makes the entire carousel full viewport height (adjust if you don't want full-screen)
+    height: 100vh;
+    height: 100dvh;
+    min-height: 30rem;
 
     #carouselItem1 {
       div {
@@ -281,9 +237,10 @@ main {
           gap: 0px !important;
           width: 100% !important;
           margin: 0 auto !important;
+          padding: clamp(1rem, 5vw, 1.75rem);
 
           h2 {
-            font-size: xx-large !important;
+            font-size: clamp(1.65rem, 8vw, 2.2rem) !important;
           }
 
           .para {
@@ -298,49 +255,7 @@ main {
     }
 
     #carouselItem2 {
-      height: fit-content !important;
-      #secondRow {
-        display: flex;
-        flex-wrap: nowrap !important;
-        flex-direction: column-reverse !important;
-        align-items: center !important;
-        margin: auto;
-        #secondContainer {
-          height: auto !important;
-          padding: 18px 17px;
-          flex-direction: column;
-          justify-content: start;
-          align-items: start;
-          width: 100%;
-          margin-inline: auto;
-          border-radius: 8%;
-          h2 {
-            font-size: x-large !important;
-          }
-
-          h1 {
-            font-size: xx-large !important;
-          }
-
-          span,
-          ul {
-            font-size: medium !important;
-            line-height: 20% !important;
-          }
-          li {
-            text-indent: 10%;
-            font-size: medium !important;
-          }
-
-          a {
-            font-size: medium;
-          }
-        }
-        #bookImage {
-          width: 100% !important;
-          margin: auto 0 !important;
-        }
-      }
+      height: 100% !important;
     }
   }
 
@@ -382,7 +297,8 @@ main {
 
 @media (min-width: 767.98px) and (max-width: 991.98px) {
   .myCarousel {
-    height: 100%; // Makes the entire carousel full viewport height (adjust if you don't want full-screen)
+    height: 100vh;
+    height: 100dvh;
 
     #carouselItem1 {
       div {
@@ -535,7 +451,8 @@ main {
 // ── Tablet: same as mobile ──
 @media (min-width: 991.98px) and (max-width: 1279px) {
   .myCarousel {
-    height: 100%; // Makes the entire carousel full viewport height (adjust if you don't want full-screen)
+    height: 100vh;
+    height: 100dvh;
 
     #carouselItem1 {
       div {

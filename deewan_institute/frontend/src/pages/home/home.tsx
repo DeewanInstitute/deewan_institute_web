@@ -1,4 +1,4 @@
-import { useEffect, Fragment, useState } from "react";
+import { useEffect, Fragment, useRef, useState } from "react";
 import { Link } from "react-router";
 import HomeNavBar from "../../components/homenavbar/homenavbar";
 import Testimonials from "../../components/testimonials/testimonials";
@@ -14,10 +14,13 @@ import style from "./home.module.scss";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
 import { useTranslation } from "react-i18next";
+import { Carousel } from "bootstrap";
 
 function Home() {
-    const { t } = useTranslation();
+  const { t } = useTranslation();
   const [showTerms, setShowTerms] = useState<boolean>(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const heroVideoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     showLoader();
@@ -25,7 +28,6 @@ function Home() {
     // Get all images on page
     const images = document.querySelectorAll("img");
     let loadedImages = 0;
-
     const checkAllLoaded = () => {
       loadedImages++;
       if (loadedImages >= images.length) {
@@ -46,6 +48,40 @@ function Home() {
     const timeout = setTimeout(() => hideLoader(), 5000);
 
     return () => clearTimeout(timeout);
+  }, []);
+
+  useEffect(() => {
+    const carouselElement = carouselRef.current;
+    const videoElement = heroVideoRef.current;
+    if (!carouselElement || !videoElement) return;
+
+    const carousel = Carousel.getOrCreateInstance(carouselElement);
+
+    const handleSlideChange = (event: Event) => {
+      const nextSlide = (event as Event & { to: number }).to;
+
+      if (nextSlide === 1) {
+        carousel.pause();
+        void videoElement.play().catch(() => {
+          // Playback can still require user interaction in restrictive browsers.
+        });
+        return;
+      }
+
+      videoElement.pause();
+      carousel.cycle();
+    };
+
+    const handleVideoPlay = () => carousel.pause();
+
+    carouselElement.addEventListener("slid.bs.carousel", handleSlideChange);
+    videoElement.addEventListener("play", handleVideoPlay);
+
+    return () => {
+      carouselElement.removeEventListener("slid.bs.carousel", handleSlideChange);
+      videoElement.removeEventListener("play", handleVideoPlay);
+      videoElement.pause();
+    };
   }, []);
 
   const handleAccept = (): void => {
@@ -79,8 +115,10 @@ function Home() {
       {/* <!-- Carousel --> */}
       <div
         id="myCarousel"
+        ref={carouselRef}
         className={`carousel slide ${style.myCarousel}`}
         data-bs-ride="carousel"
+        data-bs-interval="5000"
       >
         {/* <!-- Indicators/dots --> */}
         <div className="carousel-indicators">
@@ -90,15 +128,15 @@ function Home() {
             data-bs-slide-to="0"
             className="active"
           ></button>
-          {/* <button
+          <button
             type="button"
             data-bs-target="#myCarousel"
             data-bs-slide-to="1"
-          ></button> */}
+          ></button>
         </div>
 
         {/* <!-- The slideshow/carousel --> */}
-        <div className="carousel-inner">
+        <div className="carousel-inner h-100">
           {/* <!-- First Slide --> */}
           <div className="carousel-item active" id={style.carouselItem1}>
             <div className="container-fluid d-flex align-items-end h-100">
@@ -132,52 +170,27 @@ function Home() {
               </div>
             </div>
           </div>
-        </div>
-        {/* <!-- Second Slide --> */}
-        {/* <div className="carousel-item active" id={style.carouselItem2}>
-            <div className="container-fluid d-flex align-items-end h-100">
-              <div className="row w-100" id={style.secondRow}>
-                <div className="col-lg-6 d-flex flex-column align-items-start justify-content-center scroll-section slide-in-right"> */}
-        {/* <!-- Right column --> */}
-        {/* <div
-                    className="d-flex flex-column"
-                    id={style.secondContainer}
-                  >
-                    <div className="text-start">
-                      <h2 className={`text-white ${style.h2}`}>
-                        Level Up Your Arabic
-                      </h2>
-                      <h2 className={`text-white ${style.h2}`}>With Our</h2>
-                      <h1 className={style.h1}>Publications</h1>
-                      <span>Available in: </span>
-                      <ul>
-                        <li>English Level: 1, 2, 3 </li>
-                        <li>Spanish Level: 1</li>
-                        <li>German Level: 1</li>
-                      </ul>
-                      <a
-                        className="btn rounded-pill text-center"
-                        href="https://a.co/d/aU1XrD1"
-                      >
-                        Order Now
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-6 text-center d-flex flex-column align-items-center justify-content-center scroll-section slide-in-left">
-                  <img
-                    src={"../assets/images/others/comprehensiveBook.png"}
-                    style={{ width: "60%" }}
-                    id={style.bookImage}
-                  />
-                </div>
-              </div>
-            </div>
+
+          {/* <!-- Second Slide --> */}
+          <div
+            className="carousel-item"
+            id={style.carouselItem2}
+            data-bs-interval="false"
+          >
+            <video
+              ref={heroVideoRef}
+              className={style.heroVideo}
+              src="https://firebasestorage.googleapis.com/v0/b/deewanweb.firebasestorage.app/o/Walkthrough%20Video%2Fvideo.mp4?alt=media&token=993e2777-eaf5-4b23-9722-7a991135f255"
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            />
           </div>
-        </div> */}
+        </div>
 
         {/* <!-- Left and right controls/icons --> */}
-        {/* <button
+        <button
           className="carousel-control-prev"
           type="button"
           data-bs-target="#myCarousel"
@@ -192,7 +205,7 @@ function Home() {
           data-bs-slide="next"
         >
           <span className="carousel-control-next-icon"></span>
-        </button> */}
+        </button>
       </div>
 
       {/* <!-- About Us --> */}

@@ -1,8 +1,11 @@
 import { useEffect, Fragment } from "react";
 import styles from "../teamslider/teamslider.module.scss";
 import { teamData } from "../../../data/team";
+import { useTranslation } from "react-i18next";
+
 
 function TeamSwiper() {
+  const { t } = useTranslation();
   useEffect(() => {
     const swiper = new (window as any).Swiper(`.${styles.teamSwiper}`, {
       slidesPerView: 1,
@@ -48,8 +51,8 @@ return (
                                     alt={member.name}
                                     loading="lazy"
                                 />
-                                <h3 className={`${styles.heading} text-center mt-4 mb-0`}>{member.name}</h3>
-                                <h5 className={`${styles.jobTitle} text-center`}>{member.title}</h5>
+                                <h3 className={`${styles.heading} text-center mt-4 mb-0`}>{t(member.name)}</h3>
+                                <h5 className={`${styles.jobTitle} text-center`}>{t(member.title)}</h5>
                             </div>
                         </div>
                     ))}
