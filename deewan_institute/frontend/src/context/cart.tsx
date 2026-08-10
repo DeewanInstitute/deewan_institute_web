@@ -49,11 +49,11 @@ function Cart() {
                                     {item.subtitle && <h4 className={styles.bookTitle}>{item.subtitle}</h4>}
                                     <div className={`d-flex flex-row justify-content-center align-items-center mt-3 ${styles.counter}`}>
                                         <button className={styles.qtyBtn} onClick={() => updateQuantity(item.id, -1)}>
-                                            <img src="/assets/images/icons/minusbutton.png" alt="Minus" />
+                                            <img src="/assets/images/icons/minusbutton.webp" alt="Minus" />
                                         </button>
                                         <p className={styles.quantity}>{item.quantity}</p>
                                         <button className={styles.qtyBtn} onClick={() => updateQuantity(item.id, 1)}>
-                                            <img src="/assets/images/icons/plusbutton.png" alt="Plus" />
+                                            <img src="/assets/images/icons/plusbutton.webp" alt="Plus" />
                                         </button>
                                     </div>
                                 </div>

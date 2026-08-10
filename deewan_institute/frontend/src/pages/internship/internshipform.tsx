@@ -450,7 +450,7 @@ function InternshipForm() {
         data={{
           title: t("pages.internship.internshipform.title_internship_application"),
           description: t("pages.internship.internshipform.description_complete_each_section_to_unlock_the_next_we"),
-          backgroundImg: "../../assets/images/banner/intern_banner.JPG",
+          backgroundImg: "../../assets/images/banner/intern_banner.webp",
         }}
       />
       <div className={styles.form_wrapper}>

@@ -189,14 +189,14 @@ function PublicationInfoLayout({
               >
                 <img
                   className="px-3"
-                  src={wishlistActive ? "/assets/images/icons/heart_brown.png" : "/assets/images/icons/heart.png"}
+                  src={wishlistActive ? "/assets/images/icons/heart_brown.webp" : "/assets/images/icons/heart.webp"}
                   alt="wishlist icon"
                 />
                 {wishlistActive ? "Wishlisted" : "Wishlist"}
               </button>
 
               <button onClick={onAddToCart} className={`${styles.actionBtn} ${styles.cartBtn}`}>
-                <img className="px-3" src="/assets/images/icons/cart.png" alt="cart icon" />
+                <img className="px-3" src="/assets/images/icons/cart.webp" alt="cart icon" />
                 {t("layout.bookslayout.publicationinfolayout.text_add_to_cart")}</button>
 
               {book.samplePdf && (
@@ -206,7 +206,7 @@ function PublicationInfoLayout({
                   rel="noreferrer"
                   className={`${styles.actionBtn} ${styles.sampleBtn}`}
                 >
-                  <img className="px-3" src="/assets/images/icons/pdf.svg" alt="sample icon" />
+                  <img className="px-3" src="/assets/images/icons/pdf.webp" alt="sample icon" />
                   {t("layout.bookslayout.publicationinfolayout.text_read_sample")}</a>
               )}
             </div>

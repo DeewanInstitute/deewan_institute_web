@@ -11,25 +11,25 @@ export const foreignData: Foreign = {
     // English
     {
       title: "English",
-      image: "../assets/images/others/english.png",
+      image: "../assets/images/others/english.webp",
       link: "/foreign-languages/english-course",
     },
     // French
     {
       title: "French",
-      image: "../assets/images/others/english.png",
+      image: "../assets/images/others/english.webp",
       link: "/foreign-languages/french-course",
     },
     // Spanish
     {
       title: "Spanish",
-      image: "../assets/images/others/spanish.png",
+      image: "../assets/images/others/spanish.webp",
       link: "/foreign-languages/spanish-course",
     },
         // Spanish
     {
       title: "German",
-      image: "../assets/images/others/germany.png",
+      image: "../assets/images/others/germany.webp",
       link: "/foreign-languages/german-course",
     },
   ],

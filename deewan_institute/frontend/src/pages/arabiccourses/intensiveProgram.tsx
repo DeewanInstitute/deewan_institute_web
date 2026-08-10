@@ -31,7 +31,7 @@ function IntensiveProgram() {
         data={{
           title: t("pages.arabiccourses.intensiveProgram.title_intensive_summer_and_fall_program"),
           description: t("pages.arabiccourses.intensiveProgram.description_the_deewan_institute_for_languages_and_cult"),
-          backgroundImg: "../assets/images/banner/intensiveBG.png",
+          backgroundImg: "../assets/images/banner/intensiveBG.webp",
         }}
       />
       <main className={style.intensive}>
@@ -58,7 +58,7 @@ function IntensiveProgram() {
               <img
                 className="img-fluid"
                 alt="Intensive Program"
-                src={"../assets/images/others/intensive1.png"}
+                src={"../assets/images/others/intensive1.webp"}
               />
             </div>
           </div>
@@ -76,7 +76,7 @@ function IntensiveProgram() {
               <img
                 className="img-fluid"
                 alt="Deewan Building"
-                src={"../assets/images/others/intensive2.png"}
+                src={"../assets/images/others/intensive2.webp"}
               />
             </div>
             {/* Text Column */}
@@ -108,7 +108,7 @@ function IntensiveProgram() {
           <Schedule
             data={{
               subtitle: t("pages.arabiccourses.intensiveProgram.subtitle_4_weeks_course"),
-              iconImage: "../assets/images/icons/one.png",
+              iconImage: "../assets/images/icons/one.webp",
               oneTotalPrice: "840 JD",
               groupTotalPrice: "880 JD",
               oneHours: "80 hours",
@@ -118,7 +118,7 @@ function IntensiveProgram() {
           <Schedule
             data={{
               subtitle: t("pages.arabiccourses.intensiveProgram.subtitle_8_weeks_course"),
-              iconImage: "../assets/images/icons/two.png",
+              iconImage: "../assets/images/icons/two.webp",
               oneTotalPrice: "1680 JD",
               groupTotalPrice: "1760 JD",
               oneHours: "160 hours",

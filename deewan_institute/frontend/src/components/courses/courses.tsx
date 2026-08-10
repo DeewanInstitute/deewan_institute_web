@@ -22,7 +22,7 @@ function Courses() {
           <div className={style.front}>
             <img
               id={style.image}
-              src={"../assets/images/background/levantine.svg"}
+              src={"../assets/images/background/levantine.webp"}
             />
             <span>{t("pages.arabiccourses.colloquial.colloquial.title_colloquial_levantine_arabic")}</span>
           </div>
@@ -31,7 +31,7 @@ function Courses() {
           >
             <img
               id={style.image}
-              src={"../assets/images/background/levantine.svg"}
+              src={"../assets/images/background/levantine.webp"}
             />
             <p className="my-3" id={style.para}>
               {t("pages.arabiccourses.colloquial.colloquial.title_colloquial_levantine_arabic")}</p>
@@ -55,7 +55,7 @@ function Courses() {
           <div className={style.front}>
             <img
               id={style.image}
-              src={"../assets/images/background/modern.svg"}
+              src={"../assets/images/background/modern.webp"}
             />
             <span>{t("pages.arabiccourses.msa.msa.title_modern_standard_arabic_msa")}</span>
           </div>
@@ -64,7 +64,7 @@ function Courses() {
           >
             <img
               id={style.image}
-              src={"../assets/images/background/modern.svg"}
+              src={"../assets/images/background/modern.webp"}
             />
             <p className="my-3" id={style.para}>
               {t("pages.arabiccourses.msa.msa.title_modern_standard_arabic_msa")}</p>
@@ -88,7 +88,7 @@ function Courses() {
           <div className={style.front}>
             <img
               id={style.image}
-              src={"../assets/images/background/hopOnHopOff.svg"}
+              src={"../assets/images/background/hopOnHopOff.webp"}
             />
             <span>{t("components.courses.courses.text_hop_on_hop_off_arabic")}</span>
           </div>
@@ -97,7 +97,7 @@ function Courses() {
           >
             <img
               id={style.image}
-              src={"../assets/images/background/hopOnHopOff.svg"}
+              src={"../assets/images/background/hopOnHopOff.webp"}
             />
             <p className="my-3" id={style.para}>
               {t("components.courses.courses.text_hop_on_hop_off_arabic")}</p>

@@ -28,7 +28,7 @@ backCover?: string;
 export const podcastSeasons: PodcastSeason[] = [
   {
     id: "podcast-season-1",
-    image: "/assets/images/books/podcasts/podcast1.png",
+    image: "/assets/images/books/podcasts/podcast1.webp",
     imageAlt: "Guide to Deewan Arabic Podcast – Season 1",
     title: "GUIDE TO DEEWAN ARABIC PODCAST : Levantine Arabic",
     author: "Mohammad K. Ayaseh",
@@ -61,12 +61,12 @@ export const podcastSeasons: PodcastSeason[] = [
     description:
       "Engaging Arabic lessons via teacher-student discussions on cultural topics (veganism, racism, parenting). For all levels, with accompanying book of glossaries and episode-based exercises.",
        samplePdf: "/assets/pdf/samples/se1-sample.pdf",
-  frontCover: "/assets/images/books/podcasts/se1-front.jpg",
-  backCover: "/assets/images/books/podcasts/se1-back.jpg",
+  frontCover: "/assets/images/books/podcasts/se1-front.webp",
+  backCover: "/assets/images/books/podcasts/se1-back.webp",
   },
   {
     id: "podcast-season-2",
-    image: "/assets/images/books/podcasts/podcast2.png",
+    image: "/assets/images/books/podcasts/podcast2.webp",
     imageAlt: "Guide to Deewan Arabic Podcast – Season 2: Levantine Arabic",
     title: "GUIDE TO DEEWAN ARABIC PODCAST: Levantine Arabic",
     author: "Mohammad K. Ayaseh",
@@ -85,13 +85,13 @@ export const podcastSeasons: PodcastSeason[] = [
       "Pioneering Arabic lessons with teacher-student chats on cultural topics (veganism, racism, parenting). Suits all levels; paired with book of episode glossaries and exercises for immersive learning.",
     listenLink: "#",
       samplePdf: "/assets/pdf/samples/se2-sample.pdf",
-  frontCover: "/assets/images/books/podcasts/se2-front.jpg",
-  backCover: "/assets/images/books/podcasts/se2-back.jpg",
+  frontCover: "/assets/images/books/podcasts/se2-front.webp",
+  backCover: "/assets/images/books/podcasts/se2-back.webp",
 
   },
   {
     id: "podcast-season-3",
-    image: "/assets/images/books/podcasts/podcast3.png",
+    image: "/assets/images/books/podcasts/podcast3.webp",
     imageAlt:
       "Guide to Deewan Arabic Podcast – Season 3: Arabic for Non-Native Speakers",
     title: "GUIDE TO DEEWAN ARABIC PODCAST: Arabic for Non-Native Speakers",
@@ -111,12 +111,12 @@ export const podcastSeasons: PodcastSeason[] = [
       "Teacher-learner discussions on cultural topics (veganism, racism, parenting) for all Arabic levels. Includes companion book with episode glossaries and exercises for immersive learning.",
     listenLink: "#",
       samplePdf: "/assets/pdf/samples/se3-sample.pdf",
-  frontCover: "/assets/images/books/podcasts/se3-front.jpg",
-  backCover: "/assets/images/books/podcasts/se3-back.jpg",
+  frontCover: "/assets/images/books/podcasts/se3-front.webp",
+  backCover: "/assets/images/books/podcasts/se3-back.webp",
   },
   {
     id: "podcast-season-5",
-    image: "/assets/images/books/podcasts/podcast5.png",
+    image: "/assets/images/books/podcasts/podcast5.webp",
     imageAlt: "Guide to Deewan Arabic Podcast – Season 5, Level A1–A2",
     title: "The Deewan Podcast: Bridging Education and Entertainment",
     author: "Mohammad K. Ayaseh",
@@ -134,7 +134,7 @@ export const podcastSeasons: PodcastSeason[] = [
     description: "A beginner-friendly (A1–A2) Arabic learning series with natural teacher-learner conversations on everyday topics like family, school, friends, and food. Paired with a companion book featuring glossaries and exercises for effective, real-life practice.",
     listenLink: "#",
       samplePdf: "/assets/pdf/samples/se5-sample.pdf",
-  frontCover: "/assets/images/books/podcasts/se5-front.jpg",
-  backCover: "/assets/images/books/podcasts/se5-back.jpg",
+  frontCover: "/assets/images/books/podcasts/se5-front.webp",
+  backCover: "/assets/images/books/podcasts/se5-back.webp",
   },
 ];

@@ -30,7 +30,7 @@ function DiplomacyArabic() {
       <ShadowBanner
         data={{
           title: "Diplomacy in Arabic",
-          backgroundImg: "/assets/images/banner/diplomacy-banner.png",
+          backgroundImg: "/assets/images/banner/diplomacy-banner.webp",
           rgbColor: "26, 34, 53, 0.8",
           titleBgColor: "26, 34, 53",
         }}
@@ -47,7 +47,7 @@ function DiplomacyArabic() {
           {/* Full-width image */}
           <section className={`${style.imageSection} scroll-section`}>
             <img
-              src="../assets/images/others/diplomacy-pic.png"
+              src="../assets/images/others/diplomacy-pic.webp"
               alt="diplomatic meeting"
               className={style.fullImage}
             />
@@ -74,7 +74,7 @@ function DiplomacyArabic() {
                 <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section">
                   <div className={style.skillsIcon}>
                     <img
-                      src="/assets/images/icons/dipicon1.png"
+                      src="/assets/images/icons/dipicon1.webp"
                       alt="Diplomatic Communication"
                       className={style.skillsImg}
                     />
@@ -87,7 +87,7 @@ function DiplomacyArabic() {
                 <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section">
                   <div className={style.skillsIcon}>
                     <img
-                      src="/assets/images/icons/dipicon2.png"
+                      src="/assets/images/icons/dipicon2.webp"
                       alt={t("pages.arabiccourses.diplomacy.diplomacyarabic.text_negotiation")}
                       className={style.skillsImg}
                     />
@@ -98,7 +98,7 @@ function DiplomacyArabic() {
                 <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section">
                   <div className={style.skillsIcon}>
                     <img
-                      src="/assets/images/icons/dipicon3.png"
+                      src="/assets/images/icons/dipicon3.webp"
                       alt={t("pages.arabiccourses.diplomacy.diplomacyarabic.text_political_analysis")}
                       className={style.skillsImg}
                     />
@@ -109,7 +109,7 @@ function DiplomacyArabic() {
                 <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section">
                   <div className={style.skillsIcon}>
                     <img
-                      src="/assets/images/icons/dipicon4.png"
+                      src="/assets/images/icons/dipicon4.webp"
                       alt="International Relations"
                       className={style.skillsImg}
                     />

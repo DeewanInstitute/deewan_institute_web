@@ -146,7 +146,7 @@ function Home() {
                   id={style.logo}
                 >
                   <img
-                    src={"/assets/images/logos/nobgLogo.png"}
+                    src={"/assets/images/logos/nobgLogo.webp"}
                     style={{ width: "70%" }}
                   />
                 </div>
@@ -232,7 +232,7 @@ function Home() {
           <div className="col-lg-5 col-lg-8 col-xl-6 col-xl-4  order-md-1 d-flex mt-2">
             <img
               className="featurette-image img-fluid mx-auto scroll-section slide-in-right"
-              src={"/assets/images/others/location.png"}
+              src={"/assets/images/others/location.webp"}
             />
           </div>
         </div>
@@ -294,21 +294,21 @@ function Home() {
               <div className="carousel-inner rounded-3">
                 <div className="carousel-item active">
                   <img
-                    src={"../assets/images/others/habibi1.jpg"}
+                    src={"../assets/images/others/habibi1.webp"}
                     className="d-block w-100 featurette-image img-fluid"
                     alt="Habibi slide 1"
                   />
                 </div>
                 <div className="carousel-item">
                   <img
-                    src={"../assets/images/others/habibi2.jpg"}
+                    src={"../assets/images/others/habibi2.webp"}
                     className="d-block w-100 featurette-image img-fluid"
                     alt="Habibi slide 2"
                   />
                 </div>
                 <div className="carousel-item">
                   <img
-                    src={"../assets/images/others/habibi3.jpg"}
+                    src={"../assets/images/others/habibi3.webp"}
                     className="d-block w-100 featurette-image img-fluid"
                     alt="Habibi slide 3"
                   />

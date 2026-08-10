@@ -31,7 +31,7 @@ function ArabicCourses() {
             <Banner data={{
                 title: t("pages.arabiccourses.arabicCourses.title_arabic_courses"),
                 description: t("pages.arabiccourses.arabicCourses.description_check_out_all_our_arabic_courses_at_deewan_"),
-                backgroundImg: "../assets/images/banner/arabicCbanner.jpg",
+                backgroundImg: "../assets/images/banner/arabicCbanner.webp",
             }} />
             {/* Main Layout */}
             <Courses data={courseData} />

@@ -32,7 +32,7 @@ backCover?: string;
 
 export const fushaBook: FushaBook = {
     id: "fusha-msa-guide",
-    image: "/assets/images/books/fusha/fusha1.png",
+    image: "/assets/images/books/fusha/fusha1.webp",
     imageAlt: "The Comprehensive Guide to Modern Standard Arabic",
     collectionLabel: "Fusha Collection",
     title: "The Comprehensive Guide to Modern Standard Arabic",
@@ -57,6 +57,6 @@ export const fushaBook: FushaBook = {
     cartLink: "#",
     price: 25,
      samplePdf: "/assets/pdf/samples/fusha-sample.pdf",
-  frontCover: "/assets/images/books/fusha/fusha-front.jpg",
-  backCover: "/assets/images/books/fusha/fusha-back.jpg",
+  frontCover: "/assets/images/books/fusha/fusha-front.webp",
+  backCover: "/assets/images/books/fusha/fusha-back.webp",
 };

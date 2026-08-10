@@ -30,7 +30,7 @@ function ArabiCafe() {
       <ShadowBanner
         data={{
           title: "Online ArabiCafe",
-          backgroundImg: "/assets/images/banner/arabicafe.png",
+          backgroundImg: "/assets/images/banner/arabicafe.webp",
           rgbColor: "119, 82, 34",
           titleBgColor: "0, 80, 60",
         }}
@@ -60,7 +60,7 @@ function ArabiCafe() {
                 <div className={style.imageWrapper}>
                   <img
                     className="img-fluid"
-                    src="../assets/images/others/arabicafe1.png"
+                    src="../assets/images/others/arabicafe1.webp"
                     alt="ArabiCafe session"
                   />
                 </div>
@@ -80,7 +80,7 @@ function ArabiCafe() {
       <div className="col-12 col-md-4 d-flex flex-column align-items-center scroll-section slide-in-left">
                   <div className={style.scheduleIcon}>
                     <img
-                      src="../assets/images/icons/clock.png"
+                      src="../assets/images/icons/clock.webp"
                       alt="Days"
                       className={style.scheduleImg}
                     />
@@ -92,7 +92,7 @@ function ArabiCafe() {
       <div className="col-12 col-md-4 d-flex flex-column align-items-center scroll-section">
                   <div className={style.scheduleIcon}>
                     <img
-                      src="../assets/images/icons/calendar.png"
+                      src="../assets/images/icons/calendar.webp"
                       alt="Time"
                       className={style.scheduleImg}
                     />
@@ -104,7 +104,7 @@ function ArabiCafe() {
       <div className="col-12 col-md-4 d-flex flex-column align-items-center scroll-section slide-in-right">
                   <div className={style.scheduleIcon}>
                     <img
-                      src="/assets/images/icons/bigworld.png"
+                      src="/assets/images/icons/bigworld.webp"
                       alt="Online format"
                       className={style.scheduleImg}
                     />
@@ -122,7 +122,7 @@ function ArabiCafe() {
                 <div className={style.imageWrapper}>
                   <img
                     className="img-fluid"
-                    src="../assets/images/others/arabicafe2.png"
+                    src="../assets/images/others/arabicafe2.webp"
                     alt="Students studying Arabic"
                   />
                 </div>

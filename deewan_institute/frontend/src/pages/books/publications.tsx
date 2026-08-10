@@ -222,8 +222,8 @@ function Publications() {
                         <img
                           src={
                             isInWishlist(book.id)
-                              ? "/assets/images/icons/heart_brown.png"
-                              : "/assets/images/icons/heart.png"
+                              ? "/assets/images/icons/heart_brown.webp"
+                              : "/assets/images/icons/heart.webp"
                           }
                           alt="wishlist"
                           style={{ width: "26px" }}
@@ -235,7 +235,7 @@ function Publications() {
                         className={`${styles.iconBtn} ${styles.cart}`}
                         style={{ border: "none", cursor: "pointer" }}
                       >
-                        <img src="/assets/images/icons/cart.png" alt="cart" />
+                        <img src="/assets/images/icons/cart.webp" alt="cart" />
                       </button>
                     </div>
                   </div>
@@ -347,8 +347,8 @@ function Publications() {
                 <img
                   src={
                     isInWishlist(fushaBook.id)
-                      ? "/assets/images/icons/heart_brown.png"
-                      : "/assets/images/icons/heart.png"
+                      ? "/assets/images/icons/heart_brown.webp"
+                      : "/assets/images/icons/heart.webp"
                   }
                   alt="wishlist"
                   style={{ width: "26px" }}
@@ -360,7 +360,7 @@ function Publications() {
                 className={`${styles.fushaIconBtn} ${styles.cart}`}
                 style={{ border: "none", cursor: "pointer" }}
               >
-                <img src="/assets/images/icons/cart.png" alt="cart" />
+                <img src="/assets/images/icons/cart.webp" alt="cart" />
               </button>
             </div>
           </div>

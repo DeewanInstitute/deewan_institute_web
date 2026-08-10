@@ -32,7 +32,7 @@ function Colloquial() {
       <ShadowBanner
         data={{
           title: "Colloquial Levantine Arabic",
-          backgroundImg: "/assets/images/banner/colloquial-banner.png",
+          backgroundImg: "/assets/images/banner/colloquial-banner.webp",
           rgbColor: "97, 91, 91, 0.4",
           titleBgColor: "97, 91, 91",
         }}
@@ -63,7 +63,7 @@ function Colloquial() {
           className={`${style.imageSection} scroll-section slide-in-right`}
         >
           <img
-            src="/assets/images/others/colloquial-pic.png"
+            src="/assets/images/others/colloquial-pic.webp"
             alt="student studying Arabic"
             className={style.fullImage}
           />
@@ -85,7 +85,7 @@ function Colloquial() {
 <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section slide-in-left">
               <div className={style.skillsIcon}>
                 <img
-                  src="/assets/images/icons/msa-icon.png"
+                  src="/assets/images/icons/msa-icon.webp"
                   alt={t("pages.arabiccourses.arabicKids.text_reading")}
                   className={style.skillsImg}
                 />
@@ -96,7 +96,7 @@ function Colloquial() {
 <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section slide-in-left">
               <div className={style.skillsIcon}>
                 <img
-                  src="/assets/images/icons/msa-icon2.png"
+                  src="/assets/images/icons/msa-icon2.webp"
                   alt={t("pages.arabiccourses.arabicKids.text_writing")}
                   className={style.skillsImg}
                 />
@@ -107,7 +107,7 @@ function Colloquial() {
 <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section slide-in-right">
               <div className={style.skillsIcon}>
                 <img
-                  src="/assets/images/icons/msa-icon3.png"
+                  src="/assets/images/icons/msa-icon3.webp"
                   alt={t("pages.arabiccourses.arabicKids.text_speaking")}
                   className={style.skillsImg}
                 />
@@ -118,7 +118,7 @@ function Colloquial() {
 <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section slide-in-right">
               <div className={style.skillsIcon}>
                 <img
-                  src="/assets/images/icons/msa-icon4.png"
+                  src="/assets/images/icons/msa-icon4.webp"
                   alt={t("pages.arabiccourses.arabicKids.text_listening")}
                   className={style.skillsImg}
                 />
@@ -139,7 +139,7 @@ function Colloquial() {
             {/* Left: image */}
 <div className="col-12 col-md-6 scroll-section slide-in-left">
               <img
-                src="/assets/images/others/colloquial-pic1.png"
+                src="/assets/images/others/colloquial-pic1.webp"
                 alt="students at class"
                 className={style.feesImage}
               />

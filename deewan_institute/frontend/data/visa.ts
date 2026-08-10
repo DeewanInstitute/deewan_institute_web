@@ -15,7 +15,7 @@ interface VisaData {
 
 export const visaData: VisaData = {
   title: "Visa Application",
-  image: "../assets/images/others/visa1.png",
+  image: "../assets/images/others/visa1.webp",
   subtitle: "Visa Support Services",
   header: "What We Offer",
   description:

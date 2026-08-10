@@ -50,7 +50,7 @@ function MiddleEasternStudies() {
       <ShadowBanner
         data={{
           title: "Middle Eastern Studies",
-          backgroundImg: "/assets/images/banner/mes-banner.png",
+          backgroundImg: "/assets/images/banner/mes-banner.webp",
           rgbColor: "119, 82, 34, 0.53",
           titleBgColor: "184, 92, 53",
         }}
@@ -80,7 +80,7 @@ function MiddleEasternStudies() {
             className={`${style.imageSection} scroll-section slide-in-right`}
           >
             <img
-              src="/assets/images/others/mes-pic.png"
+              src="/assets/images/others/mes-pic.webp"
               alt="Middle Eastern landmark"
               className={style.fullImage}
             />
@@ -98,7 +98,7 @@ function MiddleEasternStudies() {
             <div className="col-12 col-md-4 d-flex flex-column align-items-center scroll-section slide-in-left">
               <div className={style.highlightIcon}>
                 <img
-                  src="/assets/images/icons/mes-icon1.png"
+                  src="/assets/images/icons/mes-icon1.webp"
                   alt="Middle Eastern History & Civilizations"
                   className={style.highlightImg}
                 />
@@ -112,7 +112,7 @@ function MiddleEasternStudies() {
             <div className="col-12 col-md-4 d-flex flex-column align-items-center scroll-section">
               <div className={style.highlightIcon}>
                 <img
-                  src="/assets/images/icons/mes-icon2.png"
+                  src="/assets/images/icons/mes-icon2.webp"
                   alt="Culture, Society & Traditions"
                   className={style.highlightImg}
                 />
@@ -126,7 +126,7 @@ function MiddleEasternStudies() {
             <div className="col-12 col-md-4 d-flex flex-column align-items-center scroll-section slide-in-right">
               <div className={style.highlightIcon}>
                 <img
-                  src="/assets/images/icons/mes-icon3.png"
+                  src="/assets/images/icons/mes-icon3.webp"
                   alt="Historical & Contemporary perspectives"
                   className={style.highlightImg}
                 />

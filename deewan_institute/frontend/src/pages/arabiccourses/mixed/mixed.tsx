@@ -32,7 +32,7 @@ function Mixed() {
       <ShadowBanner
         data={{
           title: "Mixed Arabic (Colloquial & Fusha)",
-          backgroundImg: "/assets/images/banner/mixed-banner.png",
+          backgroundImg: "/assets/images/banner/mixed-banner.webp",
           rgbColor: "119, 82, 34, 0.47",
           titleBgColor: "143, 110, 67",
           
@@ -63,7 +63,7 @@ function Mixed() {
 
             <div className={`${style.whatIsItImage} scroll-section slide-in-right`}>
               <img
-                src="/assets/images/others/mixed-pic.png"
+                src="/assets/images/others/mixed-pic.webp"
                 alt="student in Arabic class"
                 className={style.sideImage}
               />
@@ -82,7 +82,7 @@ function Mixed() {
             {/* Left: image */}
             <div className="col-12 col-md-6 scroll-section">
               <img
-                src="/assets/images/others/mixed-pic1.JPG"
+                src="/assets/images/others/mixed-pic1.webp"
                 alt="students at a session"
                 className={style.feesImage}
               />

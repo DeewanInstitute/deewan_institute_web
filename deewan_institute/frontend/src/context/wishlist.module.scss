@@ -119,12 +119,12 @@
   background-color: $primary-color;
 
   &.cart {
-    background-image: url("/assets/images/icons/cart.png");
+    background-image: url("/assets/images/icons/cart.webp");
 
     &:hover {
       border: $primary-color 1px solid;
       background-color: white;
-      background-image: url("/assets/images/icons/cart_brown.png");
+      background-image: url("/assets/images/icons/cart_brown.webp");
     }
   }
 }

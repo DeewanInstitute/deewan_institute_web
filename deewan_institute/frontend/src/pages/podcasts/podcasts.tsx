@@ -24,19 +24,19 @@ function Podcasts() {
       <section className={styles.heroBanner}>
         <div className={styles.heroContent}>
           <img
-            src="/assets/images/podcast/podcast-logo.png"
+            src="/assets/images/podcast/podcast-logo.webp"
             alt="Deewan Podcast"
             className={styles.bannerLogo}
           />
           {/* <h2 className={styles.heroTitle}>ARABIC PODCAST</h2> */}
         </div>
         <img
-          src="/assets/images/podcast/wave-left.svg"
+          src="/assets/images/podcast/wave-left.webp"
           alt=""
           className={styles.waveLeft}
         />
         <img
-          src="/assets/images/podcast/wave-right.svg"
+          src="/assets/images/podcast/wave-right.webp"
           alt=""
           className={styles.waveRight}
         />
@@ -99,7 +99,7 @@ function Podcasts() {
             <div className="col-md-6">
               <div className={styles.illustrationWrapper}>
                 <img
-                  src="/assets/images/podcast/podcast-01.png"
+                  src="/assets/images/podcast/podcast-01.webp"
                   alt="Podcast illustration"
                   className={styles.mainIllustration}
                 />

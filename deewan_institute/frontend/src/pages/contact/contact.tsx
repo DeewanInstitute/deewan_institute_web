@@ -286,7 +286,7 @@ function Contact() {
                 className={styles.contactBox}
                 style={{ justifyContent: "center", textAlign: "center" }}
               >
-                <img src="/assets/images/icons/mail.svg" alt={t("components.careers.careerform.text_email")} />
+                <img src="/assets/images/icons/mail.webp" alt={t("components.careers.careerform.text_email")} />
                 <a href="mailto:arabic@deewaninstitute.com">
                   arabic@deewaninstitute.com
                 </a>
@@ -299,13 +299,13 @@ function Contact() {
             <div className="row justify-content-center mt-4">
               <div className="col-md-6 d-flex flex-column">
                 <div className={styles.contactBox}>
-                  <img src="/assets/images/icons/mail.svg" alt={t("components.careers.careerform.text_email")} />
+                  <img src="/assets/images/icons/mail.webp" alt={t("components.careers.careerform.text_email")} />
                   <a href="mailto:management@deewaninstitute.com">
                     management@deewaninstitute.com
                   </a>
                 </div>
                 <div className={styles.contactBox}>
-                  <img src="/assets/images/icons/mail.svg" alt={t("components.careers.careerform.text_email")} />
+                  <img src="/assets/images/icons/mail.webp" alt={t("components.careers.careerform.text_email")} />
                   <a href="mailto:publicrelations.deewan@gmail.com">
                     publicrelations.deewan@gmail.com
                   </a>
@@ -313,11 +313,11 @@ function Contact() {
               </div>
               <div className="col-md-6 d-flex flex-column">
                 <div className={styles.contactBox}>
-                  <img src="/assets/images/icons/phone.svg" alt="Phone" />
+                  <img src="/assets/images/icons/phone.webp" alt="Phone" />
                   <a href="tel:+962778928188">+962 7 7892 8188</a>
                 </div>
                 <div className={styles.contactBox}>
-                  <img src="/assets/images/icons/whatsapp.svg" alt="WhatsApp" />
+                  <img src="/assets/images/icons/whatsapp.webp" alt="WhatsApp" />
                   <a
                     href="https://wa.me/962778928188"
                     target="_blank"

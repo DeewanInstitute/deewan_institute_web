@@ -48,7 +48,7 @@ const BildungsurlaubPage = () => {
         <div className={`scroll-section ${styles.section} ${styles["section--hero"]}`}>
           <div className={styles.hero}>
             <img
-              src="/assets/images/banner/b_banner.png"
+              src="/assets/images/banner/b_banner.webp"
               alt={t("pages.bildungsurlaub.bildungsurlaub.text_bildungsurlaub_courses")}
               className={styles.heroimage}
               
@@ -102,7 +102,7 @@ const BildungsurlaubPage = () => {
               <div className={styles.contentBlockright}>
                 <div className={styles.rightPanel}>
                   <img
-                    src="/assets/images/others/b_panel.png"
+                    src="/assets/images/others/b_panel.webp"
                     alt="Bildungsurlaub session"
                     className={styles.rightPanelimage}
                   />

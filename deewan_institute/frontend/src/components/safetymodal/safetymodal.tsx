@@ -23,7 +23,7 @@ export default function SafetyModal() {
       <div className={styles.modal}>
         <div className={styles.header}>
           <div className={styles.shieldIcon}>
-            <img src="/assets/images/icons/shield.svg" alt="Safety Icon" className={styles.shieldIcon} />
+            <img src="/assets/images/icons/shield.webp" alt="Safety Icon" className={styles.shieldIcon} />
           </div>
           <div>
             <p className={styles.eyebrow}>{t("components.safetymodal.safetymodal.text_safety_notice")}</p>

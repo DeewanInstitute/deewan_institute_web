@@ -147,7 +147,7 @@ function HomeNavBar() {
           >
             <NavLink className="navbar-brand mb-0" to="/">
               <img
-                src="/assets/images/logos/horizontalLogo.png"
+                src="/assets/images/logos/horizontalLogo.webp"
                 alt="Deewan Institute Logo"
                 id={styles.mainLogo}
                 className={scrolled ? styles.logoScrolled : ""}
@@ -163,7 +163,7 @@ function HomeNavBar() {
                     aria-label={t("context.wishlist.text_wishlist")}
                   >
                     <img
-                      src="/assets/images/icons/heart_brown.png"
+                      src="/assets/images/icons/heart_brown.webp"
                       alt={t("context.wishlist.text_wishlist")}
                       id={styles.wishlistIcon}
                     />
@@ -177,7 +177,7 @@ function HomeNavBar() {
                     aria-label={t("components.homenavbar.homenavbar.aria_label_cart")}
                   >
                     <img
-                      src="/assets/images/icons/cart_brown.png"
+                      src="/assets/images/icons/cart_brown.webp"
                       alt={t("components.homenavbar.homenavbar.aria_label_cart")}
                       id={styles.cartIcon}
                     />
@@ -208,7 +208,7 @@ function HomeNavBar() {
               to="/"
             >
               <img
-                src="/assets/images/logos/horizontalLogo.png"
+                src="/assets/images/logos/horizontalLogo.webp"
                 alt="Deewan Institute Logo"
                 id={styles.mainLogo}
                 className={scrolled ? styles.logoScrolled : ""}
@@ -223,7 +223,7 @@ function HomeNavBar() {
                     aria-label={t("context.wishlist.text_wishlist")}
                   >
                     <img
-                      src="/assets/images/icons/heart_brown.png"
+                      src="/assets/images/icons/heart_brown.webp"
                       alt={t("context.wishlist.text_wishlist")}
                       id={styles.wishlistIcon}
                     />
@@ -237,7 +237,7 @@ function HomeNavBar() {
                     aria-label={t("components.homenavbar.homenavbar.aria_label_cart")}
                   >
                     <img
-                      src="/assets/images/icons/cart_brown.png"
+                      src="/assets/images/icons/cart_brown.webp"
                       alt={t("components.homenavbar.homenavbar.aria_label_cart")}
                       id={styles.cartIcon}
                     />
@@ -312,7 +312,7 @@ function HomeNavBar() {
                   aria-label={t("context.wishlist.text_wishlist")}
                 >
                   <img
-                    src="/assets/images/icons/heart_brown.png"
+                    src="/assets/images/icons/heart_brown.webp"
                     alt={t("context.wishlist.text_wishlist")}
                     id={styles.wishlistIcon}
                   />
@@ -326,7 +326,7 @@ function HomeNavBar() {
                   aria-label={t("components.homenavbar.homenavbar.aria_label_cart")}
                 >
                   <img
-                    src="/assets/images/icons/cart_brown.png"
+                    src="/assets/images/icons/cart_brown.webp"
                     alt={t("components.homenavbar.homenavbar.aria_label_cart")}
                     id={styles.cartIcon}
                   />
@@ -369,7 +369,7 @@ function HomeNavBar() {
           {/* Logo */}
           <NavLink to="/" onClick={closeAll}>
             <img
-              src="/assets/images/logos/institute-white.png"
+              src="/assets/images/logos/institute-white.webp"
               alt="Deewan Institute Logo"
               className={styles.overlayLogo}
             />
@@ -465,7 +465,7 @@ function HomeNavBar() {
             >
               <div className={styles.newsletterCardInner}>
                 <img
-                  src="/assets/images/others/news.png"
+                  src="/assets/images/others/news.webp"
                   alt="Deewan Newsletter"
                   className={styles.newsletterCardImg}
                   onError={(e) => {

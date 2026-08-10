@@ -87,7 +87,7 @@ function Wishlist() {
                           aria-label={t("context.wishlist.aria_label_add_to_cart")}
                           style={{ border: 'none', cursor: 'pointer', background: 'none' }}
                         >
-                          <img src="/assets/images/icons/cart_brown.png" alt="cart" />
+                          <img src="/assets/images/icons/cart_brown.webp" alt="cart" />
                         </button>
 
                         {/* Remove from wishlist */}

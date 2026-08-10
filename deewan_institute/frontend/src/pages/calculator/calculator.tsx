@@ -790,7 +790,7 @@ function PriceModal({ display, total, hideTime, onClose }: ModalProps) {
                   style={{ cursor: "pointer" }}
                   title={t("pages.calculator.calculator.title_print")}
                 >
-                  <img src="../assets/images/icons/print.png" alt={t("pages.calculator.calculator.title_print")} />
+                  <img src="../assets/images/icons/print.webp" alt={t("pages.calculator.calculator.title_print")} />
                 </a>
 
                 {/* DOWNLOAD BUTTON */}
@@ -801,7 +801,7 @@ function PriceModal({ display, total, hideTime, onClose }: ModalProps) {
                   title={t("pages.calculator.calculator.title_download_pdf")}
                 >
                   <img
-                    src="../assets/images/icons/download.png"
+                    src="../assets/images/icons/download.webp"
                     alt={t("pages.calculator.calculator.title_download_pdf")}
                   />
                 </a>
@@ -1377,7 +1377,7 @@ function Calculator() {
         >
           <img
             className="px-2"
-            src="../assets/images/icons/mail.svg"
+            src="../assets/images/icons/mail.webp"
             alt="Mail"
           />
           <a

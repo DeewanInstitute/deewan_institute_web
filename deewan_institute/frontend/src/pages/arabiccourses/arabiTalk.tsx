@@ -32,7 +32,7 @@ function ArabiTalk() {
       <ShadowBanner
         data={{
           title: "ArabiTalk",
-          backgroundImg: "/assets/images/banner/aya.JPG",
+          backgroundImg: "/assets/images/banner/aya.webp",
           rgbColor: "22, 117, 166",
         }}
       />
@@ -40,7 +40,7 @@ function ArabiTalk() {
         className={style.arabiTalk}
         style={
           {
-            "--background-image": `url('/assets/images/background/arabiTalkBG.png')`,
+            "--background-image": `url('/assets/images/background/arabiTalkBG.webp')`,
           } as React.CSSProperties
         }
       >
@@ -67,7 +67,7 @@ function ArabiTalk() {
                   className="featurette-image img-fluid mx-auto"
                   data-src="holder.js/500x500/auto"
                   alt="500x500"
-                  src={"../assets/images/others/arabitalk2.png"}
+                  src={"../assets/images/others/arabitalk2.webp"}
                   data-holder-rendered="true"
                 />
               </div>
@@ -130,7 +130,7 @@ function ArabiTalk() {
               mainText: "Unlock Arabic Conversations with ArabiTalk",
               buttonText: "Sign Up!",
               primaryColor: "black",
-              backgroundImg: "../assets/images/banner/arabiTalkBBG.png",
+              backgroundImg: "../assets/images/banner/arabiTalkBBG.webp",
             }}
           />
         </main>

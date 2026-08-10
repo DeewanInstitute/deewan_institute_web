@@ -17,7 +17,7 @@ interface oldHistory {
 
 export const oldHistory : oldHistory = {
     subTitle: "History of the Middle East",
-    bannerImg: "../assets/images/others/history1.png",
+    bannerImg: "../assets/images/others/history1.webp",
     info: [
         {
             id: "overview",
@@ -43,13 +43,13 @@ export const oldHistory : oldHistory = {
             id: "greekRoman",
             title: "Greek and Roman Empires",
             description: "In 334 BCE Alexander the Great, king of Macedon, invaded and captured the Persian Empire in its entirety. By the time he died in 323 BCE, his empire stretched all the way from Greece to northwest India. While Hellenistic cultural influences in the region have largely been overshadowed by subsequent empires, relics of Hellenic history remain in things as simple as names—such as Alexandria in Egypt or the historic name of Amman, “Philadelphia.”",
-            image: "../assets/images/others/history2.png",
+            image: "../assets/images/others/history2.webp",
         },
         {
             id: "earlyRoman",
             title: "The Early Roman Empire",
             description: "In 31 BCE, Augustus overthrew the Hellenic powers, initiating the start of the Roman Empire. Augustus ruled until 14 CE, reforming Roman laws and securing the empire’s borders. During this early period the Romans established themselves as one of the preeminent civilizations and empires of the Middle East, creating a 200 year-long Pax Romana. <br><br>However, from 235 CE the Roman Empire faced numerous attacks threatening its prosperity, and continued to face such threats until 300 CE. Given the extent of internal and external threats to Roman stability, the emperor Diocletian split the empire into two in 285 CE. The Western Roman empire would administer the western half while the Eastern Roman Empire would administer the eastern half. Thus, after 285 CE the Eastern Roman Empire continued to govern the Middle Eastern territories, becoming known as the Byzantine Empire.",
-            image: "../assets/images/others/history3.png",
+            image: "../assets/images/others/history3.webp",
         },
         {
             id: "byzantine",

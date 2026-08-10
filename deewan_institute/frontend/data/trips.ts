@@ -15,7 +15,7 @@ interface TripsData {
 
 export const tripsData: TripsData = {
   title: "Trips",
-  image: "../assets/images/others/trips.jpg",
+  image: "../assets/images/others/trips.webp",
   subtitle: "Trips & Travel Support",
   header: "What We Offer",
   description: "Deewan offers personalized support to help students explore Jordan and make the most of their stay. We provide several flexible options to suit different travel needs and preferences.",

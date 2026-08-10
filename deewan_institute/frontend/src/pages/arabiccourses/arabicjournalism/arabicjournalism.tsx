@@ -30,7 +30,7 @@ function ArabicJournalism() {
       <ShadowBanner
         data={{
           title: "Arabic Journalism",
-          backgroundImg: "/assets/images/banner/journalism-hero.png",
+          backgroundImg: "/assets/images/banner/journalism-hero.webp",
           rgbColor: "171, 111, 15, 0.8",
           titleBgColor: "171, 111, 15",
         }}
@@ -49,7 +49,7 @@ function ArabicJournalism() {
           {/* Full-width image */}
           <section className={`${style.imageSection} scroll-section`}>
             <img
-              src="../assets/images/others/journalism-banner.png"
+              src="../assets/images/others/journalism-banner.webp"
               alt="Arabic newspaper"
               className={style.fullImage}
             />

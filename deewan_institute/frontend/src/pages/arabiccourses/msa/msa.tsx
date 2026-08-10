@@ -32,7 +32,7 @@ function MSA() {
       <ShadowBanner
         data={{
           title: "Modern Standard Arabic",
-          backgroundImg: "/assets/images/banner/msa-banner.png",
+          backgroundImg: "/assets/images/banner/msa-banner.webp",
           rgbColor: "36, 105, 32, 0.4",
           titleBgColor: "36, 105, 32",
         }}
@@ -52,7 +52,7 @@ function MSA() {
             className={`${style.imageSection} scroll-section slide-in-right`}
           >
             <img
-              src="/assets/images/others/msa-pic1.JPG"
+              src="/assets/images/others/msa-pic1.webp"
               alt="student studying Arabic"
               className={style.fullImage}
             />
@@ -85,7 +85,7 @@ function MSA() {
             <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section slide-in-left">
               <div className={style.skillsIcon}>
                 <img
-                  src="/assets/images/icons/msa-icon.png"
+                  src="/assets/images/icons/msa-icon.webp"
                   alt={t("pages.arabiccourses.arabicKids.text_reading")}
                   className={style.skillsImg}
                 />
@@ -96,7 +96,7 @@ function MSA() {
             <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section slide-in-left">
               <div className={style.skillsIcon}>
                 <img
-                  src="/assets/images/icons/msa-icon2.png"
+                  src="/assets/images/icons/msa-icon2.webp"
                   alt={t("pages.arabiccourses.arabicKids.text_writing")}
                   className={style.skillsImg}
                 />
@@ -107,7 +107,7 @@ function MSA() {
             <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section slide-in-right">
               <div className={style.skillsIcon}>
                 <img
-                  src="/assets/images/icons/msa-icon3.png"
+                  src="/assets/images/icons/msa-icon3.webp"
                   alt={t("pages.arabiccourses.arabicKids.text_speaking")}
                   className={style.skillsImg}
                 />
@@ -118,7 +118,7 @@ function MSA() {
             <div className="col-12 col-md-3 d-flex flex-column align-items-center scroll-section slide-in-right">
               <div className={style.skillsIcon}>
                 <img
-                  src="/assets/images/icons/msa-icon4.png"
+                  src="/assets/images/icons/msa-icon4.webp"
                   alt={t("pages.arabiccourses.arabicKids.text_listening")}
                   className={style.skillsImg}
                 />
@@ -139,7 +139,7 @@ function MSA() {
             {/* Left: image */}
             <div className="col-12 col-md-6 scroll-section slide-in-left">
               <img
-                src="/assets/images/others/msa-pic.png"
+                src="/assets/images/others/msa-pic.webp"
                 alt="students at class"
                 className={style.feesImage}
               />

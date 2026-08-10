@@ -49,7 +49,7 @@ function Testimonials() {
               <div className="swiper-slide">
                 <div className={styles.testimonialCard}>
                   <img
-                    src={"/assets/images/others/stars.svg"}
+                    src={"/assets/images/others/stars.webp"}
                     alt="Rating"
                     className={styles.testimonialImg}
                   />
@@ -69,7 +69,7 @@ function Testimonials() {
               <div className="swiper-slide">
                 <div className={styles.testimonialCard}>
                   <img
-                    src={"/assets/images/others/stars.svg"}
+                    src={"/assets/images/others/stars.webp"}
                     alt="Rating"
                     className={styles.testimonialImg}
                   />
@@ -91,7 +91,7 @@ function Testimonials() {
               <div className="swiper-slide">
                 <div className={styles.testimonialCard}>
                   <img
-                    src={"/assets/images/others/stars.svg"}
+                    src={"/assets/images/others/stars.webp"}
                     alt="Rating"
                     className={styles.testimonialImg}
                   />
@@ -111,7 +111,7 @@ function Testimonials() {
               <div className="swiper-slide">
                 <div className={styles.testimonialCard}>
                   <img
-                    src={"/assets/images/others/stars.svg"}
+                    src={"/assets/images/others/stars.webp"}
                     alt="Rating"
                     className={styles.testimonialImg}
                   />
@@ -133,7 +133,7 @@ function Testimonials() {
               <div className="swiper-slide">
                 <div className={styles.testimonialCard}>
                   <img
-                    src={"/assets/images/others/stars.svg"}
+                    src={"/assets/images/others/stars.webp"}
                     alt="Rating"
                     className={styles.testimonialImg}
                   />
@@ -156,7 +156,7 @@ function Testimonials() {
               <div className="swiper-slide">
                 <div className={styles.testimonialCard}>
                   <img
-                    src={"/assets/images/others/stars.svg"}
+                    src={"/assets/images/others/stars.webp"}
                     alt="Rating"
                     className={styles.testimonialImg}
                   />
@@ -178,7 +178,7 @@ function Testimonials() {
               <div className="swiper-slide">
                 <div className={styles.testimonialCard}>
                   <img
-                    src={"/assets/images/others/stars.svg"}
+                    src={"/assets/images/others/stars.webp"}
                     alt="Rating"
                     className={styles.testimonialImg}
                   />
@@ -197,7 +197,7 @@ function Testimonials() {
               <div className="swiper-slide">
                 <div className={styles.testimonialCard}>
                   <img
-                    src={"/assets/images/others/stars.svg"}
+                    src={"/assets/images/others/stars.webp"}
                     alt="Rating"
                     className={styles.testimonialImg}
                   />
@@ -217,7 +217,7 @@ function Testimonials() {
               <div className="swiper-slide">
                 <div className={styles.testimonialCard}>
                   <img
-                    src={"/assets/images/others/stars.svg"}
+                    src={"/assets/images/others/stars.webp"}
                     alt="Rating"
                     className={styles.testimonialImg}
                   />

@@ -56,7 +56,7 @@ function About() {
               <img
                 id={style.images}
                 className="featurette-image img-fluid mx-auto"
-                src="/assets/images/others/aboutImage1.png"
+                src="/assets/images/others/aboutImage1.webp"
                 alt="Deewan Institute Building"
                 style={{ width: "600px", height: "700px" }}
               />
@@ -94,7 +94,7 @@ function About() {
             >
               <img
                 id={style.image}
-                src="/assets/images/icons/firstValue.png"
+                src="/assets/images/icons/firstValue.webp"
                 alt="Community and Inclusivity"
               />
               <h4 className={`${style.heading} text-center lh-base`}>
@@ -106,7 +106,7 @@ function About() {
             >
               <img
                 id={style.image}
-                src="/assets/images/icons/secondValue.png"
+                src="/assets/images/icons/secondValue.webp"
                 alt="Excellence in Education"
               />
               <h4 className={`${style.heading} text-center lh-base`}>
@@ -118,7 +118,7 @@ function About() {
             >
               <img
                 id={style.image}
-                src="/assets/images/icons/thirdValue.png"
+                src="/assets/images/icons/thirdValue.webp"
                 alt="Innovation and Creativity"
               />
               <h4 className={`${style.heading} text-center lh-base`}>
@@ -144,7 +144,7 @@ function About() {
             <div className="col-md-5 d-flex flex-column align-items-start justify-content-center">
               <img
                 className="featurette-image img-fluid mx-auto"
-                src="/assets/images/others/aboutImage2.png"
+                src="/assets/images/others/aboutImage2.webp"
                 alt="Teaching Approach"
                 style={{ width: "650px", height: "800px" }}
               />
@@ -205,19 +205,19 @@ function About() {
         <div className={style.cardIcons}>
                     <a href="https://www.facebook.com/profile.php?id=61579964781468" aria-label={t("pages.about.about.aria_label_facebook")}>
                       <img
-                        src="/assets/images/icons/facebook.png"
+                        src="/assets/images/icons/facebook.webp"
                         alt={t("pages.about.about.aria_label_facebook")}
                       />
                     </a>
                     <a href="https://www.linkedin.com/company/deewaninstitute/posts/?feedView=all" aria-label={t("pages.about.about.aria_label_linkedin")}>
                       <img
-                        src="/assets/images/icons/linkedin.png"
+                        src="/assets/images/icons/linkedin.webp"
                         alt={t("pages.about.about.aria_label_linkedin")}
                       />
                     </a>
                     <a href="https://www.instagram.com/deewan_arabic_institute/" aria-label={t("pages.about.about.aria_label_instagram")}>
                       <img
-                        src="/assets/images/icons/instagram.png"
+                        src="/assets/images/icons/instagram.webp"
                         alt={t("pages.about.about.aria_label_instagram")}
                       />
                     </a>

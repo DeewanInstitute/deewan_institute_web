@@ -24,11 +24,11 @@ export interface SeasonCard {
 // Season Cards (top row)
 
 export const seasonCards: SeasonCard[] = [
-    { season: 1, host: 'Mohammad Ayaseh', image: '/assets/images/podcast/card.png', seasonNumber: 1 },
-    { season: 2, host: 'Sara Al-Zyoud',   image: '/assets/images/podcast/card.png', seasonNumber: 2 },
-    { season: 3, host: 'Angela Dudley',   image: '/assets/images/podcast/card.png', seasonNumber: 3 },
-    { season: 4, host: 'Duha Hamad',      image: '/assets/images/podcast/card.png', seasonNumber: 4 },
-    { season: 5, host: 'Raghad Dabbour',  image: '/assets/images/podcast/card.png', seasonNumber: 5 },
+    { season: 1, host: 'Mohammad Ayaseh', image: '/assets/images/podcast/card.webp', seasonNumber: 1 },
+    { season: 2, host: 'Sara Al-Zyoud',   image: '/assets/images/podcast/card.webp', seasonNumber: 2 },
+    { season: 3, host: 'Angela Dudley',   image: '/assets/images/podcast/card.webp', seasonNumber: 3 },
+    { season: 4, host: 'Duha Hamad',      image: '/assets/images/podcast/card.webp', seasonNumber: 4 },
+    { season: 5, host: 'Raghad Dabbour',  image: '/assets/images/podcast/card.webp', seasonNumber: 5 },
 ];
 
 // Season 1
@@ -110,7 +110,7 @@ export const seasons: Season[] = [
         seasonNumber: 1,
         hostedBy: 'Mohammad K. Ayaseh',
         episodes: season1Episodes,
-        bookCover: '/assets/images/books/podcasts/podcast1.png',
+        bookCover: '/assets/images/books/podcasts/podcast1.webp',
         bookAlt: 'Guide to Deewan Podcast Season 1 book cover',
         reverse: false,
         bookLink: '/books/podcasts/season-1',
@@ -120,7 +120,7 @@ export const seasons: Season[] = [
         seasonNumber: 2,
         hostedBy: 'Sara Al-Zyoud',
         episodes: season2Episodes,
-        bookCover: '/assets/images/books/podcasts/podcast2.png',
+        bookCover: '/assets/images/books/podcasts/podcast2.webp',
         bookAlt: 'Guide to Deewan Podcast Season 2 book cover',
         reverse: true,
         bookLink: '/books/podcasts/season-2',
@@ -129,7 +129,7 @@ export const seasons: Season[] = [
         seasonNumber: 3,
         hostedBy: 'Angela Dudley',
         episodes: season3Episodes,
-        bookCover: '/assets/images/books/podcasts/podcast3.png',
+        bookCover: '/assets/images/books/podcasts/podcast3.webp',
         bookAlt: 'Guide to Deewan Podcast Season 3 book cover',
         reverse: false,
         bookLink: '/books/podcasts/season-3',
@@ -138,7 +138,7 @@ export const seasons: Season[] = [
         seasonNumber: 4,
         hostedBy: 'Duha Hamad',
         episodes: season4Episodes,
-        bookCover: '/assets/images/books/podcasts/podcast4.png',
+        bookCover: '/assets/images/books/podcasts/podcast4.webp',
         bookAlt: 'Guide to Deewan Podcast Season 4 book cover',
         reverse: true,
         bookLink: '/books/podcasts/season-4',
@@ -147,7 +147,7 @@ export const seasons: Season[] = [
         seasonNumber: 5,
         hostedBy: 'Raghad Dabbour',
         episodes: season5Episodes,
-        bookCover: '/assets/images/books/podcasts/podcast5.png',
+        bookCover: '/assets/images/books/podcasts/podcast5.webp',
         bookAlt: 'Guide to Deewan Podcast Season 5 book cover',
         reverse: false,
         bookLink: '/books/podcasts/season-5',

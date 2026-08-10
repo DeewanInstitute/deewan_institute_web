@@ -32,7 +32,7 @@ function ArabicKids() {
             <ShadowBanner 
                 data={{
                     title: "Arabic For Kids",
-                    backgroundImg: "/assets/images/banner/kidsBG.png",
+                    backgroundImg: "/assets/images/banner/kidsBG.webp",
                     rgbColor: "166,10,31"
                 }} 
             />
@@ -57,7 +57,7 @@ function ArabicKids() {
                                     <img 
                                         className="img-fluid" 
                                         alt={t("pages.arabiccourses.arabicKids.text_arabic_for_kids")}
-                                        src={"../assets/images/others/arabicForKids.png"} 
+                                        src={"../assets/images/others/arabicForKids.webp"} 
                                         style={{ maxWidth: '400px', width: '100%', height: 'auto' }} 
                                     />
                                 </div>
@@ -91,7 +91,7 @@ function ArabicKids() {
                                 <div className="col-12 col-sm-6 col-md-4">
                                     <div id={style.itemBox}>
                                         <img 
-                                            src={"../assets/images/others/approach1.png"} 
+                                            src={"../assets/images/others/approach1.webp"} 
                                             alt={t("pages.arabiccourses.arabicKids.text_play_and_learn")} 
                                             className="img-fluid"
                                             style={{ maxWidth: '200px', width: '100%', height: 'auto' }}
@@ -103,7 +103,7 @@ function ArabicKids() {
                                 <div className="col-12 col-sm-6 col-md-4">
                                     <div id={style.itemBox}>
                                         <img 
-                                            src={"../assets/images/others/approach2.png"} 
+                                            src={"../assets/images/others/approach2.webp"} 
                                             alt={t("pages.arabiccourses.arabicKids.text_stories_that_inspire_imagination")} 
                                             className="img-fluid"
                                             style={{ maxWidth: '200px', width: '100%', height: 'auto' }}
@@ -115,7 +115,7 @@ function ArabicKids() {
                                 <div className="col-12 col-sm-6 col-md-4">
                                     <div id={style.itemBox}>
                                         <img 
-                                            src={"../assets/images/others/approach3.png"} 
+                                            src={"../assets/images/others/approach3.webp"} 
                                             alt={t("pages.arabiccourses.arabicKids.text_interactive_visual_learning")} 
                                             className="img-fluid"
                                             style={{ maxWidth: '200px', width: '100%', height: 'auto' }}
@@ -136,7 +136,7 @@ function ArabicKids() {
                             mainText: "Enroll Your Child in Arabic Today!",
                             buttonText: "Enroll Now!",
                             primaryColor: "#A60A1F",
-                            backgroundImg: "../assets/images/banner/kidsBBG.png",
+                            backgroundImg: "../assets/images/banner/kidsBBG.webp",
                         }}
                     />
                 </main>

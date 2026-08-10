@@ -18,7 +18,7 @@ export default function Loader() {
       <div className={style.loader_container}>
         <div className={style.spinner}></div>{" "}
         <img
-          src="/assets/images/logos/LogoDeewan.svg"
+          src="/assets/images/logos/nobgLogo.webp"
           alt="Logo"
           className={style.logo}
         />

@@ -80,7 +80,7 @@ export default function NewsletterPage() {
         data={{
           title: t("pages.newsletter.newsletter.title_newsletter"),
           description: t("pages.newsletter.newsletter.description_our_latest_news_insights_and_exclusive_cont"),
-          backgroundImg: "../../assets/images/banner/news.JPG",
+          backgroundImg: "../../assets/images/banner/news.webp",
         }}
       />
 

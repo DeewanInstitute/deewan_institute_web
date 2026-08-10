@@ -15,19 +15,19 @@ import { useTranslation } from "react-i18next";
 
 const objectives = [
   {
-    icon: "/assets/images/icons/arabiflex-icon1.png",
+    icon: "/assets/images/icons/arabiflex-icon1.webp",
     label: "Enhance language fluency in real-life situations.",
   },
   {
-    icon: "/assets/images/icons/arabiflex-icon2.png",
+    icon: "/assets/images/icons/arabiflex-icon2.webp",
     label: "Develop analytical & critical thinking skills.",
   },
   {
-    icon: "/assets/images/icons/arabiflex-icon3.png",
+    icon: "/assets/images/icons/arabiflex-icon3.webp",
     label: "Understand Arab culture & the social and political context.",
   },
   {
-    icon: "/assets/images/icons/arabiflex-icon4.png",
+    icon: "/assets/images/icons/arabiflex-icon4.webp",
     label: "Differentiate between Modern Standard Arabic and dialects.",
   },
 ];
@@ -61,19 +61,19 @@ const classStructure = [
 
 const programDetails = [
   {
-    icon: "/assets/images/icons/arabiflex-icon5.png",
+    icon: "/assets/images/icons/arabiflex-icon5.webp",
     label: "Mode of Study:\nIn-Person",
   },
   {
-    icon: "/assets/images/icons/arabiflex-icon6.png",
+    icon: "/assets/images/icons/arabiflex-icon6.webp",
     label: "Session Duration:\n90 minutes",
   },
   {
-    icon: "/assets/images/icons/arabiflex-icon7.png",
+    icon: "/assets/images/icons/arabiflex-icon7.webp",
     label: "Attendance Options:\n1, 2, or 3 sessions per week",
   },
   {
-    icon: "/assets/images/icons/arabiflex-icon8.png",
+    icon: "/assets/images/icons/arabiflex-icon8.webp",
     label: "Schedule: Sunday, Tuesday, and Thursday\n6:20 PM – 8:00 PM",
   },
 ];
@@ -98,7 +98,7 @@ function ArabiFlex() {
       <ShadowBanner
         data={{
           title: "ArabiFlex Conversation \nGroup Class",
-          backgroundImg: "/assets/images/banner/arabiflex-banner.png",
+          backgroundImg: "/assets/images/banner/arabiflex-banner.webp",
           rgbColor: "46, 15, 40, 0.69",
           titleBgColor: "46, 15, 40",
         }}
@@ -116,7 +116,7 @@ function ArabiFlex() {
           {/* Full-width image */}
           <section className={`${style.imageSection} scroll-section`}>
             <img
-              src="/assets/images/others/arabiflex-pic.png"
+              src="/assets/images/others/arabiflex-pic.webp"
               alt="conversation bubbles"
               className={style.fullImage}
             />

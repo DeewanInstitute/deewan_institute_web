@@ -20,7 +20,7 @@ function NotFound() {
       <FloatingActionButtonInstitute />
       {/* 404 Content */}
       <section className="d-flex flex-column align-items-center justify-content-center text-center mx-auto" id={style.errorPage} >
-        <img id={style.image} className="mx-auto" src={"/assets/images/others/404.png"} />  
+        <img id={style.image} className="mx-auto" src={"/assets/images/others/404.webp"} />  
         <h5>{t("pages.404_page.error.text_ooops_404")}</h5>
         <h1 className={style.h1}>{t("pages.404_page.error.text_we_cannot_find_the_page_you_re_looking_for")}</h1>
         <p className={`text-muted ${style.para}`}>{t("pages.404_page.error.text_the_page_you_are_looking_for_does_not_exist")}</p>

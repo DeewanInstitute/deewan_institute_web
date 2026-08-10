@@ -74,7 +74,7 @@ function CultureEvents() {
          <div className="col-12 col-sm-10 col-xl-6 d-flex justify-content-center">
             <img
               className={styles.introImg}
-              src="/assets/images/others/culture1.png"
+              src="/assets/images/others/culture1.webp"
               alt="Cultural Events at Deewan"
             />
           </div>
@@ -87,7 +87,7 @@ function CultureEvents() {
           <div className="col-12 col-sm-10 col-xl-6 d-flex justify-content-center order-md-1 order-2">
             <img
               className={styles.livingImg}
-              src="/assets/images/others/culture9.svg"
+              src="/assets/images/others/culture9.webp"
               alt={t("pages.cultureevents.cultureEvents.text_a_living_cultural_space")}
             />
           </div>
