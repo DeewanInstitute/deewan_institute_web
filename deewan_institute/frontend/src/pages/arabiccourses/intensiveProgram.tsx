@@ -13,6 +13,7 @@ import "../../style/animation.scss";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
 import { useTranslation } from "react-i18next";
+import BottomBanner from "../../components/bottombanner/bottombanner";
 
 function IntensiveProgram() {
     const { t } = useTranslation();
@@ -126,11 +127,20 @@ function IntensiveProgram() {
             }}
           />
         </section>
-                    <button
+                    {/* <button
                       className={style.signup}
                       onClick={() => window.open("https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform")}
                     >
-                      {t("pages.cultureevents.cultureEvents.text_sign_up")}</button>
+                      {t("pages.cultureevents.cultureEvents.text_sign_up")}</button> */}
+
+<BottomBanner
+                        data={{
+                            mainText: "Enroll In Intensive Program Now",
+                            buttonText: "Enroll Now!",
+                            primaryColor: "#A60A1F",
+                            backgroundImg: "../assets/images/banner/about.webp",
+                        }}
+                    />
       </main>
       <Footer />
     </Fragment>

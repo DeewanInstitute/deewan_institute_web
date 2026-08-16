@@ -10,16 +10,19 @@ const jobData = [
     location: "Amman, Jordan",
     type: "Full-time",
   },
-  // {
-  //   id: 2,
-  //   title: "Project Coordinator - Wood Products Division",
-  //   description:
-  //     "Coordinate projects involving wood product sourcing, quality control, and delivery. Work closely with suppliers and clients to ensure timely and efficient operations.",
-  //   requirements:
-  //     "Diploma or degree in Logistics/Supply Chain, 2+ years in project coordination, proficiency in MS Office, and familiarity with wood industry standards.",
-  //   location: "Amman, Jordan",
-  //   type: "Full-time",
-  // },
+{
+    id: 2,
+    title: "Arabic Language Instructor",
+    description:
+      "The Arabic Language Instructor will be responsible for teaching Modern Standard Arabic and/or spoken dialects to non-native speakers. This role requires strong teaching skills, cultural sensitivity, and the ability to create an engaging and supportive learning environment.",
+    requirements: `• Proficiency in Modern Standard Arabic and at least one spoken dialect.
+• Strong command of English (reading, writing, speaking, and listening).
+• Previous teaching experience with non-native speakers is preferred.
+• Strong interpersonal and communication skills.
+• Flexibility, creativity, and cultural awareness.
+• Ability to use technology for language instruction (Google Workspace, Zoom, etc.).`,
+    location: "Amman, Jordan",
+    type: "Full-time",
+  },
 ];
-
 export { jobData };

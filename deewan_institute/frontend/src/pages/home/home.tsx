@@ -1,4 +1,4 @@
-import { useEffect, Fragment, useRef, useState } from "react";
+import { useEffect, Fragment, useState } from "react";
 import { Link } from "react-router";
 import HomeNavBar from "../../components/homenavbar/homenavbar";
 import Testimonials from "../../components/testimonials/testimonials";
@@ -14,13 +14,10 @@ import style from "./home.module.scss";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
 import { useTranslation } from "react-i18next";
-import { Carousel } from "bootstrap";
 
 function Home() {
   const { t } = useTranslation();
   const [showTerms, setShowTerms] = useState<boolean>(false);
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const heroVideoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     showLoader();
@@ -48,40 +45,6 @@ function Home() {
     const timeout = setTimeout(() => hideLoader(), 5000);
 
     return () => clearTimeout(timeout);
-  }, []);
-
-  useEffect(() => {
-    const carouselElement = carouselRef.current;
-    const videoElement = heroVideoRef.current;
-    if (!carouselElement || !videoElement) return;
-
-    const carousel = Carousel.getOrCreateInstance(carouselElement);
-
-    const handleSlideChange = (event: Event) => {
-      const nextSlide = (event as Event & { to: number }).to;
-
-      if (nextSlide === 1) {
-        carousel.pause();
-        void videoElement.play().catch(() => {
-          // Playback can still require user interaction in restrictive browsers.
-        });
-        return;
-      }
-
-      videoElement.pause();
-      carousel.cycle();
-    };
-
-    const handleVideoPlay = () => carousel.pause();
-
-    carouselElement.addEventListener("slid.bs.carousel", handleSlideChange);
-    videoElement.addEventListener("play", handleVideoPlay);
-
-    return () => {
-      carouselElement.removeEventListener("slid.bs.carousel", handleSlideChange);
-      videoElement.removeEventListener("play", handleVideoPlay);
-      videoElement.pause();
-    };
   }, []);
 
   const handleAccept = (): void => {
@@ -112,102 +75,64 @@ function Home() {
       {/* Navigation Bar */}
       <HomeNavBar />
 
-      {/* <!-- Carousel --> */}
-      <div
-        id="myCarousel"
-        ref={carouselRef}
-        className={`carousel slide ${style.myCarousel}`}
-        data-bs-ride="carousel"
-        data-bs-interval="5000"
-      >
-        {/* <!-- Indicators/dots --> */}
-        <div className="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#myCarousel"
-            data-bs-slide-to="0"
-            className="active"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#myCarousel"
-            data-bs-slide-to="1"
-          ></button>
-        </div>
-
-        {/* <!-- The slideshow/carousel --> */}
-        <div className="carousel-inner h-100">
-          {/* <!-- First Slide --> */}
-          <div className="carousel-item active" id={style.carouselItem1}>
-            <div className="container-fluid d-flex align-items-end h-100">
-              <div className="row w-100" id={style.firstRow}>
+      <section className={style.myCarousel} aria-label="Deewan Institute introduction">
+        <div id={style.carouselItem1}>
+          <div className="container-fluid d-flex align-items-end h-100">
+            <div className="row w-100" id={style.firstRow}>
+              <div
+                className="col-lg-6 text-center d-flex flex-column align-items-center scroll-section slide-in-left"
+                id={style.logo}
+              >
+                <img
+                  src={"/assets/images/logos/nobgLogo.webp"}
+                  style={{ width: "70%" }}
+                  alt="Deewan Institute"
+                />
+              </div>
+              <div className="col-lg-6 d-flex flex-column align-items-start justify-content-center">
                 <div
-                  className="col-lg-6 text-center d-flex flex-column align-items-center scroll-section slide-in-left"
-                  id={style.logo}
+                  className="d-flex scroll-section slide-in-right"
+                  id={style.firstContainer}
                 >
-                  <img
-                    src={"/assets/images/logos/nobgLogo.webp"}
-                    style={{ width: "70%" }}
-                  />
-                </div>
-                <div className="col-lg-6 d-flex flex-column align-items-start justify-content-center">
-                  <div
-                    className="d-flex scroll-section slide-in-right"
-                    id={style.firstContainer}
+                  <h2 className={`text-white ${style.h2}`}>
+                    {t("pages.home.home.text_native_arabic_global_echoes_ignite_cultures_in_amm")}
+                  </h2>
+                  <p className={style.para}>
+                    {t("pages.home.home.text_experience_the_authentic_rhythm_of_arabic_language")}
+                  </p>
+                  <Link
+                    className="btn rounded-pill text-center"
+                    id={style.a}
+                    to="/about"
                   >
-                    <h2 className={`text-white ${style.h2}`}>
-                      {t("pages.home.home.text_native_arabic_global_echoes_ignite_cultures_in_amm")}</h2>
-                    <p className={style.para}>
-                      {t("pages.home.home.text_experience_the_authentic_rhythm_of_arabic_language")}</p>
-                    <Link
-                      className="btn rounded-pill text-center"
-                      id={style.a}
-                      to="/about"
-                    >
-                      {t("pages.home.home.text_learn_more")}</Link>
-                  </div>
+                    {t("pages.home.home.text_learn_more")}
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* <!-- Second Slide --> */}
-          
-          <div
-            className="carousel-item"
-            id={style.carouselItem2}
-            data-bs-interval="false"
-          >
+      <section className={style.instituteTour} aria-labelledby="institute-tour-title">
+        <div className={style.tourContent}>
+          <div className={style.tourIntro}>
+            <p>Discover Deewan Institute</p>
+            <h2 id="institute-tour-title">Take a tour inside Deewan Institute</h2>
+            <span>See our welcoming learning spaces and get a feel for life at Deewan.</span>
+          </div>
+          <div className={style.tourVideoFrame}>
             <video
-              ref={heroVideoRef}
-              className={style.heroVideo}
-              src="https://firebasestorage.googleapis.com/v0/b/deewanweb.firebasestorage.app/o/Walkthrough%20Video%2Fvideo.mp4?alt=media&token=993e2777-eaf5-4b23-9722-7a991135f255"
-              muted
-              loop
+              controls
               playsInline
               preload="metadata"
-            />
+              src="https://firebasestorage.googleapis.com/v0/b/deewanweb.firebasestorage.app/o/Walkthrough%20Video%2Fvideo.mp4?alt=media&token=993e2777-eaf5-4b23-9722-7a991135f255"
+            >
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
-
-        {/* <!-- Left and right controls/icons --> */}
-        <button
-          className="carousel-control-prev"
-          type="button"
-          data-bs-target="#myCarousel"
-          data-bs-slide="prev"
-        >
-          <span className="carousel-control-prev-icon"></span>
-        </button>
-        <button
-          className="carousel-control-next"
-          type="button"
-          data-bs-target="#myCarousel"
-          data-bs-slide="next"
-        >
-          <span className="carousel-control-next-icon"></span>
-        </button>
-      </div>
+      </section>
 
       {/* <!-- About Us --> */}
       <section id={style.aboutUs}>

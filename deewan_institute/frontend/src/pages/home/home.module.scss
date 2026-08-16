@@ -16,11 +16,6 @@ main {
   height: 100dvh;
   min-height: 32rem;
 
-  :global(.carousel-inner),
-  :global(.carousel-item) {
-    height: 100%;
-  }
-
   #carouselItem1 {
     background-image: url("/assets/images/hero/HeroImage.webp") !important;
     background-repeat: no-repeat;
@@ -81,20 +76,64 @@ main {
     }
   }
 
-  #carouselItem2 {
-    position: relative;
-    height: 100%;
-    overflow: hidden;
+}
 
-    .heroVideo {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-      object-position: center;
-    }
+.instituteTour {
+  padding: clamp(3.5rem, 8vw, 6.5rem) clamp(1.25rem, 6vw, 4rem);
+  background: linear-gradient(180deg, #fff 0%, #f8f3eb 100%);
+}
+
+.tourContent {
+  width: min(100%, 68rem);
+  margin: 0 auto;
+}
+
+.tourIntro {
+  max-width: 42rem;
+  margin: 0 auto clamp(1.75rem, 4vw, 3rem);
+  text-align: center;
+
+  p {
+    margin: 0 0 0.6rem;
+    color: $primary_color;
+    font-family: "Merriweather-Regular";
+    font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    margin: 0;
+    color: $primary_color;
+    font-family: "Merriweather-Regular";
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    line-height: 1.25;
+  }
+
+  span {
+    display: block;
+    margin-top: 1rem;
+    color: $black;
+    font-family: "Merriweather-Light";
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    line-height: 1.65;
+  }
+}
+
+.tourVideoFrame {
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border: 0.5rem solid $white;
+  border-radius: clamp(1rem, 3vw, 1.75rem);
+  background: $black;
+  box-shadow: 0 1.25rem 3rem rgba(49, 32, 15, 0.2);
+
+  video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
@@ -254,9 +293,6 @@ main {
       }
     }
 
-    #carouselItem2 {
-      height: 100% !important;
-    }
   }
 
   #aboutUs,

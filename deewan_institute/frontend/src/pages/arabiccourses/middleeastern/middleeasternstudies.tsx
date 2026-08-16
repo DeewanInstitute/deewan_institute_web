@@ -11,6 +11,7 @@ import FloatingActionButton from "../../../components/floatingbutton/floatingact
 import FloatingActionButtonInstitute from "../../../components/floatingbutton/floatingactionbuttoninstitute";
 import HeroTitle from "../../../components/herotitle/herotitle";
 import { useTranslation } from "react-i18next";
+import BottomBanner from "../../../components/bottombanner/bottombanner";
 
 interface Article {
   title: string;
@@ -193,11 +194,14 @@ className={`${style.timelineRow} ${
             })}
           </div>
         </section>
-                    <button
-                      className={style.signup}
-                      onClick={() => window.open("https://docs.google.com/forms/u/1/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform")}
-                    >
-                      {t("pages.cultureevents.cultureEvents.text_sign_up")}</button>
+<BottomBanner
+                        data={{
+                            mainText: "Enroll In Middle Eastern Studies Program Now",
+                            buttonText: "Enroll Now!",
+                            primaryColor: "#A60A1F",
+                            backgroundImg: "../assets/images/others/mes-bottom.webp",
+                        }}
+                    />
       </div>
 
       {/* Footer */}

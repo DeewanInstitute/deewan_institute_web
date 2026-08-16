@@ -3,6 +3,11 @@ import styles from "./partnershipslider.module.scss";
 function PartnershipSlider() {
   const partners = [
     {
+      name: "Jadal",
+      url: "https://www.instagram.com/jadalbookshop.jo/",
+      img: "../assets/images/partnership/jadal.webp"
+    },
+    {
       name: "The Good Bookshop",
       url: "https://goodbookshopjo.com/",
       img: "../assets/images/partnership/thegoodbookshop.webp",
