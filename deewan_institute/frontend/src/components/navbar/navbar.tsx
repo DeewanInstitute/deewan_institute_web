@@ -96,6 +96,10 @@ const createOverlayColumns = (t: ReturnType<typeof useTranslation>["t"]) => [
     links: [
       { label: t("pages.careers.careers.title_careers"), to: "/careers" },
       { label: t("components.navbar.navbar.label_internships"), to: "/internship" },
+      { label: <>
+      {t("components.homenavbar.homenavbar.arabic_teacher")}
+      <br /> 
+      {t("components.homenavbar.homenavbar.training_course")}</> , to:"/training-course" },
     ],
   },
 ];

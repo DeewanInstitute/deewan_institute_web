@@ -42,6 +42,8 @@ app.use(
       "https://deewaninstitutewebsite.netlify.app",
       "https://69f1a656175d2ffc865aba71--deewanweb.netlify.app",
       "https://deewanweb.netlify.app",
+      "http://localhost:5173",
+      "http://127.0.0.1:5173",
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
@@ -135,6 +137,55 @@ app.post("/api/career", upload.single("cv"), async (req, res) => {
   } catch (error) {
     console.error("Career Form Error:", error);
     res.status(500).json({ message: "Error sending application." });
+  }
+});
+
+// ─── TRAINING COURSE REGISTRATION ENDPOINT ───────────────────────────────────
+
+app.post("/api/training-course", upload.single("cv"), async (req, res) => {
+  try {
+    const { firstName, lastName, email, phoneNumber } = req.body;
+    const file = req.file;
+
+    if (!firstName || !lastName || !email || !phoneNumber) {
+      return res.status(400).json({ message: "All fields are required" });
+    }
+    if (!file) {
+      return res.status(400).json({ message: "CV file is required" });
+    }
+
+    await resend.emails.send({
+      from: "Deewan Institute <app@deewaninstitute.com>",
+      to: [process.env.RECEIVER_EMAIL_4, process.env.RECEIVER_EMAIL_2],
+      subject: `Arabic Teacher Training Course Registration - ${firstName} ${lastName}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto;">
+          ${logoHtml}
+          <hr/>
+          <h2>New Arabic Teacher Training Course Registration</h2>
+          <hr/>
+          <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Phone:</strong> ${phoneNumber}</p>
+          <hr/>
+          <p><strong>Attached CV:</strong> ${file.originalname}</p>
+          <hr/>
+          ${footer}
+        </div>
+      `,
+      attachments: [
+        {
+          filename: file.originalname,
+          content: file.buffer.toString("base64"),
+          content_type: file.mimetype,
+        },
+      ],
+    });
+
+    res.status(200).json({ message: "Registration sent successfully!" });
+  } catch (error) {
+    console.error("Training Course Registration Error:", error);
+    res.status(500).json({ message: "Error sending registration." });
   }
 });
 

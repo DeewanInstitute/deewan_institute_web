@@ -1,0 +1,93 @@
+@use '../../style/fonts.scss' as *;
+@use '../../style/variables.scss' as *;
+
+// ─── Section shell ────────────────────────────────────────────────────────────
+.details {
+  background-color: $white;
+  padding: clamp(40px, 6vw, 90px) 0 clamp(60px, 8vw, 110px);
+}
+
+// ─── Left column: course info ─────────────────────────────────────────────────
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 2.5vw, 30px);
+}
+
+.paragraph {
+  font-family: "Merriweather-Regular";
+  font-size: clamp(1rem, 1.6vw, 1.4rem);
+  line-height: 1.6;
+  color: $text-dark;
+  margin: 0;
+}
+
+// ─── Duration / Schedule / Certificate ────────────────────────────────────────
+.metaList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  li {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-family: "Merriweather-Regular";
+    font-size: clamp(1rem, 1.6vw, 1.4rem);
+    color: $text-dark;
+
+    strong {
+      font-family: "Merriweather-Bold";
+    }
+  }
+}
+
+.metaIcon {
+  font-size: 1.1em;
+  line-height: 1;
+}
+
+// ─── Section headings (What You'll Gain / Internship Opportunity) ────────────
+.blockTitle {
+  font-family: "Merriweather-Bold";
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  color: $primary-color-dark;
+  margin: 0;
+}
+
+.blockDivider {
+  border: none;
+  border-top: 2px solid $primary-color;
+  opacity: 1;
+  margin: -8px 0 0;
+}
+
+.dividerGain {
+  width: 280px;
+  max-width: 100%;
+}
+
+.dividerInternship {
+  width: 353px;
+  max-width: 100%;
+}
+
+// ─── What You'll Gain bullet list ─────────────────────────────────────────────
+.bulletList {
+  margin: 0;
+  padding-left: 1.2em;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  li {
+    font-family: "Merriweather-Regular";
+    font-size: clamp(1rem, 1.6vw, 1.4rem);
+    line-height: 1.6;
+    color: $text-dark;
+  }
+}

@@ -117,9 +117,9 @@ function Home() {
       <section className={style.instituteTour} aria-labelledby="institute-tour-title">
         <div className={style.tourContent}>
           <div className={style.tourIntro}>
-            <p>Discover Deewan Institute</p>
-            <h2 id="institute-tour-title">Take a tour inside Deewan Institute</h2>
-            <span>See our welcoming learning spaces and get a feel for life at Deewan.</span>
+            <p>{t("pages.home.home.discover_deewan_institute")}</p>
+            <h2 id="institute-tour-title">{t("pages.home.home.take_a_tour_inside_deewan_institute")}</h2>
+            <span>{t("pages.home.home.see_our_welcoming")}</span>
           </div>
           <div className={style.tourVideoFrame}>
             <video

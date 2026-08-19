@@ -22,7 +22,12 @@ interface FormErrors {
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-function CareerForm() {
+interface CareerFormProps {
+  endpoint?: string;
+  showPosition?: boolean;
+}
+
+function CareerForm({ endpoint = "/api/career", showPosition = true }: CareerFormProps) {
     const { t } = useTranslation();
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
@@ -99,7 +104,7 @@ function CareerForm() {
     else if (!/^\+?[\d\s\-()]{7,15}$/.test(formData.phoneNumber))
       errors.phoneNumber = "Please enter a valid phone number.";
 
-    if (!formData.position.trim()) errors.position = "Position is required.";
+    if (showPosition && !formData.position.trim()) errors.position = "Position is required.";
 
     if (!formData.cv) errors.cv = "Please upload your CV.";
     else if (formData.cv.type !== "application/pdf")
@@ -130,10 +135,10 @@ function CareerForm() {
       data.append("lastName", formData.lastName);
       data.append("email", formData.email);
       data.append("phoneNumber", formData.phoneNumber);
-      data.append("position", formData.position);
+      if (showPosition) data.append("position", formData.position);
       if (formData.cv) data.append("cv", formData.cv);
 
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/career`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}${endpoint}`, {
         method: "POST",
         body: data,
       });
@@ -263,24 +268,26 @@ function CareerForm() {
             )}
           </div>
 
-          <div className={styles.field}>
-            <label className={styles.label} htmlFor="position">
-              {t("components.careers.careerform.text_position")}<span className={styles.required}>*</span>
-            </label>
-            <input
-              className={fieldClass("position")}
-              type="text"
-              id="position"
-              name="position"
-              value={formData.position}
-              onChange={handleInputChange}
-              autoComplete="organization-title"
-              placeholder="e.g. Arabic Language Instructor"
-            />
-            {submitted && formErrors.position && (
-              <span className={styles.error_msg}>{formErrors.position}</span>
-            )}
-          </div>
+          {showPosition && (
+            <div className={styles.field}>
+              <label className={styles.label} htmlFor="position">
+                {t("components.careers.careerform.text_position")}<span className={styles.required}>*</span>
+              </label>
+              <input
+                className={fieldClass("position")}
+                type="text"
+                id="position"
+                name="position"
+                value={formData.position}
+                onChange={handleInputChange}
+                autoComplete="organization-title"
+                placeholder="e.g. Arabic Language Instructor"
+              />
+              {submitted && formErrors.position && (
+                <span className={styles.error_msg}>{formErrors.position}</span>
+              )}
+            </div>
+          )}
 
           <div className={styles.field}>
             <label className={styles.label}>
