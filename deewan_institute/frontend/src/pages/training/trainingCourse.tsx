@@ -32,7 +32,7 @@ function TrainingCourse() {
       <ShadowBanner
         data={{
           title: t("pages.training.trainingCourse.title_arabic_teacher_training_course"),
-          backgroundImg: "./assets/images/banner/training-banner.webp",
+          backgroundImg: "../assets/images/banner/training-banner.webp",
           rgbColor: "119, 82, 34, 0.55",
           titleBgColor: "143, 110, 67",
         }}

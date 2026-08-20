@@ -1,0 +1,228 @@
+@use "../../style/variables.scss" as *;
+@use "../../style/fonts.scss" as *;
+
+// ─── Kids brand palette (from the Figma "Arabic For Kids" frame) ──────────────
+$kids-orange: #d17740;
+$kids-red: #a60a1f;
+
+.arabicKids {
+  position: relative;
+  overflow-x: hidden;
+
+  // ─── Intro section (photo collage) ────────────────────────────────────────
+  .info {
+    position: relative;
+  }
+
+  .collage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 941 / 572;
+  }
+
+  .collageMain {
+    position: absolute;
+    left: -7.2%;
+    top: -1.3%;
+    width: 117.3%;
+    height: 117.3%;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+  }
+
+  .collageTop {
+    position: absolute;
+    right: -22%;
+    top: -13%;
+    width: 27.1%;
+    height: 49.5%;
+    object-fit: cover;
+    z-index: 1;
+  }
+
+  .collageBottom {
+    position: absolute;
+    left: -22%;
+    bottom: -16%;
+    width: 24.1%;
+    height: 39.7%;
+    object-fit: cover;
+    z-index: 1;
+  }
+
+  // ─── Scalloped transition into the orange band ────────────────────────────
+  // A row of overlapping circles, drawn as real SVG geometry (not a CSS
+  // gradient hack) so the wave shape is exact and scales with the viewport.
+  .scallop {
+    display: block;
+    width: 100%;
+    height: clamp(40px, 7vw, 90px);
+    margin-top: clamp(40px, 6vw, 70px);
+
+    circle {
+      fill: $kids-orange;
+    }
+  }
+
+  // ─── Learn Arabic Their Way (orange band) ─────────────────────────────────
+  .learnWay {
+    position: relative;
+    background: $kids-orange;
+    padding: clamp(30px, 4vw, 50px) 0 clamp(60px, 8vw, 90px);
+    overflow: hidden;
+
+    .learnWayTitle {
+      width: max-content;
+      max-width: 100%;
+      margin-bottom: clamp(24px, 3vw, 40px);
+    }
+
+    h1 {
+      font-family: "Merriweather-Bold" !important;
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      color: $white;
+      margin: 0;
+      padding-bottom: 0.35em;
+      border-bottom: 3px solid $white;
+    }
+
+    p {
+      font-family: "Merriweather-Regular" !important;
+      font-size: clamp(1rem, 1.7vw, 1.4rem);
+      line-height: 1.6;
+      color: $white;
+       //max-width: 900px;
+      margin-bottom: 1.2rem;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      // max-width: 900px;
+
+      li {
+        font-family: "Merriweather-Regular" !important;
+        font-size: clamp(1rem, 1.7vw, 1.4rem);
+        line-height: 1.6;
+        color: $white;
+
+        strong {
+          font-family: "Merriweather-Bold" !important;
+        }
+      }
+    }
+  }
+
+  // ─── More Than Learning a Language ────────────────────────────────────────
+  .approach {
+    position: relative;
+    padding-inline: 13%;
+    margin-block: 5%;
+
+    .montessoriText {
+      font-family: "Merriweather-Regular" !important;
+      font-size: clamp(1rem, 1.7vw, 1.4rem);
+      line-height: 1.6;
+      color: $text-dark;
+     // max-width: 1000px;
+      margin: 0 auto clamp(30px, 4vw, 50px);
+    }
+
+    .subTitle {
+      width: max-content;
+      max-width: 100%;
+
+      h1 {
+        font-family: "Merriweather-SemiBold";
+        color: $kids-orange;
+        font-size: clamp(1.6rem, 5vw, 3.1rem);
+        border-bottom: $kids-orange 3px solid;
+      }
+    }
+
+    #itemBox {
+      img {
+        width: 80%;
+      }
+
+      h2 {
+        font-family: "Merriweather-Light" !important;
+        color: $kids-red;
+      }
+    }
+  }
+
+  // ─── Decorative accent shapes (real exported assets) ──────────────────────
+  .shape {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    display: block;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  .shapeImg {
+    width: auto;
+    object-fit: contain;
+  }
+
+  .shapeHeroBottomRight {
+    height: clamp(70px, 9vw, 130px);
+    bottom: -16px;
+    right: 6%;
+    transform: rotate(-8deg);
+  }
+
+  .shapeWayTopLeft {
+    height: clamp(36px, 4vw, 56px);
+    top: 10%;
+    left: 6%;
+  }
+
+  .shapeWayTopRight {
+    height: clamp(60px, 7vw, 100px);
+    top: 4%;
+    right: 5%;
+    transform: rotate(10deg);
+  }
+
+  .shapeWayTopCenter {
+    height: clamp(50px, 6vw, 90px);
+    right: 5%;
+    bottom:1%;
+  }
+
+  .shapeWayBottomRight {
+    height: clamp(120px, 16vw, 240px);
+    bottom: -13%;
+    right: 0%;
+    left: 93%;
+    transform: rotate(36deg);
+  }
+  .orangeBallLeft{
+    height: clamp(65px, 12vw, 150px);
+    left: -1%;
+    bottom:1%;
+    transform: rotate(180deg); 
+  }
+    .orangeBallLeft2{
+    height: clamp(65px, 12vw, 150px);
+    left: -1%;
+    top: -13%;
+    transform: rotate(180deg); 
+  }
+  .orangeBallRight{
+    height: clamp(65px, 12vw, 150px);
+    right: 0%;
+    bottom:-13%;
+  }
+}

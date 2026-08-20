@@ -1,17 +1,16 @@
 import { Fragment, useEffect } from "react";
 import NavBar from '../../components/navbar/navbar';
 import Footer from '../../components/footer/footer';
-import Title from '../../components/title/title';
 import ShadowBanner from '../../components/shadowbanner/shadowbanner';
-import Platform from "../../components/platform/platform";
 import { useScrollAnimation } from '../../../hooks/scrollAnimations';
-import style from '../arabiccourses/arabic.module.scss';
+import style from './arabicKids.module.scss';
 import '../../style/animation.scss';
 import 'bootstrap';
 import BottomBanner from "../../components/bottombanner/bottombanner";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
 import { useTranslation } from "react-i18next";
+import HeroTitle from "../../components/herotitle/herotitle";
 
 function ArabicKids() {
     const { t } = useTranslation();
@@ -29,61 +28,131 @@ function ArabicKids() {
             <FloatingActionButtonInstitute />
             
             {/* Banner */}
-            <ShadowBanner 
-                data={{
-                    title: "Arabic For Kids",
-                    backgroundImg: "/assets/images/banner/kidsBG.webp",
-                    rgbColor: "166,10,31"
-                }} 
-            />
-            
+            <ShadowBanner
+                    data={{
+                    title: t("pages.arabiccourses.arabicKids.text_arabic_for_kids"),
+                    backgroundImg: "../assets/images/banner/arabic-for-kids-banner.webp",
+                    rgbColor: "119, 82, 34, 0.55",
+                    titleBgColor: "209, 119, 64",
+                    }}
+                />
             {/* About Section */}
             <div className={style.arabicKids}>
                 <main>
                     {/* Title */}
-                    <Title 
-                        data={{
-                            subtitle: "Learn Arabic Playfully!",
-                            color: "#A60A1F"
-                        }} 
-                    />
+                        <HeroTitle
+                            subtitle={t("pages.arabiccourses.arabicKids.text_arabic_for_kids")}
+                            title={t("pages.arabiccourses.arabickids.make_arabic_a_language_they_love")}
+                            color="rgb(209 119 64)"
+                          />
                     
                     {/* About Section */}
                     <section className={`${style.info} py-3 my-4 my-md-5 scroll-section`}>
                         <div className="container">
                             <div className="row justify-content-center align-items-center g-4 g-md-5">
-                                {/* Image - Order 1 on mobile, Order 1 on desktop */}
-                                <div className="col-12 col-md-5 d-flex flex-column align-items-center justify-content-center order-1 order-md-1">
-                                    <img 
-                                        className="img-fluid" 
-                                        alt={t("pages.arabiccourses.arabicKids.text_arabic_for_kids")}
-                                        src={"../assets/images/others/arabicForKids.webp"} 
-                                        style={{ maxWidth: '400px', width: '100%', height: 'auto' }} 
-                                    />
-                                </div>
-                                {/* Text - Order 2 on mobile, Order 2 on desktop */}
-                                <div className="col-12 col-md-4 d-flex flex-column align-items-start justify-content-center order-2 order-md-2">
-                                    <h5 className="featurette-heading mb-2">{t("pages.arabiccourses.arabicKids.text_arabic_for_kids")}</h5>
-                                    <h1 className="featurette-heading my-3">{t("pages.arabiccourses.arabiTalk.text_what_is_it")}</h1>
-                                    <p className="lead">
-                                        {t("pages.arabiccourses.arabicKids.text_whether_your_child_is_just_starting_or_wants_to_im")}</p>
-                                    <p className="lead">
-                                        {t("pages.arabiccourses.arabicKids.text_we_teach_both_modern_standard_arabic_msa_or_colloq")}</p>
-                                    <ul className="lead">
-                                        <li>{t("pages.arabiccourses.arabicKids.text_reading")}</li>
-                                        <li>{t("pages.arabiccourses.arabicKids.text_writing")}</li>
-                                        <li>{t("pages.arabiccourses.arabicKids.text_speaking")}</li>
-                                        <li>{t("pages.arabiccourses.arabicKids.text_listening")}</li>
-                                    </ul>
+                                {/* Photo collage */}
+                                <div className="col-12 col-md-9 col-lg-7">
+                                    <div className={style.collage}>
+                                        <img
+                                            className={style.collageMain}
+                                            alt={t("pages.arabiccourses.arabicKids.text_arabic_for_kids")}
+                                            src={"../assets/images/others/arabic-for-kids-img.webp"}
+                                        />
+                                        <img
+                                            className={style.collageTop}
+                                            alt={t("pages.arabiccourses.arabicKids.text_arabic_for_kids")}
+                                            src="/assets/images/shapes/hero-collage-top.svg"
+                                        />
+                                        <img
+                                            className={style.collageBottom}
+                                            alt={t("pages.arabiccourses.arabicKids.text_arabic_for_kids")}
+                                            src="/assets/images/shapes/hero-collage-bottom.svg"
+                                        />
+                                    </div>
+                        <img
+                            aria-hidden="true"
+                            src="/assets/images/shapes/circle-orange.svg"
+                            alt=""
+                            className={`${style.shape} ${style.shapeImg} ${style.shapeWayTopCenter}`}
+                        />
+                                                <img
+                            aria-hidden="true"
+                            src="/assets/images/shapes/squiggly-orange.svg"
+                            alt=""
+                            className={`${style.shape} ${style.shapeImg} ${style.orangeBallLeft}`}
+                        />
                                 </div>
                             </div>
                         </div>
                     </section>
-                    
-                    {/* Approach Section */}
+
+                    {/* Scalloped transition into the orange band */}
+                    <svg aria-hidden="true" className={style.scallop} viewBox="0 0 1440 160" preserveAspectRatio="none">
+                        {[0, 1, 2, 3, 4, 5].map((i) => (
+                            <circle key={i} cx={i * 290} cy="180" r="180" />
+                        ))}
+                    </svg>
+
+                    {/* Learn Arabic Their Way */}
+                    <section className={`${style.learnWay} scroll-section`}>
+                        <img
+                            aria-hidden="true"
+                            src="/assets/images/shapes/circle-white-small.svg"
+                            alt=""
+                            className={`${style.shape} ${style.shapeImg} ${style.shapeWayTopLeft}`}
+                        />
+                        <img
+                            aria-hidden="true"
+                            src="/assets/images/shapes/circle-white-large.svg"
+                            alt=""
+                            className={`${style.shape} ${style.shapeImg} ${style.shapeWayTopRight}`}
+                        />
+
+                        <img
+                            aria-hidden="true"
+                            src="/assets/images/shapes/squiggly-white.svg"
+                            alt=""
+                            className={`${style.shape} ${style.shapeImg} ${style.shapeWayBottomRight}`}
+                        />
+                        <div className="container">
+                            <div className={style.learnWayTitle}>
+                                <h1>{t("pages.arabiccourses.arabicKids.text_learn_arabic_their_way")}</h1>
+                            </div>
+                            <p>{t("pages.arabiccourses.arabicKids.text_our_program_offers_private_one_to_one_lessons_and")}</p>
+                            <p>{t("pages.arabiccourses.arabicKids.text_parents_can_choose_between")}</p>
+                            <ul>
+                                <li>
+                                    <strong>{t("pages.arabiccourses.arabicKids.label_modern_standard_arabic_msa")}</strong>
+                                    {t("pages.arabiccourses.arabicKids.text_ideal_for_developing_formal_arabic_skills_used_in")}
+                                </li>
+                                <li>
+                                    <strong>{t("pages.arabiccourses.arabicKids.label_colloquial_arabic")}</strong>
+                                    {t("pages.arabiccourses.arabicKids.text_focused_on_everyday_communication_and_helping_chil")}
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    {/* More Than Learning a Language */}
                     <section className={style.approach}>
+                        <img
+                            aria-hidden="true"
+                            src="/assets/images/shapes/squiggly-orange.svg"
+                            alt=""
+                            className={`${style.shape} ${style.shapeImg} ${style.orangeBallLeft2}`}
+                        />
+                        <img
+                            aria-hidden="true"
+                            src="/assets/images/shapes/squiggly-orange.svg"
+                            alt=""
+                            className={`${style.shape} ${style.shapeImg} ${style.orangeBallRight}`}
+                        />
                         <div className={`${style.subTitle} my-4 my-md-5`}>
-                            <h1 className="py-2 scroll-section slide-in-right">{t("pages.arabiccourses.arabicKids.text_seamless_platforms_for_every_format")}</h1>
+                            <h1 className="py-2 scroll-section slide-in-right">{t("pages.arabiccourses.arabicKids.text_more_than_learning_a_language")}</h1>
+                        </div>
+                        <div className="container">
+                            <p className={`${style.montessoriText} scroll-section`}>
+                                {t("pages.arabiccourses.arabicKids.text_at_deewan_institute_we_use_the_montessori_approach")}</p>
                         </div>
                         <div className="container">
                             <div className="row justify-content-center text-center mx-auto my-4 my-md-5 py-4 py-md-5 scroll-section slide-in-left g-4">
@@ -127,16 +196,13 @@ function ArabicKids() {
                         </div>
                     </section>
                     
-                    {/* Platforms Section */}
-                    <Platform data={{ color: "#A60A1F" }} />
-                    
                     {/* Bottom Banner */}
                     <BottomBanner
                         data={{
-                            mainText: "Enroll Your Child in Arabic Today!",
-                            buttonText: "Enroll Now!",
-                            primaryColor: "#A60A1F",
-                            backgroundImg: "../assets/images/banner/kidsBBG.webp",
+                            mainText: t("pages.arabiccourses.arabicKids.maintext_enroll_your_child_in_arabic_today"),
+                            buttonText: t("pages.arabiccourses.arabicKids.buttontext_sign_up"),
+                            primaryColor: "#000000",
+                            backgroundImg: "../assets/images/banner/kids-bottom-banner.webp",
                         }}
                     />
                 </main>

@@ -16,7 +16,7 @@
 
 .paragraph {
   font-family: "Merriweather-Regular";
-  font-size: clamp(1rem, 1.6vw, 1.4rem);
+  font-size: clamp(1rem, 1.6vw, 1.1rem);
   line-height: 1.6;
   color: $text-dark;
   margin: 0;
@@ -37,7 +37,7 @@
     flex-wrap: wrap;
     gap: 8px;
     font-family: "Merriweather-Regular";
-    font-size: clamp(1rem, 1.6vw, 1.4rem);
+    font-size: clamp(1rem, 1.6vw, 1.1rem);
     color: $text-dark;
 
     strong {
@@ -86,7 +86,7 @@
 
   li {
     font-family: "Merriweather-Regular";
-    font-size: clamp(1rem, 1.6vw, 1.4rem);
+    font-size: clamp(1rem, 1.6vw, 1.1rem);
     line-height: 1.6;
     color: $text-dark;
   }

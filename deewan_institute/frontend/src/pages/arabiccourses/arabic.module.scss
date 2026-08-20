@@ -119,58 +119,6 @@
   }
 }
 
-.arabicKids {
-
-  // information
-  .info {
-    h5 {
-      font-family: "Merriweather-Regular" !important;
-      color: #a60a1f;
-    }
-
-    h1 {
-      font-family: "Merriweather-Bold" !important;
-      font-size: 50px;
-      line-height: 50px;
-      color: #a60a1f;
-    }
-
-    p,
-    ul,
-    li {
-      font-family: "Merriweather-Light" !important;
-      line-height: 35px;
-    }
-  }
-
-  .approach {
-    padding-inline: 13%;
-    margin-block: 5%;
-
-    .subTitle {
-      width: max-content;
-
-      h1 {
-        font-family: "Merriweather-SemiBold";
-        color: #a60a1f;
-        font-size: 50px;
-        border-bottom: #a60a1f 3px solid;
-      }
-    }
-
-    #itemBox {
-      img {
-        width: 80%;
-      }
-
-      h2 {
-        font-family: "Merriweather-Light" !important;
-        color: #a60a1f;
-      }
-    }
-  }
-}
-
 .intensive {
   @media screen and (max-width: 768px) {
     padding-inline: 6%;
