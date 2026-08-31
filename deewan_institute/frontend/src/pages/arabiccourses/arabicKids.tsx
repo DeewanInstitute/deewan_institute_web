@@ -116,7 +116,7 @@ function ArabicKids() {
                         />
                         <div className="container">
                             <div className={style.learnWayTitle}>
-                                <h1>{t("pages.arabiccourses.arabicKids.text_learn_arabic_their_way")}</h1>
+                                <h1>{t("pages.arabiccourses.arabicKids.text_arabic_made_for_little_learners")}</h1>
                             </div>
                             <p>{t("pages.arabiccourses.arabicKids.text_our_program_offers_private_one_to_one_lessons_and")}</p>
                             <p>{t("pages.arabiccourses.arabicKids.text_parents_can_choose_between")}</p>

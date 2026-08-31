@@ -1,0 +1,432 @@
+@use "../../style/variables.scss" as *;
+@use "../../style/fonts.scss" as *;
+
+.hiddenAudio {
+  display: none;
+}
+
+.detail {
+  position: relative;
+  // No overflow:hidden here — it would silently break position:sticky on
+  // the cover column below. The oversized wave watermark is instead capped
+  // to 100% width so it can't cause horizontal overflow on its own.
+  background:
+    radial-gradient(ellipse 640px 520px at 18% 28%, rgba(216, 173, 110, 0.32), transparent 62%),
+    radial-gradient(ellipse 560px 480px at 88% 78%, rgba(159, 131, 99, 0.22), transparent 60%),
+    url("/assets/images/background/audio-details-background.webp") repeat;
+  padding: clamp(40px, 6vw, 70px) 6%;
+
+  // Soft cinematic fade where the dark section meets the white nav/footer,
+  // instead of a hard color cut.
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: clamp(50px, 8vw, 110px);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  &::before {
+    top: 0;
+    background: linear-gradient(to bottom, rgba(10, 5, 2, 0.4), transparent);
+  }
+
+  &::after {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(10, 5, 2, 0.4), transparent);
+  }
+}
+
+.detailContent {
+  position: relative;
+  z-index: 2;
+}
+
+// A faint, oversized sound-wave watermark — ties the detail page back to the
+// "Audio Learning Library" theme without competing with the content.
+.detailWave {
+  position: absolute;
+  left: 50%;
+  bottom: -6%;
+  transform: translateX(-50%);
+  width: min(1400px, 100%);
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 0;
+
+  @media (max-width: 767px) {
+    opacity: 0.05;
+  }
+}
+
+// ─── Cover column ───────────────────────────────────────────────────────────
+.coverCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  // Follows the user down the page while the (much taller) chapters list
+  // scrolls, and naturally stops once it reaches the bottom of its own
+  // column. Side-by-side layout only — on mobile the columns stack, so
+  // sticking the cover would just eat vertical space above the chapters.
+  @media (min-width: 992px) {
+    position: sticky;
+    // Clears the sticky navbar (measured ~214px tall) with a little
+    // breathing room, so the navbar never overlaps the stuck cover.
+    top: 100px;
+    align-self: flex-start;
+  }
+}
+
+.cover {
+  display: block;
+  width: 100%;
+  max-width: 460px;
+  aspect-ratio: 538 / 760;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.coverPlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 460px;
+  aspect-ratio: 538 / 760;
+  border: 2px dashed rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+  color: $white;
+
+  span {
+    font-family: "Merriweather-Regular" !important;
+    font-size: 0.95rem;
+    padding-inline: 20px;
+  }
+}
+
+.bookTitle {
+  font-family: "Merriweather-Bold" !important;
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  color: $white;
+  line-height: 1.25;
+  margin: clamp(20px, 3vw, 32px) 0 16px;
+}
+
+.platforms {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  a {
+    display: inline-flex;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.08);
+    }
+  }
+}
+
+// ─── Chapters accordion (Chapter > Lesson > Section) ───────────────────────
+.chapters {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.chapterBlock {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.chapterHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border: none;
+  background: $primary-color;
+  color: $white;
+  font-family: "Merriweather-Regular" !important;
+  font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+  padding: clamp(14px, 1.8vw, 20px) clamp(20px, 3vw, 32px);
+  cursor: pointer;
+  text-align: left;
+}
+
+.chevronBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: clamp(38px, 4vw, 48px);
+  height: clamp(38px, 4vw, 48px);
+  border-radius: 50%;
+  background: $white;
+  color: $primary-color-dark;
+}
+
+.chevronIcon {
+  transition: transform 0.3s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+// Holds either the nested Lesson list, or — for chapters without a Lesson
+// sub-level (e.g. "Glossary of Words") — the section list directly.
+.chapterBody {
+  background: rgba(0, 0, 0, 0.14);
+  padding: 6px clamp(14px, 2vw, 22px) clamp(14px, 1.8vw, 20px);
+}
+
+// Middle tier — nested inside an open chapter.
+.lessonBlock {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.lessonHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: $white;
+  font-family: "Merriweather-Regular" !important;
+  font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+  padding: 12px 6px 12px 12px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.chevronBadgeSm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: clamp(30px, 3.2vw, 36px);
+  height: clamp(30px, 3.2vw, 36px);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  color: $primary-color-dark;
+}
+
+.sectionList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 4px 0 clamp(14px, 2vw, 20px);
+}
+
+.sectionRow {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: $white;
+  border: 1px solid $primary-color;
+  border-radius: 6px;
+  padding: 14px 20px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sectionRowActive {
+  border-color: $primary-color-dark;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+.sectionRowTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  span {
+    font-family: "Merriweather-Bold" !important;
+    font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+    color: $primary-color-dark;
+  }
+}
+
+.playBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: $black;
+  color: $white;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.06);
+  }
+}
+
+.playBadgeDisabled {
+  background: #999;
+  cursor: not-allowed;
+
+  &:hover {
+    transform: none;
+  }
+}
+
+// ─── Inline "now playing" controls (seek + skip ±10s) ──────────────────────
+.playerControls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed $brown-border;
+}
+
+.skipBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid $brown-border;
+  background: $brown-light;
+  color: $primary-color-dark;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+
+  span {
+    font-family: "Merriweather-Bold" !important;
+    font-size: 9px;
+    line-height: 1;
+  }
+
+  &:hover {
+    background: $primary-color;
+    color: $white;
+    transform: scale(1.06);
+  }
+}
+
+.seekArea {
+  flex: 1;
+  min-width: 0;
+}
+
+.seekBar {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    $primary-color-dark var(--progress, 0%),
+    rgba(143, 110, 67, 0.22) var(--progress, 0%)
+  );
+  outline: none;
+  cursor: pointer;
+  margin: 0;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: $primary-color-dark;
+    border: 2px solid $white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+  }
+
+  &::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: $primary-color-dark;
+    border: 2px solid $white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+  }
+
+  &::-moz-range-track {
+    height: 6px;
+    border-radius: 999px;
+    background: rgba(143, 110, 67, 0.22);
+  }
+
+  &::-moz-range-progress {
+    height: 6px;
+    border-radius: 999px;
+    background: $primary-color-dark;
+  }
+}
+
+.timeRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+
+  span {
+    font-family: "Merriweather-Regular" !important;
+    font-size: 0.75rem;
+    color: $text-muted;
+  }
+}
+
+// ─── Not found fallback ─────────────────────────────────────────────────────
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: clamp(80px, 12vw, 140px) 6%;
+  text-align: center;
+
+  h1 {
+    font-family: "Merriweather-Bold" !important;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: $primary-color-dark;
+    margin: 0;
+  }
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  background: $primary-color;
+  color: $white;
+  font-family: "Merriweather-Bold" !important;
+  font-size: 1rem;
+  padding: 12px 28px;
+  border-radius: 20px;
+  text-decoration: none !important;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background: $primary-color-dark;
+  }
+}

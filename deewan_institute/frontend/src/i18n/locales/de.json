@@ -1754,6 +1754,20 @@
   "pages.arabiccourses.arabicKids.label_colloquial_arabic": "Umgangssprachliches Arabisch",
   "pages.arabiccourses.arabicKids.text_focused_on_everyday_communication_and_helping_chil": " – konzentriert sich auf die Alltagskommunikation und hilft Kindern, sich in realen Situationen natürlich auszudrücken.",
   "pages.arabiccourses.arabicKids.text_more_than_learning_a_language": "Mehr als nur eine Sprache lernen",
-  "pages.arabiccourses.arabicKids.text_at_deewan_institute_we_use_the_montessori_approach": "Am Deewan Institute nutzen wir den Montessori-Ansatz, um das Arabischlernen natürlich, spannend und sinnvoll zu gestalten. Kinder lernen durch Entdeckung, Spiel, praktische Aktivitäten und reale Interaktion statt sich nur auf Auswendiglernen zu verlassen. Dieser Ansatz ermöglicht es jedem Kind, in seinem eigenen Tempo zu lernen, und fördert dabei Neugier, Selbstständigkeit, Selbstvertrauen und eine echte Verbindung zur arabischen Sprache."
-  
+  "pages.arabiccourses.arabicKids.text_at_deewan_institute_we_use_the_montessori_approach": "Am Deewan Institute nutzen wir den Montessori-Ansatz, um das Arabischlernen natürlich, spannend und sinnvoll zu gestalten. Kinder lernen durch Entdeckung, Spiel, praktische Aktivitäten und reale Interaktion statt sich nur auf Auswendiglernen zu verlassen. Dieser Ansatz ermöglicht es jedem Kind, in seinem eigenen Tempo zu lernen, und fördert dabei Neugier, Selbstständigkeit, Selbstvertrauen und eine echte Verbindung zur arabischen Sprache.",
+  "pages.audiobooks.audiobooks.text_hero_word_audio": "Audio",
+  "pages.audiobooks.audiobooks.text_hero_word_learning": "Lern",
+  "pages.audiobooks.audiobooks.text_hero_word_library": "bibliothek",
+  "pages.audiobooks.audiobooks.text_hero_subtitle": "Eine wachsende Sammlung arabischer Lernbücher, die Ihnen beim Lesen, Zuhören und Lernen hilft.",
+  "pages.audiobooks.audiobooks.text_fusha_collection": "Fusha-Kollektion",
+  "pages.audiobooks.audiobooks.text_ammiyeh_collection": "Ammiyeh-Kollektion",
+  "pages.audiobooks.audiobooks.text_speak_like_a_local_arabic_idioms": "Sprechen wie ein Einheimischer: Arabische Redewendungen",
+  "pages.audiobooks.audiobooks.text_learn_arabic_through_food": "Arabisch durch Essen lernen",
+  "pages.audiobooks.audiobooks.text_culinary_guide_title": "Der arabische Kulinarik-Sprachführer",
+  "pages.audiobooks.audiobooks.text_culinary_guide_description": "Entdecken Sie die Sprache, die Aromen und die Traditionen der Levante anhand authentischer, über Generationen weitergegebener Rezepte. Lernen Sie wichtiges kulinarisches Arabisch anhand von Schritt-für-Schritt-Rezepten, kulturellen Einblicken und Kochtipps. QR-Codes bieten exklusive Audioaufnahmen mit Ausspracheanleitungen, Geschichten sowie Einblicke in die Geschichte und Bedeutung jedes Gerichts.",
+  "pages.audiobooks.audiobooks.text_listen_now": "Jetzt anhören!",
+  "pages.audiobooks.audiobooks.text_cover_coming_soon": "Cover folgt in Kürze",
+  "pages.audiobooks.audiobookdetail.text_not_found": "Dieses Hörbuch konnten wir nicht finden.",
+  "pages.audiobooks.audiobookdetail.text_back_to_library": "Zurück zur Audio-Lernbibliothek",
+  "pages.audiobooks.navbar.audio_books": "Hörbücher"
 }

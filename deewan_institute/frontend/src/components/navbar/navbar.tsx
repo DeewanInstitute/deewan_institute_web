@@ -69,6 +69,7 @@ const createOverlayColumns = (t: ReturnType<typeof useTranslation>["t"]) => [
     links: [
       { label: t("pages.books.publications.title_publications"), to: "/publications" },
       { label: t("pages.podcasts.podcasts.title_podcasts"), to: "/podcasts" },
+      { label: t("pages.audiobooks.navbar.audio_books"), to:"/audiobooks"}
     ],
   },
   {

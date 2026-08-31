@@ -20,6 +20,8 @@ import IntensiveProgram from "./pages/arabiccourses/intensiveProgram.tsx";
 import Calculator from "./pages/calculator/calculator.tsx";
 import Publications from "./pages/books/publications.tsx";
 import PublicationInfo from "./pages/books/publicationinfo.tsx";
+import AudioBooks from "./pages/audiobooks/audiobooks.tsx";
+import AudioBookDetail from "./pages/audiobooks/audiobookdetail.tsx";
 // import CultureEvents from "./pages/cultureevents/cultureEvents.tsx";
 import WishList from "./context/wishlist.tsx";
 import Cart from "./context/cart.tsx";
@@ -79,6 +81,8 @@ function AppContent() {
         <Route path="/publications" element={<Publications />} />
         <Route path="/publications/book/:id" element={<PublicationInfo />} />
         <Route path="/publications/podcast/:id" element={<PublicationInfo />} />
+        <Route path="/audiobooks" element={<AudioBooks />} />
+        <Route path="/audiobooks/:id" element={<AudioBookDetail />} />
 
 
         {/* Foreign Courses */}

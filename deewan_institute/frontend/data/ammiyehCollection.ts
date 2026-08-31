@@ -152,6 +152,7 @@ export const ammiyehCollection: CollectionBook[] = [
     image: "/assets/images/books/ammiyeh/ammiyeh6.webp",
     imageAlt: "La Guía Completa de Árabe Levantino",
     title: "La Guía Completa de Árabe Levantino",
+    subtitle: "Aprende y domina el árabe levantino, paso a paso",
     author: "Mohammad K. Ayaseh",
     description:
       "*La Guía Completa del Árabe Levantino* es un recurso integral para estudiantes de todos los niveles, diseñado para facilitar tanto el aprendizaje como el refuerzo del árabe levantino. Ofrece una estructura clara que cubre las necesidades esenciales del árabe coloquial, fortalece el vocabulario de forma progresiva e incorpora ejercicios de comprensión auditiva y oral, junto con acceso a archivos de audio. Ideal para el autoaprendizaje o el estudio guiado, promueve una mejora constante mediante un enfoque práctico y accesible.",

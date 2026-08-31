@@ -1255,5 +1255,19 @@
   "pages.arabiccourses.arabicKids.label_colloquial_arabic": "اللهجة العامية",
   "pages.arabiccourses.arabicKids.text_focused_on_everyday_communication_and_helping_chil": " – تركّز على التواصل اليومي ومساعدة الأطفال على التحدث بطلاقة في المواقف الحياتية.",
   "pages.arabiccourses.arabicKids.text_more_than_learning_a_language": "أكثر من مجرد تعلّم لغة",
-  "pages.arabiccourses.arabicKids.text_at_deewan_institute_we_use_the_montessori_approach": "في معهد ديوان، نعتمد منهج مونتيسوري لجعل تعلّم اللغة العربية طبيعيًا وممتعًا وذا معنى. يتعلّم الأطفال من خلال الاكتشاف واللعب والأنشطة العملية والتفاعل الواقعي بدلاً من الاعتماد فقط على الحفظ. يتيح هذا النهج لكل طفل التعلّم بوتيرته الخاصة مع تعزيز الفضول والاستقلالية والثقة وارتباط حقيقي باللغة العربية."
+  "pages.arabiccourses.arabicKids.text_at_deewan_institute_we_use_the_montessori_approach": "في معهد ديوان، نعتمد منهج مونتيسوري لجعل تعلّم اللغة العربية طبيعيًا وممتعًا وذا معنى. يتعلّم الأطفال من خلال الاكتشاف واللعب والأنشطة العملية والتفاعل الواقعي بدلاً من الاعتماد فقط على الحفظ. يتيح هذا النهج لكل طفل التعلّم بوتيرته الخاصة مع تعزيز الفضول والاستقلالية والثقة وارتباط حقيقي باللغة العربية.",
+  "pages.audiobooks.audiobooks.text_hero_word_audio": "الصوتية",
+  "pages.audiobooks.audiobooks.text_hero_word_learning": "التعلّم",
+  "pages.audiobooks.audiobooks.text_hero_word_library": "مكتبة",
+  "pages.audiobooks.audiobooks.text_hero_subtitle": "مجموعة متنامية من كتب تعلّم اللغة العربية مصممة لمساعدتك على القراءة والاستماع والتعلّم.",
+  "pages.audiobooks.audiobooks.text_fusha_collection": "مجموعة الفصحى",
+  "pages.audiobooks.audiobooks.text_ammiyeh_collection": "مجموعة العامية",
+  "pages.audiobooks.audiobooks.text_speak_like_a_local_arabic_idioms": "تحدّث كأهل البلد: التعابير الاصطلاحية العربية",
+  "pages.audiobooks.audiobooks.text_learn_arabic_through_food": "تعلّم العربية من خلال الطعام",
+  "pages.audiobooks.audiobooks.text_culinary_guide_title": "الدليل اللغوي للطهي العربي",
+  "pages.audiobooks.audiobooks.text_culinary_guide_description": "اكتشف اللغة والنكهات وتقاليد بلاد الشام من خلال وصفات أصيلة توارثتها الأجيال. تعلّم المفردات العربية الأساسية المتعلقة بالطهي إلى جانب وصفات تفصيلية ورؤى ثقافية ونصائح للطبخ. توفّر رموز QR تسجيلات صوتية حصرية مع أدلة للنطق وحكايات ورؤى حول تاريخ ومعنى كل طبق.",
+  "pages.audiobooks.audiobooks.text_listen_now": "استمع الآن!",
+  "pages.audiobooks.audiobooks.text_cover_coming_soon": "الغلاف قريبًا",
+  "pages.audiobooks.audiobookdetail.text_not_found": "لم نتمكن من العثور على هذا الكتاب الصوتي.",
+  "pages.audiobooks.audiobookdetail.text_back_to_library": "العودة إلى مكتبة التعلّم الصوتية"
 }
