@@ -7,17 +7,24 @@
 
 .detail {
   position: relative;
-  // No overflow:hidden here — it would silently break position:sticky on
-  // the cover column below. The oversized wave watermark is instead capped
-  // to 100% width so it can't cause horizontal overflow on its own.
+
   background:
     radial-gradient(ellipse 640px 520px at 18% 28%, rgba(216, 173, 110, 0.32), transparent 62%),
     radial-gradient(ellipse 560px 480px at 88% 78%, rgba(159, 131, 99, 0.22), transparent 60%),
     url("/assets/images/background/audio-details-background.webp") repeat;
   padding: clamp(40px, 6vw, 70px) 6%;
 
-  // Soft cinematic fade where the dark section meets the white nav/footer,
-  // instead of a hard color cut.
+  @media (max-width: 767px) {
+    padding-top: 140px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1199.98px) {
+    padding-top: 150px;
+  }
+  @media (min-width: 1200px) and (max-width: 1279.98px) {
+    padding-top: 330px;
+  }
+
   &::before,
   &::after {
     content: "";
@@ -45,8 +52,7 @@
   z-index: 2;
 }
 
-// A faint, oversized sound-wave watermark — ties the detail page back to the
-// "Audio Learning Library" theme without competing with the content.
+
 .detailWave {
   position: absolute;
   left: 50%;
@@ -69,14 +75,9 @@
   align-items: center;
   text-align: center;
 
-  // Follows the user down the page while the (much taller) chapters list
-  // scrolls, and naturally stops once it reaches the bottom of its own
-  // column. Side-by-side layout only — on mobile the columns stack, so
-  // sticking the cover would just eat vertical space above the chapters.
   @media (min-width: 992px) {
     position: sticky;
-    // Clears the sticky navbar (measured ~214px tall) with a little
-    // breathing room, so the navbar never overlaps the stuck cover.
+
     top: 100px;
     align-self: flex-start;
   }
@@ -158,7 +159,7 @@
   background: $primary-color;
   color: $white;
   font-family: "Merriweather-Regular" !important;
-  font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+  font-size: clamp(1rem, 2.2vw, 1.4rem);
   padding: clamp(14px, 1.8vw, 20px) clamp(20px, 3vw, 32px);
   cursor: pointer;
   text-align: left;
@@ -184,14 +185,11 @@
   transform: rotate(180deg);
 }
 
-// Holds either the nested Lesson list, or — for chapters without a Lesson
-// sub-level (e.g. "Glossary of Words") — the section list directly.
 .chapterBody {
   background: rgba(0, 0, 0, 0.14);
   padding: 6px clamp(14px, 2vw, 22px) clamp(14px, 1.8vw, 20px);
 }
 
-// Middle tier — nested inside an open chapter.
 .lessonBlock {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
@@ -209,7 +207,7 @@
   background: transparent;
   color: $white;
   font-family: "Merriweather-Regular" !important;
-  font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+  font-size: clamp(1rem, 1.7vw, 1.35rem);
   padding: 12px 6px 12px 12px;
   cursor: pointer;
   text-align: left;
@@ -258,7 +256,7 @@
 
   span {
     font-family: "Merriweather-Bold" !important;
-    font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+    font-size: clamp(0.75rem, 1.3vw, 1.15rem);
     color: $primary-color-dark;
   }
 }

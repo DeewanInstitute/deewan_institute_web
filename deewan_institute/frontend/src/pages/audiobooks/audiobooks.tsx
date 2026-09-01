@@ -219,7 +219,7 @@ function AudioBooks() {
         </div>
       </section>
 
-      {/* Speak Like a Local: Arabic Idioms */}
+      {/* Arabic Idioms */}
       <section className={`${styles.section} scroll-section`}>
         <div className="container">
           <h2 className={styles.sectionTitle}>

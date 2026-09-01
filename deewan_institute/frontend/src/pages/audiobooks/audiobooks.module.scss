@@ -48,7 +48,7 @@ $audio-tint: $primary-color;
   z-index: 1;
   pointer-events: none;
 
-  @media (max-width: 767px) {
+  @media (max-width: 991.98px) {
     display: none;
   }
 }
@@ -194,10 +194,23 @@ $audio-tint: $primary-color;
   color: $white;
   font-family: "Merriweather-Bold" !important;
   font-size: clamp(1rem, 1.4vw, 1.15rem);
-  padding: clamp(1px, 1.8vw, 7px) clamp(39px, 31.5vw, 300px);
+  white-space: nowrap;
+  padding: clamp(1px, 1.8vw, 7px) clamp(39px, 26.5vw, 300px);
   border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+
+  @media (max-width: 359.98px) {
+    padding-inline: clamp(24px, 20vw, 90px);
+  }
+
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    padding-inline: clamp(39px, 34vw, 300px);
+  }
+
+  @media (min-width: 992px) {
+    padding-inline: clamp(28px, 41%, 300px);
+  }
 
   &:hover {
     background: $primary-color-dark;
@@ -316,5 +329,9 @@ $audio-tint: $primary-color;
   .featureCoverPortrait,
   .coverPlaceholder {
     max-width: 280px;
+  }
+
+  .heroContent h1 {
+    font-size: clamp(1.75rem, 8vw, 2.4rem);
   }
 }

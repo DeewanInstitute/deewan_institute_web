@@ -31,7 +31,8 @@ function buildCatalog(): Record<string, AudioBookMeta> {
       translationKey: `content.books.main.${idiomsBookId}.title`,
     },
     [culinaryBookId]: {
-      image: "",
+      image: "/assets/images/books/poster/cookbook.webp",
+      //deewan_institute\frontend\public\assets\images\books\poster\cookbook.webp
     },
   };
 
@@ -140,8 +141,6 @@ function AudioBookDetail() {
     bookContent?.chapters[0]?.id ?? null
   );
   const [openLessonId, setOpenLessonId] = useState<string | null>(null);
-  // The currently loaded track — stays set while paused, so the player
-  // controls (seek bar, skip buttons) remain visible and usable.
   const [activeSectionId, setActiveSectionId] = useState<string | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -153,6 +152,7 @@ function AudioBookDetail() {
   }, []);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
     setOpenChapterId(bookContent?.chapters[0]?.id ?? null);
     setOpenLessonId(null);
     setActiveSectionId(null);
@@ -161,8 +161,6 @@ function AudioBookDetail() {
     setDuration(0);
   }, [id]);
 
-  // Keep play/pause + seek state in sync with the actual <audio> element,
-  // whether it was driven by our buttons or the browser's own media keys.
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
