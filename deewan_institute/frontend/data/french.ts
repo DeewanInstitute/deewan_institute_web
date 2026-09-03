@@ -49,13 +49,7 @@ export const frenchData : Foreign = {
             boldDescription: "(5 JD per 45-minute session)",
             link: "https://docs.google.com/forms/d/e/1FAIpQLSeGhi5lxeMDlS4P_y7UsuJVPwEXsRqYT0tGNb5oPvpwHSJwfg/viewform",
         },
-        // Hop On Hop Off Course
-        {
-            name: "Hop On Hop Off Course",
-            description: "A flexible conversational course for intermediate and advanced learners, taught by native speakers. Students can join any time and attend until their package ends.",
-            link: "https://docs.google.com/forms/d/e/1FAIpQLSeGhi5lxeMDlS4P_y7UsuJVPwEXsRqYT0tGNb5oPvpwHSJwfg/viewform",
-        },
-        // Exam 
+        // Exam
         {
             name: "Exam Preparation for DELF (Diplôme d'études en Langue Française) & DALF (Diplôme Approfondi de Langue Française)",
             description: "Focused courses to prepare for DELF and DALF certifications, ensuring success in official French proficiency exams.",

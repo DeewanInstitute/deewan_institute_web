@@ -69,6 +69,13 @@
   #navBar {
     position: fixed !important;
     left: 50%;
+    // `right: 0` from the base rule above over-constrains this fixed
+    // box once `left` + `width` are also set. LTR resolves that by
+    // ignoring `right` (so this centers as intended), but RTL ignores
+    // `left` instead and honors `right: 0`, while this translateX
+    // still shifts it as if `left: 50%` were active — pushing the bar
+    // off-screen in Arabic. Clearing `right` removes the ambiguity.
+    right: auto;
     transform: translateX(-50%);
     width: 95%;
     margin-top: 2%;
@@ -102,6 +109,11 @@
   #navBar {
     position: fixed !important;
     left: 50%;
+    // See the same rule in the tablet breakpoint above — `right: 0`
+    // from the base rule needs to be cleared here too, otherwise this
+    // centers correctly only in LTR and pushes the bar off-screen in
+    // RTL (Arabic).
+    right: auto;
     transform: translateX(-50%);
     width: 95%;
     margin-top: 3%;
@@ -184,6 +196,15 @@
   position: absolute;
   left: 17%;
   transform: translateX(-50%);
+
+  // `left` is a physical property, so it doesn't mirror for RTL on its
+  // own — pin from the right instead so the logo sits on the same side
+  // as the rest of the mirrored layout in Arabic.
+  :global(html[dir="rtl"]) & {
+    left: auto;
+    right: 17%;
+    transform: translateX(50%);
+  }
 }
 
 .tabletSpacer {

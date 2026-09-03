@@ -190,13 +190,13 @@ function PublicationInfoLayout({
                 <img
                   className="px-3"
                   src={wishlistActive ? "/assets/images/icons/heart_brown.webp" : "/assets/images/icons/heart.webp"}
-                  alt="wishlist icon"
+                  alt={t("layout.bookslayout.publicationinfolayout.alt_wishlist_icon")}
                 />
-                {wishlistActive ? "Wishlisted" : "Wishlist"}
+                {wishlistActive ? t("layout.bookslayout.publicationinfolayout.text_wishlisted") : t("context.wishlist.text_wishlist")}
               </button>
 
               <button onClick={onAddToCart} className={`${styles.actionBtn} ${styles.cartBtn}`}>
-                <img className="px-3" src="/assets/images/icons/cart.webp" alt="cart icon" />
+                <img className="px-3" src="/assets/images/icons/cart.webp" alt={t("layout.bookslayout.publicationinfolayout.alt_cart_icon")} />
                 {t("layout.bookslayout.publicationinfolayout.text_add_to_cart")}</button>
 
               {book.samplePdf && (
@@ -206,7 +206,7 @@ function PublicationInfoLayout({
                   rel="noreferrer"
                   className={`${styles.actionBtn} ${styles.sampleBtn}`}
                 >
-                  <img className="px-3" src="/assets/images/icons/pdf.webp" alt="sample icon" />
+                  <img className="px-3" src="/assets/images/icons/pdf.webp" alt={t("layout.bookslayout.publicationinfolayout.alt_sample_icon")} />
                   {t("layout.bookslayout.publicationinfolayout.text_read_sample")}</a>
               )}
             </div>
@@ -250,7 +250,7 @@ function PublicationInfoLayout({
       {similar.length > 0 && (
         <section className={`${styles.similar} scroll-section`}>
           <div className={styles.sectionTitle}>
-            <span>Similar {book.type === "podcast" ? "Seasons" : "Books"}:</span>
+            <span>{book.type === "podcast" ? t("layout.bookslayout.publicationinfolayout.text_similar_seasons") : t("layout.bookslayout.publicationinfolayout.text_similar_books")}</span>
           </div>
           <div className="row py-5 mx-auto">
             <div ref={similarSwiperRef} className="swiper booksCollection">

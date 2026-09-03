@@ -75,7 +75,7 @@ function CultureEvents() {
             <img
               className={styles.introImg}
               src="/assets/images/others/culture1.webp"
-              alt="Cultural Events at Deewan"
+              alt={t("pages.cultureevents.cultureEvents.alt_cultural_events_at_deewan")}
             />
           </div>
         </div>

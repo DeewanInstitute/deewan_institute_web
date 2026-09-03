@@ -30,7 +30,7 @@ function ArabicJournalism() {
       {/* Banner */}
       <ShadowBanner
         data={{
-          title: "Arabic Journalism",
+          title: t("pages.arabiccourses.arabicjournalism.arabicjournalism.title_arabic_journalism"),
           backgroundImg: "/assets/images/banner/journalism-hero.webp",
           rgbColor: "171, 111, 15, 0.8",
           titleBgColor: "171, 111, 15",
@@ -42,7 +42,7 @@ function ArabicJournalism() {
 
           {/* Hero Title */}
 <HeroTitle
-  subtitle="Arabic Journalism"
+  subtitle={t("pages.arabiccourses.arabicjournalism.arabicjournalism.title_arabic_journalism")}
   title={t("pages.arabiccourses.arabicjournalism.arabicjournalism.title_explore_media_reporting_and_storytelling_in_arabi")}
   color= "#BB8939"
 />
@@ -51,7 +51,7 @@ function ArabicJournalism() {
           <section className={`${style.imageSection} scroll-section`}>
             <img
               src="../assets/images/others/journalism-banner.webp"
-              alt="Arabic newspaper"
+              alt={t("pages.arabiccourses.arabicjournalism.arabicjournalism.alt_arabic_newspaper")}
               className={style.fullImage}
             />
           </section>
@@ -71,8 +71,8 @@ function ArabicJournalism() {
         </main>
 <BottomBanner
                         data={{
-                            mainText: "Enroll In Arabic Journalism Program Now",
-                            buttonText: "Enroll Now!",
+                            mainText: t("pages.arabiccourses.arabicjournalism.arabicjournalism.maintext_enroll_in_arabic_journalism_program_now"),
+                            buttonText: t("data.english.bottombannerbuttontitle_enroll_now"),
                             primaryColor: "#A60A1F",
                             backgroundImg: "../assets/images/others/journalism-bottom.webp",
                         }}

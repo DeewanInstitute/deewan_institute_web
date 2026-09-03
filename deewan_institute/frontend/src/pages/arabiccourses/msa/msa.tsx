@@ -31,7 +31,7 @@ function MSA() {
       {/* Banner */}
       <ShadowBanner
         data={{
-          title: "Modern Standard Arabic",
+          title: t("pages.arabiccourses.msa.msa.title_modern_standard_arabic"),
           backgroundImg: "/assets/images/banner/msa-banner.webp",
           rgbColor: "36, 105, 32, 0.4",
           titleBgColor: "36, 105, 32",
@@ -42,7 +42,7 @@ function MSA() {
         <main>
           {/* Hero Title */}
           <HeroTitle
-            subtitle="Modern Standard Arabic (MSA)"
+            subtitle={t("pages.arabiccourses.msa.msa.title_modern_standard_arabic_msa")}
             title={t("pages.arabiccourses.msa.msa.title_connect_with_the_arab_world_through_language")}
             color="rgb(36, 105, 32)"
           />
@@ -53,7 +53,7 @@ function MSA() {
           >
             <img
               src="/assets/images/others/msa-pic1.webp"
-              alt="student studying Arabic"
+              alt={t("pages.arabiccourses.msa.msa.alt_student_studying_arabic")}
               className={style.fullImage}
             />
           </section>
@@ -140,7 +140,7 @@ function MSA() {
             <div className="col-12 col-md-6 scroll-section slide-in-left">
               <img
                 src="/assets/images/others/msa-pic.webp"
-                alt="students at class"
+                alt={t("pages.arabiccourses.msa.msa.alt_students_at_class")}
                 className={style.feesImage}
               />
             </div>

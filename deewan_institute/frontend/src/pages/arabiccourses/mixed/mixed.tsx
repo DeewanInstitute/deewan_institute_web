@@ -31,7 +31,7 @@ function Mixed() {
       {/* Banner */}
       <ShadowBanner
         data={{
-          title: "Mixed Arabic (Colloquial & Fusha)",
+          title: t("pages.arabiccourses.mixed.mixed.title_mixed_arabic_colloquial_and_fusha"),
           backgroundImg: "/assets/images/banner/mixed-banner.webp",
           rgbColor: "119, 82, 34, 0.47",
           titleBgColor: "143, 110, 67",
@@ -43,7 +43,7 @@ function Mixed() {
         <main>
           {/* Hero Title */}
           <HeroTitle
-            subtitle="Mixed Arabic (Colloquial & Fusha)"
+            subtitle={t("pages.arabiccourses.mixed.mixed.title_mixed_arabic_colloquial_and_fusha")}
             title={t("pages.arabiccourses.mixed.mixed.title_your_journey_into_arabic_language_and_culture_sta")}
             color="rgb(143 110 67)"
           />
@@ -64,7 +64,7 @@ function Mixed() {
             <div className={`${style.whatIsItImage} scroll-section slide-in-right`}>
               <img
                 src="/assets/images/others/mixed-pic.webp"
-                alt="student in Arabic class"
+                alt={t("pages.arabiccourses.mixed.mixed.alt_student_in_arabic_class")}
                 className={style.sideImage}
               />
             </div>
@@ -83,7 +83,7 @@ function Mixed() {
             <div className="col-12 col-md-6 scroll-section">
               <img
                 src="/assets/images/others/mixed-pic1.webp"
-                alt="students at a session"
+                alt={t("pages.arabiccourses.mixed.mixed.alt_students_at_a_session")}
                 className={style.feesImage}
               />
             </div>

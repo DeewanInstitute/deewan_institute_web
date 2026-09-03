@@ -45,7 +45,7 @@ function YouTubeSlider() {
             width={1100}
             height={500}
             src={`https://www.youtube.com/embed/${activeVideoId}`}
-            title="YouTube video player"
+            title={t("components.youtubeslider.youtubeslider.title_youtube_video_player")}
             frameBorder={0}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"

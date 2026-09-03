@@ -273,8 +273,8 @@ function AudioBookDetail() {
             aria-label={
               section.audioUrl
                 ? sectionIsPlaying
-                  ? "Pause"
-                  : "Play"
+                  ? t("components.podcastblocks.episodelist.aria_label_pause")
+                  : t("components.podcastblocks.episodelist.aria_label_play")
                 : t("components.podcastblocks.episodelist.text_coming_soon")
             }
             title={

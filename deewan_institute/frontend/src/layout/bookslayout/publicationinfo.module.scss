@@ -165,9 +165,7 @@
   padding-block: 2%;
   border: none; // needed since wishlist is a <button>
   cursor: pointer; // needed since wishlist is a <button>
-  transition:
-    background-color 0.2s ease,
-    font-size 0.1s ease;
+  transition: background-color 0.2s ease;
 
   img {
     width: 65px;
@@ -176,7 +174,6 @@
   &:hover {
     background-color: $primary-color;
     color: white;
-    font-size: 18.5px;
   }
 
   @media (max-width: 576px) {

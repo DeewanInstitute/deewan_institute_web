@@ -23,11 +23,11 @@ export default function SafetyModal() {
       <div className={styles.modal}>
         <div className={styles.header}>
           <div className={styles.shieldIcon}>
-            <img src="/assets/images/icons/shield.webp" alt="Safety Icon" className={styles.shieldIcon} />
+            <img src="/assets/images/icons/shield.webp" alt={t("components.safetymodal.safetymodal.alt_safety_icon")} className={styles.shieldIcon} />
           </div>
           <div>
             <p className={styles.eyebrow}>{t("components.safetymodal.safetymodal.text_safety_notice")}</p>
-            <h2 id="safety-modal-title" className={styles.title}>Travel &amp; Study in Jordan</h2>
+            <h2 id="safety-modal-title" className={styles.title}>{t("components.safetymodal.safetymodal.text_travel_andamp_study_in_jordan_2")}</h2>
           </div>
         </div>
         <div className={styles.body}>

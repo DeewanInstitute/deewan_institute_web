@@ -18,19 +18,6 @@ interface Article {
   slug: string;
 }
 
-const articles: Article[] = [
-  { title: "History of the Middle East", slug: "history-of-the-middle-east" },
-  {
-    title: "Modern History of the Middle East",
-    slug: "modern-history-of-the-middle-east",
-  },
-  {
-    title: "The Zionist Project in Palestine",
-    slug: "the-zionist-project-in-palestine",
-  },
-  { title: "The People of the Middle East", slug: "people-of-the-middle-east" },
-];
-
 function MiddleEasternStudies() {
     const { t } = useTranslation();
   useEffect(() => {
@@ -39,6 +26,26 @@ function MiddleEasternStudies() {
 
   useScrollAnimation();
   const navigate = useNavigate();
+
+  // Translated — must live inside the component to access `t`
+  const articles: Article[] = [
+    {
+      title: t("pages.arabiccourses.middleeastern.middleeasternstudies.title_history_of_the_middle_east"),
+      slug: "history-of-the-middle-east",
+    },
+    {
+      title: t("pages.arabiccourses.middleeastern.middleeasternstudies.title_modern_history_of_the_middle_east"),
+      slug: "modern-history-of-the-middle-east",
+    },
+    {
+      title: t("pages.arabiccourses.middleeastern.middleeasternstudies.title_the_zionist_project_in_palestine"),
+      slug: "the-zionist-project-in-palestine",
+    },
+    {
+      title: t("pages.arabiccourses.middleeastern.middleeasternstudies.title_the_people_of_the_middle_east"),
+      slug: "people-of-the-middle-east",
+    },
+  ];
 
   return (
     <Fragment>
@@ -50,7 +57,7 @@ function MiddleEasternStudies() {
       {/* Banner */}
       <ShadowBanner
         data={{
-          title: "Middle Eastern Studies",
+          title: t("pages.arabiccourses.middleeastern.middleeasternstudies.title_middle_eastern_studies"),
           backgroundImg: "/assets/images/banner/mes-banner.webp",
           rgbColor: "119, 82, 34, 0.53",
           titleBgColor: "184, 92, 53",
@@ -61,7 +68,7 @@ function MiddleEasternStudies() {
         <main>
           {/* Hero Title */}
           <HeroTitle
-            subtitle="Middle Eastern Studies"
+            subtitle={t("pages.arabiccourses.middleeastern.middleeasternstudies.title_middle_eastern_studies")}
             title={t("pages.arabiccourses.middleeastern.middleeasternstudies.title_explore_the_history_cultures_societies_and_contem")}
             color="#B85C38"
           />
@@ -82,7 +89,7 @@ function MiddleEasternStudies() {
           >
             <img
               src="/assets/images/others/mes-pic.webp"
-              alt="Middle Eastern landmark"
+              alt={t("pages.arabiccourses.middleeastern.middleeasternstudies.alt_middle_eastern_landmark")}
               className={style.fullImage}
             />
           </section>
@@ -100,41 +107,38 @@ function MiddleEasternStudies() {
               <div className={style.highlightIcon}>
                 <img
                   src="/assets/images/icons/mes-icon1.webp"
-                  alt="Middle Eastern History & Civilizations"
+                  alt={t("pages.arabiccourses.middleeastern.middleeasternstudies.alt_middle_eastern_history_and_civilizations")}
                   className={style.highlightImg}
                 />
               </div>
               <p>
                 {t("pages.arabiccourses.middleeastern.middleeasternstudies.text_middle_eastern")}<br />
-                History &amp; Civilizations
-              </p>
+                {t("pages.arabiccourses.middleeastern.middleeasternstudies.text_history_andamp_civilizations_2")}</p>
             </div>
 
             <div className="col-12 col-md-4 d-flex flex-column align-items-center scroll-section">
               <div className={style.highlightIcon}>
                 <img
                   src="/assets/images/icons/mes-icon2.webp"
-                  alt="Culture, Society & Traditions"
+                  alt={t("pages.arabiccourses.middleeastern.middleeasternstudies.alt_culture_society_and_traditions")}
                   className={style.highlightImg}
                 />
               </div>
               <p>
                 {t("pages.arabiccourses.middleeastern.middleeasternstudies.text_culture_society")}<br />
-                &amp; Traditions
-              </p>
+                {t("pages.arabiccourses.middleeastern.middleeasternstudies.text_andamp_traditions_2")}</p>
             </div>
 
             <div className="col-12 col-md-4 d-flex flex-column align-items-center scroll-section slide-in-right">
               <div className={style.highlightIcon}>
                 <img
                   src="/assets/images/icons/mes-icon3.webp"
-                  alt="Historical & Contemporary perspectives"
+                  alt={t("pages.arabiccourses.middleeastern.middleeasternstudies.alt_historical_and_contemporary_perspectives")}
                   className={style.highlightImg}
                 />
               </div>
               <p>
-                Historical &amp; Contemporary
-                <br />
+                {t("pages.arabiccourses.middleeastern.middleeasternstudies.text_historical_andamp_contemporary_2")}<br />
                 {t("pages.arabiccourses.middleeastern.middleeasternstudies.text_perspectives")}</p>
             </div>
           </div>
@@ -196,8 +200,8 @@ className={`${style.timelineRow} ${
         </section>
 <BottomBanner
                         data={{
-                            mainText: "Enroll In Middle Eastern Studies Program Now",
-                            buttonText: "Enroll Now!",
+                            mainText: t("pages.arabiccourses.middleeastern.middleeasternstudies.maintext_enroll_in_middle_eastern_studies_program_now"),
+                            buttonText: t("data.english.bottombannerbuttontitle_enroll_now"),
                             primaryColor: "#A60A1F",
                             backgroundImg: "../assets/images/others/mes-bottom.webp",
                         }}

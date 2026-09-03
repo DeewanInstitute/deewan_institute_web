@@ -263,7 +263,7 @@ function Contact() {
                     className={`py-2 btn btn-primary ${styles.submitBtn}`}
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? "Sending..." : "Submit Your Message"}
+                    {isSubmitting ? t("pages.contact.contact.text_sending") : t("pages.contact.contact.text_submit_your_message")}
                   </button>
                 </div>
               </div>
@@ -288,8 +288,7 @@ function Contact() {
               >
                 <img src="/assets/images/icons/mail.webp" alt={t("components.careers.careerform.text_email")} />
                 <a href="mailto:arabic@deewaninstitute.com">
-                  arabic@deewaninstitute.com
-                </a>
+                  {t("pages.internship.internshipform.text_arabic_deewaninstitute_com")}</a>
               </div>
             </div>
 
@@ -301,30 +300,27 @@ function Contact() {
                 <div className={styles.contactBox}>
                   <img src="/assets/images/icons/mail.webp" alt={t("components.careers.careerform.text_email")} />
                   <a href="mailto:management@deewaninstitute.com">
-                    management@deewaninstitute.com
-                  </a>
+                    {t("pages.contact.contact.text_management_deewaninstitute_com")}</a>
                 </div>
                 <div className={styles.contactBox}>
                   <img src="/assets/images/icons/mail.webp" alt={t("components.careers.careerform.text_email")} />
                   <a href="mailto:publicrelations.deewan@gmail.com">
-                    publicrelations.deewan@gmail.com
-                  </a>
+                    {t("pages.contact.contact.text_publicrelations_deewan_gmail_com")}</a>
                 </div>
               </div>
               <div className="col-md-6 d-flex flex-column">
                 <div className={styles.contactBox}>
-                  <img src="/assets/images/icons/phone.webp" alt="Phone" />
-                  <a href="tel:+962778928188">+962 7 7892 8188</a>
+                  <img src="/assets/images/icons/phone.webp" alt={t("pages.contact.contact.alt_phone")} />
+                  <a href="tel:+962778928188">{t("pages.contact.contact.text_962_7_7892_8188")}</a>
                 </div>
                 <div className={styles.contactBox}>
-                  <img src="/assets/images/icons/whatsapp.webp" alt="WhatsApp" />
+                  <img src="/assets/images/icons/whatsapp.webp" alt={t("pages.contact.contact.alt_whatsapp")} />
                   <a
                     href="https://wa.me/962778928188"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    WhatsApp: +962 7 7892 8188
-                  </a>
+                    {t("pages.contact.contact.text_whatsapp_962_7_7892_8188")}</a>
                 </div>
               </div>
             </div>

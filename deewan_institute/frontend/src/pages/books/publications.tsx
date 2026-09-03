@@ -120,6 +120,7 @@ function Publications() {
       type: book.type || "book",
       cartLink: book.cartLink,
       listenLink: book.listenLink,
+      price: book.price,
     });
   };
 
@@ -135,7 +136,7 @@ function Publications() {
       type: book.type || "book",
       cartLink: book.cartLink,
       listenLink: book.listenLink,
-      price: book.price || 'N/A', // providing a default price if it doesn't exist in data
+      price: book.price ?? 0,
     });
   };
 

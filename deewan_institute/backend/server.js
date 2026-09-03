@@ -55,11 +55,21 @@ app.use(express.json());
 
 // ─── Multer: Career CV ───────────────────────────────────────────────────────
 
+// Mobile file pickers (Google Drive, iCloud Files, WhatsApp shares, etc.)
+// frequently report a generic mimetype like "application/octet-stream"
+// instead of "application/pdf" — fall back to the file extension so those
+// uploads aren't wrongly rejected.
+const hasExt = (filename, exts) =>
+  exts.includes(path.extname(filename || "").toLowerCase());
+
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: 10 * 1024 * 1024 },
   fileFilter: (req, file, cb) => {
-    if (file.mimetype === "application/pdf") {
+    if (
+      file.mimetype === "application/pdf" ||
+      hasExt(file.originalname, [".pdf"])
+    ) {
       cb(null, true);
     } else {
       cb(new Error("Only PDF files are allowed"), false);
@@ -73,12 +83,15 @@ const uploadInternship = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: 10 * 1024 * 1024 },
   fileFilter: (req, file, cb) => {
-    const allowed = [
+    const allowedMimes = [
       "application/pdf",
       "application/zip",
       "application/x-zip-compressed",
     ];
-    if (allowed.includes(file.mimetype)) {
+    if (
+      allowedMimes.includes(file.mimetype) ||
+      hasExt(file.originalname, [".pdf", ".zip"])
+    ) {
       cb(null, true);
     } else {
       cb(new Error("Only PDF or ZIP files are allowed"), false);
@@ -464,13 +477,16 @@ app.post("/api/internship", uploadInternship, async (req, res) => {
     // 1. Generate and upload application PDF
     const pdfBuffer = await generatePDF(parsed);
     const pdfFile = bucket.file(`internships/${id}/application.pdf`);
-    await pdfFile.save(pdfBuffer, {
-      metadata: { contentType: "application/pdf" },
-    });
-    const [pdfUrl] = await pdfFile.getSignedUrl({
-      action: "read",
-      expires: "03-01-2030",
-    });
+    const uploadPdf = async () => {
+      await pdfFile.save(pdfBuffer, {
+        metadata: { contentType: "application/pdf" },
+      });
+      const [url] = await pdfFile.getSignedUrl({
+        action: "read",
+        expires: "03-01-2030",
+      });
+      return url;
+    };
 
     // 2. Upload attached files to Firebase Storage
     const uploadFile = async (file, name) => {
@@ -486,17 +502,19 @@ app.post("/api/internship", uploadInternship, async (req, res) => {
       return url;
     };
 
-    const cvUrl = await uploadFile(files.cv?.[0], "cv.pdf");
-    const motivationUrl = await uploadFile(
-      files.motivationLetter?.[0],
-      "motivation.pdf",
-    );
     const portfolioFile = files.portfolio?.[0];
     const portfolioExt = portfolioFile?.originalname?.split(".").pop();
-    const portfolioUrl = await uploadFile(
-      portfolioFile,
-      `portfolio.${portfolioExt || "file"}`,
-    );
+
+    // Run the PDF and attachment uploads concurrently instead of one at a
+    // time — this endpoint does several sequential network round-trips
+    // (Storage x4, Firestore, Resend x2), which on a slow mobile upload adds
+    // up enough for the connection to drop before a response comes back.
+    const [pdfUrl, cvUrl, motivationUrl, portfolioUrl] = await Promise.all([
+      uploadPdf(),
+      uploadFile(files.cv?.[0], "cv.pdf"),
+      uploadFile(files.motivationLetter?.[0], "motivation.pdf"),
+      uploadFile(portfolioFile, `portfolio.${portfolioExt || "file"}`),
+    ]);
 
     // 3. Save to Firestore
     await db
@@ -516,55 +534,60 @@ app.post("/api/internship", uploadInternship, async (req, res) => {
     const applicantEmail = parsed.personal?.email;
     const applicantName = parsed.personal?.fullName || "Applicant";
 
-    // 4. Email to applicant
-    if (applicantEmail) {
-      await resend.emails.send({
+    // 4 & 5. Email the applicant and HR concurrently
+    const emailSends = [
+      resend.emails.send({
         from: "Deewan Institute <app@deewaninstitute.com>",
-        to: applicantEmail,
-        subject: "Deewan Institute — Internship Application Received",
+        to: [process.env.RECEIVER_EMAIL_4, process.env.RECEIVER_EMAIL_2],
+        subject: `Internship Application — ${applicantName}`,
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
             ${logoHtml}
             <hr/>
-            <h2>Thank you for applying, ${applicantName}!</h2>
-            <p>We have successfully received your internship application at Deewan Institute.</p>
-            <p>You can download a copy of your application here:</p>
-            <p><a href="${pdfUrl}" target="_blank" style="color: #8f6e43;">Download Application PDF</a></p>
-            <br/>
-            <p>We will review your application carefully and contact you by email or WhatsApp if shortlisted.</p>
+            <h2>New Internship Application Received</h2>
+            <p><strong>Name:</strong> ${applicantName}</p>
+            <p><strong>Email:</strong> ${applicantEmail}</p>
+            <p><strong>Phone:</strong> ${parsed.personal?.phone || "N/A"}</p>
+            <p><strong>University:</strong> ${parsed.personal?.university || "N/A"}</p>
+            <p><strong>First Preference:</strong> ${parsed.areas?.firstPreference || "N/A"}</p>
+            <p><strong>Internship Option:</strong> ${parsed.preferences?.option || "N/A"}</p>
+            <hr/>
+            <p><a href="${pdfUrl}" target="_blank" style="color: #8f6e43;">View Full Application PDF</a></p>
+            ${cvUrl ? `<p><a href="${cvUrl}" target="_blank">View CV</a></p>` : ""}
+            ${motivationUrl ? `<p><a href="${motivationUrl}" target="_blank">View Motivation Letter</a></p>` : ""}
+            ${portfolioUrl ? `<p><a href="${portfolioUrl}" target="_blank">View Portfolio</a></p>` : ""}
             <hr/>
             ${footer}
           </div>
         `,
-      });
+      }),
+    ];
+
+    if (applicantEmail) {
+      emailSends.push(
+        resend.emails.send({
+          from: "Deewan Institute <app@deewaninstitute.com>",
+          to: applicantEmail,
+          subject: "Deewan Institute — Internship Application Received",
+          html: `
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+              ${logoHtml}
+              <hr/>
+              <h2>Thank you for applying, ${applicantName}!</h2>
+              <p>We have successfully received your internship application at Deewan Institute.</p>
+              <p>You can download a copy of your application here:</p>
+              <p><a href="${pdfUrl}" target="_blank" style="color: #8f6e43;">Download Application PDF</a></p>
+              <br/>
+              <p>We will review your application carefully and contact you by email or WhatsApp if shortlisted.</p>
+              <hr/>
+              ${footer}
+            </div>
+          `,
+        }),
+      );
     }
 
-    // 5. Email to HR
-    await resend.emails.send({
-      from: "Deewan Institute <app@deewaninstitute.com>",
-      to: [process.env.RECEIVER_EMAIL_4, process.env.RECEIVER_EMAIL_2],
-      subject: `Internship Application — ${applicantName}`,
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          ${logoHtml}
-          <hr/>
-          <h2>New Internship Application Received</h2>
-          <p><strong>Name:</strong> ${applicantName}</p>
-          <p><strong>Email:</strong> ${applicantEmail}</p>
-          <p><strong>Phone:</strong> ${parsed.personal?.phone || "N/A"}</p>
-          <p><strong>University:</strong> ${parsed.personal?.university || "N/A"}</p>
-          <p><strong>First Preference:</strong> ${parsed.areas?.firstPreference || "N/A"}</p>
-          <p><strong>Internship Option:</strong> ${parsed.preferences?.option || "N/A"}</p>
-          <hr/>
-          <p><a href="${pdfUrl}" target="_blank" style="color: #8f6e43;">View Full Application PDF</a></p>
-          ${cvUrl ? `<p><a href="${cvUrl}" target="_blank">View CV</a></p>` : ""}
-          ${motivationUrl ? `<p><a href="${motivationUrl}" target="_blank">View Motivation Letter</a></p>` : ""}
-          ${portfolioUrl ? `<p><a href="${portfolioUrl}" target="_blank">View Portfolio</a></p>` : ""}
-          <hr/>
-          ${footer}
-        </div>
-      `,
-    });
+    await Promise.all(emailSends);
 
     res.status(200).json({ message: "Application submitted successfully" });
   } catch (err) {
@@ -574,10 +597,29 @@ app.post("/api/internship", uploadInternship, async (req, res) => {
 });
 
 // ─── HEALTH CHECK ────────────────────────────────────────────────────────────
+// Used by the frontend to warm up the server (Render free tier spins down
+// after inactivity) while a user is still filling out a long form.
 
-// app.get("/api/health", (req, res) => {
-//   res.status(200).json({ status: "Server is running!" });
-// });
+app.get("/api/health", (req, res) => {
+  res.status(200).json({ status: "Server is running!" });
+});
+
+// ─── ERROR HANDLER ───────────────────────────────────────────────────────────
+// Catches Multer rejections (bad file type, file too large) and any other
+// error passed to next() so the client always gets a JSON response instead
+// of Express's default HTML error page.
+
+app.use((err, req, res, next) => {
+  if (err instanceof multer.MulterError) {
+    console.error("Multer error:", err.message);
+    return res.status(400).json({ message: err.message });
+  }
+  if (err) {
+    console.error("Unhandled error:", err);
+    return res.status(500).json({ message: err.message || "Server error" });
+  }
+  next();
+});
 
 // ─── START ───────────────────────────────────────────────────────────────────
 

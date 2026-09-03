@@ -25,8 +25,12 @@ function EpisodeList({ seasonNumber, hostedBy, episodes }: EpisodeListProps) {
     return (
         <div className={styles.episodeList}>
             <div className={styles.header}>
-                <h3 className={styles.seasonTitle}>Season {seasonNumber}</h3>
-                <p className={styles.hostedBy}>Hosted By: {hostedBy}</p>
+                <h3 className={styles.seasonTitle}>
+                    {t("pages.podcasts.podcasts.text_season_number", { number: seasonNumber })}
+                </h3>
+                <p className={styles.hostedBy}>
+                    {t("pages.podcasts.podcasts.text_hosted_by")} {hostedBy}
+                </p>
             </div>
             <div className={styles.episodesWrapper}>
                 {episodes.map((ep) => (

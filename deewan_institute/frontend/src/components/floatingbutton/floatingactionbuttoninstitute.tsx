@@ -14,7 +14,7 @@ const FloatingActionButtonInstitute = () => {
       <span className={styles.iconWrap}>
         <img
           src="/assets/images/logos/tourism-logo.webp"
-          alt="Deewan Tourism Logo"
+          alt={t("components.floatingbutton.floatingactionbuttoninstitute.alt_deewan_tourism_logo")}
           className={styles.icon}
         />
       </span>

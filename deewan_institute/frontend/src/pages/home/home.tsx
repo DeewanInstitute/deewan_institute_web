@@ -75,7 +75,7 @@ function Home() {
       {/* Navigation Bar */}
       <HomeNavBar />
 
-      <section className={style.myCarousel} aria-label="Deewan Institute introduction">
+      <section className={style.myCarousel} aria-label={t("pages.home.home.aria_label_deewan_institute_introduction")}>
         <div id={style.carouselItem1}>
           <div className="container-fluid d-flex align-items-end h-100">
             <div className="row w-100" id={style.firstRow}>
@@ -86,7 +86,7 @@ function Home() {
                 <img
                   src={"/assets/images/logos/nobgLogo.webp"}
                   style={{ width: "70%" }}
-                  alt="Deewan Institute"
+                  alt={t("pages.cultureevents.cultureEvents.text_deewan_institute")}
                 />
               </div>
               <div className="col-lg-6 d-flex flex-column align-items-start justify-content-center">
@@ -128,7 +128,7 @@ function Home() {
               preload="metadata"
               src="https://firebasestorage.googleapis.com/v0/b/deewanweb.firebasestorage.app/o/Walkthrough%20Video%2Fvideo.mp4?alt=media&token=993e2777-eaf5-4b23-9722-7a991135f255"
             >
-              Your browser does not support the video tag.
+              {t("pages.home.home.text_your_browser_does_not_support_the_video_tag")}
             </video>
           </div>
         </div>
@@ -221,21 +221,21 @@ function Home() {
                   <img
                     src={"../assets/images/others/habibi1.webp"}
                     className="d-block w-100 featurette-image img-fluid"
-                    alt="Habibi slide 1"
+                    alt={t("pages.home.home.alt_habibi_slide_1")}
                   />
                 </div>
                 <div className="carousel-item">
                   <img
                     src={"../assets/images/others/habibi2.webp"}
                     className="d-block w-100 featurette-image img-fluid"
-                    alt="Habibi slide 2"
+                    alt={t("pages.home.home.alt_habibi_slide_2")}
                   />
                 </div>
                 <div className="carousel-item">
                   <img
                     src={"../assets/images/others/habibi3.webp"}
                     className="d-block w-100 featurette-image img-fluid"
-                    alt="Habibi slide 3"
+                    alt={t("pages.home.home.alt_habibi_slide_3")}
                   />
                 </div>
               </div>

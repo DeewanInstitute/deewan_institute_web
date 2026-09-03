@@ -12,73 +12,6 @@ import HeroTitle from "../../../components/herotitle/herotitle";
 import { useTranslation } from "react-i18next";
 import BottomBanner from "../../../components/bottombanner/bottombanner";
 
-// Data
-
-const objectives = [
-  {
-    icon: "/assets/images/icons/arabiflex-icon1.webp",
-    label: "Enhance language fluency in real-life situations.",
-  },
-  {
-    icon: "/assets/images/icons/arabiflex-icon2.webp",
-    label: "Develop analytical & critical thinking skills.",
-  },
-  {
-    icon: "/assets/images/icons/arabiflex-icon3.webp",
-    label: "Understand Arab culture & the social and political context.",
-  },
-  {
-    icon: "/assets/images/icons/arabiflex-icon4.webp",
-    label: "Differentiate between Modern Standard Arabic and dialects.",
-  },
-];
-
-const classStructure = [
-  {
-    stage: "Warm-Up Conversation",
-    time: "15 min",
-    technique:
-      "Quick discussion (news, personal experience), open-ended question.",
-  },
-  {
-    stage: "Listening Skill",
-    time: "15 min",
-    technique:
-      "Arabic video/podcast (identify the main idea, highlight new vocabulary, discuss the content)",
-  },
-  {
-    stage: "Learning through Games",
-    time: "20 min",
-    technique: "Electronic games and physical (hands-on) games.",
-    isBreakAfter: true,
-  },
-  {
-    stage: "Conversation & Vocabularies",
-    time: "30 min",
-    technique:
-      "Interactive activities: (Discussion, Debate, Role play)\nWriting new vocabularies.",
-  },
-];
-
-const programDetails = [
-  {
-    icon: "/assets/images/icons/arabiflex-icon5.webp",
-    label: "Mode of Study:\nIn-Person",
-  },
-  {
-    icon: "/assets/images/icons/arabiflex-icon6.webp",
-    label: "Session Duration:\n90 minutes",
-  },
-  {
-    icon: "/assets/images/icons/arabiflex-icon7.webp",
-    label: "Attendance Options:\n1, 2, or 3 sessions per week",
-  },
-  {
-    icon: "/assets/images/icons/arabiflex-icon8.webp",
-    label: "Schedule: Sunday, Tuesday, and Thursday\n6:20 PM – 8:00 PM",
-  },
-];
-
 // ─────────────────────────────────────────────────────────────────────────────
 
 function ArabiFlex() {
@@ -89,6 +22,70 @@ function ArabiFlex() {
 
   useScrollAnimation();
 
+  // Data (translated — must live inside the component to access `t`)
+
+  const objectives = [
+    {
+      icon: "/assets/images/icons/arabiflex-icon1.webp",
+      label: t("pages.arabiccourses.arabiflex.arabiflex.label_enhance_language_fluency_in_real_life_situations"),
+    },
+    {
+      icon: "/assets/images/icons/arabiflex-icon2.webp",
+      label: t("pages.arabiccourses.arabiflex.arabiflex.label_develop_analytical_and_critical_thinking_skills"),
+    },
+    {
+      icon: "/assets/images/icons/arabiflex-icon3.webp",
+      label: t("pages.arabiccourses.arabiflex.arabiflex.label_understand_arab_culture_and_the_social_and_politi"),
+    },
+    {
+      icon: "/assets/images/icons/arabiflex-icon4.webp",
+      label: t("pages.arabiccourses.arabiflex.arabiflex.label_differentiate_between_modern_standard_arabic_and_"),
+    },
+  ];
+
+  const classStructure = [
+    {
+      stage: t("pages.arabiccourses.arabiflex.arabiflex.stage_warm_up_conversation"),
+      time: t("pages.arabiccourses.arabiflex.arabiflex.time_15_min"),
+      technique: t("pages.arabiccourses.arabiflex.arabiflex.technique_quick_discussion_news_personal_experience_ope"),
+    },
+    {
+      stage: t("pages.arabiccourses.arabiflex.arabiflex.stage_listening_skill"),
+      time: t("pages.arabiccourses.arabiflex.arabiflex.time_15_min"),
+      technique: t("pages.arabiccourses.arabiflex.arabiflex.technique_arabic_video_podcast_identify_the_main_idea_h"),
+    },
+    {
+      stage: t("pages.arabiccourses.arabiflex.arabiflex.stage_learning_through_games"),
+      time: t("pages.arabiccourses.arabiflex.arabiflex.time_20_min"),
+      technique: t("pages.arabiccourses.arabiflex.arabiflex.technique_electronic_games_and_physical_hands_on_games"),
+      isBreakAfter: true,
+    },
+    {
+      stage: t("pages.arabiccourses.arabiflex.arabiflex.stage_conversation_and_vocabularies"),
+      time: t("pages.arabiccourses.arabiflex.arabiflex.time_30_min"),
+      technique: t("pages.arabiccourses.arabiflex.arabiflex.technique_interactive_activities_discussion_debate_role"),
+    },
+  ];
+
+  const programDetails = [
+    {
+      icon: "/assets/images/icons/arabiflex-icon5.webp",
+      label: t("pages.arabiccourses.arabiflex.arabiflex.label_mode_of_study_nin_person"),
+    },
+    {
+      icon: "/assets/images/icons/arabiflex-icon6.webp",
+      label: t("pages.arabiccourses.arabiflex.arabiflex.label_session_duration_n90_minutes"),
+    },
+    {
+      icon: "/assets/images/icons/arabiflex-icon7.webp",
+      label: t("pages.arabiccourses.arabiflex.arabiflex.label_attendance_options_n1_2_or_3_sessions_per_week"),
+    },
+    {
+      icon: "/assets/images/icons/arabiflex-icon8.webp",
+      label: t("pages.arabiccourses.arabiflex.arabiflex.label_schedule_sunday_tuesday_and_thursday_n6_20_pm_8_0"),
+    },
+  ];
+
   return (
     <Fragment>
       <NavBar />
@@ -98,7 +95,7 @@ function ArabiFlex() {
       {/* Banner */}
       <ShadowBanner
         data={{
-          title: "ArabiFlex Conversation \nGroup Class",
+          title: t("pages.arabiccourses.arabiflex.arabiflex.title_arabiflex_conversation_ngroup_class"),
           backgroundImg: "/assets/images/banner/arabiflex-banner.webp",
           rgbColor: "46, 15, 40, 0.69",
           titleBgColor: "46, 15, 40",
@@ -109,7 +106,7 @@ function ArabiFlex() {
         <main>
           {/* Hero Title */}
           <HeroTitle
-            subtitle="ArabiFlex Conversation Group Class"
+            subtitle={t("pages.arabiccourses.arabiflex.arabiflex.title_arabiflex_conversation_group_class")}
             title={t("pages.arabiccourses.arabiflex.arabiflex.title_interactive_conversation_based_course")}
             color="#2e0f28"
           />
@@ -118,7 +115,7 @@ function ArabiFlex() {
           <section className={`${style.imageSection} scroll-section`}>
             <img
               src="/assets/images/others/arabiflex-pic.webp"
-              alt="conversation bubbles"
+              alt={t("pages.arabiccourses.arabiflex.arabiflex.alt_conversation_bubbles")}
               className={style.fullImage}
             />
           </section>
@@ -253,8 +250,8 @@ function ArabiFlex() {
         </section>
                             <BottomBanner
                         data={{
-                            mainText: "Enroll In ArabiFlex Program Now",
-                            buttonText: "Enroll Now!",
+                            mainText: t("pages.arabiccourses.arabiflex.arabiflex.maintext_enroll_in_arabiflex_program_now"),
+                            buttonText: t("data.english.bottombannerbuttontitle_enroll_now"),
                             primaryColor: "#2e0f28",
                             backgroundImg: "../assets/images/others/arabiflex-bottom.jpg",
                         }}

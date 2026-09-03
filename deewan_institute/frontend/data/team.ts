@@ -90,12 +90,17 @@ export const teamData: TeamMember = {
         img: "../assets/images/teams/qutaibh.webp",
     },
     {
+      name: "data.team.name_rula",
+      title: "data.team.title_media_and_digital_marketing_specialist",
+      img: "../assets/images/teams/rula.webp",
+    },
+    {
       name: "data.team.name_deyaa",
       title: "data.team.title_facility_manager",
       img: "../assets/images/teams/7.webp",
     },
     {
-      name: "Said",
+      name: "data.team.name_said",
       title: "data.team.title_facility_manager",
       img: "/assets/images/teams/8.webp",
     },

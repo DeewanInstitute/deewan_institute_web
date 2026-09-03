@@ -89,7 +89,7 @@ function calculateTotal(selections: Selections): number {
 
   if (
     classType === "Group Class" ||
-    classType === "Hop On Hop Off Group Class"
+    classType === "ArabiFlex Group Class"
   ) {
     const rate = isAmmiyehOrMix ? 9.5 : isFusha ? 10.5 : 0;
     return applyDiscount(rate * hours * weeks);
@@ -110,7 +110,7 @@ const ARABIC_TYPES = [
 const CLASS_TYPES = [
   "One-to-One Class",
   "Group Class",
-  "Hop On Hop Off Group Class",
+  "ArabiFlex Group Class",
   "Trial Class",
 ];
 
@@ -335,6 +335,8 @@ function Dropdown({
   onChange,
   disabled,
 }: DropdownProps) {
+  const { i18n } = useTranslation();
+  const isRTL = i18n.dir() === "rtl";
   const [open, setOpen] = useState(false);
   const [flipLeft, setFlipLeft] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -356,13 +358,17 @@ function Dropdown({
     }
     const rect = ref.current.getBoundingClientRect();
     const menuWidth = 500;
-    const spaceRight = window.innerWidth - rect.right;
-    setFlipLeft(spaceRight < menuWidth + 16);
-  }, [open]);
+    // The menu opens toward the inline-end side by default (right in LTR, left in RTL).
+    // Measure the space available on that default side to decide whether to flip.
+    const spaceOnDefaultSide = isRTL ? rect.left : window.innerWidth - rect.right;
+    setFlipLeft(spaceOnDefaultSide < menuWidth + 16);
+  }, [open, isRTL]);
 
   const menuStyle: React.CSSProperties =
     flipLeft && window.innerWidth > 768
-      ? { right: "calc(100% + 8px)", left: "auto", top: 0 }
+      ? isRTL
+        ? { left: "calc(100% + 8px)", right: "auto", top: 0 }
+        : { right: "calc(100% + 8px)", left: "auto", top: 0 }
       : {};
 
   const normalizedOptions: DropdownOption[] = options.map((o) =>
@@ -437,7 +443,8 @@ function DiscountDropdown({
   onChange,
   onReset,
 }: DiscountDropdownProps) {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const isRTL = i18n.dir() === "rtl";
   const [open, setOpen] = useState(false);
   const [flipLeft, setFlipLeft] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -474,20 +481,24 @@ function DiscountDropdown({
     }
     const rect = ref.current.getBoundingClientRect();
     const menuWidth = 500;
-    const spaceRight = window.innerWidth - rect.right;
-    setFlipLeft(spaceRight < menuWidth + 16);
-  }, [open]);
+    // The menu opens toward the inline-end side by default (right in LTR, left in RTL).
+    // Measure the space available on that default side to decide whether to flip.
+    const spaceOnDefaultSide = isRTL ? rect.left : window.innerWidth - rect.right;
+    setFlipLeft(spaceOnDefaultSide < menuWidth + 16);
+  }, [open, isRTL]);
 
   const menuStyle: React.CSSProperties =
     flipLeft && window.innerWidth > 768
-      ? { right: "calc(100% + 8px)", left: "auto", top: 0 }
+      ? isRTL
+        ? { left: "calc(100% + 8px)", right: "auto", top: 0 }
+        : { right: "calc(100% + 8px)", left: "auto", top: 0 }
       : {};
 
   const buttonLabel = !dropdownEnabled
-    ? "Enter weeks & hours first"
+    ? t("pages.calculator.calculator.label_enter_weeks_and_hours_first")
     : selected
       ? selected.label
-      : "Please Choose the Discount";
+      : t("pages.calculator.calculator.label_please_choose_the_discount");
 
   return (
     <div className="row my-5 align-items-center scroll-section">
@@ -503,7 +514,7 @@ function DiscountDropdown({
             disabled={!dropdownEnabled}
             title={
               !dropdownEnabled
-                ? "Please select at least 1 week and 1 hour first"
+                ? t("pages.calculator.calculator.title_please_select_at_least_1_week_and_1_hour_first")
                 : undefined
             }
           >
@@ -568,6 +579,7 @@ function Counter({
   onChange,
   locked,
 }: CounterProps) {
+  const { t } = useTranslation();
   return (
     <div className="row my-5 align-items-center scroll-section" id={id}>
       <div className="col-12 col-md-2 text-start mb-2 mb-md-0">
@@ -577,7 +589,7 @@ function Counter({
         <div
           className={`${styles.counter} d-flex justify-content-center`}
           style={locked ? { opacity: 0.65, pointerEvents: "none" } : undefined}
-          title={locked ? "Fixed for this class type" : undefined}
+          title={locked ? t("pages.calculator.calculator.title_fixed_for_this_class_type") : undefined}
         >
           <div className="btn-group align-items-center" role="group">
             <button
@@ -660,18 +672,19 @@ interface ModalProps {
 
 function PriceModal({ display, total, hideTime, onClose }: ModalProps) {
     const { t } = useTranslation();
+  const notSelected = t("pages.calculator.calculator.text_not_selected");
   const rows = [
     {
-      label: "Type of Arabic Language:",
-      value: display.arabicType || "Not selected",
+      label: t("pages.calculator.calculator.label_type_of_arabic_language"),
+      value: display.arabicType || notSelected,
     },
-    { label: "Type of Classes:", value: display.classType || "Not selected" },
+    { label: t("pages.calculator.calculator.label_type_of_classes"), value: display.classType || notSelected },
     ...(!hideTime
-      ? [{ label: "Time in The Day:", value: display.time || "Not selected" }]
+      ? [{ label: t("pages.calculator.calculator.label_time_in_the_day"), value: display.time || notSelected }]
       : []),
-    { label: "No. of Hours per Week:", value: display.hours },
-    { label: "No. of Week:", value: display.weeks },
-    { label: "Discount:", value: display.discount },
+    { label: t("pages.calculator.calculator.label_no_of_hours_per_week"), value: display.hours },
+    { label: t("pages.calculator.calculator.label_no_of_week"), value: display.weeks },
+    { label: t("pages.calculator.calculator.text_discount"), value: display.discount },
   ];
 
   const generateInvoiceHtml = () => {
@@ -703,20 +716,20 @@ function PriceModal({ display, total, hideTime, onClose }: ModalProps) {
           .footer { margin-top: 40px; font-size: 11px; color: #999; border-top: 1px solid #eee; padding-top: 8px; }
         </style>
         <div class="header">
-          <h2>Arabic Courses Price</h2>
-          <p>Deewan Institute — arabic@deewaninstitute.com</p>
+          <h2>${t("pages.calculator.calculator.text_arabic_courses_price")}</h2>
+          <p>${t("pages.calculator.calculator.text_deewan_institute_arabic_deewaninstitute_com")}</p>
         </div>
         <table><tbody>${rowsHtml}</tbody></table>
         <div class="divider"></div>
         <table>
           <tbody>
             <tr class="total-row">
-              <td class="label">Total Cost:</td>
+              <td class="label">${t("pages.calculator.calculator.text_total_cost")}</td>
               <td class="value">${total.toFixed(2)} JOD</td>
             </tr>
           </tbody>
         </table>
-        <div class="footer">Printed from Deewan Institute — deewaninstitute.com</div>
+        <div class="footer">${t("pages.calculator.calculator.text_printed_from_deewan_institute_deewaninstitute_com")}</div>
       </div>
     `;
   };
@@ -727,7 +740,7 @@ function PriceModal({ display, total, hideTime, onClose }: ModalProps) {
     printWin.document.write(`
       <!DOCTYPE html>
       <html>
-        <head><title>Arabic Courses Price — Deewan Institute</title></head>
+        <head><title>${t("pages.calculator.calculator.text_arabic_courses_price_deewan_institute")}</title></head>
         <body>${generateInvoiceHtml()}</body>
       </html>
     `);
@@ -757,7 +770,7 @@ function PriceModal({ display, total, hideTime, onClose }: ModalProps) {
       await html2pdf().set(options).from(element).save();
     } catch (error) {
       console.error("PDF Generation Error:", error);
-      alert("Could not generate PDF. Please try printing instead.");
+      alert(t("pages.calculator.calculator.alert_could_not_generate_pdf_please_try_printing_inst"));
     }
   }
 
@@ -921,7 +934,7 @@ function Calculator() {
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
 
   const isGroupClass = selections.classType === "Group Class";
-  const isHopOnHopOff = selections.classType === "Hop On Hop Off Group Class";
+  const isHopOnHopOff = selections.classType === "ArabiFlex Group Class";
   const isTrialClass = selections.classType === "Trial Class";
 
   function toggleAccordion(id: string) {
@@ -947,7 +960,7 @@ function Calculator() {
         weeks: `${lockedWeeks} Week${lockedWeeks !== 1 ? "s" : ""}`,
         time: eveningTime,
       }));
-    } else if (v === "Hop On Hop Off Group Class") {
+    } else if (v === "ArabiFlex Group Class") {
       setShowHopModal(true);
       setSelections((s) => ({ ...s, classType: v, time: null }));
       setDisplaySelections((d) => ({ ...d, classType: v, time: null }));
@@ -963,9 +976,9 @@ function Calculator() {
     if (selections.classType === "Trial Class") {
       return {
         ...displaySelections,
-        time: "Morning or Evening",
-        hours: "90 mins",
-        weeks: "Only One Time",
+        time: t("pages.calculator.calculator.time_morning_or_evening"),
+        hours: t("pages.calculator.calculator.hours_90_mins"),
+        weeks: t("pages.calculator.calculator.weeks_only_one_time"),
         discount: "No Discount",
       };
     }
@@ -980,14 +993,14 @@ function Calculator() {
     if (isGroupClass) {
       return isEvening
         ? { label: opt }
-        : { label: opt, locked: true, hint: "Group classes are evenings only" };
+        : { label: opt, locked: true, hint: t("pages.calculator.calculator.hint_group_classes_are_evenings_only") };
     }
 
     if (isOneOnOne) {
       return isEvening
         ? {
             label: opt,
-            hint: "Evening classes are more expensive.",
+            hint: t("pages.calculator.calculator.hint_evening_classes_are_more_expensive"),
             hintColor: "#c0392b",
           }
         : {
@@ -1054,14 +1067,14 @@ function Calculator() {
             </li>
             <li className="py-2">
               <span className="fw-bold" style={{ color: "#8F6E43" }}>
-                Select Your Course Options Below:{" "}
+                {t("pages.calculator.calculator.text_select_your_course_options_below")}{" "}
               </span>
               <span className="px-2 fw-normal">
                 {t("pages.calculator.calculator.text_choose_the_type_of_class_one_to_one_or_group_type_")}</span>
             </li>
             <li className="py-2">
               <span className="fw-bold" style={{ color: "#8F6E43" }}>
-                View Your Total Cost:{" "}
+                {t("pages.calculator.calculator.text_view_your_total_cost")}{" "}
               </span>
               <span className="px-2 fw-normal">
                 {t("pages.calculator.calculator.text_once_your_options_are_selected_the_calculator_will")}</span>
@@ -1093,8 +1106,7 @@ function Calculator() {
                     (e.currentTarget.style.textDecoration = "underline")
                   }
                 >
-                  <span> </span> arabic@deewaninstitute.com
-                </a>
+                  <span> </span> {t("pages.internship.internshipform.text_arabic_deewaninstitute_com")}</a>
               </span>
             </li>
             {/* <li className="py-2">
@@ -1232,9 +1244,7 @@ function Calculator() {
               fontWeight: "1000",
             }}
           >
-            Prices are subject to change and may vary. Please contact us for the
-            most up-to-date information. For a more detailed schedule and
-            additional information, please check{" "}
+            {t("pages.calculator.calculator.text_prices_are_subject_to_change_and_may_vary_please_c")}{" "}
             <a
               href="https://drive.google.com/file/d/1Tups08llCgssEAUPiGtdOb6WZIRHmcvF/view?usp=drive_link"
               target="_blank"
@@ -1365,9 +1375,7 @@ function Calculator() {
           <h2>{t("pages.calculator.calculator.text_payment_options")}</h2>
         </div>
         <p className="lead text-start lh-base" id={styles.para}>
-          You have the convenience of making payments instantly using credit
-          cards. However, in case you encounter any issues with your payment or
-          prefer an alternative method,{" "}
+          {t("pages.calculator.calculator.text_you_have_the_convenience_of_making_payments_instan")}{" "}
           <span className="fst-italic fw-bolder" style={{ color: "black" }}>
             {t("pages.calculator.calculator.text_please_see_the_payment_options_below_complete_the_")}</span>
         </p>
@@ -1386,8 +1394,7 @@ function Calculator() {
             target="_blank"
             rel="noreferrer"
           >
-            arabic@deewaninstitute.com
-          </a>
+            {t("pages.internship.internshipform.text_arabic_deewaninstitute_com")}</a>
         </div>
 
         <p className="lead text-start lh-base" id={styles.para}>
@@ -1405,6 +1412,7 @@ function Calculator() {
         <div
           className="accordion accordion-flush my-4"
           id="accordionFlushExample"
+          dir="ltr"
         >
           <AccordionItem
             id="one"
@@ -1414,14 +1422,14 @@ function Calculator() {
             onToggle={() => toggleAccordion("one")}
             content={
               <p className={styles.accordionSimple}>
-                Please click the PayPal link{" "}
+                {t("pages.calculator.calculator.text_please_click_the_paypal_link")}{" "}
                 <a
                   href="https://paypal.me/DeewanInstitute"
                   target="_blank"
                   rel="noreferrer"
                 >
                   {t("pages.calculator.calculator.text_here")}</a>{" "}
-                to make the payment.
+                {t("pages.calculator.calculator.text_to_make_the_payment")}
               </p>
             }
           />

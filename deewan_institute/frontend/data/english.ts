@@ -49,13 +49,7 @@ export const englishData : Foreign= {
             boldDescription: "(5 JD per 45-minute session)",
             link: "https://docs.google.com/forms/d/e/1FAIpQLSeGhi5lxeMDlS4P_y7UsuJVPwEXsRqYT0tGNb5oPvpwHSJwfg/viewform",
         },
-        // Hop On Hop Off Course
-        {
-            name: "Hop On Hop Off Course",
-            description: "A flexible conversational course for intermediate and advanced learners, taught by native speakers. Students can join any time and attend until their package ends.",
-            link: "https://docs.google.com/forms/d/e/1FAIpQLSeGhi5lxeMDlS4P_y7UsuJVPwEXsRqYT0tGNb5oPvpwHSJwfg/viewform",
-        },
-        // Exam Preparation (IELTS, TOFEL) 
+        // Exam Preparation (IELTS, TOFEL)
         {
             name: "Exam Preparation (IELTS, TOFEL)",
             description: "Specialized training for IELTS, TOEFL, and Tawjihi exams, designed to equip students with the strategies and practice needed to succeed.",

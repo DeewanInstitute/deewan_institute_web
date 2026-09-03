@@ -161,8 +161,7 @@ function Checkout() {
           <div className={`modal-content ${styles.errorModal}`}>
             <div className="modal-header border-0">
               <h5 className={`modal-title ${styles.errorTitle}`}>
-                ⚠️ Something Went Wrong
-              </h5>
+                {t("context.checkout.text_something_went_wrong_2")}</h5>
               <button
                 type="button"
                 className="btn-close"
@@ -197,8 +196,7 @@ function Checkout() {
           <div className={`modal-content ${styles.warningModal}`}>
             <div className="modal-header border-0">
               <h5 className={`modal-title ${styles.warningTitle}`}>
-                💳 Payment Method Required
-              </h5>
+                {t("context.checkout.text_payment_method_required_2")}</h5>
               <button
                 type="button"
                 className="btn-close"
@@ -233,8 +231,7 @@ function Checkout() {
           <div className={`modal-content ${styles.warningModal}`}>
             <div className="modal-header border-0">
               <h5 className={`modal-title ${styles.warningTitle}`}>
-                📋 Incomplete Form
-              </h5>
+                {t("context.checkout.text_incomplete_form_2")}</h5>
               <button
                 type="button"
                 className="btn-close"
@@ -459,9 +456,9 @@ function Checkout() {
                         />
                         <span className={styles.radioCircle} />
                         <span className={styles.paymentLabel}>
-                          {method === "cash" && "Cash"}
-                          {method === "cliq" && "Cliq"}
-                          {method === "paypal" && "PayPal"}
+                          {method === "cash" && t("context.checkout.text_cash")}
+                          {method === "cliq" && t("context.checkout.text_cliq")}
+                          {method === "paypal" && t("context.checkout.text_paypal")}
                         </span>
                       </label>
                     ),
@@ -564,16 +561,14 @@ function Checkout() {
                 className={`${styles.placeOrderBtn} w-100 mt-4`}
                 disabled={cart.length === 0}
               >
-                Place Order &nbsp;→
-              </button>
+                {t("context.checkout.text_place_order_andnbsp_2")}</button>
 
               <button
                 type="button"
                 className={`${styles.continueBtn} w-100 mt-3`}
                 onClick={() => navigate("/publications")}
               >
-                ← &nbsp;Continue Shopping
-              </button>
+                {t("context.checkout.text_andnbsp_continue_shopping_2")}</button>
             </div>
           </div>
         </div>

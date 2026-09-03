@@ -38,7 +38,7 @@ function Courses() {
             <Link
               id={style.btn}
               className="btn rounded-pill text-decoration-none text-center text-white"
-              to="/arabic-courses"
+              to="/arabic-courses/colloquial-arabic"
             >
               {t("components.courses.courses.text_view_course")}</Link>
             <a
@@ -71,7 +71,7 @@ function Courses() {
             <Link
               id={style.btn}
               className="btn rounded-pill text-decoration-none text-center text-white"
-              to="/arabic-courses"
+              to="/arabic-courses/modern-standard-arabic"
             >
               {t("components.courses.courses.text_view_course")}</Link>
             <a
@@ -90,7 +90,7 @@ function Courses() {
               id={style.image}
               src={"../assets/images/background/hopOnHopOff.webp"}
             />
-            <span>{t("components.courses.courses.text_hop_on_hop_off_arabic")}</span>
+            <span>{t("data.arabicCourses.title_arabiflex_conversation_group_class")}</span>
           </div>
           <div
             className={`${style.back} d-flex flex-column justify-content-center`}
@@ -100,11 +100,11 @@ function Courses() {
               src={"../assets/images/background/hopOnHopOff.webp"}
             />
             <p className="my-3" id={style.para}>
-              {t("components.courses.courses.text_hop_on_hop_off_arabic")}</p>
+              {t("data.arabicCourses.title_arabiflex_conversation_group_class")}</p>
             <Link
               id={style.btn}
               className="btn rounded-pill text-decoration-none text-center text-white"
-              to="/arabic-courses"
+              to="arabic-courses/arabiflex"
             >
               {t("components.courses.courses.text_view_course")}</Link>
             <a

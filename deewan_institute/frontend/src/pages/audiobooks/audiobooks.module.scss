@@ -16,6 +16,12 @@ $audio-tint: $primary-color;
   z-index: 2;
   max-width: 900px;
 
+  // The decorative wave circles sit over the right ~30% of the hero once
+  // they're visible (>= 992px), so keep the text out of that zone.
+  @media (min-width: 992px) {
+    max-width: 68%;
+  }
+
   h1 {
     font-family: "Merriweather-Regular" !important;
     font-size: clamp(2.4rem, 6.5vw, 6.25rem);

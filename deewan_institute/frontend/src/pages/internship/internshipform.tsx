@@ -379,6 +379,13 @@ function InternshipForm() {
   const completions = sectionValidators.map((fn) => fn(form));
   const isLocked = (i: number) => i > 0 && !completions[i - 1];
 
+  // Warm up the backend as soon as the form loads — the API server spins
+  // down when idle, and this long form usually gives it plenty of time to
+  // wake up before the applicant reaches the submit button.
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_API_URL}/api/health`).catch(() => {});
+  }, []);
+
   const handleToggle = (i: number) => {
     if (isLocked(i)) return;
     setOpenSection(openSection === i ? -1 : i);
@@ -420,9 +427,13 @@ function InternshipForm() {
           body: buildFormData(form),
         },
       );
-      if (!response.ok) throw new Error("Failed");
+      if (!response.ok) {
+        const body = await response.text().catch(() => "");
+        throw new Error(`Request failed (${response.status}): ${body}`);
+      }
       setStatus("success");
-    } catch {
+    } catch (err) {
+      console.error("Internship submission failed:", err);
       setStatus("error");
     }
   };
@@ -470,8 +481,7 @@ function InternshipForm() {
             <p>
               If you have any questions, please contact us at{" "}
               <a href="mailto:arabic@deewaninstitute.com">
-                arabic@deewaninstitute.com
-              </a>
+                {t("pages.internship.internshipform.text_arabic_deewaninstitute_com")}</a>
               .
             </p>
           </div>
@@ -559,7 +569,7 @@ function InternshipForm() {
                   type="email"
                   value={p.email}
                   autoComplete="email"
-                  placeholder="you@example.com"
+                  placeholder={t("pages.internship.internshipform.placeholder_you_example_com")}
                   onChange={(e) => setPersonal({ email: e.target.value })}
                 />
               </Field>
@@ -730,7 +740,7 @@ function InternshipForm() {
                 className={styles.textarea}
                 rows={4}
                 value={skills.background}
-                placeholder="Share your studies, projects, and relevant experience…"
+                placeholder={t("pages.internship.internshipform.placeholder_share_your_studies_projects_and_relevant_ex")}
                 onChange={(e) => setSkills({ background: e.target.value })}
               />
             </Field>
@@ -751,7 +761,7 @@ function InternshipForm() {
                   className={styles.textarea}
                   rows={3}
                   value={skills.previousExperience}
-                  placeholder="Organisation, role, duration, key responsibilities…"
+                  placeholder={t("pages.internship.internshipform.placeholder_organisation_role_duration_key_responsibili")}
                   onChange={(e) =>
                     setSkills({ previousExperience: e.target.value })
                   }
@@ -808,7 +818,7 @@ function InternshipForm() {
                 className={styles.input}
                 type="text"
                 value={languages.otherLanguages}
-                placeholder="French, Spanish, German…"
+                placeholder={t("pages.internship.internshipform.placeholder_french_spanish_german")}
                 onChange={(e) =>
                   setLanguages({ otherLanguages: e.target.value })
                 }
@@ -833,7 +843,7 @@ function InternshipForm() {
                 className={styles.textarea}
                 rows={5}
                 value={motivation.why}
-                placeholder="What draws you to Deewan's mission and environment?"
+                placeholder={t("pages.internship.internshipform.placeholder_what_draws_you_to_deewans_mission_and_env")}
                 onChange={(e) => setMotivation({ why: e.target.value })}
               />
             </Field>
@@ -845,7 +855,7 @@ function InternshipForm() {
                 className={styles.textarea}
                 rows={4}
                 value={motivation.learn}
-                placeholder="Skills, knowledge, experiences you're hoping to gain…"
+                placeholder={t("pages.internship.internshipform.placeholder_skills_knowledge_experiences_youre_hopin")}
                 onChange={(e) => setMotivation({ learn: e.target.value })}
               />
             </Field>
@@ -945,7 +955,7 @@ function InternshipForm() {
                   className={styles.input}
                   type="text"
                   value={availability.coordinatorInfo}
-                  placeholder="Dr. Jane Smith · j.smith@university.edu"
+                  placeholder={t("pages.internship.internshipform.placeholder_dr_jane_smith_j_smith_university_edu")}
                   onChange={(e) =>
                     setAvail({ coordinatorInfo: e.target.value })
                   }

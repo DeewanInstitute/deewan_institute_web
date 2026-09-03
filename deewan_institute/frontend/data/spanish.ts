@@ -49,13 +49,7 @@ export const spanishData : Foreign = {
             boldDescription: "(5 JD per 45-minute session)",
             link: "https://docs.google.com/forms/d/e/1FAIpQLSeGhi5lxeMDlS4P_y7UsuJVPwEXsRqYT0tGNb5oPvpwHSJwfg/viewform",
         },
-        // Hop On Hop Off Course
-        {
-            name: "Hop On Hop Off Course",
-            description: "A flexible conversational course for intermediate and advanced learners, taught by native speakers. Students can join any time and attend until their package ends.",
-            link: "https://docs.google.com/forms/d/e/1FAIpQLSeGhi5lxeMDlS4P_y7UsuJVPwEXsRqYT0tGNb5oPvpwHSJwfg/viewform",
-        },
-        // Exam 
+        // Exam
         {
             name: "Exam Preparation for DELE (Diplomas of Spanish as a Foreign Language)",
             description: "Tailored training for DELE (Diplomas of Spanish as a Foreign Language) at all levels.",

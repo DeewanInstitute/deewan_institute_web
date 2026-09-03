@@ -15,7 +15,7 @@ const BildungsurlaubPage = () => {
     useEffect(() => {
       document.title = "Bildungsurlaub";
     }, []);
-  const [activeLang, setActiveLang] = useState<"en" | "de">("en");
+  const [activeLang, setActiveLang] = useState<"en" | "de" | "ar">("en");
 
   useScrollAnimation();
 
@@ -61,7 +61,10 @@ const BildungsurlaubPage = () => {
           </div>
         </div>
 
-        <section className={`scroll-section ${styles.section} ${styles["section--content"]}`}>
+        <section
+          className={`scroll-section ${styles.section} ${styles["section--content"]}`}
+          dir="ltr"
+        >
           <div className="container-fluid px-1">
             <hr className={styles.dividerTop} />
           </div>
@@ -88,9 +91,18 @@ const BildungsurlaubPage = () => {
                     aria-pressed={activeLang === "de"}
                   >
                     {t("pages.bildungsurlaub.bildungsurlaub.text_german")}</button>
+                  <button
+                    className={`${styles.tabsbtn} ${activeLang === "ar" ? styles["tabsbtn--active"] : styles["tabsbtn--inactive"]}`}
+                    onClick={() => setActiveLang("ar")}
+                    aria-pressed={activeLang === "ar"}
+                  >
+                    {t("pages.bildungsurlaub.bildungsurlaub.text_arabic")}</button>
                 </div>
 
-                <div className={styles.whatIs}>
+                <div
+                  className={styles.whatIs}
+                  dir={activeLang === "ar" ? "rtl" : "ltr"}
+                >
                   <h3 className={styles.whatIsheading}>{whatIsHeading}</h3>
                   <hr className={styles.whatIsheadingDivider} />
                   <p className={styles.whatIsbody}>
@@ -103,7 +115,7 @@ const BildungsurlaubPage = () => {
                 <div className={styles.rightPanel}>
                   <img
                     src="/assets/images/others/b_panel.webp"
-                    alt="Bildungsurlaub session"
+                    alt={t("pages.bildungsurlaub.bildungsurlaub.alt_bildungsurlaub_session")}
                     className={styles.rightPanelimage}
                   />
                 </div>
@@ -142,7 +154,7 @@ const BildungsurlaubPage = () => {
                       {card.stateName}
                     </p>
                     <p className={styles.stateCarddescription}>
-                      {card.description}
+                      {t("pages.bildungsurlaub.bildungsurlaub.text_for_more_information")}
                     </p>
 
                     <div className={styles.stateCardbtnWrapper}>

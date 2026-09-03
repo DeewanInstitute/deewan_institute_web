@@ -58,3 +58,14 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* Bootstrap's .text-start / .text-end utilities are hardcoded to physical
+   left/right (not direction-aware) in the default (non-RTL) build, which
+   forces Arabic text to stay left-aligned even though the page is RTL.
+   Flip them when the page direction is RTL. */
+html[dir="rtl"] .text-start {
+  text-align: right !important;
+}
+html[dir="rtl"] .text-end {
+  text-align: left !important;
+}

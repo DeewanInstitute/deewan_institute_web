@@ -50,19 +50,13 @@ function Testimonials() {
                 <div className={styles.testimonialCard}>
                   <img
                     src={"/assets/images/others/stars.webp"}
-                    alt="Rating"
+                    alt={t("components.testimonials.testimonials.alt_rating")}
                     className={styles.testimonialImg}
                   />
                   <p className={styles.testimonialQuote}>
-                    "I had just a couple of weeks in Amman and wanted to make
-                    the most of my time by improving my Arabic, so I reached out
-                    to Deewan. It began with a placement test, followed by
-                    reviewing a tailored program made for me. From there we
-                    jumped straight into lessons with my teachers, Noora and
-                    Malak who were both amazing."
-                  </p>
+                    {t("components.testimonials.testimonials.text_i_had_just_a_couple_of_weeks_in_amman_and_wanted_t")}</p>
                   <hr />
-                  <h5 className={styles.testimonialName}>Azmad</h5>
+                  <h5 className={styles.testimonialName}>{t("components.testimonials.testimonials.text_azmad")}</h5>
                 </div>
               </div>
               {/* <!-- Testimonial Card 2 --> */}
@@ -70,21 +64,13 @@ function Testimonials() {
                 <div className={styles.testimonialCard}>
                   <img
                     src={"/assets/images/others/stars.webp"}
-                    alt="Rating"
+                    alt={t("components.testimonials.testimonials.alt_rating")}
                     className={styles.testimonialImg}
                   />
                   <p className={styles.testimonialQuote}>
-                    "The Deewan Institute is a professional and friendly place
-                    to learn Arabic. In my case it was a bit difficult at the
-                    beginning to adjust at my level since I learned some Arabic
-                    before. During my two weeks, my teachers encouraged me to
-                    speak every day through questionings and games. You need to
-                    buy a book there, which has a lot of exercises, texts and
-                    audio material. I can recommend this school for everyone who
-                    wants to learn in a very structured and still personal way."
-                  </p>
+                    {t("components.testimonials.testimonials.text_the_deewan_institute_is_a_professional_and_friendl")}</p>
                   <hr />
-                  <h5 className={styles.testimonialName}>Malou Butters</h5>
+                  <h5 className={styles.testimonialName}>{t("components.testimonials.testimonials.text_malou_butters")}</h5>
                 </div>
               </div>
               {/* <!-- Testimonial Card 3 --> */}
@@ -92,19 +78,13 @@ function Testimonials() {
                 <div className={styles.testimonialCard}>
                   <img
                     src={"/assets/images/others/stars.webp"}
-                    alt="Rating"
+                    alt={t("components.testimonials.testimonials.alt_rating")}
                     className={styles.testimonialImg}
                   />
                   <p className={styles.testimonialQuote}>
-                    "I highly highly recommend Deewan Institute! I spent 4 weeks
-                    studying Ammiyeh with the teacher Dalya. She was an
-                    incredible teacher and I improved a lot. We covered
-                    speaking, listening, reading and writing. Moreover, Deewan
-                    has its own learning materials (books, podcast etc.) which
-                    are of high quality and very structured."
-                  </p>
+                    {t("components.testimonials.testimonials.text_i_highly_highly_recommend_deewan_institute_i_spent")}</p>
                   <hr />
-                  <h5 className={styles.testimonialName}>Sibel K</h5>
+                  <h5 className={styles.testimonialName}>{t("components.testimonials.testimonials.text_sibel_k")}</h5>
                 </div>
               </div>
               {/* <!-- Testimonial Card 4 --> */}
@@ -112,21 +92,13 @@ function Testimonials() {
                 <div className={styles.testimonialCard}>
                   <img
                     src={"/assets/images/others/stars.webp"}
-                    alt="Rating"
+                    alt={t("components.testimonials.testimonials.alt_rating")}
                     className={styles.testimonialImg}
                   />
                   <p className={styles.testimonialQuote}>
-                    "I really enjoyed my time at Deewan. The teachers are so
-                    lovely and helpful, the learning material is great, and
-                    overall the environment is welcoming and supportive. Admin
-                    were also really accommodating in terms of scheduling. I
-                    genuinely learned a lot during my time here and hope to come
-                    back soon again. Warmest recommendations to anyone looking
-                    to learn/improve their Arabic or to take any of the other
-                    classes they offer."
-                  </p>
+                    {t("components.testimonials.testimonials.text_i_really_enjoyed_my_time_at_deewan_the_teachers_ar")}</p>
                   <hr />
-                  <h5 className={styles.testimonialName}>Julie Dahl</h5>
+                  <h5 className={styles.testimonialName}>{t("components.testimonials.testimonials.text_julie_dahl")}</h5>
                 </div>
               </div>
               {/* <!-- Testimonial Card 5 --> */}
@@ -134,22 +106,13 @@ function Testimonials() {
                 <div className={styles.testimonialCard}>
                   <img
                     src={"/assets/images/others/stars.webp"}
-                    alt="Rating"
+                    alt={t("components.testimonials.testimonials.alt_rating")}
                     className={styles.testimonialImg}
                   />
                   <p className={styles.testimonialQuote}>
-                    "I spent 5 weeks at Deewan for an intensive language course,
-                    and I wish I had done it earlier in my life. The overall
-                    team was helpful and welcoming, and they made my experience
-                    unique. The teachers are committed and full of energy, and
-                    the vibe is always really nice (in fact I was happy to spend
-                    time there just studying on my own and chatting with whoever
-                    was around). I will consider taking more classes there in
-                    the future, even online, and I will always recommend it in
-                    case you're planning to study Arabic in Amman."
-                  </p>
+                    {t("components.testimonials.testimonials.text_i_spent_5_weeks_at_deewan_for_an_intensive_languag")}</p>
                   <hr />
-                  <h5 className={styles.testimonialName}>Isacco Cividini </h5>
+                  <h5 className={styles.testimonialName}>{t("components.testimonials.testimonials.text_isacco_cividini")}</h5>
                 </div>
               </div>
               {/* <!-- Testimonial Card 6 --> */}
@@ -157,21 +120,13 @@ function Testimonials() {
                 <div className={styles.testimonialCard}>
                   <img
                     src={"/assets/images/others/stars.webp"}
-                    alt="Rating"
+                    alt={t("components.testimonials.testimonials.alt_rating")}
                     className={styles.testimonialImg}
                   />
                   <p className={styles.testimonialQuote}>
-                    "I attended a few classes at Deewan while I was in Amman,
-                    and I was very happy with the experience. All the teachers
-                    were professional, well-prepared, and engaging. I enjoyed my
-                    classes with each of them and noticed improvements very
-                    quickly. After the classes, I also spent time in their
-                    co-working space, which is a very comfortable and productive
-                    place to work from. I definitely recommend this school and I
-                    would love to go back."
-                  </p>
+                    {t("components.testimonials.testimonials.text_i_attended_a_few_classes_at_deewan_while_i_was_in_")}</p>
                   <hr />
-                  <h5 className={styles.testimonialName}>Alessandra Bonerba</h5>
+                  <h5 className={styles.testimonialName}>{t("components.testimonials.testimonials.text_alessandra_bonerba")}</h5>
                 </div>
               </div>
               {/* <!-- Testimonial Card 7 --> */}
@@ -179,18 +134,13 @@ function Testimonials() {
                 <div className={styles.testimonialCard}>
                   <img
                     src={"/assets/images/others/stars.webp"}
-                    alt="Rating"
+                    alt={t("components.testimonials.testimonials.alt_rating")}
                     className={styles.testimonialImg}
                   />
                   <p className={styles.testimonialQuote}>
-                    "Perfect place for Arabic learning in Amman! Great teachers
-                    with Deewan’s own textbook have helped me make great strides
-                    in my Arabic. Cecile's superb help in facilitating admin
-                    processes smoothly and Malak's attentive and proactive
-                    teaching — Deewan comes highly recommended!"
-                  </p>
+                    {t("components.testimonials.testimonials.text_perfect_place_for_arabic_learning_in_amman_great_t")}</p>
                   <hr />
-                  <h5 className={styles.testimonialName}>Hyunji Kim</h5>
+                  <h5 className={styles.testimonialName}>{t("components.testimonials.testimonials.text_hyunji_kim")}</h5>
                 </div>
               </div>
               {/* <!-- Testimonial Card 8 --> */}
@@ -198,19 +148,13 @@ function Testimonials() {
                 <div className={styles.testimonialCard}>
                   <img
                     src={"/assets/images/others/stars.webp"}
-                    alt="Rating"
+                    alt={t("components.testimonials.testimonials.alt_rating")}
                     className={styles.testimonialImg}
                   />
                   <p className={styles.testimonialQuote}>
-                    "I highly recommend Deewan Institute for learning and
-                    practicing Arabic! The teachers are excellent, and I really
-                    appreciate that Deewan has its own textbook and audio
-                    recordings, which make it easy to review and practice
-                    outside of class. It’s a great place to improve your Arabic
-                    in a supportive and engaging environment."
-                  </p>
+                    {t("components.testimonials.testimonials.text_i_highly_recommend_deewan_institute_for_learning_a")}</p>
                   <hr />
-                  <h5 className={styles.testimonialName}>Samira Bavand</h5>
+                  <h5 className={styles.testimonialName}>{t("components.testimonials.testimonials.text_samira_bavand")}</h5>
                 </div>
               </div>
               {/* <!-- Testimonial Card 9 --> */}
@@ -218,17 +162,13 @@ function Testimonials() {
                 <div className={styles.testimonialCard}>
                   <img
                     src={"/assets/images/others/stars.webp"}
-                    alt="Rating"
+                    alt={t("components.testimonials.testimonials.alt_rating")}
                     className={styles.testimonialImg}
                   />
                   <p className={styles.testimonialQuote}>
-                    "I did a month-long course at Deewan. There's a lot of focus
-                    on speaking in Arabic - which was great. The staff are
-                    really friendly and flexible with schedules. Overall a very
-                    rewarding experience."
-                  </p>
+                    {t("components.testimonials.testimonials.text_i_did_a_month_long_course_at_deewan_there_s_a_lot_")}</p>
                   <hr />
-                  <h5 className={styles.testimonialName}>Roshan Sam</h5>
+                  <h5 className={styles.testimonialName}>{t("components.testimonials.testimonials.text_roshan_sam")}</h5>
                 </div>
               </div>
             </div>

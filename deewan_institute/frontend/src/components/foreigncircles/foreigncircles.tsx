@@ -16,25 +16,25 @@ function ForeignCircles(){
             </div>
             <div className="d-flex flex-row gap-5 justify-content-center flex-wrap scroll-section" id={style.foreignGroup}>
                <div className="d-flex flex-column gap-4 align-items-center">
-                  <img className="rounded-circle" id={style.image} src="/assets/images/others/english.webp" alt="Generic placeholder image"
+                  <img className="rounded-circle" id={style.image} src="/assets/images/others/english.webp" alt={t("components.foreigncircles.foreigncircles.alt_generic_placeholder_image")}
                      width="300" height="300" />
                   <h4 className={style.heading}>{t("pages.bildungsurlaub.bildungsurlaub.text_english")}</h4>
                   <NavLink className={style.button} to="/foreign-languages/english-course" target="_blank" role="button">{t("components.foreigncircles.foreigncircles.text_view_courses")}</NavLink>
                </div>
                <div className="d-flex flex-column gap-4 align-items-center">
-                  <img className="rounded-circle" id={style.image} src="/assets/images/others/french.webp" alt="Generic placeholder image"
+                  <img className="rounded-circle" id={style.image} src="/assets/images/others/french.webp" alt={t("components.foreigncircles.foreigncircles.alt_generic_placeholder_image")}
                      width="300" height="300" />
                   <h4 className={style.heading}>{t("components.navbar.navbar.label_french")}</h4>
                   <NavLink className={style.button} to="/foreign-languages/french-course" target="_blank" role="button">{t("components.foreigncircles.foreigncircles.text_view_courses")}</NavLink>
                </div>
                <div className="d-flex flex-column gap-4 align-items-center">
-                  <img className="rounded-circle" id={style.image} src="/assets/images/others/spanish.webp" alt="Generic placeholder image"
+                  <img className="rounded-circle" id={style.image} src="/assets/images/others/spanish.webp" alt={t("components.foreigncircles.foreigncircles.alt_generic_placeholder_image")}
                      width="300" height="300" />
                   <h4 className={style.heading}>{t("components.navbar.navbar.label_spanish")}</h4>
                   <NavLink className={style.button} to="/foreign-languages/spanish-course" target="_blank" role="button">{t("components.foreigncircles.foreigncircles.text_view_courses")}</NavLink>
                </div>
                <div className="d-flex flex-column gap-4 align-items-center">
-                  <img className="rounded-circle" id={style.image} src="/assets/images/others/germany.webp" alt="Generic placeholder image"
+                  <img className="rounded-circle" id={style.image} src="/assets/images/others/germany.webp" alt={t("components.foreigncircles.foreigncircles.alt_generic_placeholder_image")}
                      width="300" height="300" />
                   <h4 className={style.heading}>{t("pages.bildungsurlaub.bildungsurlaub.text_german")}</h4>
                   <NavLink className={style.button} to="/foreign-languages/german-course" target="_blank" role="button">{t("components.foreigncircles.foreigncircles.text_view_courses")}</NavLink>

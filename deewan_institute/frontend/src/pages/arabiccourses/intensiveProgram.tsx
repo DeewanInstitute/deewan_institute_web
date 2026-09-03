@@ -58,7 +58,7 @@ function IntensiveProgram() {
             <div className="col-12 col-md-5 d-flex flex-column align-items-center justify-content-center scroll-section slide-in-right order-2 order-md-2">
               <img
                 className="img-fluid"
-                alt="Intensive Program"
+                alt={t("pages.arabiccourses.intensiveProgram.alt_intensive_program")}
                 src={"../assets/images/others/intensive1.webp"}
               />
             </div>
@@ -76,7 +76,7 @@ function IntensiveProgram() {
             <div className="col-12 col-md-5 d-flex flex-column align-items-center justify-content-center mb-4 mb-md-0 order-1 order-md-1">
               <img
                 className="img-fluid"
-                alt="Deewan Building"
+                alt={t("pages.arabiccourses.intensiveProgram.alt_deewan_building")}
                 src={"../assets/images/others/intensive2.webp"}
               />
             </div>
@@ -135,8 +135,8 @@ function IntensiveProgram() {
 
 <BottomBanner
                         data={{
-                            mainText: "Enroll In Intensive Program Now",
-                            buttonText: "Enroll Now!",
+                            mainText: t("pages.arabiccourses.intensiveProgram.maintext_enroll_in_intensive_program_now"),
+                            buttonText: t("data.english.bottombannerbuttontitle_enroll_now"),
                             primaryColor: "#A60A1F",
                             backgroundImg: "../assets/images/banner/about.webp",
                         }}

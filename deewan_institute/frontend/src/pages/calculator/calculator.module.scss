@@ -1,28 +1,7 @@
 @use "../../style/variables.scss" as *;
 @use "../../style/fonts.scss" as *;
 
-// $title-selectors: ".title, .title h2, .title h3, h1, h2, h3, .accordionBtn";
-// $para-selectors: "p, .lead, .accordion-body, .accordionSimple, .dropItem, ol, li, td, label, strong, btn,";
 
-// // Mobile View (up to 767px)
-// @media screen and (max-width: 767px) {
-//   #{$title-selectors} {
-//     font-size: x-large !important;
-//   }
-//   #{$para-selectors} {
-//     font-size: medium !important;
-//   }
-// }
-
-// // Tablet View (768px to 1024px)
-// @media screen and (min-width: 768px) and (max-width: 1024px) {
-//   #{$title-selectors} {
-//     font-size: xx-large !important;
-//   }
-//   #{$para-selectors} {
-//     font-size: large !important;
-//   }
-// }
 
 // ─── Page-scoped font scaling ─────────────────────────────────────────────────
 
@@ -178,7 +157,7 @@
   padding-inline: 2%;
   padding-block: 3%;
   cursor: pointer;
-  text-align: left;
+  text-align: start;
   transition:
     background-color 0.2s,
     color 0.2s;
@@ -219,7 +198,7 @@
 }
 
 .caret {
-  margin-left: 0.5rem;
+  margin-inline-start: 0.5rem;
   color: $primary-color;
   flex-shrink: 0;
   font-size: 0.8rem;
@@ -228,7 +207,7 @@
 .dropMenu {
   position: absolute;
   top: 0;
-  left: calc(100% + 8px);
+  inset-inline-start: calc(100% + 8px);
   width: 360px;
   background: white;
   border: 1.5px solid $primary-color;
@@ -260,7 +239,7 @@
   @media (max-width: 768px) {
     position: relative;
     top: calc(100% + 6px);
-    left: 0;
+    inset-inline-start: 0;
     width: 100%;
     max-height: 260px;
     border-radius: 8px;
@@ -574,7 +553,7 @@
     }
 
     img {
-      width: 60px;
+      width: 80px;
       height: 60px;
       flex-shrink: 0;
       opacity: 0.8;

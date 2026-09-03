@@ -31,7 +31,7 @@ function Colloquial() {
       {/* Banner */}
       <ShadowBanner
         data={{
-          title: "Colloquial Levantine Arabic",
+          title: t("pages.arabiccourses.colloquial.colloquial.title_colloquial_levantine_arabic"),
           backgroundImg: "/assets/images/banner/colloquial-banner.webp",
           rgbColor: "97, 91, 91, 0.4",
           titleBgColor: "97, 91, 91",
@@ -42,7 +42,7 @@ function Colloquial() {
         <main>
           {/* Hero Title */}
           <HeroTitle
-            subtitle="Colloquial Levantine Arabic"
+            subtitle={t("pages.arabiccourses.colloquial.colloquial.title_colloquial_levantine_arabic")}
             title={t("pages.arabiccourses.mixed.mixed.title_your_journey_into_arabic_language_and_culture_sta")}
             color="rgb(97 91 91)"
           />
@@ -64,7 +64,7 @@ function Colloquial() {
         >
           <img
             src="/assets/images/others/colloquial-pic.webp"
-            alt="student studying Arabic"
+            alt={t("pages.arabiccourses.msa.msa.alt_student_studying_arabic")}
             className={style.fullImage}
           />
         </section>
@@ -140,7 +140,7 @@ function Colloquial() {
 <div className="col-12 col-md-6 scroll-section slide-in-left">
               <img
                 src="/assets/images/others/colloquial-pic1.webp"
-                alt="students at class"
+                alt={t("pages.arabiccourses.msa.msa.alt_students_at_class")}
                 className={style.feesImage}
               />
             </div>

@@ -20,7 +20,7 @@ function CurriculumSlider() {
                         <div className="container-fluid d-flex align-items-center justify-content-center mt-4 mt-md-5">
                             <div className="row w-100 h-auto g-4">
                                 <div className="col-12 col-md-6 text-center d-flex flex-column align-items-center gap-2">
-                                    <img src={"../assets/images/books/poster/msa.webp"} alt="MSA Book" className="img-fluid" />
+                                    <img src={"../assets/images/books/poster/msa.webp"} alt={t("components.curriculumslider.curriculumslider.alt_msa_book")} className="img-fluid" />
                                     <div className="my-3 px-2">
                                         <p className={`lead ${styles.dark}`}>{t("components.curriculumslider.curriculumslider.text_the_comprehensive_guide_to")}<br className="d-none d-md-block" /> {t("pages.arabiccourses.msa.msa.title_modern_standard_arabic")}</p>
                                         <p className={`${styles.light} mb-3`}>{t("components.curriculumslider.curriculumslider.text_beginner_level")}</p>
@@ -29,7 +29,7 @@ function CurriculumSlider() {
                                     </div>
                                 </div>
                                 <div className="col-12 col-md-6 text-center d-flex flex-column align-items-center gap-2">
-                                    <img src={"../assets/images/books/poster/ammiyeh.webp"} alt="Levantine Book" className="img-fluid" />
+                                    <img src={"../assets/images/books/poster/ammiyeh.webp"} alt={t("components.curriculumslider.curriculumslider.alt_levantine_book")} className="img-fluid" />
                                     <div className="my-3 px-2">
                                         <p className={`lead ${styles.dark}`}>{t("components.curriculumslider.curriculumslider.text_the_comprehensive_guide_to")}<br className="d-none d-md-block" /> {t("components.curriculumslider.curriculumslider.text_levantine_arabic")}</p>
                                         <p className={`${styles.light} mb-3`}>{t("components.curriculumslider.curriculumslider.text_beginner_intermediate_and_advanced_levels")}</p>
@@ -58,16 +58,16 @@ function CurriculumSlider() {
                                 <div className="col-12 col-md-6 text-center d-flex flex-column align-items-center justify-content-center gap-2 order-1 order-md-2">
                                     <div className="row h-auto justify-content-center g-3">
                                         <div className="col-6 col-md-6">
-                                            <img src={"../assets/images/books/poster/PBSeason1.webp"} alt="Podcast S1" className="img-fluid" />
+                                            <img src={"../assets/images/books/poster/PBSeason1.webp"} alt={t("components.curriculumslider.curriculumslider.alt_podcast_s1")} className="img-fluid" />
                                         </div>
                                         <div className="col-6 col-md-6">
-                                            <img src={"../assets/images/books/poster/PBSeason2.webp"} alt="Podcast S2" className="img-fluid" />
+                                            <img src={"../assets/images/books/poster/PBSeason2.webp"} alt={t("components.curriculumslider.curriculumslider.alt_podcast_s2")} className="img-fluid" />
                                         </div>
                                         <div className="col-6 col-md-6">
-                                            <img src={"../assets/images/books/poster/PBSeason3.webp"} alt="Podcast S3" className="img-fluid" />
+                                            <img src={"../assets/images/books/poster/PBSeason3.webp"} alt={t("components.curriculumslider.curriculumslider.alt_podcast_s3")} className="img-fluid" />
                                         </div>
                                         <div className="col-6 col-md-6">
-                                            <img src={"../assets/images/books/poster/PBSeason5.webp"} alt="Podcast S5" className="img-fluid" />
+                                            <img src={"../assets/images/books/poster/PBSeason5.webp"} alt={t("components.curriculumslider.curriculumslider.alt_podcast_s5")} className="img-fluid" />
                                         </div>
                                     </div>
                                 </div>
@@ -81,7 +81,7 @@ function CurriculumSlider() {
                         <div className="container-fluid d-flex align-items-center justify-content-center mt-4 mt-md-5">
                             <div className="row w-100 h-auto justify-content-center g-4">
                                 <div className="col-12 col-md-6 text-center d-flex flex-column align-items-center justify-content-center gap-2 order-2 order-md-1">
-                                    <img src={"../assets/images/books/poster/idioms.webp"} alt="Idioms Book" className="img-fluid"  />
+                                    <img src={"../assets/images/books/poster/idioms.webp"} alt={t("components.curriculumslider.curriculumslider.alt_idioms_book")} className="img-fluid"  />
                                 </div>
                                 <div className="col-12 col-md-6 text-center d-flex flex-column align-items-center justify-content-center gap-2 order-1 order-md-2">
                                     <h2 className={styles.dark}>{t("components.curriculumslider.curriculumslider.text_everyday_arabic_idioms")}</h2>

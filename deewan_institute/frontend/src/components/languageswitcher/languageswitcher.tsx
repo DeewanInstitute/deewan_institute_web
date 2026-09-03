@@ -13,7 +13,7 @@ export function LanguageSwitcher({
   appearance = "dark",
   compact = false,
 }: LanguageSwitcherProps) {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const selectId = useId();
   const activeLanguage = (i18n.resolvedLanguage ?? i18n.language).split("-")[0];
 
@@ -39,8 +39,7 @@ export function LanguageSwitcher({
     >
       <HiOutlineGlobeAlt className={styles.icon} aria-hidden="true" />
       <label className={styles.srOnly} htmlFor={selectId}>
-        Select language
-      </label>
+        {t("components.languageswitcher.languageswitcher.text_select_language")}</label>
       <select
         id={selectId}
         className={styles.select}
@@ -48,7 +47,7 @@ export function LanguageSwitcher({
         onChange={(event) =>
           void changeLanguage(event.target.value as LanguageCode)
         }
-        aria-label="Select language"
+        aria-label={t("components.languageswitcher.languageswitcher.text_select_language")}
       >
         {LANGUAGES.map((language) => (
           <option key={language.code} value={language.code}>

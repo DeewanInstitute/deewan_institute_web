@@ -37,7 +37,7 @@ const createOverlayColumns = (t: ReturnType<typeof useTranslation>["t"]) => [
         label: (
           <>
             {t("components.navbar.navbar.text_history_of_the")}<br />
-            Middle East{" "}
+            {t("components.navbar.navbar.text_the_middle_east")}{" "}
           </>
         ),
         to: "/middle-eastern-studies/history-of-the-middle-east",

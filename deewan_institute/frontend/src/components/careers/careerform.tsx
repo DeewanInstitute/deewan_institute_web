@@ -222,7 +222,7 @@ function CareerForm({ endpoint = "/api/career", showPosition = true }: CareerFor
                 value={formData.lastName}
                 onChange={handleInputChange}
                 autoComplete="family-name"
-                placeholder="Omar"
+                placeholder={t("components.careers.careerform.placeholder_omar")}
               />
               {submitted && formErrors.lastName && (
                 <span className={styles.error_msg}>{formErrors.lastName}</span>
@@ -242,7 +242,7 @@ function CareerForm({ endpoint = "/api/career", showPosition = true }: CareerFor
               value={formData.email}
               onChange={handleInputChange}
               autoComplete="email"
-              placeholder="you@example.com"
+              placeholder={t("pages.internship.internshipform.placeholder_you_example_com")}
             />
             {submitted && formErrors.email && (
               <span className={styles.error_msg}>{formErrors.email}</span>
@@ -261,7 +261,7 @@ function CareerForm({ endpoint = "/api/career", showPosition = true }: CareerFor
               value={formData.phoneNumber}
               onChange={handleInputChange}
               autoComplete="tel"
-              placeholder="+962 79 000 0000"
+              placeholder={t("components.careers.careerform.placeholder_962_79_000_0000")}
             />
             {submitted && formErrors.phoneNumber && (
               <span className={styles.error_msg}>{formErrors.phoneNumber}</span>
@@ -281,7 +281,7 @@ function CareerForm({ endpoint = "/api/career", showPosition = true }: CareerFor
                 value={formData.position}
                 onChange={handleInputChange}
                 autoComplete="organization-title"
-                placeholder="e.g. Arabic Language Instructor"
+                placeholder={t("components.careers.careerform.placeholder_e_g_arabic_language_instructor")}
               />
               {submitted && formErrors.position && (
                 <span className={styles.error_msg}>{formErrors.position}</span>
@@ -325,7 +325,7 @@ function CareerForm({ endpoint = "/api/career", showPosition = true }: CareerFor
               >
                 <span className={styles.dropzone_icon}>⬆</span>
                 <p className={styles.dropzone_text}>
-                  Drag & drop your PDF here, or{" "}
+                  {t("components.careers.careerform.text_drag_and_drop_your_pdf_here_or")}{" "}
                   <span className={styles.dropzone_link}>{t("pages.internship.internshipform.text_browse")}</span>
                 </p>
                 <p className={styles.dropzone_hint}>{t("pages.internship.internshipform.text_pdf_up_to_10_mb")}</p>

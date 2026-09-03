@@ -25,7 +25,7 @@ function Podcasts() {
         <div className={styles.heroContent}>
           <img
             src="/assets/images/podcast/podcast-logo.webp"
-            alt="Deewan Podcast"
+            alt={t("pages.podcasts.podcasts.alt_deewan_podcast")}
             className={styles.bannerLogo}
           />
           {/* <h2 className={styles.heroTitle}>ARABIC PODCAST</h2> */}
@@ -56,15 +56,18 @@ function Podcasts() {
                 >
                   <div className={styles.seasonCard}>
                     <div className={styles.seasonCardImg}>
-                      <img src={card.image} alt={`Season ${card.season}`} />
+                      <img
+                        src={card.image}
+                        alt={t("pages.podcasts.podcasts.text_season_number", { number: card.season })}
+                      />
                     </div>
                     <div className={styles.cardTextContent}>
                       <p className={styles.seasonCardLabel}>
-                        Season {card.season}
+                        {t("pages.podcasts.podcasts.text_season_number", { number: card.season })}
                       </p>
                       <p className={styles.seasonCardHost}>
                         {t("pages.podcasts.podcasts.text_hosted_by")}<br />
-                        {card.host}
+                        {t(card.hostKey)}
                       </p>
                     </div>
                   </div>
@@ -100,7 +103,7 @@ function Podcasts() {
               <div className={styles.illustrationWrapper}>
                 <img
                   src="/assets/images/podcast/podcast-01.webp"
-                  alt="Podcast illustration"
+                  alt={t("pages.podcasts.podcasts.alt_podcast_illustration")}
                   className={styles.mainIllustration}
                 />
               </div>
@@ -117,12 +120,11 @@ function Podcasts() {
               <div id={`season-${s.seasonNumber}`}>
                 <PodcastSeasonBlock
                   seasonNumber={s.seasonNumber}
-                  hostedBy={s.hostedBy}
-                  episodes={s.episodes}
+                  hostedBy={t(s.hostedByKey)}
+                  episodes={s.episodes.map((ep) => ({ id: ep.id, title: t(ep.titleKey), audioUrl: ep.audioUrl }))}
                   bookCoverImage={s.bookCover}
-                  bookCoverAlt={s.bookAlt}
+                  bookCoverAlt={t(s.bookAltKey)}
                   reverse={s.reverse}
-                  
                 />
                 {i < seasons.length - 1 && <hr className={styles.divider} />}
               </div>

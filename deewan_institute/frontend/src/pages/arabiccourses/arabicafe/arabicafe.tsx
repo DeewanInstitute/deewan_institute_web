@@ -29,7 +29,7 @@ function ArabiCafe() {
       {/* Banner */}
       <ShadowBanner
         data={{
-          title: "Online ArabiCafe",
+          title: t("pages.arabiccourses.arabicafe.arabicafe.title_online_arabicafe"),
           backgroundImg: "/assets/images/banner/arabicafe.webp",
           rgbColor: "119, 82, 34",
           titleBgColor: "0, 80, 60",
@@ -40,7 +40,7 @@ function ArabiCafe() {
         <main>
           {/* Hero Title */}
 <HeroTitle
-  subtitle="Online ArabiCafe"
+  subtitle={t("pages.arabiccourses.arabicafe.arabicafe.title_online_arabicafe")}
   title={t("pages.arabiccourses.arabicafe.arabicafe.title_practice_levantine_arabic_through_real_conversati")}
   color= "#0d5071"
 />
@@ -61,7 +61,7 @@ function ArabiCafe() {
                   <img
                     className="img-fluid"
                     src="../assets/images/others/arabicafe1.webp"
-                    alt="ArabiCafe session"
+                    alt={t("pages.arabiccourses.arabicafe.arabicafe.alt_arabicafe_session")}
                   />
                 </div>
               </div>
@@ -81,7 +81,7 @@ function ArabiCafe() {
                   <div className={style.scheduleIcon}>
                     <img
                       src="../assets/images/icons/clock.webp"
-                      alt="Days"
+                      alt={t("pages.arabiccourses.arabicafe.arabicafe.alt_days")}
                       className={style.scheduleImg}
                     />
                   </div>
@@ -93,7 +93,7 @@ function ArabiCafe() {
                   <div className={style.scheduleIcon}>
                     <img
                       src="../assets/images/icons/calendar.webp"
-                      alt="Time"
+                      alt={t("pages.arabiccourses.arabicafe.arabicafe.alt_time")}
                       className={style.scheduleImg}
                     />
                   </div>
@@ -105,7 +105,7 @@ function ArabiCafe() {
                   <div className={style.scheduleIcon}>
                     <img
                       src="/assets/images/icons/bigworld.webp"
-                      alt="Online format"
+                      alt={t("pages.arabiccourses.arabicafe.arabicafe.alt_online_format")}
                       className={style.scheduleImg}
                     />
                   </div>
@@ -123,7 +123,7 @@ function ArabiCafe() {
                   <img
                     className="img-fluid"
                     src="../assets/images/others/arabicafe2.webp"
-                    alt="Students studying Arabic"
+                    alt={t("pages.arabiccourses.arabicafe.arabicafe.alt_students_studying_arabic")}
                   />
                 </div>
               </div>

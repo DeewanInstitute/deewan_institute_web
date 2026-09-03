@@ -9,6 +9,7 @@ import de from "./locales/de.json";
 export const LANGUAGES = [
   { code: "en", label: "English", dir: "ltr" },
   { code: "de", label: "Deutsch", dir: "ltr" },
+  { code: "ar", label: "العربية", dir: "rtl" },
   // { code: "fr", label: "Français", dir: "ltr" },
 ] as const;
 

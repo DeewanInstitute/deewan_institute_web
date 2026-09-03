@@ -101,9 +101,9 @@ function Courses({ data }: { data: arabicCourse }) {
                   className="pt-5 mb-0 pb-0 text-center"
                   id={styles.arabCalligraphy}
                 >
-                  {t(`content.arabicCourses.courses.${index}.arabicTitle`)}
+                  {course.arabicTitle}
                 </h2>
-                <h2 className="pt-5 mb-0 pb-0 text-center">{t(`content.arabicCourses.courses.${index}.title`)}</h2>
+                <h2 className="pt-5 mb-0 pb-0 text-center">{course.title}</h2>
               </div>
 
               <div
@@ -146,9 +146,9 @@ function Courses({ data }: { data: arabicCourse }) {
                   className="pt-5 mb-0 pb-0 text-center"
                   id={styles.arabCalligraphy}
                 >
-                  {t(`content.arabicCourses.courses.${index + 3}.arabicTitle`)}
+                  {course.arabicTitle}
                 </h2>
-                <h2 className="pt-5 mb-0 pb-0 text-center">{t(`content.arabicCourses.courses.${index + 3}.title`)}</h2>
+                <h2 className="pt-5 mb-0 pb-0 text-center">{course.title}</h2>
               </div>
 
               <div
@@ -178,9 +178,9 @@ function Courses({ data }: { data: arabicCourse }) {
                   className="pt-5 mb-0 pb-0 text-center"
                   id={styles.arabCalligraphy}
                 >
-                  {t(`content.arabicCourses.courses.${index + 6}.arabicTitle`)}
+                  {course.arabicTitle}
                 </h2>
-                <h2 className="pt-5 mb-0 pb-0 text-center">{t(`content.arabicCourses.courses.${index + 6}.title`)}</h2>
+                <h2 className="pt-5 mb-0 pb-0 text-center">{course.title}</h2>
               </div>
 
               <div
@@ -210,9 +210,9 @@ function Courses({ data }: { data: arabicCourse }) {
                   className="pt-5 mb-0 pb-0 text-center"
                   id={styles.arabCalligraphy}
                 >
-                  {t(`content.arabicCourses.courses.${index + 9}.arabicTitle`)}
+                  {course.arabicTitle}
                 </h2>
-                <h2 className="pt-5 mb-0 pb-0 text-center">{t(`content.arabicCourses.courses.${index + 9}.title`)}</h2>
+                <h2 className="pt-5 mb-0 pb-0 text-center">{course.title}</h2>
               </div>
 
               <div

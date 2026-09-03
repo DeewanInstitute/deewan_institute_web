@@ -57,7 +57,7 @@ function About() {
                 id={style.images}
                 className="featurette-image img-fluid mx-auto"
                 src="/assets/images/others/aboutImage1.webp"
-                alt="Deewan Institute Building"
+                alt={t("pages.about.about.alt_deewan_institute_building")}
                 style={{ width: "600px", height: "700px" }}
               />
             </div>
@@ -95,7 +95,7 @@ function About() {
               <img
                 id={style.image}
                 src="/assets/images/icons/firstValue.webp"
-                alt="Community and Inclusivity"
+                alt={t("pages.about.about.alt_community_and_inclusivity")}
               />
               <h4 className={`${style.heading} text-center lh-base`}>
                 {t("pages.about.about.text_community_and")}<br /> {t("pages.about.about.text_inclusivity")}</h4>
@@ -107,7 +107,7 @@ function About() {
               <img
                 id={style.image}
                 src="/assets/images/icons/secondValue.webp"
-                alt="Excellence in Education"
+                alt={t("pages.about.about.alt_excellence_in_education")}
               />
               <h4 className={`${style.heading} text-center lh-base`}>
                 {t("pages.about.about.text_excellence_in")}<br /> {t("pages.about.about.text_education")}</h4>
@@ -119,7 +119,7 @@ function About() {
               <img
                 id={style.image}
                 src="/assets/images/icons/thirdValue.webp"
-                alt="Innovation and Creativity"
+                alt={t("pages.about.about.alt_innovation_and_creativity")}
               />
               <h4 className={`${style.heading} text-center lh-base`}>
                 {t("pages.about.about.text_innovation_and")}<br /> {t("pages.about.about.text_creativity")}</h4>
@@ -144,9 +144,9 @@ function About() {
             <div className="col-md-5 d-flex flex-column align-items-start justify-content-center">
               <img
                 className="featurette-image img-fluid mx-auto"
-                src="/assets/images/others/aboutImage2.webp"
-                alt="Teaching Approach"
-                style={{ width: "650px", height: "800px" }}
+                src="/assets/images/others/aboutImage3.webp"
+                alt={t("pages.about.about.alt_teaching_approach")}
+                style={{ width: "500px", height: "750px" }}
               />
             </div>
             <div className="col-md-4 d-flex flex-column align-items-start justify-content-center">

@@ -31,7 +31,7 @@ function ArabiTalk() {
       {/* Banner */}
       <ShadowBanner
         data={{
-          title: "ArabiTalk",
+          title: t("pages.arabiccourses.arabiTalk.title_arabitalk"),
           backgroundImg: "/assets/images/banner/aya.webp",
           rgbColor: "22, 117, 166",
         }}
@@ -48,7 +48,7 @@ function ArabiTalk() {
           {/* Title */}
           <Title
             data={{
-              subtitle: "Communicate in Arabic with Ease",
+              subtitle: t("pages.arabiccourses.arabiTalk.subtitle_communicate_in_arabic_with_ease"),
               color: "#0C608B",
             }}
           />
@@ -127,8 +127,8 @@ function ArabiTalk() {
           {/* Bottom Banner */}
           <BottomBanner
             data={{
-              mainText: "Unlock Arabic Conversations with ArabiTalk",
-              buttonText: "Sign Up!",
+              mainText: t("pages.arabiccourses.arabiTalk.maintext_unlock_arabic_conversations_with_arabitalk"),
+              buttonText: t("pages.arabiccourses.arabiTalk.buttontext_sign_up"),
               primaryColor: "black",
               backgroundImg: "../assets/images/banner/arabiTalkBBG.webp",
             }}

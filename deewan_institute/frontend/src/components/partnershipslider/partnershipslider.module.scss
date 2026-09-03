@@ -16,6 +16,12 @@
     margin: 0 auto;
     overflow: hidden;
     padding: 20px 0;
+    // The scroll animation below assumes an LTR box (it anchors the track
+    // flush-left and translates it left by 50%). Under the site's Arabic
+    // dir="rtl", the track anchors flush-right instead and spends most of
+    // the animation cycle scrolled fully out of view. Force LTR here so the
+    // slider renders/animates the same regardless of page language.
+    direction: ltr;
   }
 
   // ✅ NEW: Slider Track for Animation

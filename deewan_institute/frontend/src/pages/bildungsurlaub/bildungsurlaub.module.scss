@@ -188,8 +188,13 @@
   }
 }
 
-// What Is Bildungsurlaub 
+// What Is Bildungsurlaub
 .whatIs {
+  // Arabic content is an exception to the page's overall (LTR) direction
+  &[dir="rtl"] {
+    text-align: right;
+  }
+
   &label {
     font-family: "Merriweather-Regular";
     font-weight: 400;

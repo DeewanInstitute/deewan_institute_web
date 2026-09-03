@@ -71,8 +71,7 @@ function TermsModal({ onAccept, onDecline }: TermsModalProps): JSX.Element {
         {/* Helper Text */}
         {!isChecked && (
           <p className={styles.helperText}>
-            ☝️ Check the box above to enable the Accept button
-          </p>
+            {t("components.terms.terms.text_check_the_box_above_to_enable_the_accept_button_2")}</p>
         )}
         
         {/* Buttons */}

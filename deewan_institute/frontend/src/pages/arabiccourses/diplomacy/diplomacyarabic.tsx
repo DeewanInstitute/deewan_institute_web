@@ -30,7 +30,7 @@ function DiplomacyArabic() {
       {/* Banner */}
       <ShadowBanner
         data={{
-          title: "Diplomacy in Arabic",
+          title: t("pages.arabiccourses.diplomacy.diplomacyarabic.title_diplomacy_in_arabic"),
           backgroundImg: "/assets/images/banner/diplomacy-banner.webp",
           rgbColor: "26, 34, 53, 0.8",
           titleBgColor: "26, 34, 53",
@@ -41,7 +41,7 @@ function DiplomacyArabic() {
         <main>
           {/* Hero Title */}
           <HeroTitle
-            subtitle="Diplomacy in Arabic"
+            subtitle={t("pages.arabiccourses.diplomacy.diplomacyarabic.title_diplomacy_in_arabic")}
             title={t("pages.arabiccourses.diplomacy.diplomacyarabic.title_master_the_language_of_international_relations_an")}
           />
 
@@ -49,7 +49,7 @@ function DiplomacyArabic() {
           <section className={`${style.imageSection} scroll-section`}>
             <img
               src="../assets/images/others/diplomacy-pic.webp"
-              alt="diplomatic meeting"
+              alt={t("pages.arabiccourses.diplomacy.diplomacyarabic.alt_diplomatic_meeting")}
               className={style.fullImage}
             />
           </section>
@@ -76,7 +76,7 @@ function DiplomacyArabic() {
                   <div className={style.skillsIcon}>
                     <img
                       src="/assets/images/icons/dipicon1.webp"
-                      alt="Diplomatic Communication"
+                      alt={t("pages.arabiccourses.diplomacy.diplomacyarabic.alt_diplomatic_communication")}
                       className={style.skillsImg}
                     />
                   </div>
@@ -111,7 +111,7 @@ function DiplomacyArabic() {
                   <div className={style.skillsIcon}>
                     <img
                       src="/assets/images/icons/dipicon4.webp"
-                      alt="International Relations"
+                      alt={t("pages.arabiccourses.diplomacy.diplomacyarabic.alt_international_relations")}
                       className={style.skillsImg}
                     />
                   </div>
@@ -125,8 +125,8 @@ function DiplomacyArabic() {
         </main>
 <BottomBanner
                         data={{
-                            mainText: "Enroll In Diplomacy Program Now",
-                            buttonText: "Enroll Now!",
+                            mainText: t("pages.arabiccourses.diplomacy.diplomacyarabic.maintext_enroll_in_diplomacy_program_now"),
+                            buttonText: t("data.english.bottombannerbuttontitle_enroll_now"),
                             primaryColor: "#A60A1F",
                             backgroundImg: "../assets/images/others/diplomacy-bottom.webp",
                         }}
