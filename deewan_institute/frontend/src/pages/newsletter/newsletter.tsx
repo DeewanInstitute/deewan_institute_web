@@ -58,6 +58,12 @@ function CanvaEmbed({
 }
 
 const EDITION_I18N: Record<string, { label: string; title: string; description: string; tag: string }> = {
+  September: {
+    label: "data.newsletter.data.label_september_2026",
+    title: "data.newsletter.data.title_september_deewan_newsletter",
+    description: "data.newsletter.data.description_dive_into_arabic_language_milestones_cultur",
+    tag: "data.newsletter.data.tag_latest_issue",
+  },
   August: {
     label: "data.newsletter.data.label_august_2026",
     title: "data.newsletter.data.title_august_deewan_newsletter",

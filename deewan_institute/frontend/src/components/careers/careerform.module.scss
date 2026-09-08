@@ -353,3 +353,81 @@
     transform: rotate(360deg);
   }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .card_title {
+    font-family: "Zain-ExtraBold", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .card_subtitle {
+    font-family: "Zain-Light", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .label {
+    font-family: "Zain-Bold", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .label_hint {
+    font-family: "Zain-Light", sans-serif !important;
+    direction: rtl;
+  }
+
+  .input {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+
+    &::placeholder {
+      font-family: "Zain-Light", sans-serif !important;
+    }
+  }
+
+  .error_msg {
+    font-family: "Zain-Light", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .dropzone_text {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+  }
+
+  .dropzone_link {
+    font-family: "Zain-Bold", sans-serif !important;
+    direction: rtl;
+  }
+
+  .dropzone_hint {
+    font-family: "Zain-Light", sans-serif !important;
+    direction: rtl;
+  }
+
+  .file_name {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .file_size {
+    font-family: "Zain-Light", sans-serif !important;
+    direction: rtl;
+  }
+
+  .submit_btn {
+    font-family: "Zain-Bold", sans-serif !important;
+    direction: rtl;
+  }
+
+  .banner {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+  }
+}

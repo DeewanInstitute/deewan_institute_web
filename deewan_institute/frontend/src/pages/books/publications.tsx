@@ -36,7 +36,7 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 function Publications() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     useEffect(() => {
     document.title = "Publications";
   }, []);
@@ -67,6 +67,11 @@ function Publications() {
         1200: { slidesPerView: 2 },
       },
     });
+    // Swiper only auto-detects RTL from the container's computed direction at
+    // construction time, which races with the effect (in App) that flips
+    // <html dir> on language change. Force it explicitly so the arrows always
+    // match the current language.
+    mainSwiper.changeLanguageDirection(i18n.language === "ar" ? "rtl" : "ltr");
 
     const ammiyehSwiper = new Swiper(ammiyehSwiperRef.current, {
       slidesPerView: 1,
@@ -106,7 +111,7 @@ function Publications() {
       ammiyehSwiper.destroy(true, true);
       podcastSwiper.destroy(true, true);
     };
-  }, []);
+  }, [i18n.language]);
 
   // Helper to handle wishlist clicks
   const handleWishlistClick = (e: React.MouseEvent, book: any) => {

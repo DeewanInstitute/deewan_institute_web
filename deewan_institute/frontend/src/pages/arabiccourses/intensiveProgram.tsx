@@ -110,20 +110,20 @@ function IntensiveProgram() {
             data={{
               subtitle: t("pages.arabiccourses.intensiveProgram.subtitle_4_weeks_course"),
               iconImage: "../assets/images/icons/one.webp",
-              oneTotalPrice: "840 JD",
-              groupTotalPrice: "880 JD",
-              oneHours: "80 hours",
-              groupHours: "80 hours",
+              oneTotalPrice: t("pages.arabiccourses.intensiveProgram.onetotalprice_840_jd"),
+              groupTotalPrice: t("pages.arabiccourses.intensiveProgram.group_total_price1"),
+              oneHours: t("pages.arabiccourses.intensiveProgram.onehours_80_hours"),
+              groupHours: t("pages.arabiccourses.intensiveProgram.group_hours1"),
             }}
           />
           <Schedule
             data={{
               subtitle: t("pages.arabiccourses.intensiveProgram.subtitle_8_weeks_course"),
               iconImage: "../assets/images/icons/two.webp",
-              oneTotalPrice: "1680 JD",
-              groupTotalPrice: "1760 JD",
-              oneHours: "160 hours",
-              groupHours: "160 hours",
+              oneTotalPrice: t("pages.arabiccourses.intensiveProgram.onetotalprice_1680_jd"),
+              groupTotalPrice: t("pages.arabiccourses.intensiveProgram.grouptotalprice_880_jd"),
+              oneHours: t("pages.arabiccourses.intensiveProgram.onehours_160_hours"),
+              groupHours: t("pages.arabiccourses.intensiveProgram.group_hours2"),
             }}
           />
         </section>

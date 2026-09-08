@@ -441,3 +441,62 @@
     width: clamp(200px, 38%, 340px);
   }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .middleEasternStudies {
+    .offer {
+      h2 {
+        font-family: "Zain-ExtraBold", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+
+      p {
+        font-family: "Zain-Regular", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+    }
+
+    .articles {
+      h2 {
+        font-family: "Zain-ExtraBold", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+
+      .articlesSubtitle {
+        font-family: "Zain-Regular", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+    }
+  }
+
+  .highlights {
+    .highlightsInner h2 {
+      font-family: "Zain-ExtraBold", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .highlightCards p {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+    }
+  }
+
+  .articleCard {
+    .articleTitle {
+      font-family: "Zain-ExtraBold", sans-serif !important;
+      direction: rtl;
+    }
+
+    .readMore {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+  }
+}

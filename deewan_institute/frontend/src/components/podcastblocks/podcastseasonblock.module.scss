@@ -144,3 +144,11 @@ $podcast-light-green: #58641d;
     }
   }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .seasonNumber {
+    font-family: "Zain-ExtraBold", sans-serif !important;
+    direction: rtl;
+  }
+}

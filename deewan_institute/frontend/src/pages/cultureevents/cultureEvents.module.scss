@@ -360,3 +360,90 @@
 // ── Tablet: same as mobile ──
 @media (min-width: 991.98px) and (max-width: 1279px) {
 }
+
+// Arabic overrides
+// Note: .eventIndex only ever displays a decorative faded numeral
+// (the event's index), so it is left untouched.
+html[lang="ar"] {
+  .banner {
+    .bannerEyebrow {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+    }
+
+    h1 {
+      font-family: "Zain-ExtraBold", sans-serif !important;
+      direction: rtl;
+    }
+  }
+
+  .intro {
+    .introText {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .introLabel {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+  }
+
+  .livingSpace {
+    .livingLabel {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    h2 {
+      font-family: "Zain-ExtraBold", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .livingText {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+  }
+
+  .eventLabel {
+    font-family: "Zain-Light", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .eventTitle {
+    font-family: "Zain-Bold", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .eventBody {
+    font-family: "Zain-Light", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .eventMeta {
+    p {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    strong {
+      font-family: "Zain-Bold", sans-serif !important;
+    }
+  }
+
+  .signUpBtn {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+}

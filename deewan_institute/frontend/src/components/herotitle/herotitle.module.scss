@@ -26,3 +26,20 @@
     opacity: 1;
   }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .hero {
+    .subtitle {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: "Zain-ExtraBold", sans-serif !important;
+      direction: rtl;
+      text-align: center;
+    }
+  }
+}

@@ -352,3 +352,105 @@
     }
   }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  #layout {
+    .banner {
+      #para {
+        #h1 {
+          font-family: "Zain-Regular", sans-serif !important;
+          // direction: rtl;
+          // text-align: right;
+        }
+      }
+    }
+
+    .title {
+      .light {
+        font-family: "Zain-Light", sans-serif !important;
+        // direction: rtl;
+        // text-align: right;
+      }
+
+      .dark {
+        font-family: "Zain-ExtraBold", sans-serif !important;
+        // direction: rtl;
+        // text-align: right;
+      }
+    }
+
+    .para {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .services {
+      .courseItem {
+        h2 {
+          font-family: "Zain-Bold", sans-serif !important;
+          direction: rtl;
+          text-align: right;
+        }
+
+        span {
+          font-family: "Zain-Regular", sans-serif !important;
+          direction: rtl;
+          text-align: right;
+        }
+      }
+    }
+
+    .back {
+      a {
+        font-family: "Zain-Regular", sans-serif !important;
+        direction: rtl;
+      }
+
+      p,
+      ul,
+      li {
+        font-family: "Zain-Light", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+    }
+
+    .policy {
+      .title {
+        h3 {
+          font-family: "Zain-Bold", sans-serif !important;
+          direction: rtl;
+          text-align: right;
+        }
+      }
+
+      .para {
+        font-family: "Zain-Light", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+
+      a {
+        font-family: "Zain-Regular", sans-serif !important;
+        direction: rtl;
+      }
+    }
+
+    .bottomBanner {
+      div {
+        h2 {
+          font-family: "Zain-Regular", sans-serif !important;
+          direction: rtl;
+          text-align: right;
+        }
+
+        a {
+          font-family: "Zain-Regular", sans-serif !important;
+          direction: rtl;
+        }
+      }
+    }
+  }
+}

@@ -144,3 +144,36 @@
         font-style: italic;
     }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .episodeList {
+    .header {
+      .seasonTitle {
+        font-family: "Zain-Regular", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+
+      .hostedBy {
+        font-family: "Zain-Light", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+    }
+
+    .episodeRow {
+      .episodeTitle {
+        font-family: "Zain-Regular", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+    }
+
+    .comingSoon {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+  }
+}

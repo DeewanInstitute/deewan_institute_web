@@ -428,3 +428,52 @@
     background: $primary-color-dark;
   }
 }
+
+// Arabic overrides
+// Note: .skipBtn span and .timeRow span only ever render plain numerals
+// (skip seconds / playback time), so they are left untouched.
+html[lang="ar"] {
+  .coverPlaceholder {
+    span {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+    }
+  }
+
+  .bookTitle {
+    font-family: "Zain-ExtraBold", sans-serif !important;
+    direction: rtl;
+  }
+
+  .chapterHeader {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .lessonHeader {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .sectionRowTop {
+    span {
+      font-family: "Zain-ExtraBold", sans-serif !important;
+      direction: rtl;
+    }
+  }
+
+  .notFound {
+    h1 {
+      font-family: "Zain-ExtraBold", sans-serif !important;
+      direction: rtl;
+    }
+  }
+
+  .backLink {
+    font-family: "Zain-ExtraBold", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+}

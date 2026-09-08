@@ -90,3 +90,32 @@
     }
   }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  #curriculum {
+    .title {
+      h1 {
+        font-family: "Zain-Bold", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+    }
+
+    .myCarousel {
+      .carousel-item {
+        .dark {
+          font-family: "Zain-Bold", sans-serif !important;
+          direction: rtl;
+          text-align: right;
+        }
+
+        .light {
+          font-family: "Zain-Light", sans-serif !important;
+          direction: rtl;
+          text-align: right;
+        }
+      }
+    }
+  }
+}

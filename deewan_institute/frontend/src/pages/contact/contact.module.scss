@@ -451,11 +451,42 @@ ul {
 
 
     .sectionTitle{
-      font-size: xx-large !important; 
+      font-size: xx-large !important;
     }
     .para {
       font-size: large !important;
       line-height: 26px !important;
+    }
+  }
+}
+
+// Arabic overrides
+html[lang="ar"] {
+  .banner {
+    h1 {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+    }
+
+    p {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+    }
+  }
+
+  .sectionTitle {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .form {
+    .messageForm {
+      label {
+        font-family: "Zain-Regular", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
     }
   }
 }

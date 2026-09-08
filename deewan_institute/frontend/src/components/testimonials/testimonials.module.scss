@@ -118,3 +118,22 @@
   }
 }
 
+// Arabic overrides
+html[lang="ar"] {
+  .testimonials {
+    .title {
+      h1 {
+        font-family: "Zain-Regular", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+    }
+
+    p {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+  }
+}
+

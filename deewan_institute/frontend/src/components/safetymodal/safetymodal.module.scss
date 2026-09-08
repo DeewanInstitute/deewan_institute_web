@@ -112,3 +112,26 @@
 
   &:hover { background: $dark-brown; }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .title {
+    font-family: "Zain-ExtraBold", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .body {
+    p {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+  }
+
+  .wordmark {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+}

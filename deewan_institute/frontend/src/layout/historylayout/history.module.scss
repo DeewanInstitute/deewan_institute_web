@@ -338,3 +338,92 @@ body {
     }
   }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .drawerInner {
+    h5 {
+      font-family: "Zain-ExtraBold", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    a {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+  }
+
+  .drawerTabText {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .sidebar {
+    h5 {
+      font-family: "Zain-ExtraBold", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    a {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+  }
+
+  .banner {
+    h5 {
+      font-family: "Zain-ExtraBold", sans-serif !important;
+      direction: rtl;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+      text-align: center;
+    }
+  }
+
+  .article {
+    .title {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .para {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+
+      a {
+        font-family: "Zain-Regular", sans-serif !important;
+      }
+    }
+
+    .subTitle {
+      font-family: "Zain-ExtraBold", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .subheading {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    #caption {
+      span {
+        font-family: "Zain-Light", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+    }
+  }
+}

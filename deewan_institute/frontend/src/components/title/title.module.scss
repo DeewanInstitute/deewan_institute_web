@@ -25,6 +25,15 @@
     @media (max-width: 768px) {
         padding: 5%;
         margin-top: 10%;
-        width: 345px !important; 
+        width: 345px !important;
     }
+}
+
+// Arabic overrides
+html[lang="ar"] {
+  .dark {
+    font-family: "Zain-ExtraBold", sans-serif !important;
+    direction: rtl;
+    text-align: center;
+  }
 }

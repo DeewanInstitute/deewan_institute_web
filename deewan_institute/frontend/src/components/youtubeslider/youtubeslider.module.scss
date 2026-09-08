@@ -221,3 +221,21 @@
     }
   }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .testimonials {
+    .title {
+      span {
+        font-family: "Zain-Bold", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+    }
+
+    #para {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+    }
+  }
+}

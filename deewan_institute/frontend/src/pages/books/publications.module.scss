@@ -188,12 +188,13 @@
     top: 40%;
   }
 
-  // Give the nav arrows room outside the slide content on desktop
   :global(.swiper-button-prev) {
-    left: 0;
+    inset-inline-start: 0;
+    inset-inline-end: auto;
   }
   :global(.swiper-button-next) {
-    right: 0;
+    inset-inline-end: 0;
+    inset-inline-start: auto;
   }
 }
 
@@ -520,6 +521,123 @@
 
   .divider {
     width: 80% !important;
+  }
+}
+
+// Arabic overrides
+html[lang="ar"] {
+  .subtitle {
+    font-family: "Zain-Light", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .subtitleBadge {
+    font-family: "Zain-Light", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .hosted {
+    font-family: "Zain-Light", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .hostedLabel {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .reviewComment {
+    font-family: "Zain-Light", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .reviewerName {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .viewMoreBtn,
+  .fushaViewMoreBtn {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .banner {
+    h3 {
+      font-family: "Zain-ExtraBold", sans-serif !important;
+      direction: rtl;
+    }
+
+    p {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+    }
+  }
+
+  .sectionTitle {
+    span {
+      font-family: "Zain-Bold", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+  }
+
+  .heading {
+    font-family: "Zain-Light", sans-serif !important;
+    direction: rtl;
+  }
+
+  .bookInfo {
+    h1 {
+      font-family: "Zain-Bold", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    h4 {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+  }
+
+  .bookDescription {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .fusha {
+    h4 {
+      font-family: "Zain-ExtraBold", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    h5 {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    h1 {
+      font-family: "Zain-Bold", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    p {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
   }
 }
 

@@ -80,9 +80,8 @@ main {
 
 .instituteTour {
   padding: clamp(3.5rem, 8vw, 6.5rem) clamp(1.25rem, 6vw, 4rem);
-  background: linear-gradient(180deg, #fff 0%, #f8f3eb 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 40%, rgba(248, 243, 235, 0.7) 100%);
 }
-
 .tourContent {
   width: min(100%, 68rem);
   margin: 0 auto;
@@ -660,6 +659,93 @@ main {
     #whiteButton {
       font-size: large !important;
       margin-block: 5% !important;
+    }
+  }
+}
+
+// Arabic overrides
+html[lang="ar"] {
+  .myCarousel {
+    #carouselItem1 {
+      #firstContainer {
+        h2 {
+          font-family: "Zain-Bold", sans-serif !important;
+          direction: rtl;
+          text-align: right;
+        }
+
+        .para {
+          font-family: "Zain-Regular", sans-serif !important;
+          direction: rtl;
+          text-align: right;
+        }
+
+        #a,
+        #a:hover {
+          font-family: "Zain-Light", sans-serif !important;
+          direction: rtl;
+        }
+      }
+    }
+  }
+
+  .tourIntro {
+    p {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+    }
+
+    h2 {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+    }
+
+    span {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+    }
+  }
+
+  #aboutUs,
+  #habibiSection {
+    .featuretteHeading {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    #para {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    #button {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+    }
+  }
+
+  .contact {
+    div {
+      h1 {
+        font-family: "Zain-Regular", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+
+      a,
+      a:hover {
+        font-family: "Zain-Regular", sans-serif !important;
+        direction: rtl;
+      }
+    }
+  }
+
+  #habibiSection {
+    #whiteButton {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
     }
   }
 }

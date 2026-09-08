@@ -34,3 +34,13 @@
         padding: 15px 0;
     }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .banner {
+    p {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+    }
+  }
+}

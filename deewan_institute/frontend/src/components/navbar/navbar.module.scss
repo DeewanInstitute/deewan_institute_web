@@ -916,3 +916,56 @@
   letter-spacing: 0.5px;
   transition: letter-spacing 0.2s ease;
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  #navitem {
+    font-family: "Zain-Regular", sans-serif !important;
+  }
+
+  .overlayTitle {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .overlayLink {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .desktopDropdownTrigger {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .desktopDropdownLink {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .newsletterCardBadge {
+    font-family: "Zain-Regular", sans-serif !important;
+  }
+
+  .newsletterCardTitle {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .newsletterCardSub {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .newsletterCardCta {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+}

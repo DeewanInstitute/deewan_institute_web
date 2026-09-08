@@ -128,7 +128,7 @@
   }
 }
 
-// Animations 
+// Animations
 @keyframes fadeSlideUp {
   from {
     opacity: 0;
@@ -137,5 +137,23 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+// Arabic overrides
+html[lang="ar"] {
+  .hero__eyebrow {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+  }
+
+  .hero__title {
+    font-family: "Zain-ExtraBold", sans-serif !important;
+    direction: rtl;
+  }
+
+  .hero__sub {
+    font-family: "Zain-Light", sans-serif !important;
+    direction: rtl;
   }
 }

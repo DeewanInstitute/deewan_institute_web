@@ -37,3 +37,26 @@
         }
     }
 }
+
+// Arabic overrides
+// Note: the `para {}` rule above targets a nonexistent <para> tag (the JSX
+// uses a <p> instead, styled only by the unrelated `text-muted` utility
+// class and the page-wide `* { font-family: "Merriweather-Regular"; }`
+// fallback below) — left untouched since it's pre-existing dead CSS.
+html[lang="ar"] {
+    * {
+        font-family: "Zain-Regular", sans-serif !important;
+    }
+
+    #errorPage {
+        h1 {
+            font-family: "Zain-ExtraBold", sans-serif !important;
+            direction: rtl;
+        }
+
+        #button {
+            font-family: "Zain-Regular", sans-serif !important;
+            direction: rtl;
+        }
+    }
+}

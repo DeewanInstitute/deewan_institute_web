@@ -596,3 +596,82 @@
     }
   }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .pageTitle {
+    h1 {
+      font-family: "Zain-ExtraBold", sans-serif !important;
+      direction: rtl;
+      text-align: center;
+    }
+  }
+
+  .cardTitle {
+    font-family: "Zain-ExtraBold", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .fieldLabel {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .fieldInput {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .paymentLabel {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .emptyCart {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .orderItemTitle {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .orderItemPrice {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+  }
+
+  .subtotalLabel {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .subtotalValue {
+    font-family: "Zain-ExtraBold", sans-serif !important;
+    direction: rtl;
+  }
+
+  .placeOrderBtn {
+    font-family: "Zain-ExtraBold", sans-serif !important;
+    direction: rtl;
+  }
+
+  .continueBtn {
+    font-family: "Zain-ExtraBold", sans-serif !important;
+    direction: rtl;
+  }
+
+  .successTitle {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: center;
+  }
+}

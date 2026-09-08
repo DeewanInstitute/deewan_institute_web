@@ -478,7 +478,76 @@ transform: translateX(120px) translateY(201px);
 
     @media (max-width: 900px) {
       padding: 4rem 0 2rem;
-      
+
   }
+  }
+}
+
+// Arabic overrides
+html[lang="ar"] {
+  .herobadge {
+    h1 {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+    }
+  }
+
+  .sectionHeadersub {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+  }
+
+  .sectionHeadertitle {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+  }
+
+  .tabsbtn {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .whatIslabel {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .whatIsheading {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .whatIsbody {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .statesSectiontitle {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+  }
+
+  .stateCardlogoPlaceholder {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+  }
+
+  .stateCardstateName {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+  }
+
+  .stateCarddescription {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+  }
+
+  .stateCardbtnText {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
   }
 }

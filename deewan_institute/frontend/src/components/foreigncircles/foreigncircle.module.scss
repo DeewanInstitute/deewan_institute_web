@@ -137,3 +137,33 @@
     }
   }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .foreign {
+    .title {
+      h1 {
+        font-family: "Zain-Regular", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+    }
+
+    #para {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .heading {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .button {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+    }
+  }
+}

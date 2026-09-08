@@ -124,7 +124,7 @@
 }
 
 .numeral {
-  font-family: "ArefRuqaa-Regular", serif;
+  font-family: "Zain-Regular", sans-serif !important;
   font-size: 1.2rem;
   color: $primary-color;
   line-height: 1;
@@ -682,7 +682,7 @@
 }
 
 .success_title {
-  font-family: "ArefRuqaa-Regular", serif;
+  font-family: "Merriweather-Bold", serif;
   font-size: 2rem;
   color: $text-dark;
   margin-bottom: 1rem;
@@ -699,6 +699,109 @@
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(1); 
+  filter: invert(1);
   cursor: pointer;
+}
+
+// Arabic overrides
+html[lang="ar"] {
+  .progress_label {
+    font-family: "Zain-Regular", sans-serif !important;
+  }
+
+  .error_banner {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .section_title {
+    font-family: "Zain-Bold", sans-serif !important;
+    direction: rtl;
+  }
+
+  .section_desc {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+  }
+
+  .label {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+  }
+
+  .error_msg {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+  }
+
+  .input,
+  .textarea,
+  .select {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .select {
+    background-position: left 0.8rem center;
+    padding-right: 0.8rem;
+    padding-left: 2rem;
+  }
+
+  .radio_pill {
+    font-family: "Zain-Regular", sans-serif !important;
+  }
+
+  .radio_pill_active {
+    font-family: "Zain-Regular", sans-serif !important;
+  }
+
+  .check_tag {
+    font-family: "Zain-Regular", sans-serif !important;
+  }
+
+  .check_tag_active {
+    font-family: "Zain-Regular", sans-serif !important;
+  }
+
+  .declaration_check {
+    font-family: "Zain-Light", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .dropzone_text {
+    font-family: "Zain-Regular", sans-serif !important;
+  }
+
+  .dropzone_hint {
+    font-family: "Zain-Regular", sans-serif !important;
+  }
+
+  .file_preview {
+    font-family: "Zain-Regular", sans-serif !important;
+  }
+
+  .continue_btn {
+    font-family: "Zain-Regular", sans-serif !important;
+  }
+
+  .submit_btn {
+    font-family: "Zain-ExtraBold", sans-serif !important;
+  }
+
+  .success_eyebrow {
+    font-family: "Zain-Regular", sans-serif !important;
+  }
+
+  .success_title {
+    font-family: "Zain-ExtraBold", sans-serif !important;
+    text-align: center;
+  }
+
+  .success_text {
+    font-family: "Zain-Light", sans-serif !important;
+    direction: rtl;
+  }
 }

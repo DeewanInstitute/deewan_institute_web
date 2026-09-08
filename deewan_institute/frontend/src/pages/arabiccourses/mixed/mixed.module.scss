@@ -211,3 +211,49 @@
     }
   }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .mixed {
+    .whatIsItText {
+      h2 {
+        font-family: "Zain-ExtraBold", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+
+      p {
+        font-family: "Zain-Regular", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+    }
+  }
+
+  .fees {
+    .feesInner h2 {
+      font-family: "Zain-ExtraBold", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .feesText {
+      .feesLead {
+        font-family: "Zain-Regular", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+
+      .feesList li {
+        font-family: "Zain-Regular", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+
+      .feesBtn {
+        font-family: "Zain-Regular", sans-serif !important;
+        direction: rtl;
+      }
+    }
+  }
+}

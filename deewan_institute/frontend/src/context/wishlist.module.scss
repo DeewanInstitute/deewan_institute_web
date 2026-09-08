@@ -455,3 +455,38 @@
     font-size: large;
   }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .titleWrapper {
+    h2 {
+      font-family: "Zain-ExtraBold", sans-serif !important;
+      direction: rtl;
+      text-align: center;
+    }
+  }
+
+  .bookTitle {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .bookSubtitle {
+    font-family: "Zain-Light", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .emptyState p {
+    font-family: "Zain-Light", sans-serif !important;
+    direction: rtl;
+    text-align: center;
+  }
+
+  .browseBtn {
+    font-family: "Zain-Bold", sans-serif !important;
+    direction: rtl;
+    text-align: center;
+  }
+}

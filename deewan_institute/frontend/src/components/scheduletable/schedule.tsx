@@ -59,7 +59,7 @@ function Schedule({data}: {data: ScheduleProps}) {
                   <ul className="lead mb-0">
                     <li>{t("components.scheduletable.schedule.text_4_hours_per_day_5_days_per_week")}</li>
                     <li>
-                      {t("components.scheduletable.schedule.text_20_hours_per_week")}<span style={{ color: "red" }}>( Total : {data.oneHours} )</span>
+                      {t("components.scheduletable.schedule.text_20_hours_per_week")}<span style={{ color: "red" }}>( {t("components.scheduletable.schedule.text_total")}  {data.oneHours} )</span>
                     </li>
                   </ul>
                 </td>
@@ -69,7 +69,7 @@ function Schedule({data}: {data: ScheduleProps}) {
                 >
                   <p className="lead mb-1">{t("components.scheduletable.schedule.text_10_5_jd_per_hour")}</p>
                   <span className="lead" style={{ color: "red" }}>
-                    Total : {data.oneTotalPrice}
+                    {t("components.scheduletable.schedule.text_total")}  {data.oneTotalPrice}
                   </span>
                 </td>
               </tr>

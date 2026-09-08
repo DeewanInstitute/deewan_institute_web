@@ -65,3 +65,18 @@
 .bold {
   font-family: "Merriweather-SemiBold" !important;
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .jobVacancies {
+    .intro {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+    }
+  }
+
+  .bold {
+    font-family: "Zain-Bold", sans-serif !important;
+    direction: rtl;
+  }
+}

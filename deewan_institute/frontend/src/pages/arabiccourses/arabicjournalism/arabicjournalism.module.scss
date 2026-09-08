@@ -75,3 +75,22 @@
     transform: translateY(0);
   }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .arabicJournalism {
+    .offer {
+      h2 {
+        font-family: "Zain-ExtraBold", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+
+      p {
+        font-family: "Zain-Regular", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+    }
+  }
+}

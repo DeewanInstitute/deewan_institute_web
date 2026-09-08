@@ -91,3 +91,38 @@
     color: $text-dark;
   }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .paragraph {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .metaList {
+    li {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+
+      strong {
+        font-family: "Zain-ExtraBold", sans-serif !important;
+      }
+    }
+  }
+
+  .blockTitle {
+    font-family: "Zain-ExtraBold", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .bulletList {
+    li {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+  }
+}

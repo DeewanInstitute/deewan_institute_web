@@ -146,3 +146,50 @@
     }
   }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  #hours {
+    .subtitle {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .para {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+    }
+
+    .h4 {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+    }
+
+    .mobileCard {
+      .mobileCardTitle {
+        font-family: "Zain-Bold", sans-serif !important;
+        direction: rtl;
+      }
+
+      .mobileCardRow {
+        .mobileCardLabel {
+          font-family: "Zain-ExtraBold", sans-serif !important;
+          direction: rtl;
+          text-align: right;
+        }
+
+        .mobileCardValue {
+          font-family: "Zain-Light", sans-serif !important;
+          direction: rtl;
+          text-align: right;
+        }
+      }
+
+      .mobileCardTotal {
+        font-family: "Zain-Bold", sans-serif !important;
+        direction: rtl;
+      }
+    }
+  }
+}

@@ -362,3 +362,71 @@ $arabiflex-divider: #615b5b;
     transform: translateY(0);
   }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .arabiflex {
+    .intro p {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    h2 {
+      font-family: "Zain-ExtraBold", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .classStructure .structureSubtitle {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .structureTable {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+
+      thead tr th {
+        font-family: "Zain-ExtraBold", sans-serif !important;
+      }
+
+      tbody .breakRow td {
+        font-family: "Zain-ExtraBold", sans-serif !important;
+      }
+    }
+
+    .entryReqs p {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+  }
+
+  .objectives {
+    .objectivesInner h2 {
+      font-family: "Zain-ExtraBold", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .objCards p {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+    }
+  }
+
+  .programDetails {
+    .detailsInner h2 {
+      font-family: "Zain-ExtraBold", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .detailCards p {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+    }
+  }
+}

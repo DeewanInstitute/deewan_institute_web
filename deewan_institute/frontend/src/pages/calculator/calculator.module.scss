@@ -771,3 +771,98 @@
     visibility: visible !important;
   }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .banner {
+    p {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+    }
+  }
+
+  .calculator {
+    .heading {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+    }
+  }
+
+  .dropBtn {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+  }
+
+  .dropItem {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+  }
+
+  .lockHint {
+    font-family: "Zain-ExtraBold", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .counter {
+    .heading {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+    }
+  }
+
+  .calculatePriceBtn {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+  }
+
+  #modalContent {
+    .heading {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+    }
+  }
+
+  .coursePolicyBtn {
+    font-family: "Zain-Light", sans-serif !important;
+    direction: rtl;
+  }
+
+  // .accordionBtn, .accordionSimple, .bankEntity, .bankValue and the
+  // .accordion-body font live inside a payment accordion that is
+  // hard-coded dir="ltr" (bank/IBAN numbers must stay LTR), so only the
+  // font is swapped here — direction/alignment are intentionally left as-is.
+  .accordionBtn {
+    font-family: "Zain-Regular", sans-serif !important;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:not(.collapsed) {
+      font-family: "Zain-Regular", sans-serif !important;
+    }
+  }
+
+  .paymentOptions {
+    .accordion-body {
+      font-family: "Zain-Regular", sans-serif !important;
+    }
+  }
+
+  .accordionSimple {
+    font-family: "Zain-Regular", sans-serif !important;
+  }
+
+  .bankEntity {
+    font-family: "Zain-Regular", sans-serif !important;
+  }
+
+  .bankValue {
+    font-family: "Zain-Light", sans-serif !important;
+  }
+
+  .paymentAgreementFormBtn {
+    font-family: "Zain-Light", sans-serif !important;
+    direction: rtl;
+  }
+}

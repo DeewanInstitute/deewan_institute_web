@@ -70,3 +70,21 @@
         min-height: 120px;
     }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .subTitle {
+    h1 {
+      font-family: "Zain-Bold", sans-serif !important;
+      direction: rtl;
+    }
+  }
+
+  #blueSquare {
+    h2 {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+  }
+}

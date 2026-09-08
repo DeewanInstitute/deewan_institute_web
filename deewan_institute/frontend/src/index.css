@@ -69,3 +69,12 @@ html[dir="rtl"] .text-start {
 html[dir="rtl"] .text-end {
   text-align: left !important;
 }
+
+/* Site-wide Arabic font. Targets body directly since Bootstrap's reboot
+   sets font-family on body itself, which would otherwise win over an
+   inherited value from html. Individual elements can still override this
+   (e.g. the newsletter keeps ArefRuqaa-Regular for its titles). */
+html[dir="rtl"],
+html[dir="rtl"] body {
+  font-family: "Zain-Regular", sans-serif;
+}

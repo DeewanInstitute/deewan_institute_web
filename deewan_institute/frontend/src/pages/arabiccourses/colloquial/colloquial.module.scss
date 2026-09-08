@@ -275,3 +275,70 @@
     }
   }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .colloquial {
+    .offer {
+      h2 {
+        font-family: "Zain-ExtraBold", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+
+      p {
+        font-family: "Zain-Regular", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+    }
+
+    .fees {
+      h2 {
+        font-family: "Zain-ExtraBold", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+
+      .feesText {
+        .feesLead {
+          font-family: "Zain-Regular", sans-serif !important;
+          direction: rtl;
+          text-align: right;
+        }
+
+        .feesList li {
+          font-family: "Zain-Regular", sans-serif !important;
+          direction: rtl;
+          text-align: right;
+        }
+
+        .feesBtn {
+          font-family: "Zain-Regular", sans-serif !important;
+          direction: rtl;
+        }
+      }
+    }
+  }
+
+  .skills {
+    .skillsInner {
+      h2 {
+        font-family: "Zain-ExtraBold", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+
+      .skillsSubtitle {
+        font-family: "Zain-Regular", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+    }
+
+    .skillsCards p {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+    }
+  }
+}

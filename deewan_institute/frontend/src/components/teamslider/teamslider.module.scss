@@ -108,3 +108,18 @@
         padding-bottom: 40px;
     }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .teamSwiper {
+    .heading {
+      font-family: "Zain-Bold", sans-serif !important;
+      direction: rtl;
+    }
+
+    .jobTitle {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+    }
+  }
+}

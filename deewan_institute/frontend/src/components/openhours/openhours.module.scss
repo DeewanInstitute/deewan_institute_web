@@ -62,3 +62,35 @@
     }
   }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .openingHours {
+    .title {
+      .sectionTitle {
+        font-family: "Zain-ExtraBold", sans-serif !important;
+        direction: rtl;
+      }
+    }
+
+    h3 {
+      font-family: "Zain-ExtraBold", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    ul {
+      li {
+        font-family: "Zain-Light", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+    }
+
+    .italic {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+  }
+}

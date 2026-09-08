@@ -246,3 +246,68 @@ $cafe-brown: #472211;
     }
   }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .arabiCafe {
+    .hero {
+      .subtitle {
+        font-family: "Zain-Light", sans-serif !important;
+        direction: rtl;
+      }
+
+      h1 {
+        font-family: "Zain-ExtraBold", sans-serif !important;
+        direction: rtl;
+      }
+    }
+
+    .about p {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .schedule {
+      .scheduleInner h2 {
+        font-family: "Zain-ExtraBold", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+
+      .scheduleCards p {
+        font-family: "Zain-ExtraBold", sans-serif !important;
+        direction: rtl;
+      }
+    }
+
+    .whoCanJoin {
+      .whoTitle {
+        font-family: "Zain-ExtraBold", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+
+      p {
+        font-family: "Zain-Regular", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+
+      strong {
+        font-family: "Zain-ExtraBold", sans-serif !important;
+      }
+
+      .minLabel {
+        font-family: "Zain-ExtraBold", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+
+      .signUpBtn {
+        font-family: "Zain-Regular", sans-serif !important;
+        direction: rtl;
+      }
+    }
+  }
+}

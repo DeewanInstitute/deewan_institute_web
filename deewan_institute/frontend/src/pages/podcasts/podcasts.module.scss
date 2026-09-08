@@ -271,3 +271,41 @@ $podcast-bg: #f4f4f4;
   border-top: 2px solid $podcast-light-green;
   opacity: 0.5;
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .heroTitle {
+    font-family: "Zain-ExtraBold", sans-serif !important;
+    direction: rtl;
+  }
+
+  .seasonCardLabel {
+    font-family: "Zain-ExtraBold", sans-serif !important;
+    direction: rtl;
+  }
+
+  .seasonCardHost {
+    font-family: "Zain-Light", sans-serif !important;
+    direction: rtl;
+  }
+
+  .textContent {
+    .contentSubtitle {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .contentTitle {
+      font-family: "Zain-ExtraBold", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    p {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+  }
+}

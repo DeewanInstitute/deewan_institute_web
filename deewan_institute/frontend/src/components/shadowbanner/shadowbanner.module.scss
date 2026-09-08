@@ -52,3 +52,14 @@
     }
   }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .banner {
+    .title {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+      text-align: center;
+    }
+  }
+}

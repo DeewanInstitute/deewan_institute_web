@@ -679,3 +679,97 @@
     }
   }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  * {
+    font-family: "Zain-Regular", sans-serif !important;
+  }
+
+  .aboutpage {
+    .banner {
+      .para {
+        font-family: "Zain-Light", sans-serif !important;
+        direction: rtl;
+      }
+    }
+
+    .about {
+      h5 {
+        font-family: "Zain-Regular", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+
+      h1 {
+        font-family: "Zain-Bold", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+
+      .para {
+        font-family: "Zain-Light", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+    }
+
+    .partnerships {
+      .para {
+        font-family: "Zain-Light", sans-serif !important;
+        direction: rtl;
+      }
+    }
+
+    .values {
+      .title {
+        span {
+          font-family: "Zain-Bold", sans-serif !important;
+          direction: rtl;
+        }
+      }
+
+      .heading {
+        font-family: "Zain-Light", sans-serif !important;
+        direction: rtl;
+      }
+    }
+
+    .team {
+      .title {
+        span {
+          font-family: "Zain-Bold", sans-serif !important;
+          direction: rtl;
+        }
+      }
+    }
+
+    .approach {
+      h1 {
+        font-family: "Zain-Bold", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+
+      p {
+        font-family: "Zain-Light", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+    }
+
+    .socialMedia {
+      .title {
+        span {
+          font-family: "Zain-Bold", sans-serif !important;
+          direction: rtl;
+        }
+      }
+
+      .para {
+        font-family: "Zain-Light", sans-serif !important;
+        direction: rtl;
+      }
+    }
+  }
+}

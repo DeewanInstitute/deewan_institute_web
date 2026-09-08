@@ -244,3 +244,93 @@
     transform: translateY(0);
   }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .arabiTalk {
+    .info {
+      h5 {
+        font-family: "Zain-Regular", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+
+      h1 {
+        font-family: "Zain-ExtraBold", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+
+      p {
+        font-family: "Zain-Light", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+    }
+
+    .sessions {
+      .subTitle h1 {
+        font-family: "Zain-Bold", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+
+      .card {
+        .blackText {
+          font-family: "Zain-Regular", sans-serif !important;
+          direction: rtl;
+        }
+
+        .yellowText {
+          font-family: "Zain-Regular", sans-serif !important;
+          direction: rtl;
+        }
+
+        h4 {
+          font-family: "Zain-Light", sans-serif !important;
+          direction: rtl;
+        }
+
+        .cardBtn {
+          font-family: "Zain-Light", sans-serif !important;
+          direction: rtl;
+        }
+      }
+    }
+  }
+
+  .intensive {
+    .info p {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .special {
+      h5 {
+        font-family: "Zain-Regular", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+
+      h1 {
+        font-family: "Zain-Bold", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+
+      p,
+      ul li {
+        font-family: "Zain-Light", sans-serif !important;
+        direction: rtl;
+        text-align: right;
+      }
+    }
+
+    .programFee .title h1 {
+      font-family: "Zain-Bold", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+  }
+}

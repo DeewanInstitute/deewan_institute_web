@@ -99,3 +99,12 @@
     }
   }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .label {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+}

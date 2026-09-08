@@ -363,3 +363,61 @@
     }
   }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .cart {
+    .title {
+      h2 {
+        font-family: "Zain-ExtraBold", sans-serif !important;
+        direction: rtl;
+        text-align: center;
+      }
+    }
+
+    .bookTitle {
+      font-family: "Zain-ExtraBold", sans-serif !important;
+      direction: rtl;
+      text-align: center;
+    }
+
+    .counter {
+      .quantity {
+        font-family: "Zain-Regular", sans-serif !important;
+        direction: rtl;
+      }
+    }
+
+    .price {
+      font-family: "Zain-ExtraBold", sans-serif !important;
+      direction: rtl;
+    }
+
+    .cartTotal {
+      .totalInfo {
+        .leadText {
+          font-family: "Zain-Bold", sans-serif !important;
+          direction: rtl;
+        }
+
+        .bold {
+          font-family: "Zain-ExtraBold", sans-serif !important;
+          direction: rtl;
+          text-align: right;
+        }
+      }
+    }
+
+    .checkoutBtn {
+      font-family: "Zain-Bold", sans-serif !important;
+      direction: rtl;
+      text-align: center;
+    }
+  }
+
+  .backBtn {
+    font-family: "Zain-Bold", sans-serif !important;
+    direction: rtl;
+    text-align: center;
+  }
+}

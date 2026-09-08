@@ -434,3 +434,79 @@
     color: var(--color-cream);
   }
 }
+
+// Arabic overrides
+html[lang="ar"] {
+  .breadcrumb {
+    li {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+  }
+
+  .info {
+    h1 {
+      font-family: "Zain-Bold", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    h4 {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    h5 {
+      font-family: "Zain-Light", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+
+    p {
+      font-family: "Zain-Regular", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+  }
+
+  .descriptionLabel {
+    font-family: "Zain-ExtraBold", sans-serif !important;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .actionBtn {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+  }
+
+  .sectionTitle {
+    span {
+      font-family: "Zain-Bold", sans-serif !important;
+      direction: rtl;
+      text-align: right;
+    }
+  }
+
+  .testimonialQuote {
+    font-family: "Zain-Light", sans-serif !important;
+    direction: rtl;
+  }
+
+  .testimonialName {
+    font-family: "Zain-Regular", sans-serif !important;
+    direction: rtl;
+  }
+
+  .heading {
+    font-family: "Zain-Light", sans-serif !important;
+    direction: rtl;
+  }
+
+  .subtitle {
+    font-family: "Zain-Light", sans-serif !important;
+    direction: rtl;
+  }
+}
