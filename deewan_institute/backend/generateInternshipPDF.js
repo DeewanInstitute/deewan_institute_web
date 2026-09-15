@@ -46,9 +46,7 @@ function generateInternshipPDF(data) {
     //the Image
   // ===== Header =====
 const imageWidth = 80;
-const imagePath = path.join(
-  __dirname, "..", "frontend", "public", "assets", "images", "logos", "nobgLogo.png"
-);
+const imagePath = path.join(__dirname, "assets", "nobgLogo.png");
 
 const headerY = 40; // same as doc margin, so it starts at the very top
 const xPosition = doc.page.width - imageWidth - 40;

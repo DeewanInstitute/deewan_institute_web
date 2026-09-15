@@ -95,7 +95,7 @@ function ArabiTalk() {
                   </div>
                   <a
                     className={`text-decoration-none text-white ${style.cardBtn}`}
-                    href="https://docs.google.com/forms/..."
+                    href="https://docs.google.com/forms/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform"
                     target="_blank"
                   >
                     {t("pages.arabiccourses.arabiTalk.text_book_a_session")}</a>
@@ -115,7 +115,7 @@ function ArabiTalk() {
                   </div>
                   <a
                     className={`text-decoration-none text-white ${style.cardBtn}`}
-                    href="https://docs.google.com/forms/..."
+                    href="https://docs.google.com/forms/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform"
                     target="_blank"
                   >
                     {t("pages.arabiccourses.arabiTalk.text_book_a_session")}</a>
