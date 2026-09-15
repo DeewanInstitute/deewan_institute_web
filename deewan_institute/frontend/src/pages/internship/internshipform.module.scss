@@ -631,20 +631,84 @@
   to { transform: rotate(360deg); }
 }
 
-// Success screen 
+// Success modal
 
-.success_card {
+.modal_overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 9999;
+  animation: fadeIn 0.25s ease;
+}
+
+.modal_card {
   text-align: center;
   padding: 3.5rem 2rem;
   border: 1.5px solid rgba($primary-color, 0.25);
   border-radius: 12px;
   background: $warm-white;
+  max-width: 480px;
+  width: 100%;
   animation: fadeUp 0.45s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+.countdown_wrap {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  margin: 1.5rem auto 0.5rem;
+}
+
+.countdown_ring {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.countdown_track {
+  fill: none;
+  stroke: rgba($primary-color, 0.15);
+  stroke-width: 3;
+}
+
+.countdown_arc {
+  fill: none;
+  stroke: $primary-color;
+  stroke-width: 3;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s linear;
+}
+
+.countdown_num {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inter_Regular", sans-serif;
+  font-size: 0.85rem;
+  color: $text-dark;
+}
+
+.countdown_label {
+  font-family: "Inter_Regular", sans-serif;
+  font-size: 0.72rem;
+  color: $text-muted;
+  margin-top: 0.25rem;
 }
 
 .success_icon {
