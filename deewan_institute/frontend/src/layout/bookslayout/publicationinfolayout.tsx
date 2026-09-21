@@ -175,6 +175,12 @@ function PublicationInfoLayout({
               <StarRating rating={book.reviews[0].rating} />
             )}
 
+            {book.price != null && (
+              <p className={styles.price}>
+                {t("layout.bookslayout.publicationinfolayout.text_price")} <span>{book.price.toFixed(2)} JD</span>
+              </p>
+            )}
+
             {book.description && (
               <>
                 <p className={`lead ${styles.descriptionLabel}`}>{t("layout.bookslayout.publicationinfolayout.text_description")}</p>

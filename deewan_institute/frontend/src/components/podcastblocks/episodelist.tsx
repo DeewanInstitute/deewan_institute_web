@@ -10,11 +10,12 @@ export interface Episode {
 
 interface EpisodeListProps {
     seasonNumber: number | string;
-    hostedBy: string;
+    hostedBy?: string;
+    developedBy?: string;
     episodes: Episode[];
 }
 
-function EpisodeList({ seasonNumber, hostedBy, episodes }: EpisodeListProps) {
+function EpisodeList({ seasonNumber, hostedBy, developedBy, episodes }: EpisodeListProps) {
     const { t } = useTranslation();
     const [openId, setOpenId] = useState<number | null>(null);
 
@@ -28,9 +29,15 @@ function EpisodeList({ seasonNumber, hostedBy, episodes }: EpisodeListProps) {
                 <h3 className={styles.seasonTitle}>
                     {t("pages.podcasts.podcasts.text_season_number", { number: seasonNumber })}
                 </h3>
-                <p className={styles.hostedBy}>
-                    {t("pages.podcasts.podcasts.text_hosted_by")} {hostedBy}
-                </p>
+                {developedBy ? (
+                    <p className={styles.hostedBy}>
+                        {t("components.podcastblocks.episodelist.text_content_developer")} {developedBy}
+                    </p>
+                ) : (
+                    <p className={styles.hostedBy}>
+                        {t("pages.podcasts.podcasts.text_hosted_by")} {hostedBy}
+                    </p>
+                )}
             </div>
             <div className={styles.episodesWrapper}>
                 {episodes.map((ep) => (

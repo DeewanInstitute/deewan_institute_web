@@ -2,14 +2,14 @@
 @use "../../style/variables.scss" as *;
 
 //  Colors
-$podcast-green: #424824;
-$podcast-light-green: #58641d;
+$podcast-green: #05563D;
+$podcast-light-green: #BFCEB7;
 $podcast-bg: #f4f4f4;
 
 // Hero Banner
 .heroBanner {
   position: relative;
-  background-color: #E9DBC3;
+  background-color: $podcast-light-green;
   height: 80vh;
   overflow: hidden;
   display: flex;
@@ -128,7 +128,7 @@ $podcast-bg: #f4f4f4;
 }
 
 .seasonCard {
-  background-color: #A04A07;
+  background-color: $podcast-green;
   border-radius: 16px;
   overflow: hidden;
   width: 100%;
@@ -154,7 +154,7 @@ $podcast-bg: #f4f4f4;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #A04A07;
+    background-color: $podcast-green;
     padding: 20px;
 
     img {
@@ -214,7 +214,7 @@ $podcast-bg: #f4f4f4;
   .contentSubtitle {
     font-family: "Merriweather-Bold", sans-serif;
     font-size: 20px;
-    color: #A04A07;
+    color: $podcast-green;
     // text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 10px;
@@ -225,7 +225,7 @@ $podcast-bg: #f4f4f4;
   .contentTitle {
     font-family: "Merriweather-Bold", sans-serif;
     font-size: 36px;
-    color: #A04A07;
+    color: $podcast-green;
     line-height: 1.3;
     margin-bottom: 24px;
 
@@ -254,14 +254,14 @@ $podcast-bg: #f4f4f4;
 }
 
 .mainIllustration {
-  max-width: 100%;
+  max-width: 65%;
   height: auto;
   filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
 }
 
 // Season Blocks Main
 .seasonsMain {
-  --podcast-player: #A04A07;
+  --podcast-accent: #05563D;
   background-color: #fff;
   padding-bottom: 80px;
   padding-top: 40px;
@@ -271,7 +271,7 @@ $podcast-bg: #f4f4f4;
   width: 80%;
   margin: 40px auto;
   border: none;
-  border-top: 2px solid #A04A07;
+  border-top: 2px solid $podcast-green;
   opacity: 0.5;
 }
 

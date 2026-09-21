@@ -3,16 +3,16 @@ import { useEffect } from "react";
 import NavBar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 import PodcastSeasonBlock from "../../components/podcastblocks/podcastseasonblock";
-import styles from "./podcasts.module.scss";
-import { seasons, seasonCards } from "../../../data/podcasts.data";
+import styles from "./podcastsfusha.module.scss";
+import { seasons } from "../../../data/podcastsfusha.data";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
 import { useTranslation } from "react-i18next";
 
-function Podcasts() {
+function PodcastsFusha() {
     const { t } = useTranslation();
     useEffect(() => {
-      document.title = "Podcasts Levantine";
+      document.title = "Podcasts Fusha";
     }, []);
   return (
     <Fragment>
@@ -24,25 +24,25 @@ function Podcasts() {
       <section className={styles.heroBanner}>
         <div className={styles.heroContent}>
           <img
-            src="/assets/images/podcast/podcast-levantine.webp"
+            src="/assets/images/podcast/podcast-fusha-logo.webp"
             alt={t("pages.podcasts.podcasts.alt_deewan_podcast")}
             className={styles.bannerLogo}
           />
           {/* <h2 className={styles.heroTitle}>ARABIC PODCAST</h2> */}
         </div>
         <img
-          src="/assets/images/podcast/wave-left.webp"
+          src="/assets/images/podcast/wave-left-fusha.webp"
           alt=""
           className={styles.waveLeft}
         />
         <img
-          src="/assets/images/podcast/wave-right.webp"
+          src="/assets/images/podcast/wave-right-fusha.webp"
           alt=""
           className={styles.waveRight}
         />
       </section>
       {/* Season Cards Row */}
-      <section className={styles.seasonCardsSection}>
+      {/* <section className={styles.seasonCardsSection}>
         <div className="container-fluid">
           <div className="row justify-content-center g-4">
             {seasonCards.map((card) => (
@@ -76,7 +76,7 @@ function Podcasts() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/*Main Content & Illustration*/}
       <section className={styles.mainContentSection}>
@@ -88,13 +88,14 @@ function Podcasts() {
                 <h3 className={styles.contentSubtitle}>
                   {t("pages.podcasts.podcasts.text_deewan_arabic_podcasts")}</h3>
                 <h1 className={styles.contentTitle}>
-                  {t("pages.podcasts.podcasts.text_learn_levantine_arabic_through_real_conversations")}</h1>
+                  {t("pages.podcastsfusha.podcasts.text_build_your_fusha")}</h1>
+                  <p>{t("pages.podcastsfusha.podcasts.text_learn_modern_standard_arabic")}</p>
                 <p>
-                  {t("pages.podcasts.podcasts.text_this_podcast_is_intended_for_levantine_colloquial_")}</p>
+                  {t("pages.podcastsfusha.podcasts.text_designed_for_learners")}</p>
                 <p>
-                  {t("pages.podcasts.podcasts.text_the_deewan_team_conducts_interviews_with_arabic_st")}</p>
+                  {t("pages.podcastsfusha.podcasts.text_our_first_season")}</p>
                 <p>
-                  {t("pages.podcasts.podcasts.text_every_season_of_our_podcast_is_accompanied_by_a_bo")}</p>
+                  {t("pages.podcastsfusha.podcasts.text_listen_learn_practice")}</p>
               </div>
             </div>
 
@@ -102,7 +103,7 @@ function Podcasts() {
             <div className="col-md-6">
               <div className={styles.illustrationWrapper}>
                 <img
-                  src="/assets/images/podcast/podcast-01.webp"
+                  src="/assets/images/podcast/fusha-01.webp"
                   alt={t("pages.podcasts.podcasts.alt_podcast_illustration")}
                   className={styles.mainIllustration}
                 />
@@ -120,7 +121,7 @@ function Podcasts() {
               <div id={`season-${s.seasonNumber}`}>
                 <PodcastSeasonBlock
                   seasonNumber={s.seasonNumber}
-                  hostedBy={t(s.hostedByKey)}
+                  developedBy={s.developedByKey ? t(s.developedByKey) : undefined}
                   episodes={s.episodes.map((ep) => ({ id: ep.id, title: t(ep.titleKey), audioUrl: ep.audioUrl }))}
                   bookCoverImage={s.bookCover}
                   bookCoverAlt={t(s.bookAltKey)}
@@ -138,4 +139,4 @@ function Podcasts() {
   );
 }
 
-export default Podcasts;
+export default PodcastsFusha;

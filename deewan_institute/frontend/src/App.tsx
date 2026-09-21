@@ -41,6 +41,7 @@ import Colloquial from "./pages/arabiccourses/colloquial/colloquial.tsx";
 import Mixed from "./pages/arabiccourses/mixed/mixed.tsx";
 import ArabiFlex from "./pages/arabiccourses/arabiflex/arabiflex.tsx";
 import TrainingCourse from "./pages/training/trainingCourse.tsx";
+import PodcastsFusha from "./pages/podcastsfusha/podcastsfusha.tsx";
 function AppContent() {
   const location = useLocation();
 
@@ -100,6 +101,7 @@ function AppContent() {
         <Route path="/checkout" element={<Checkout />} />
         {/* Podcasts */}
         <Route path="/podcasts" element={<Podcasts />} />
+        <Route path="/podcasts-fusha" element={<PodcastsFusha />} />
         {/*Bildungsurlaub*/}
         <Route path="/bildungsurlaub" element={<BildungsurlaubPage />} />
         <Route

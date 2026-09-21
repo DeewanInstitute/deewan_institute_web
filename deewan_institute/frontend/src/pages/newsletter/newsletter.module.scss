@@ -46,7 +46,7 @@
 }
 
 .editionTitle {
-  font-family: "ArefRuqaa-Regular";
+  font-family: "ArefRuqaa-Regular"!important;
   font-size: clamp(26px, 3vw, 42px);
   color: $text-dark;
   line-height: 1.2;
@@ -192,7 +192,7 @@
 }
 
 .archiveTitle {
-  font-family: "ArefRuqaa-Regular";
+  font-family: "ArefRuqaa-Regular" !important;
   font-size: 18px;
   color: $text-dark;
   margin: 0;

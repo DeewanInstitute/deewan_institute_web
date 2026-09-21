@@ -42,21 +42,35 @@ Für weitere Informationen wenden Sie sich bitte an arabic@deewaninstitute.com.`
   },
   ar: {
     whatIsHeading: "ما هو Bildungsurlaub؟",
-    bodyText: `Bildungsurlaub (الإجازة التعليمية) هو حق قانوني في ألمانيا يتيح للموظفين الحصول على إجازة مدفوعة الأجر من العمل للمشاركة في برامج تعليمية معترف بها رسميًا.
+    bodyText: `Bildungsurlaub (الإجازة التّعليميّة) هو حق قانونيّ في ألمانيا يتيح للموظَّفين الحصول على إجازة مدفوعة الأجر من العمل للمشاركة في برامج تعليميّة معترف بها رسميًا. 
 
-تختلف اللوائح الدقيقة باختلاف الولاية الفيدرالية، ولكن بشكل عام، يحق للموظفين الحصول على عدة أيام سنويًا لمواصلة التعليم، شريطة أن تكون الدورة معتمدة من قبل السلطة المختصة في الولاية.
+ 
 
-معهد ديوان للغات والدراسات الثقافية معترف به رسميًا في برلين وساكسونيا السفلى والراينلاند وسارلاند وبراندنبورغ وهامبورغ وساكسونيا-أنهالت كمقدم لبرامج Bildungsurlaub. تلبي دوراتنا المعايير القانونية والنوعية المطلوبة في هذه الولايات.
+تختلف اللوائح الدّقيقة باختلاف الولاية الفيدرالية، ولكن بشكل عام، يحقّ للموظّفين الحصول على عدّة أيّام سنويًا لمواصلة التّعليم، شريطة أن تكون الدّورة معتمدة من قبل السّلطة المختصّة في الولاية. 
 
-هذا يعني:
+ 
 
-- يمكن للموظفين في هذه الولايات التقدم بطلب للحصول على إجازة تعليمية مدفوعة الأجر لحضور دوراتنا.
-- تتوافق برامجنا مع المتطلبات الرسمية المتعلقة بالمحتوى والهيكل وساعات التدريس.
-- يحصل المشاركون على جميع الوثائق اللازمة لتقديمها إلى صاحب العمل.
+معهد ديوان للّغات والدّراسات الثّقافيّة معترف به رسميًا في برلين وساكسونيا السفلى والراينلاند وسارلاند وبراندنبورغ وهامبورغ وساكسونيا-أنهالت كمقدّم لبرامج Bildungsurlaub. تلبّي دوراتنا المعايير القانونيّة والنوعيّة المطلوبة في هذه الولايات. 
 
-يوفر Bildungsurlaub للمهنيين فرصة تحسين مهاراتهم اللغوية وكفاءتهم الثقافية مع الاستمرار في تلقي رواتبهم.
+ 
 
-لمزيد من المعلومات، يرجى التواصل معنا عبر arabic@deewaninstitute.com.`,
+هذا يعني: 
+
+ 
+
+- يمكن للموظّفين في هذه الولايات التّقدّم بطلب للحصول على إجازة تعليميّة مدفوعة الأجر لحضور دوراتنا. 
+
+- تتوافق برامجنا مع المتطلّبات الرّسميّة المتعلّقة بالمحتوى والهيكل وساعات التّدريس. 
+
+- يحصل المشاركون على جميع الوثائق اللّازمة لتقديمها إلى صاحب العمل. 
+
+ 
+
+يوفّر Bildungsurlaub للمهنيين فرصة تحسين مهاراتهم اللّغوية وكفاءتهم الثّقافيّة مع الاستمرار في تلقّي رواتبهم. 
+
+ 
+
+لمزيد من المعلومات، يرجى التّواصل معنا عبر arabic@deewaninstitute.com.`,
   },
 };
 export const germanStateCards: GermanStateCard[] = [
@@ -64,49 +78,56 @@ export const germanStateCards: GermanStateCard[] = [
     id: "berlin",
     stateName: "Berlin",
     logoSrc: "/assets/images/logos/b_logo2.webp",
-    logoAlt: "Berlin Bildungsurlaub Logo",
+    logoAlt: "Berlin Bildungsurlaub Logo",
+
     viewMoreLink: "assets/pdf/bildungsurlaub/Berlin.pdf",
   },
   {
     id: "lower-saxony",
     stateName: "Lower Saxony",
     logoSrc: "/assets/images/logos/b_logo3.webp",
-    logoAlt: "Lower Saxony AEWB Logo",
+    logoAlt: "Lower Saxony AEWB Logo",
+
     viewMoreLink: "assets/pdf/bildungsurlaub/LowerSaxonyPDF.pdf",
   },
   {
     id: "Hamburg",
     stateName: "Hamburg",
     logoSrc: "/assets/images/logos/b_logo4.webp",
-    logoAlt: "Hamburg Bildungsurlaub Logo",
+    logoAlt: "Hamburg Bildungsurlaub Logo",
+
     viewMoreLink: "assets/pdf/bildungsurlaub/Hamburg.pdf",
   },
   {
     id: "rhineland",
     stateName: "Rhineland",
     logoSrc: "/assets/images/logos/b_logo5.webp",
-    logoAlt: "Rhineland Bildungsurlaub Logo",
+    logoAlt: "Rhineland Bildungsurlaub Logo",
+
     viewMoreLink: "assets/pdf/bildungsurlaub/Rhineland.pdf",
   },
   {
     id: "Saarland",
     stateName: "Saarland",
     logoSrc: "/assets/images/logos/b_logo6.webp",
-    logoAlt: "Saarland Bildungsurlaub Logo",
+    logoAlt: "Saarland Bildungsurlaub Logo",
+
     viewMoreLink: "assets/pdf/bildungsurlaub/Saarland.pdf",
   },
   {
     id: "Bradenburg",
     stateName: "Bradenburg",
     logoSrc: "/assets/images/logos/b_logo7.webp",
-    logoAlt: "Bradenburg Bildungsurlaub Logo",
+    logoAlt: "Bradenburg Bildungsurlaub Logo",
+
     viewMoreLink: "assets/pdf/bildungsurlaub/Brandenburg.pdf",
   },
   {
     id: "Saxony-Anhalt",
     stateName: "Saxony-Anhalt",
     logoSrc: "/assets/images/logos/b_logo8.webp",
-    logoAlt: "Saxony-Anhalt Bildungsurlaub Logo",
+    logoAlt: "Saxony-Anhalt Bildungsurlaub Logo",
+
     viewMoreLink: "/assets/pdf/bildungsurlaub/Saxony-Anhalt.pdf",
   },
 ];

@@ -4,7 +4,8 @@ import styles from './podcastseasonblock.module.scss';
 
 interface PodcastSeasonBlockProps {
     seasonNumber: number | string;
-    hostedBy: string;
+    hostedBy?: string;
+    developedBy?: string;
     episodes: Episode[];
     bookCoverImage: string;
     bookCoverAlt: string;
@@ -14,6 +15,7 @@ interface PodcastSeasonBlockProps {
 function PodcastSeasonBlock({
     seasonNumber,
     hostedBy,
+    developedBy,
     episodes,
     bookCoverImage,
     bookCoverAlt,
@@ -52,6 +54,7 @@ function PodcastSeasonBlock({
                     <EpisodeList
                         seasonNumber={seasonNumber}
                         hostedBy={hostedBy}
+                        developedBy={developedBy}
                         episodes={episodes}
                     />
                 </div>

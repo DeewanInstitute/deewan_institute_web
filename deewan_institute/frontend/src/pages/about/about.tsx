@@ -179,17 +179,17 @@ function About() {
   {[
   {
     id: "facebook",
-    embedUrl: "https://www.facebook.com/plugins/post.php?href=%2Freel%2F4492868834279349%2F&&show_text=true",
+    embedUrl: "https://www.facebook.com/plugins/post.php?href=%2Freel%2F1398659935745935%2F&show_text=true",
     icons: ["facebook"]
   },
   {
     id: "linkedin",
-    embedUrl: "https://www.linkedin.com/embed/feed/update/urn:li:share:7459936498294091776?",
+    embedUrl: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7489670605156462592?collapsed=1",
     icons: ["linkedin"]
   },
   {
     id: "instagram",
-    embedUrl: "https://www.instagram.com/p/DYUpYdLjRwa/embed",
+    embedUrl: "https://www.instagram.com/p/Ddbmof-lBDI/embed",
     icons: ["instagram"]
   }
 ].map((card) => (

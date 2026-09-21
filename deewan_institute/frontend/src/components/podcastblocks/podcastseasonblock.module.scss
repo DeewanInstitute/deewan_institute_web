@@ -83,7 +83,7 @@ $podcast-light-green: #58641d;
     position: absolute;
     width: 90%;
     height: 100%;
-    background-color: $podcast-light-green;
+    background-color: var(--podcast-accent, #A04A07);
     border-radius: 4px;
     z-index: 0;
     transition: all 0.3s ease;

@@ -99,6 +99,16 @@
     }
   }
 
+  .price {
+    color: black;
+    font-size: clamp(16px, 1.6vw, 20px);
+    margin-block: 4px 12px;
+
+    span {
+      color: $primary-color;
+    }
+  }
+
   @media (max-width: 767px) {
     .row {
       flex-direction: column;

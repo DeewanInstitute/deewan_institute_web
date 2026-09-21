@@ -15,7 +15,7 @@
     // Header
 
     .header {
-        background-color: #58641D;
+        background-color: var(--podcast-accent, #A04A07);
         border-radius: 16px 16px 0 0;
         padding: 18px 24px 14px;
 
@@ -119,7 +119,7 @@
         border-top: 1px solid #e8e0d0;
         display: flex;
         align-items: center;
-        background-color:#58641D ;
+        background-color: var(--podcast-player, #58641D);
     }
 
     // Audio player
@@ -127,7 +127,7 @@
     .audioPlayer {
         width: 100%;
         height: 36px;
-        accent-color: #58641D;
+        accent-color: var(--podcast-player, #58641D);
 
         &::-webkit-media-controls-panel {
             background-color: #FDB143;

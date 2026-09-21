@@ -120,7 +120,7 @@ export const podcastSeasons: PodcastSeason[] = [
     imageAlt: "Guide to Deewan Arabic Podcast – Season 5, Level A1–A2",
     title: "The Deewan Podcast: Bridging Education and Entertainment",
     author: "Mohammad K. Ayaseh",
-    price: 15,
+    price: 10,
     // reviews: [
     //         {
     //             reviewer: "Michael",
