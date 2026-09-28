@@ -13,7 +13,7 @@ interface YouTubeVideo {
 function YouTubeSlider() {
     const { t } = useTranslation();
   // State for active video ID
-  const [activeVideoId, setActiveVideoId] = useState<string>("DggbkLylq0I"); // Default to first video
+  const [activeVideoId, setActiveVideoId] = useState<string>("T59LLwP9AsY"); // Default to first video
 
   // Handle thumbnail click
   const handleThumbnailClick = useCallback((videoId: string) => {
