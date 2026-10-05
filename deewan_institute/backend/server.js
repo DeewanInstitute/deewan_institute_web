@@ -206,7 +206,7 @@ app.post("/api/training-course", upload.single("cv"), async (req, res) => {
 
 app.post("/api/contact", async (req, res) => {
   try {
-    const { fullName, email, phoneNumber, message } = req.body;
+    const { fullName, email, phoneNumber, country, message } = req.body;
 
     await resend.emails.send({
       from: "Deewan Institute <app@deewaninstitute.com>",
@@ -221,6 +221,7 @@ app.post("/api/contact", async (req, res) => {
           <p><strong>Name:</strong> ${fullName}</p>
           <p><strong>Email:</strong> ${email}</p>
           <p><strong>Phone:</strong> ${phoneNumber}</p>
+          <p><strong>Country:</strong> ${country || "N/A"}</p>
           <hr/>
           <p><strong>Inquiry:</strong></p>
           <p>${message}</p>

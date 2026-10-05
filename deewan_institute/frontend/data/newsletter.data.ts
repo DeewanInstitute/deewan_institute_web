@@ -12,9 +12,21 @@ export type NewsletterEdition = {
 
 export const EDITIONS: NewsletterEdition[] = [
   {
+    id: "October",
+    label: "October 2026",
+    tag: "Latest Issue",
+    title: "October Deewan Newsletter",
+    format: "rectangular",
+    aspectRatio: 56.25,
+    src: "https://www.canva.com/design/DAHWrgpdzL0/p5B0R0yxsZu6IDAP5GdLSQ/view?embed",
+    href: "https://www.canva.com/design/DAHWrgpdzL0/p5B0R0yxsZu6IDAP5GdLSQ/view",
+    description: "Explore the latest in Arabic language, culture, and community events at Deewan Institute.",
+
+  },
+  {
     id: "September",
     label: "September 2026",
-    tag: "Latest Issue",
+    tag: "Previous Issue",
     title: "September Deewan Newsletter",
     format: "rectangular",
     aspectRatio: 56.25,

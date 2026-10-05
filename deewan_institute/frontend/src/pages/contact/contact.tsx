@@ -7,11 +7,13 @@ import styles from "./contact.module.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
 import { useTranslation } from "react-i18next";
+import CountrySelect from "./countrySelect";
 
 interface ContactFormData {
   fullName: string;
   email: string;
   phone: string;
+  country: string;
   message: string;
 }
 
@@ -21,6 +23,7 @@ function Contact() {
     fullName: "",
     email: "",
     phone: "",
+    country: "",
     message: "",
   });
   
@@ -68,6 +71,7 @@ function Contact() {
               fullName: formData.fullName,
               email: formData.email,
               phoneNumber: formData.phone,
+              country: formData.country,
               message: formData.message,
             }),
           },
@@ -76,7 +80,7 @@ function Contact() {
         if (response.ok) {
           // ✅ Show success modal instead of alert
           showModal("success");
-          setFormData({ fullName: "", email: "", phone: "", message: "" });
+          setFormData({ fullName: "", email: "", phone: "", country: "", message: "" });
         } else {
           // ✅ Show error modal instead of alert
           showModal("error");
@@ -238,6 +242,17 @@ function Contact() {
                     required
                   />
                 </div>
+                <div className="mb-3 d-flex flex-column">
+                  <label htmlFor="Country" className="form-label text-white">
+                    {t("pages.contact.contact.text_country")}</label>
+                  <CountrySelect
+                    id="Country"
+                    value={formData.country}
+                    onChange={(country) => setFormData((prev) => ({ ...prev, country }))}
+                    placeholder={t("pages.contact.contact.placeholder_enter_your_country")}
+                    noResultsText={t("pages.contact.contact.text_no_countries_found")}
+                  />
+                </div>
               </div>
               <div className="col-md-7">
                 <div className="mb-3 d-flex flex-column">
@@ -296,30 +311,25 @@ function Contact() {
               {t("pages.contact.contact.text_for_detailed_consultations_or_to_schedule_your_pro")}</p>
 
             <div className="row justify-content-center mt-4">
-              <div className="col-md-6 d-flex flex-column">
+              <div className="col-md-12 d-flex">
                 <div className={styles.contactBox}>
                   <img src="/assets/images/icons/mail.webp" alt={t("components.careers.careerform.text_email")} />
                   <a href="mailto:management@deewaninstitute.com">
                     {t("pages.contact.contact.text_management_deewaninstitute_com")}</a>
-                </div>
-                <div className={styles.contactBox}>
-                  <img src="/assets/images/icons/mail.webp" alt={t("components.careers.careerform.text_email")} />
-                  <a href="mailto:publicrelations.deewan@gmail.com">
-                    {t("pages.contact.contact.text_publicrelations_deewan_gmail_com")}</a>
+
                 </div>
               </div>
-              <div className="col-md-6 d-flex flex-column">
+              <div className="col-md-6 d-flex">
                 <div className={styles.contactBox}>
                   <img src="/assets/images/icons/phone.webp" alt={t("pages.contact.contact.alt_phone")} />
-                  <a href="tel:+962778928188">{t("pages.contact.contact.text_962_7_7892_8188")}</a>
+                  <a href="tel:+962778928188">
+                    {t("pages.contact.contact.text_962_7_7892_8188")}</a>
                 </div>
+              </div>
+              <div className="col-md-6 d-flex">
                 <div className={styles.contactBox}>
                   <img src="/assets/images/icons/whatsapp.webp" alt={t("pages.contact.contact.alt_whatsapp")} />
-                  <a
-                    href="https://wa.me/962778928188"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a href="https://wa.me/962778928188" target="_blank" rel="noopener noreferrer">
                     {t("pages.contact.contact.text_whatsapp_962_7_7892_8188")}</a>
                 </div>
               </div>

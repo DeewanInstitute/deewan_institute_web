@@ -134,9 +134,87 @@
       }
     }
 
+    // Searchable country dropdown
+    .countrySelect {
+      position: relative;
+
+      input.form-control {
+        padding-inline-end: 2.75rem;
+      }
+
+      .countryRequired {
+        position: absolute;
+        inset-inline: 0;
+        bottom: 0;
+        height: 1px;
+        opacity: 0;
+        pointer-events: none;
+        padding: 0;
+        border: 0 !important;
+      }
+
+      .countryArrow {
+        position: absolute;
+        inset-inline-end: 1.1rem;
+        top: 50%;
+        width: 0.6rem;
+        height: 0.6rem;
+        border-right: 2px solid #8f6e43;
+        border-bottom: 2px solid #8f6e43;
+        transform: translateY(-70%) rotate(45deg);
+        transition: transform 0.2s ease;
+        pointer-events: none;
+      }
+
+      .countryArrowOpen {
+        transform: translateY(-25%) rotate(225deg);
+      }
+
+      .countryList {
+        position: absolute;
+        z-index: 20;
+        // opens upward so it stays inside the form card instead of covering the next section
+        bottom: calc(100% + 6px);
+        inset-inline: 0;
+        max-height: 220px;
+        overflow-y: auto;
+        margin: 0;
+        padding: 0.35rem;
+        list-style: none;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        color: #333;
+      }
+
+      .countryOption,
+      .countryEmpty {
+        padding: 0.6rem 0.9rem;
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+
+      .countryOption {
+        cursor: pointer;
+      }
+
+      .countryActive {
+        background: rgba(143, 110, 67, 0.15);
+      }
+
+      .countrySelected {
+        font-weight: 600;
+        color: #8f6e43;
+      }
+
+      .countryEmpty {
+        color: #777;
+      }
+    }
+
     textarea {
       resize: vertical;
-      min-height: 160px;
+      min-height: 295px;
     }
 
     .submitBtn {
@@ -189,12 +267,14 @@
     width: 100%;
     min-height: 90px;
     padding: 1.25rem 1.5rem;
+    justify-content: center;
 
     background: rgba(143, 110, 67, 0.05);
     border: 2px solid rgba(143, 110, 67, 0.2);
     border-radius: 20px;
 
     margin-bottom: 1rem;
+    word-break: break-word;
 
     transition: all 0.35s ease;
     backdrop-filter: blur(10px);

@@ -78,6 +78,178 @@ main {
 
 }
 
+.heroCarousel {
+  height: 100%;
+
+  :global(.carousel-item) {
+    height: 100%;
+  }
+
+  :global(.carousel-indicators) {
+    z-index: 5;
+    margin-bottom: 1.25rem;
+
+    [data-bs-target] {
+      width: 10px;
+      height: 10px;
+      border: 0;
+      border-radius: 50%;
+    }
+  }
+
+  :global(.carousel-control-prev),
+  :global(.carousel-control-next) {
+    z-index: 5;
+    width: 6%;
+  }
+}
+
+.bookshopSlide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 7rem 1.5rem 5rem;
+  background-image: url("/assets/images/banner/bookshop-cover.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: $white;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.bookshopContent {
+  width: min(100%, 56rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bookshopTitle {
+  margin: 0 0 1.25rem;
+  font-family: "Merriweather-Bold", "Merriweather-SemiBold" !important;
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  font-weight: 700;
+}
+
+.bookshopTagline {
+  max-width: 44rem;
+  margin: 0 0 1.25rem;
+  font-family: "Merriweather-SemiBold" !important;
+  font-size: clamp(1.6rem, 3.6vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.bookshopText {
+  max-width: 50rem;
+  margin: 0 0 2rem;
+  font-family: "Merriweather-Light" !important;
+  font-size: clamp(1rem, 1.6vw, 1.4rem);
+  line-height: 1.6;
+}
+
+.bookshopButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  text-shadow: none;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    border-radius: 999px;
+    font-family: "Merriweather-Regular" !important;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+.bookshopPrimary {
+  padding: 0.75rem 2.75rem;
+  background: $primary_color;
+  color: $white;
+  font-size: clamp(1rem, 1.7vw, 1.6rem);
+
+  &:hover {
+    color: $white;
+  }
+}
+
+.bookshopSecondary {
+  padding: 0.6rem 1.5rem 0.6rem 0.9rem;
+  background: $white;
+  color: $dark_brown;
+  font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+  font-weight: 700;
+
+  &:hover {
+    color: $dark_brown;
+  }
+
+  .plus {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.9rem;
+    height: 1.9rem;
+    border-radius: 50%;
+    background: $dark_brown;
+    color: $white;
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+}
+
+.bookshopInfo {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  > div + div {
+    padding-inline-start: 2rem;
+    border-inline-start: 1px solid rgba(255, 255, 255, 0.6);
+  }
+
+  small {
+    font-family: "Merriweather-Regular";
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  strong {
+    font-family: "Merriweather-Bold", "Merriweather-SemiBold";
+    font-size: clamp(1rem, 1.6vw, 1.4rem);
+  }
+
+  @media (max-width: 575.98px) {
+    flex-direction: column;
+    gap: 1rem;
+
+    > div + div {
+      padding-inline-start: 0;
+      border-inline-start: 0;
+    }
+  }
+}
+
 .instituteTour {
   padding: clamp(3.5rem, 8vw, 6.5rem) clamp(1.25rem, 6vw, 4rem);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 40%, rgba(248, 243, 235, 0.7) 100%);

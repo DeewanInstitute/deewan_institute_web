@@ -1,0 +1,251 @@
+@use "../../style/variables.scss" as *;
+@use "../../style/fonts.scss" as *;
+
+// Figma canvas is 1440px wide: --s scales every design pixel down on smaller screens
+.ecosystem {
+  --s: min(1px, calc(100vw / 1440));
+  padding: 4% 7%;
+
+  @media (max-width: 991.98px) {
+    --s: 0.8px;
+  }
+
+  @media (max-width: 575.98px) {
+    --s: 0.6px;
+    padding: 8% 6%;
+  }
+
+  .title {
+    width: max-content;
+    max-width: 100%;
+    text-align: center;
+
+    span {
+      font-family: "Merriweather-Bold", "Merriweather-SemiBold";
+      font-weight: 700;
+      font-size: calc(50 * var(--s));
+      line-height: 1.5;
+      color: #775222;
+    }
+  }
+}
+
+.intro {
+  max-width: calc(1235 * var(--s));
+  margin: calc(30 * var(--s)) auto 0;
+  text-align: center;
+  font-family: "Merriweather-Light", serif;
+  font-size: max(16px, calc(25 * var(--s)));
+  line-height: 1.5;
+  color: #000;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: calc(40 * var(--s));
+  margin-top: calc(60 * var(--s));
+
+  @media (max-width: 991.98px) {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 3rem;
+  }
+
+  @media (max-width: 479.98px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(40 * var(--s));
+}
+
+.logoBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: calc(380 * var(--s));
+
+  img {
+    height: calc(var(--h) * var(--s));
+    max-width: 100%;
+    object-fit: contain;
+    transition: transform 0.35s ease;
+  }
+
+  .card:hover & img {
+    transform: translateY(-6px) scale(1.04);
+  }
+}
+
+.moreBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: max(190px, calc(254 * var(--s)));
+  height: max(34px, calc(35.63 * var(--s)));
+  padding: 0 calc(34 * var(--s));
+  background: #fff;
+  color: #8f6e43;
+  border: 1px solid #8f6e43;
+  border-radius: 40px;
+  font-family: "Merriweather-Regular", serif;
+  font-size: max(13px, calc(15 * var(--s)));
+  cursor: pointer;
+  transition: all 0.25s ease;
+
+  &:hover,
+  &:focus-visible {
+    background: #8f6e43;
+    color: #fff;
+  }
+}
+
+.arrow {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(45deg);
+
+  [dir="rtl"] & {
+    transform: rotate(-135deg);
+  }
+}
+
+// ── Modal ──
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(30, 18, 6, 0.65);
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.25s ease;
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  max-height: 92vh;
+  overflow-y: auto;
+  padding: 3.5rem 3rem 2.5rem;
+  background: linear-gradient(145deg, #8f6e43, #7a5f38);
+  border-radius: 28px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+  color: #fff;
+  animation: popIn 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+
+  h3 {
+    margin: 0.75rem 0 0;
+    font-family: "Merriweather-Regular", serif;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    line-height: 1.3;
+  }
+
+  hr {
+    height: 4px;
+    margin: 1.5rem 0;
+    opacity: 1;
+    border: 0;
+    border-radius: 2px;
+    background: #fff;
+  }
+
+  @media (max-width: 575.98px) {
+    padding: 3rem 1.5rem 2rem;
+    border-radius: 22px;
+  }
+}
+
+.logoWrap {
+  width: 96px;
+  height: 96px;
+  margin-bottom: 1.25rem;
+  padding: 10px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 999px;
+  font-family: "Merriweather-Light", serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.description {
+  margin: 0 0 1.75rem;
+  font-family: "Merriweather-Light", serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.visit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.4rem;
+  background: #fff;
+  color: #8f6e43;
+  border-radius: 999px;
+  font-family: "Merriweather-Regular", serif;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    color: #8f6e43;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.close {
+  position: absolute;
+  top: 1rem;
+  inset-inline-end: 1.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to { opacity: 1; transform: none; }
+}

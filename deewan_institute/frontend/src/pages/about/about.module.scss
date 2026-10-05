@@ -110,6 +110,101 @@
     }
   }
 
+  .europe {
+    // Figma canvas is 1440px wide: --s scales every design pixel on smaller screens
+    --s: min(1px, calc(100vw / 1440));
+    padding: 4% 7%;
+    text-align: center;
+
+    @media (max-width: 991.98px) {
+      --s: 0.8px;
+    }
+
+    @media (max-width: 575.98px) {
+      --s: 0.6px;
+      padding: 8% 6%;
+    }
+
+    .heading {
+      margin-bottom: calc(50 * var(--s));
+
+      .eyebrow {
+        margin-bottom: 0;
+        font-family: "Merriweather-Light" !important;
+        font-size: max(16px, calc(25 * var(--s)));
+        color: #8f6e43;
+      }
+
+      h2 {
+        margin: 0;
+        font-family: "Merriweather-Bold", "Merriweather-SemiBold" !important;
+        font-weight: 700;
+        font-size: calc(50 * var(--s));
+        line-height: 1.5;
+        color: #775222;
+      }
+    }
+
+    .europeRow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: calc(60 * var(--s));
+
+      @media (max-width: 767.98px) {
+        flex-direction: column;
+      }
+    }
+
+    .europeText {
+      flex: 0 1 calc(649 * var(--s));
+    }
+
+    .para {
+      font-family: "Merriweather-Light" !important;
+      font-size: max(16px, calc(25 * var(--s)));
+      line-height: 1.5;
+      text-align: start;
+      color: #000;
+    }
+
+    .photo {
+      display: block;
+      width: calc(519 * var(--s));
+      max-width: 100%;
+      aspect-ratio: 519 / 778;
+      object-fit: cover;
+    }
+
+    .tagline {
+      margin-top: calc(80 * var(--s));
+      font-family: "Merriweather-Regular" !important;
+      font-size: max(22px, calc(50 * var(--s)));
+      line-height: 1.5;
+      color: #8f6e43;
+
+      strong {
+        font-family: "Merriweather-Bold", "Merriweather-SemiBold";
+        font-weight: 700;
+        color: #775222;
+      }
+    }
+
+    .closing {
+      max-width: calc(1224 * var(--s));
+      margin: 1rem auto 0;
+      font-family: "Merriweather-Light" !important;
+      font-size: max(16px, calc(25 * var(--s)));
+      line-height: 1.5;
+      color: #000;
+
+      strong {
+        font-family: "Merriweather-Bold", "Merriweather-SemiBold";
+        font-weight: 700;
+      }
+    }
+  }
+
   .approach {
     padding-block: 4%;
     background-color: #8f6e43;

@@ -11,7 +11,8 @@ import style from "./about.module.scss";
 import YouTubeSlider from "../../components/youtubeslider/youtubeslider";
 import FloatingActionButton from "../../components/floatingbutton/floatingactionbutton";
 import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
-import { useTranslation } from "react-i18next";
+import { useTranslation, Trans } from "react-i18next";
+import Ecosystem from "../../components/ecosystem/ecosystem";
 
 function About() {
     const { t } = useTranslation();
@@ -62,6 +63,37 @@ function About() {
               />
             </div>
           </div>
+        </section>
+
+        {/* Deewan Ecosystem */}
+        <Ecosystem />
+
+        {/* Deewan Europe */}
+        <section className={`${style.europe} scroll-section`}>
+          <div className={style.heading}>
+            <p className={style.eyebrow}>{t("pages.about.ecosystem.europe_eyebrow")}</p>
+            <h2>{t("pages.about.ecosystem.europe_title")}</h2>
+          </div>
+          <div className={style.europeRow}>
+            <div className={style.europeText}>
+              <p className={style.para}>{t("pages.about.ecosystem.europe_p1")}</p>
+              <p className={style.para}>{t("pages.about.ecosystem.europe_p2")}</p>
+              <p className={style.para}>{t("pages.about.ecosystem.europe_p3")}</p>
+            </div>
+            <div>
+              <img
+                className={style.photo}
+                src="/assets/images/others/europe.webp"
+                alt={t("pages.about.ecosystem.europe_title")}
+              />
+            </div>
+          </div>
+          <h3 className={style.tagline}>
+            <Trans i18nKey="pages.about.ecosystem.europe_tagline" components={{ b: <strong /> }} />
+          </h3>
+          <p className={style.closing}>
+            <Trans i18nKey="pages.about.ecosystem.europe_closing" components={{ b: <strong /> }} />
+          </p>
         </section>
 
         {/* Partnership Section */}

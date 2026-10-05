@@ -15,6 +15,8 @@ import FloatingActionButton from "../../components/floatingbutton/floatingaction
 import FloatingActionButtonInstitute from "../../components/floatingbutton/floatingactionbuttoninstitute";
 import { useTranslation } from "react-i18next";
 
+const BOOKSHOP_URL = "https://deewanbookshop.com";
+
 function Home() {
   const { t } = useTranslation();
   const [showTerms, setShowTerms] = useState<boolean>(false);
@@ -76,41 +78,110 @@ function Home() {
       <HomeNavBar />
 
       <section className={style.myCarousel} aria-label={t("pages.home.home.aria_label_deewan_institute_introduction")}>
-        <div id={style.carouselItem1}>
-          <div className="container-fluid d-flex align-items-end h-100">
-            <div className="row w-100" id={style.firstRow}>
-              <div
-                className="col-lg-6 text-center d-flex flex-column align-items-center scroll-section slide-in-left"
-                id={style.logo}
-              >
-                <img
-                  src={"/assets/images/logos/nobgLogo.webp"}
-                  style={{ width: "70%" }}
-                  alt={t("pages.cultureevents.cultureEvents.text_deewan_institute")}
-                />
-              </div>
-              <div className="col-lg-6 d-flex flex-column align-items-start justify-content-center">
-                <div
-                  className="d-flex scroll-section slide-in-right"
-                  id={style.firstContainer}
-                >
-                  <h2 className={`text-white ${style.h2}`}>
-                    {t("pages.home.home.text_native_arabic_global_echoes_ignite_cultures_in_amm")}
-                  </h2>
-                  <p className={style.para}>
-                    {t("pages.home.home.text_experience_the_authentic_rhythm_of_arabic_language")}
-                  </p>
-                  <Link
-                    className="btn rounded-pill text-center"
-                    id={style.a}
-                    to="/about"
+        <div
+          id="heroCarousel"
+          className={`carousel slide ${style.heroCarousel}`}
+          data-bs-ride="carousel"
+          data-bs-interval="8000"
+        >
+          <div className="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#heroCarousel"
+              data-bs-slide-to="0"
+              className="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            />
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2" />
+          </div>
+          <div className="carousel-inner h-100">
+            <div className="carousel-item active">
+            <div id={style.carouselItem1}>
+              <div className="container-fluid d-flex align-items-end h-100">
+                <div className="row w-100" id={style.firstRow}>
+                  <div
+                    className="col-lg-6 text-center d-flex flex-column align-items-center scroll-section slide-in-left"
+                    id={style.logo}
                   >
-                    {t("pages.home.home.text_learn_more")}
-                  </Link>
+                    <img
+                      src={"/assets/images/logos/nobgLogo.webp"}
+                      style={{ width: "70%" }}
+                      alt={t("pages.cultureevents.cultureEvents.text_deewan_institute")}
+                    />
+                  </div>
+                  <div className="col-lg-6 d-flex flex-column align-items-start justify-content-center">
+                    <div
+                      className="d-flex scroll-section slide-in-right"
+                      id={style.firstContainer}
+                    >
+                      <h2 className={`text-white ${style.h2}`}>
+                        {t("pages.home.home.text_native_arabic_global_echoes_ignite_cultures_in_amm")}
+                      </h2>
+                      <p className={style.para}>
+                        {t("pages.home.home.text_experience_the_authentic_rhythm_of_arabic_language")}
+                      </p>
+                      <Link
+                        className="btn rounded-pill text-center"
+                        id={style.a}
+                        to="/about"
+                      >
+                        {t("pages.home.home.text_learn_more")}
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          {/* Slide 2: Deewan Bookshop */}
+          <div className="carousel-item">
+            <div className={style.bookshopSlide}>
+              <div className={style.bookshopContent}>
+                <h2 className={style.bookshopTitle}>{t("pages.home.home.bookshop_title")}</h2>
+                <h3 className={style.bookshopTagline}>{t("pages.home.home.bookshop_tagline")}</h3>
+                <p className={style.bookshopText}>{t("pages.home.home.bookshop_text")}</p>
+                <div className={style.bookshopButtons}>
+                  <a
+                    className={style.bookshopPrimary}
+                    href={BOOKSHOP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t("pages.home.home.bookshop_explore")}
+                  </a>
+                  <a
+                    className={style.bookshopSecondary}
+                    href={BOOKSHOP_URL+"/bookclub"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className={style.plus} aria-hidden>+</span>
+                    {t("pages.home.home.bookshop_join")}
+                  </a>
+                </div>
+                <div className={style.bookshopInfo}>
+                  <div>
+                    <small>{t("pages.home.home.bookshop_launched")}</small>
+                    <strong>{t("pages.home.home.bookshop_launched_date")}</strong>
+                  </div>
+                  <div>
+                    <small>{t("pages.home.home.bookshop_location")}</small>
+                    <strong>{t("pages.home.home.bookshop_location_value")}</strong>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          </div>
+          <button className="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button className="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Next</span>
+          </button>
         </div>
       </section>
 

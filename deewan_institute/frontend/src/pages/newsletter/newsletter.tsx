@@ -58,17 +58,23 @@ function CanvaEmbed({
 }
 
 const EDITION_I18N: Record<string, { label: string; title: string; description: string; tag: string }> = {
+  October:{
+    label: "data.newsletter.data.label_october_2026",
+    title: "data.newsletter.data.title_october_deewan_newsletter",
+    description: "data.newsletter.data.description_dive_into_arabic_language_milestones_cultur",
+    tag: "data.newsletter.data.tag_latest_issue",
+  },
   September: {
     label: "data.newsletter.data.label_september_2026",
     title: "data.newsletter.data.title_september_deewan_newsletter",
     description: "data.newsletter.data.description_dive_into_arabic_language_milestones_cultur",
-    tag: "data.newsletter.data.tag_latest_issue",
+    tag: "data.newsletter.data.tag_previous_issue",
   },
   August: {
     label: "data.newsletter.data.label_august_2026",
     title: "data.newsletter.data.title_august_deewan_newsletter",
     description: "data.newsletter.data.description_dive_into_arabic_language_milestones_cultur",
-    tag: "data.newsletter.data.tag_latest_issue",
+    tag: "data.newsletter.data.tag_previous_issue",
   },
   july: {
     label: "data.newsletter.data.label_july_2026",
